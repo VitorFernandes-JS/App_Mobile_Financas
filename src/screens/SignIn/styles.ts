@@ -16,7 +16,10 @@ export const styles = StyleSheet.create({
             color: theme.colors.heading,
             textAlign: 'center',
             fontSize: 40,
-            marginBottom:10
+            marginBottom:10,
+            fontFamily: theme.fonts.title700,
+            lineHeight: 40,
+            
         },
         image: {
             width: '100%%',
@@ -26,6 +29,8 @@ export const styles = StyleSheet.create({
             color: theme.colors.heading,
             fontSize: 17,
             textAlign: 'center',
-            marginBottom: 47
+            marginBottom: 47,
+            fontFamily: theme.fonts.title500,
+            lineHeight: 25,
         }
 });
