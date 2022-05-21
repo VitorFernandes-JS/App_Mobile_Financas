@@ -1,10 +1,12 @@
 export const theme = {
     colors: {
         background: '#1DB4C5',
+        backgroundSecondary: '#65dae7',
         heading: '#DDE3F0',
         primary: '#ffcc00',
+        secondary:'#f2f2f2',
         line: '#414200',
-        google: '#000'
+        google: '#1d2633'
     },
 
     fonts: {

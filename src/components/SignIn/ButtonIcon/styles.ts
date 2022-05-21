@@ -1,26 +1,32 @@
 import { StyleSheet } from 'react-native'
-import { theme } from '../../global/styles/theme';
+import { theme } from '../../../global/styles/theme';
 
 export const styles = StyleSheet.create({
     icon: {
-        width: 45,
-        height: 45,
-        
+        width: 44,
+        height: 44,
     },
     container: {
         width: '100%',    
-        height: 56,
-        backgroundColor: theme.colors.primary,
-        borderRadius: 8,
+        height: 60,
+        backgroundColor: theme.colors.secondary,
+        borderRadius: 10,
         flexDirection: 'row',
         alignItems: 'center',
-        display: 'flex'
+        display: 'flex',
+        paddingLeft: 3,
+        paddingRight: 1,
+        shadowRadius: 0.2,
+        opacity: 0.9,
+    
     },
     title: {
         flex: 1,
         color: theme.colors.google,
-        fontSize: 17,
+        fontSize: 17.5,
         textAlign: 'center',
+        fontWeight: 'bold',
+        
     },
     contentWrapper: {
         width: '70%',
@@ -29,10 +35,10 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderLeftWidth: 1,
         borderColor: theme.colors.line,
-
+        opacity: 0.9
     },
     iconWrapper: {
-        width: '30%',
+        width: '28%',
         alignItems: 'center'
     }
 });

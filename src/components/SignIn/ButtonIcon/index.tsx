@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, TouchableOpacityProps} from 'react-native';
-import DiscordImg from '../../assets/discord.png'
+import DiscordImg from '../../../assets/discord.png'
 import { styles } from './styles';
 
 type Props = TouchableOpacityProps &{
