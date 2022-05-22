@@ -2,16 +2,14 @@ import { Avatar } from '../../components/Avatar';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { View, Text,} from 'react-native';
-import { styles } from '../calculator/styles'
+import { styles } from './styles'
 import AppLoading from 'expo-app-loading';
-
-
 interface ISelicRate {
   data: String;
   valor: String;
 }
 
-export function Main() { 
+export function Calculator() { 
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([])
 
   useEffect(() => {
@@ -21,16 +19,15 @@ export function Main() {
 
   const latestSelicRate = selicRate[selicRate.length - 1];
   
-
   if (selicRate.length <= 0) {
     return <AppLoading />;
   }
 
   return (
     
-    <View style={styles.header}>
-        <Text>{latestSelicRate.valor}</Text>
+    <View style={styles.container}>
         <Avatar urlImage="https://github.com/Vitor-php.png"/>
+        <Text style={styles.textoSelic}>{latestSelicRate.valor}</Text>
         {/* input VALOR INICIAL*/}
         {/* input TEMPO [ANO/MES]*/}
         {/* input VALOR MENSAL*/}

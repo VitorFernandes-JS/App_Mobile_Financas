@@ -3,8 +3,8 @@ import { theme } from '../../../global/styles/theme';
 
 export const styles = StyleSheet.create({
     icon: {
-        width: 44,
-        height: 44,
+        width: 35,
+        height: 35,
     },
     container: {
         width: '100%',    

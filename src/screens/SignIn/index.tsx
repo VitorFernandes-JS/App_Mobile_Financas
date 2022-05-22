@@ -1,5 +1,6 @@
 import React from "react";
 import Api from '../../Api';
+import { useNavigation } from "@react-navigation/native";
 import * as Google from "expo-google-app-auth";
 import { View, Text, Image } from "react-native";
 import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
@@ -8,8 +9,15 @@ import { styles } from "./styles";
 
 
 
-  export function SignIn() {
 
+
+  export function SignIn() {
+    
+    const navigation = useNavigation();
+    
+    function handleSignIn() {
+     navigation.navigate('Home')
+    }
 //   const actionLoginGoogle = async () => {
 //     let result = Api.googleLogar();
 
@@ -17,7 +25,7 @@ import { styles } from "./styles";
 //       onReceiveGoogle(result.user);
 //     }else{
 //       alert('Error');
-//     }
+//     } 
 //   }
 
   return (
@@ -32,8 +40,7 @@ import { styles } from "./styles";
           Aprenda sobre investimento do básico {`\n`}
           ao avançado tudo em um só lugar.
         </Text>
-        <ButtonIcon title="Entrar com Google" //onPress={actionLoginGoogle} 
-        />
+        <ButtonIcon title="Entrar com Google" onPress={handleSignIn} />
       </View>
     </View>
   );

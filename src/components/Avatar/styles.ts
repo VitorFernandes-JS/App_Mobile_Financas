@@ -4,13 +4,13 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
     container: {
-        width: 51,
-        height: 51,
+        width: 52,
+        height: 52,
         borderRadius: 8,
         lineHeight: 10,
         marginRight: 22,
         alignItems: 'flex-end',
-        marginTop: 30
+        marginTop: 35
     },
     avatar: {
         width: 50,

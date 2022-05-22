@@ -1,21 +1,29 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Main } from '../screens/Main';
+import { Home } from '../screens/Home';
 import { SignIn } from '../screens/SignIn';
+import { theme } from '../global/styles/theme';
 
 const { Navigator, Screen } = createStackNavigator();
 
 export function AuthRoutes() {
     return(
-        <Navigator>
+        <Navigator
+            screenOptions={{
+                headerShown: false,
+                cardStyle: {
+                    backgroundColor: (theme.colors.background)
+                }
+            }}
+        >
             <Screen
                 name="SignIn"
                 component={SignIn}
             />
             <Screen
-                name="Main"
-                component={Main}
+                name="Home"
+                component={Home}
             />
         </Navigator>
     )
