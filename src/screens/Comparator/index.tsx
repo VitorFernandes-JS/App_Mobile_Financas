@@ -11,7 +11,7 @@ interface ISelicRate {
   valor: String;
 }
 
-export function Calculator() { 
+export function Comparator() { 
 
   const navigation = useNavigation();
     
@@ -42,6 +42,7 @@ export function Calculator() {
         {/* input TEMPO [ANO/MES]*/}
         {/* input VALOR MENSAL*/}
         {/* input */}
+        <Text>comparador</Text>
     </View>
 
   )

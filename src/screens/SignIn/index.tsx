@@ -7,10 +7,6 @@ import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
 import IllustrationImg from "../../assets/illustration.png";
 import { styles } from "./styles";
 
-
-
-
-
   export function SignIn() {
     
     const navigation = useNavigation();
