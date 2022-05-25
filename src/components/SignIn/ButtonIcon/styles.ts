@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     title: {
         flex: 1,
         color: theme.colors.google,
-        fontSize: 17.5,
+        fontSize: 17,
         textAlign: 'center',
         fontWeight: 'bold',
         

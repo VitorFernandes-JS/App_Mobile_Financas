@@ -1,5 +1,4 @@
 import  { StyleSheet } from 'react-native';
-import { getStatusBarHeight} from 'react-native-iphone-x-helper';
 import { theme } from '../../global/styles/theme';
 
 
@@ -18,11 +17,11 @@ export const styles = StyleSheet.create({
       fontFamily: theme.fonts.title700,
       fontSize: 40,
       textAlign: 'center',
-      marginBottom: 10,
+      marginBottom: 20,
    },
    buttonCalculator: {
       backgroundColor: (theme.colors.google),
-      borderRadius: 10,
+      borderRadius: 20,
       width: 250,
       height: 150,
       display: 'flex',
@@ -31,7 +30,7 @@ export const styles = StyleSheet.create({
       borderWidth: 3,
    },
    iconCalculator: {
-      marginTop: 40,
+      marginTop: 2,
       
    },
    textButtonCalculator: {
@@ -39,13 +38,13 @@ export const styles = StyleSheet.create({
       textAlign: 'center',
       fontSize: 20,
       fontFamily: theme.fonts.text500,
-      marginTop: 80
+      marginTop: 10
       
    },
    buttonComparator: {
       marginTop: 20,
       backgroundColor: (theme.colors.google),
-      borderRadius: 10,
+      borderRadius: 20,
       width: 250,
       height: 150,
       display: 'flex',
@@ -54,7 +53,7 @@ export const styles = StyleSheet.create({
       borderWidth: 3
    },
    iconComparator: {
-      marginTop: 40,
+      marginTop: 2,
       
    },
    textButtonComparator: {
@@ -62,7 +61,30 @@ export const styles = StyleSheet.create({
       textAlign: 'center',
       fontSize: 20,
       fontFamily: theme.fonts.text500,
-      marginTop: 80
+      marginTop: 10
+      
+   },
+   buttonIndexes: {
+      marginTop: 20,
+      backgroundColor: (theme.colors.google),
+      borderRadius: 20,
+      width: 250,
+      height: 150,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 3
+   },
+   iconIndexes: {
+      marginTop: 2,
+      
+   },
+   textButtonIndexes: {
+      color: (theme.colors.heading),
+      textAlign: 'center',
+      fontSize: 20,
+      fontFamily: theme.fonts.text500,
+      marginTop: 10
       
    },
 });

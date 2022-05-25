@@ -3,6 +3,8 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
     container: {
+        height: '100%',
+        width: '100%',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',    
@@ -22,11 +24,12 @@ export const styles = StyleSheet.create({
         },
         image: {
             width: '100%',
-            height: 400,
+            height: 470,
         },
         subtitle: {
             color: theme.colors.heading,
-            fontSize: 17,
+            fontSize: 20,
+            fontStyle: 'italic',
             textAlign: 'center',
             marginBottom: 47,
             fontFamily: theme.fonts.title500,

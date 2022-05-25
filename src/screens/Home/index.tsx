@@ -3,11 +3,13 @@ import { styles } from "./styles";
 import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
+
 import { BackButton } from "../../components/BackButton";
 import { Avatar } from "../../components/Avatar";
 // Icones
 import { Ionicons } from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export function Home() {
   type PropTypeBT = {
@@ -28,6 +30,10 @@ export function Home() {
     navigation.navigate("Comparator");
   }
 
+  function IndexesRote() {
+    navigation.navigate("Indexes");
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -37,6 +43,7 @@ export function Home() {
 
       <View>
         <Text style={styles.title}>ESCOLHA:</Text>
+        
         <TouchableOpacity
           style={styles.buttonCalculator}
           onPress={CalculatorRote}
@@ -54,11 +61,11 @@ export function Home() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.buttonComparator}
-          onPress={ComparatorRote}
+          style={styles.buttonIndexes}
+          onPress={IndexesRote}
         >
-          <Entypo style={styles.iconComparator} name="pie-chart" size={60} color="white" />
-          <Text style={styles.textButtonComparator}>COMPARADOR</Text>
+          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
+          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
         </TouchableOpacity>
       </View>
     </View>

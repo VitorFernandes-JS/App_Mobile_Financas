@@ -6,6 +6,7 @@ import { Home } from '../screens/Home';
 import { SignIn } from '../screens/SignIn';
 import { Calculator } from '../screens/Calculator';
 import { Comparator } from '../screens/Comparator';
+import { Indexes } from '../screens/Indexes';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -34,6 +35,10 @@ export function AuthRoutes() {
             <Screen
                 name="Comparator"
                 component={Comparator}
+            />
+            <Screen
+                name="Indexes"
+                component={Indexes}
             />
         </Navigator>
     )
