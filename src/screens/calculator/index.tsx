@@ -53,6 +53,7 @@ export function Calculator() {
         <TextInput
           style={styles.inputInitialValue}
           placeholder="R$00,00"
+          keyboardType="numeric"
         />
 
         </View>
@@ -62,6 +63,7 @@ export function Calculator() {
         <TextInput
           style={styles.inputInitialValue}
           placeholder="R$00,00"
+          keyboardType="numeric"
         />
         </View>
         {/*<Text style={styles.textoSelic}>{latestSelicRate.valor}</Text>*/}
