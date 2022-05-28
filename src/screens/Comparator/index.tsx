@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, ScrollView } from "react-native";
+import { View, Text, TextInput, ScrollView} from "react-native";
 import axios from "axios";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -35,11 +35,13 @@ export function Comparator() {
   if (selicRate.length <= 0) {
     return <AppLoading />;
   }
-
+  
+  // Opções dos select
   const time = ["Meses", "Anos"];
   const type = ["Selic", "IPCA", "CDI", "Poupança"];
 
   return (
+    
     <View style={styles.container}>
       <View style={styles.header}>
         <Avatar urlImage="https://github.com/Vitor-php.png" />
@@ -55,7 +57,7 @@ export function Comparator() {
         <TextInput
           style={styles.inputInitialValue}
           placeholder="R$00,00"
-          keyboardType="numeric"
+          
         />
       </View>
 
@@ -64,7 +66,7 @@ export function Comparator() {
         <TextInput
           style={styles.inputTime}
           placeholder="1"
-          keyboardType="numeric"
+          
         />
         <SelectDropdown
           data={time}
@@ -84,9 +86,11 @@ export function Comparator() {
       <View style={styles.viewInitialValue}>
         <Text style={styles.typeText}>TIPO</Text>
         <TextInput
+          //value={type['']}
+          editable={false}
           style={styles.inputType}
           placeholder="Selic"
-          keyboardType="numeric"
+          
         />
         <SelectDropdown
           data={type}
@@ -105,6 +109,7 @@ export function Comparator() {
       
       
       <View style={styles.line}></View>
+
       <ScrollView>
       <Text style={styles.total}>TOTAL:</Text>
 
@@ -147,7 +152,8 @@ export function Comparator() {
         <Text style={styles.textBox}>Valor Total:</Text>
       </View>
       </View>
-      </ScrollView>
+    </ScrollView>
     </View>
+    
   );
 }

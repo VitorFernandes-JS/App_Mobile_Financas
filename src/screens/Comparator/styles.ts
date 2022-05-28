@@ -115,14 +115,14 @@ export const styles = StyleSheet.create({
    box3: {
     height:35,
     width: 300,
-    backgroundColor: '#ffff99',
+    backgroundColor: '#6666ff',
     borderRadius: 8,
     margin: 7
    },
    box4: {
     height:35,
     width: 300,
-    backgroundColor: '#6666ff',
+    backgroundColor: '#ffff99',
     borderRadius: 8,
     margin: 7
    },
