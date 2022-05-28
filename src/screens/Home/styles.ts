@@ -9,10 +9,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center'
    },
    header: {
-    display: 'flex',
-    alignItems: 'flex-end',
-    justifyContent: 'space-between'
-   },
+   flexDirection: 'row',
+   display: 'flex',
+   justifyContent: 'space-between',
+  },
    title: {
       fontFamily: theme.fonts.title700,
       fontSize: 40,

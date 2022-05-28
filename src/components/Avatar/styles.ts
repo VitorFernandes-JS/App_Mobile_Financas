@@ -9,8 +9,9 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         lineHeight: 10,
         marginRight: 22,
-        alignItems: 'flex-end',
-        marginTop: 35
+        alignItems: 'center',
+        marginTop: 35,
+        left: 200
     },
     avatar: {
         width: 50,

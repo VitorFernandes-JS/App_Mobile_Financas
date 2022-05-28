@@ -35,8 +35,10 @@ export function Indexes() {
   return (
     
     <View style={styles.container}>
-        <Avatar urlImage="https://github.com/Vitor-php.png"/>
+      <View style={styles.header}>
+        <Avatar urlImage="https://github.com/Vitor-php.png" />
         <BackButton onPress={handleHome} />
+      </View>
         <Text style={styles.textoSelic}>{latestSelicRate.valor}</Text>
         {/* input VALOR INICIAL*/}
         {/* input TEMPO [ANO/MES]*/}

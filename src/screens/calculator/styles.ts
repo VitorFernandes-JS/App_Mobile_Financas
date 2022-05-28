@@ -9,15 +9,16 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
    },
    header: {
+		 flexDirection: 'row',
     display: 'flex',
-    alignItems: 'flex-end',
     justifyContent: 'space-between',
    },
    title: {
     fontFamily: theme.fonts.title700,
     fontSize: 40,
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 15,
+    marginTop: 8
    },
    viewInitialValue: {
     flexDirection: 'row'
@@ -38,9 +39,66 @@ export const styles = StyleSheet.create({
     margin: 11,
     borderWidth: 3,
     padding: 10,
-    marginRight: 100
+    marginRight: 60,
    },
-   textoSelic: {
-       lineHeight: 60
+   timeText: {
+    flex: 1,
+    flexDirection: 'row',
+    width: '50%',
+    display: 'flex',
+    marginTop: 17,
+    fontSize: 20,
+    fontFamily: theme.fonts.text500,
+    marginLeft: 94
+   },
+   inputTime: {
+    width: '25%',
+    borderRadius: 8,
+    margin: 10,
+    borderWidth: 3,
+    padding: 3,
+    marginRight: 23,
+   },
+  feesText: {
+    flex: 1,
+    flexDirection: 'row',
+    width: '50%',
+    display: 'flex',
+    marginTop: 17,
+    fontSize: 20,
+    fontFamily: theme.fonts.text500,
+    marginLeft: 94
+   },
+   inputFees: {
+    width: '25%',
+    borderRadius: 8,
+    margin: 10,
+    borderWidth: 3,
+    padding: 3,
+    marginRight: 23,
+   },
+	 line: {
+    marginTop: 10,
+		height: 2,
+    width: 300,
+    backgroundColor: '#000'
+	 },
+   total: {
+    fontFamily: theme.fonts.title700,
+    fontSize: 40,
+    textAlign: 'center',
+    marginBottom: 10,
+    marginTop: 10
+   },
+   box: {
+    height:35,
+    width: 300,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    margin: 7
+   },
+   textBox: {
+    padding: 8.5,
    }
+  
 });

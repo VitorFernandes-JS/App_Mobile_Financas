@@ -1,17 +1,13 @@
-import { View, Text, TextInput} from "react-native";
+import { View, Text, TextInput } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
+import SelectDropdown from "react-native-select-dropdown";
 
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
-import axios from "axios";
 
-import AppLoading from "expo-app-loading";
-interface ISelicRate {
-  data: String;
-  valor: String;
-}
+
 
 export function Calculator() {
   const navigation = useNavigation();
@@ -20,57 +16,110 @@ export function Calculator() {
     navigation.navigate("Home");
   }
 
-  const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
+  const time = ["Meses", "Anos"];
+  const fees = ["Mensal", "Anual"];
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados/ultimos/10?formato=json"
-      )
-      .then((response) => setSelicRate(response.data));
-  }, []);
-
-  const latestSelicRate = selicRate[selicRate.length - 1];
-
-  if (selicRate.length <= 0) {
-    return <AppLoading />;
-  }
-
- 
-
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Avatar urlImage="https://github.com/Vitor-php.png" />
-          <BackButton onPress={handleHome} />
-        </View>
-
-        <Text style={styles.title}>CALCULADORA</Text>
-        
-        <View style={styles.viewInitialValue}>
-        <Text style={styles.InitialValue}>VALOR {'\n'}
-        INICIAL</Text>
-        <TextInput
-          style={styles.inputInitialValue}
-          placeholder="R$00,00"
-          keyboardType="numeric"
-        />
-
-        </View>
-        <View style={styles.viewInitialValue}>
-        <Text style={styles.InitialValue}>VALOR{'\n'}
-        MENSAL</Text>
-        <TextInput
-          style={styles.inputInitialValue}
-          placeholder="R$00,00"
-          keyboardType="numeric"
-        />
-        </View>
-        {/*<Text style={styles.textoSelic}>{latestSelicRate.valor}</Text>*/}
-        {/* input VALOR INICIAL*/}
-        {/* input TEMPO [ANO/MES]*/}
-        {/* input VALOR MENSAL*/}
-        {/* input */}
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Avatar urlImage="https://github.com/Vitor-php.png" />
+        <BackButton onPress={handleHome} />
       </View>
-    );
-  };
+
+      <Text style={styles.title}>CALCULADORA</Text>
+
+      <View style={styles.viewInitialValue}>
+        <Text style={styles.InitialValue}>
+          VALOR {"\n"}
+          INICIAL
+        </Text>
+        <TextInput
+          style={styles.inputInitialValue}
+          placeholder="R$00,00"
+          keyboardType="numeric"
+        />
+      </View>
+
+      <View style={styles.viewInitialValue}>
+        <Text style={styles.InitialValue}>
+          VALOR{"\n"}
+          MENSAL
+        </Text>
+        <TextInput
+          style={styles.inputInitialValue}
+          placeholder="R$00,00"
+          keyboardType="numeric"
+        />
+      </View>
+
+      <View style={styles.viewInitialValue}>
+        <Text style={styles.timeText}>TEMPO</Text>
+        <TextInput
+          style={styles.inputTime}
+          placeholder="1"
+          keyboardType="numeric"
+        />
+        <SelectDropdown
+          data={time}
+          defaultButtonText={'Anos'}
+          onSelect={(selectedItem, index) => {
+            console.log(selectedItem, index);
+          }}
+          buttonTextAfterSelection={(selectedItem, index) => {
+            // text represented after item is selected
+            // if data array is an array of objects then return selectedItem.property to render after item is selected
+            return selectedItem;
+            
+          }}
+          rowTextForSelection={(item, index) => {
+            // text represented for each item in dropdown
+            // if data array is an array of objects then return item.property to represent item in dropdown
+            return item;
+          }}
+        />
+      </View>
+      
+      <View style={styles.viewInitialValue}>
+        <Text style={styles.feesText}>JUROS</Text>
+        <TextInput
+          style={styles.inputFees}
+          placeholder="1"
+          keyboardType="numeric"
+        />
+        <SelectDropdown
+          data={fees}
+          defaultButtonText={'Anual'}
+          onSelect={(selectedItem, index) => {
+            console.log(selectedItem, index);
+          }}
+          buttonTextAfterSelection={(selectedItem, index) => {
+            // text represented after item is selected
+            // if data array is an array of objects then return selectedItem.property to render after item is selected
+            return selectedItem;
+          }}
+          rowTextForSelection={(item, index) => {
+            // text represented for each item in dropdown
+            // if data array is an array of objects then return item.property to represent item in dropdown
+            return item;
+          }}
+        />
+      </View>
+
+      <View style={styles.line}></View>
+      <Text style={styles.total}>TOTAL:</Text>
+
+      <View style={styles.box}>
+        <Text style={styles.textBox}>Total de Juros:</Text>
+      </View>
+
+      <View style={styles.box}>
+        <Text style={styles.textBox}>Valor Investido:</Text>
+      </View>
+
+      <View style={styles.box}>
+        <Text style={styles.textBox}>Valor Total:</Text>
+      </View>
+    </View>
+  );
+}
+

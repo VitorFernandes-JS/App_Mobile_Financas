@@ -4,15 +4,14 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
    container: {
-    alignItems: 'flex-end',
+    width: '100%',
+    alignItems: 'center',
+    flexDirection: 'column',
    },
    header: {
-    width: '100%',
-    paddingHorizontal: 24,
-    flexDirection: 'row',
+	flexDirection: 'row',
+    display: 'flex',
     justifyContent: 'space-between',
-    marginTop: getStatusBarHeight() + 26,
-    marginBottom: 42, 
    },
    textoSelic: {
        lineHeight: 60

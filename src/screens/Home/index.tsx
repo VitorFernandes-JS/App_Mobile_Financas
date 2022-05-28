@@ -1,6 +1,6 @@
 import React from "react";
 import { styles } from "./styles";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 
@@ -44,6 +44,7 @@ export function Home() {
       <View>
         <Text style={styles.title}>ESCOLHA:</Text>
         
+        <ScrollView>
         <TouchableOpacity
           style={styles.buttonCalculator}
           onPress={CalculatorRote}
@@ -67,6 +68,31 @@ export function Home() {
           <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
           <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttonIndexes}
+          onPress={IndexesRote}
+        >
+          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
+          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttonIndexes}
+          onPress={IndexesRote}
+        >
+          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
+          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttonIndexes}
+          onPress={IndexesRote}
+        >
+          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
+          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
+        </TouchableOpacity>
+        </ScrollView>
       </View>
     </View>
   );

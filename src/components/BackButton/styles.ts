@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
         width: 47,
         borderRadius: 8,
         alignItems: 'flex-start',
-        marginRight: 340,
+        marginTop: 45,
+        right: 200
     },
 });
