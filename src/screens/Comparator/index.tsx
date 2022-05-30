@@ -3,6 +3,7 @@ import { View, Text, TextInput, ScrollView, TouchableOpacity} from "react-native
 import axios from "axios";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { TextInputMask } from 'react-native-masked-text'
 
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
@@ -15,6 +16,10 @@ interface ISelicRate {
 
 export function Comparator() {
   const navigation = useNavigation();
+
+  const [timeInput, setTimeInput] = useState(0)
+
+  const [valueMonth, setValueMonth] = useState('')
 
   const [typeSelect, setTypeSelect] = useState('')
 
@@ -56,7 +61,17 @@ export function Comparator() {
           VALOR{"\n"}
           MENSAL
         </Text>
-        <TextInput          
+        <TextInputMask
+          type={'money'}
+          options={{
+            maskType: 'BRL',
+            precision: 2,
+            separator: ',',
+            delimiter: '.',
+            unit: 'R$',
+          }}    
+          value={valueMonth}
+          onChangeText={(text) => {setValueMonth(text)}}
           style={styles.inputInitialValue}
           placeholder="R$00,00"
           placeholderTextColor={'#808080'}
@@ -65,7 +80,9 @@ export function Comparator() {
 
       <View style={styles.viewInitialValue}>
         <Text style={styles.timeText}>TEMPO</Text>
-        <TextInput
+        <TextInputMask
+          type={'only-numbers'}
+          onChangeText={(text) => {setTimeInput(Number(text))}}
           style={styles.inputTime}
           placeholder="1"
           placeholderTextColor={'#808080'}

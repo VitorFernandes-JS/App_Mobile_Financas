@@ -1,8 +1,9 @@
 import { View, Text, TextInput, TouchableOpacity} from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
+import { TextInputMask } from 'react-native-masked-text'
 
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
@@ -16,9 +17,9 @@ export function Calculator() {
 
   const [valueMonth, setValueMonth] = useState('')
 
-  const [timeInput, setTimeInput] = useState('')
+  const [timeInput, setTimeInput] = useState(0)
 
-  const [feesInput, setFeesInput] = useState('')
+  const [feesInput, setFeesInput] = useState(0)
 
   function handleHome() {
     navigation.navigate("Home");
@@ -42,9 +43,18 @@ export function Calculator() {
           VALOR {"\n"}
           INICIAL
         </Text>
-        <TextInput
+        <TextInputMask
           // value={initialValue}
-          onChangeText={(text) => {setInitialValue(text)}}
+          type={'money'}
+          options={{
+            maskType: 'BRL',
+            precision: 2,
+            separator: ',',
+            delimiter: '.',
+            unit: 'R$',
+          }}
+          value={initialValue}
+          onChangeText={text => {setInitialValue(text)}}
           style={styles.inputInitialValue}
           placeholder="R$00,00"
           placeholderTextColor={'#808080'}
@@ -56,7 +66,16 @@ export function Calculator() {
           VALOR {"\n"}
           MENSAL
         </Text>
-        <TextInput
+        <TextInputMask
+          type={'money'}
+          options={{
+            maskType: 'BRL',
+            precision: 2,
+            separator: ',',
+            delimiter: '.',
+            unit: 'R$',
+          }}
+          value={valueMonth}
           onChangeText={(text) => {setValueMonth(text)}}
           style={styles.inputInitialValue}
           placeholder="R$00,00"
@@ -66,8 +85,9 @@ export function Calculator() {
 
       <View style={styles.viewInitialValue}>
         <Text style={styles.timeText}>TEMPO</Text>
-        <TextInput
-          onChangeText={(text) => {setTimeInput(text)}}
+        <TextInputMask
+          type={'only-numbers'}
+          onChangeText={(text) => {setTimeInput(Number(text))}}
           style={styles.inputTime}
           placeholder="1"
           placeholderTextColor={'#808080'}
@@ -90,8 +110,9 @@ export function Calculator() {
       
       <View style={styles.viewInitialValue}>
         <Text style={styles.feesText}>JUROS</Text>
-        <TextInput
-          onChangeText={(text) => {setFeesInput(text)}}
+        <TextInputMask
+          type={'only-numbers'}
+          onChangeText={(text) => {setFeesInput(Number(text))}}
           style={styles.inputFees}
           placeholder="1"
           placeholderTextColor={'#808080'}
@@ -115,7 +136,7 @@ export function Calculator() {
             style={styles.buttonCalculate}
             onPress={() => {
               calculating = Number(initialValue) + Number(valueMonth) * Number( 1 + feesInput) ** 2 * Number(timeInput)
-              console.warn(calculating)
+              console.warn(feesInput)
             }}
           >
             <Text style={styles.textCalculate}>CALCULAR</Text>
