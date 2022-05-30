@@ -85,6 +85,29 @@ export const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: theme.fonts.text500,
       marginTop: 10
+   },
+   buttonVideo: {
+      marginTop: 20,
+      backgroundColor: (theme.colors.google),
+      borderRadius: 20,
+      width: 250,
+      height: 150,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 3
+   },
+   iconVideo: {
+      marginTop: 2,
       
    },
+   textButtonVideo: {
+      color: (theme.colors.heading),
+      textAlign: 'center',
+      fontSize: 20,
+      fontFamily: theme.fonts.text500,
+      marginTop: 10
+      
+   },
+
 });

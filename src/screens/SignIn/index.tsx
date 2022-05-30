@@ -1,7 +1,5 @@
 import React from "react";
-import Api from '../../Api';
 import { useNavigation } from "@react-navigation/native";
-import * as Google from "expo-google-app-auth";
 import { View, Text, Image } from "react-native";
 import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
 import IllustrationImg from "../../assets/illustration.png";

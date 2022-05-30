@@ -75,6 +75,17 @@ export const styles = StyleSheet.create({
     padding: 3,
     marginRight: 23,
    },
+   buttonCalculate: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    padding: 6,
+    margin: 10,
+   },
+   textCalculate: {
+    color: '#000',
+    fontSize: 25,
+    fontFamily: theme.fonts.title700
+   },
    line: {
     marginTop: 10,
 		height: 2,

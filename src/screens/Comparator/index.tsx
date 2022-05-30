@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, ScrollView} from "react-native";
+import { View, Text, TextInput, ScrollView, TouchableOpacity} from "react-native";
 import axios from "axios";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -15,6 +15,8 @@ interface ISelicRate {
 
 export function Comparator() {
   const navigation = useNavigation();
+
+  const [typeSelect, setTypeSelect] = useState('')
 
   function handleHome() {
     navigation.navigate("Home");
@@ -54,10 +56,10 @@ export function Comparator() {
           VALOR{"\n"}
           MENSAL
         </Text>
-        <TextInput
+        <TextInput          
           style={styles.inputInitialValue}
           placeholder="R$00,00"
-          
+          placeholderTextColor={'#808080'}
         />
       </View>
 
@@ -66,7 +68,7 @@ export function Comparator() {
         <TextInput
           style={styles.inputTime}
           placeholder="1"
-          
+          placeholderTextColor={'#808080'}
         />
         <SelectDropdown
           data={time}
@@ -86,17 +88,18 @@ export function Comparator() {
       <View style={styles.viewInitialValue}>
         <Text style={styles.typeText}>TIPO</Text>
         <TextInput
-          //value={type['']}
+          value={typeSelect}
           editable={false}
           style={styles.inputType}
           placeholder="Selic"
-          
+          placeholderTextColor={'#808080'}
         />
         <SelectDropdown
           data={type}
           defaultButtonText={"Selic"}
           onSelect={(selectedItem, index) => {
             console.log(selectedItem, index);
+            setTypeSelect(selectedItem)
           }}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
@@ -107,6 +110,12 @@ export function Comparator() {
         />
       </View>
       
+      <TouchableOpacity 
+            style={styles.buttonCalculate}
+            
+          >
+            <Text style={styles.textCalculate}>CALCULAR</Text>
+          </TouchableOpacity>
       
       <View style={styles.line}></View>
 

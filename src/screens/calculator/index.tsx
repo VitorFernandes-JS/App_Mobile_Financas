@@ -1,5 +1,5 @@
-import { View, Text, TextInput, TouchableWithoutFeedback, Keyboard} from "react-native";
-import React from "react";
+import { View, Text, TextInput, TouchableOpacity} from "react-native";
+import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
@@ -10,24 +10,26 @@ import { BackButton } from "../../components/BackButton";
 export function Calculator() {
   const navigation = useNavigation();
 
+  let calculating = 0
+
+  const [initialValue, setInitialValue] = useState('')
+
+  const [valueMonth, setValueMonth] = useState('')
+
+  const [timeInput, setTimeInput] = useState('')
+
+  const [feesInput, setFeesInput] = useState('')
+
   function handleHome() {
     navigation.navigate("Home");
   }
-
-  // componente que fecha o teclado numérico
-  const DismissKeyboard = ({ children }) => (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      {children}
-    </TouchableWithoutFeedback>
-  )
 
   // Opções dos select
   const time = ["Meses", "Anos"];
   const fees = ["Mensal", "Anual"];
 
   return (
-    <DismissKeyboard>
-    <View style={styles.container} >
+    <View style={styles.container}>
       <View style={styles.header}>
         <Avatar urlImage="https://github.com/Vitor-php.png" />
         <BackButton onPress={handleHome} />
@@ -41,30 +43,34 @@ export function Calculator() {
           INICIAL
         </Text>
         <TextInput
+          // value={initialValue}
+          onChangeText={(text) => {setInitialValue(text)}}
           style={styles.inputInitialValue}
           placeholder="R$00,00"
-          keyboardType="numeric"
+          placeholderTextColor={'#808080'}
         />
       </View>
 
       <View style={styles.viewInitialValue}>
         <Text style={styles.InitialValue}>
-          VALOR{"\n"}
+          VALOR {"\n"}
           MENSAL
         </Text>
         <TextInput
+          onChangeText={(text) => {setValueMonth(text)}}
           style={styles.inputInitialValue}
           placeholder="R$00,00"
-          keyboardType="numeric"
+          placeholderTextColor={'#808080'}
         />
       </View>
 
       <View style={styles.viewInitialValue}>
         <Text style={styles.timeText}>TEMPO</Text>
         <TextInput
+          onChangeText={(text) => {setTimeInput(text)}}
           style={styles.inputTime}
           placeholder="1"
-          keyboardType="numeric"
+          placeholderTextColor={'#808080'}
         />
         <SelectDropdown
           data={time}
@@ -85,9 +91,10 @@ export function Calculator() {
       <View style={styles.viewInitialValue}>
         <Text style={styles.feesText}>JUROS</Text>
         <TextInput
+          onChangeText={(text) => {setFeesInput(text)}}
           style={styles.inputFees}
           placeholder="1"
-          keyboardType="numeric"
+          placeholderTextColor={'#808080'}
         />
         <SelectDropdown
           data={fees}
@@ -104,22 +111,31 @@ export function Calculator() {
         />
       </View>
 
+          <TouchableOpacity 
+            style={styles.buttonCalculate}
+            onPress={() => {
+              calculating = Number(initialValue) + Number(valueMonth) * Number( 1 + feesInput) ** 2 * Number(timeInput)
+              console.warn(calculating)
+            }}
+          >
+            <Text style={styles.textCalculate}>CALCULAR</Text>
+          </TouchableOpacity>
+
       <View style={styles.line}></View>
       <Text style={styles.total}>TOTAL:</Text>
 
       <View style={styles.box}>
-        <Text style={styles.textBox}>Total de Juros:</Text>
+        <Text style={styles.textBox}>Total de Juros: {calculating}</Text>
       </View>
 
       <View style={styles.box}>
-        <Text style={styles.textBox}>Valor Investido:</Text>
+        <Text style={styles.textBox}>Valor Investido: </Text>
       </View>
 
       <View style={styles.box}>
         <Text style={styles.textBox}>Valor Total:</Text>
       </View>
     </View>
-    </DismissKeyboard>
   );
 }
 

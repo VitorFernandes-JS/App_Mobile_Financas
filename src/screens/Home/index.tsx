@@ -10,6 +10,7 @@ import { Avatar } from "../../components/Avatar";
 import { Ionicons } from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 export function Home() {
   type PropTypeBT = {
@@ -70,11 +71,11 @@ export function Home() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.buttonIndexes}
+          style={styles.buttonVideo}
           onPress={IndexesRote}
         >
-          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
-          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
+          <AntDesign style={styles.iconVideo} name="youtube" size={60} color="white" />
+          <Text style={styles.textButtonVideo}>VÍDEOS</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
