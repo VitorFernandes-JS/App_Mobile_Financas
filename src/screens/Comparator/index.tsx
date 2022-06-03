@@ -82,6 +82,7 @@ export function Comparator() {
         <Text style={styles.timeText}>TEMPO</Text>
         <TextInputMask
           type={'only-numbers'}
+          value={timeInput}
           onChangeText={(text) => {setTimeInput(Number(text))}}
           style={styles.inputTime}
           placeholder="1"
