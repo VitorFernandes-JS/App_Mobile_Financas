@@ -6,7 +6,7 @@ export const theme = {
         primary: '#ffcc00',
         secondary:'#f2f2f2',
         line: '#414200',
-        google: '#1d2633'
+        google: '#000'
     },
 
     fonts: {
