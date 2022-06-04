@@ -50,12 +50,13 @@ export const styles = StyleSheet.create({
     marginLeft: 94
    },
    inputTime: {
-    width: '25%',
+    height: 37,
+    width: '23%',
     borderRadius: 8,
-    margin: 10,
+    margin: 11,
     borderWidth: 3,
     padding: 3,
-    marginRight: 23,
+    marginRight: -18,
    },
    typeText: {
     flex: 1,
@@ -68,12 +69,13 @@ export const styles = StyleSheet.create({
     marginLeft: 94
    },
    inputType: {
-    width: '25%',
+    height: 37,
+    width: '23%',
     borderRadius: 8,
-    margin: 10,
+    margin: 11,
     borderWidth: 3,
     padding: 3,
-    marginRight: 23,
+    marginRight: -18,
    },
    buttonCalculate: {
     backgroundColor: '#fff',
