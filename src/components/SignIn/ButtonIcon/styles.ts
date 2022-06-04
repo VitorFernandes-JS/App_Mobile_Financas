@@ -16,8 +16,7 @@ export const styles = StyleSheet.create({
         display: 'flex',
         paddingLeft: 3,
         paddingRight: 1,
-        shadowRadius: 0.2,
-        opacity: 0.9,
+        marginTop: -15
     
     },
     title: {

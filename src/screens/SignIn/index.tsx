@@ -12,26 +12,17 @@ import { styles } from "./styles";
     function handleSignIn() {
      navigation.navigate('Home')
     }
-//   const actionLoginGoogle = async () => {
-//     let result = Api.googleLogar();
-
-//     if(result){
-//       onReceiveGoogle(result.user);
-//     }else{
-//       alert('Error');
-//     } 
-//   }
 
   return (
     <View style={styles.container}>
-      <Image source={IllustrationImg} style={styles.image} />
+    <Image source={IllustrationImg} style={styles.image} />
       <View style={styles.content}>
         <Text style={styles.title}>
-          Aprender a investir {`\n`}
+          Aprender finanças {`\n`}
           nunca foi tão fácil!
         </Text>
         <Text style={styles.subtitle}>
-          Aprenda sobre investimento do básico {`\n`}
+          Aprenda sobre finanças do básico {`\n`}
           ao avançado tudo em um só lugar.
         </Text>
         <ButtonIcon title="Entrar com Google" onPress={handleSignIn} />

@@ -4,7 +4,6 @@ import { Image } from 'react-native';
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Line } from 'react-native-svg';
 
 type Props = {
     urlImage: string;

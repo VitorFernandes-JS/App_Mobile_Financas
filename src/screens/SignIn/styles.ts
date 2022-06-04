@@ -11,20 +11,20 @@ export const styles = StyleSheet.create({
         },
         content: {
             marginTop: -77,
-            paddingHorizontal: 47,
+            paddingHorizontal: 50,
         },
         title: {
             color: theme.colors.heading,
             textAlign: 'center',
-            fontSize: 40,
+            fontSize: 38,
             marginBottom:10,
             fontFamily: theme.fonts.title700,
             lineHeight: 40,
-            
+            marginTop: 85,
         },
         image: {
-            width: '100%',
-            height: 470,
+            width: 385,
+            height: 385,
         },
         subtitle: {
             color: theme.colors.heading,

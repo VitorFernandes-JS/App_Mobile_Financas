@@ -1,6 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { cos } from 'react-native-reanimated';
-import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
     container: {
