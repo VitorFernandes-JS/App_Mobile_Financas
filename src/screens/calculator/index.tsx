@@ -11,8 +11,6 @@ import { BackButton } from "../../components/BackButton";
 export function Calculator() {
   const navigation = useNavigation();
 
-  let calculating = 0
-
   const [initialValue, setInitialValue] = useState('')
 
   const [valueMonth, setValueMonth] = useState('')
@@ -20,6 +18,8 @@ export function Calculator() {
   const [timeInput, setTimeInput] = useState(0)
 
   const [feesInput, setFeesInput] = useState(0)
+
+  const [totalValue, setTotalValue] = useState(0)
 
   function handleHome() {
     navigation.navigate("Home");
@@ -43,17 +43,9 @@ export function Calculator() {
           VALOR {"\n"}
           INICIAL
         </Text>
-        <TextInputMask
+        <TextInput
           // value={initialValue}
-          type={'money'}
-          options={{
-            maskType: 'BRL',
-            precision: 2,
-            separator: ',',
-            delimiter: '.',
-            unit: 'R$',
-          }}
-          value={initialValue}
+          keyboardType={'numeric'}
           onChangeText={text => {setInitialValue(text)}}
           style={styles.inputInitialValue}
           placeholder="R$00,00"
@@ -66,16 +58,8 @@ export function Calculator() {
           VALOR {"\n"}
           MENSAL
         </Text>
-        <TextInputMask
-          type={'money'}
-          options={{
-            maskType: 'BRL',
-            precision: 2,
-            separator: ',',
-            delimiter: '.',
-            unit: 'R$',
-          }}
-          value={valueMonth}
+        <TextInput
+          keyboardType={'numeric'}
           onChangeText={(text) => {setValueMonth(text)}}
           style={styles.inputInitialValue}
           placeholder="R$00,00"
@@ -135,8 +119,24 @@ export function Calculator() {
           <TouchableOpacity 
             style={styles.buttonCalculate}
             onPress={() => {
-              calculating = Number(initialValue) + Number(valueMonth) * Number( 1 + feesInput) ** 2 * Number(timeInput)
-              console.warn(feesInput)
+              let i = 1;
+              let juros = 0;
+              let total = 0;
+            while (i <= Number(timeInput)) {
+              if (i === 1) {
+                juros =
+                  (total + Number(initialValue)) *
+                  (Number(feesInput) / 100);
+                i++;
+                total = total + Number(initialValue) + juros;
+              } else {
+                juros =
+                  (total + Number(valueMonth)) * (Number(feesInput) / 100);
+                total = total + Number(valueMonth) + juros;
+                i++;
+              }
+            }
+            setTotalValue(Number((total + Number(valueMonth))));
             }}
           >
             <Text style={styles.textCalculate}>CALCULAR</Text>
@@ -146,7 +146,7 @@ export function Calculator() {
       <Text style={styles.total}>TOTAL:</Text>
 
       <View style={styles.box}>
-        <Text style={styles.textBox}>Total de Juros: {calculating}</Text>
+        <Text style={styles.textBox}>Total de Juros: {totalValue}</Text>
       </View>
 
       <View style={styles.box}>
