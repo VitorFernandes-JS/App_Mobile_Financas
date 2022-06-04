@@ -1,9 +1,8 @@
-import { View, Text, TextInput, TouchableOpacity} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ScrollView} from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
-import { TextInputMask } from 'react-native-masked-text'
 
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
@@ -30,6 +29,7 @@ export function Calculator() {
   const fees = ["Mensal", "Anual"];
 
   return (
+  <ScrollView>
     <View style={styles.container}>
       <View style={styles.header}>
         <Avatar urlImage="https://github.com/Vitor-php.png" />
@@ -69,8 +69,8 @@ export function Calculator() {
 
       <View style={styles.viewInitialValue}>
         <Text style={styles.timeText}>TEMPO</Text>
-        <TextInputMask
-          type={'only-numbers'}
+        <TextInput
+          keyboardType={'numeric'}
           onChangeText={(text) => {setTimeInput(Number(text))}}
           style={styles.inputTime}
           placeholder="1"
@@ -94,8 +94,8 @@ export function Calculator() {
       
       <View style={styles.viewInitialValue}>
         <Text style={styles.feesText}>JUROS</Text>
-        <TextInputMask
-          type={'only-numbers'}
+        <TextInput
+          keyboardType={'numbers-and-punctuation'}
           onChangeText={(text) => {setFeesInput(Number(text))}}
           style={styles.inputFees}
           placeholder="1"
@@ -157,6 +157,7 @@ export function Calculator() {
         <Text style={styles.textBox}>Valor Total: R${totalValue.toFixed(2)}</Text>
       </View>
     </View>
+    </ScrollView>
   );
 }
 
