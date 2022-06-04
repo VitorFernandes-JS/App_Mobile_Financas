@@ -146,15 +146,15 @@ export function Calculator() {
       <Text style={styles.total}>TOTAL:</Text>
 
       <View style={styles.box}>
-        <Text style={styles.textBox}>Total de Juros: {totalValue}</Text>
+        <Text style={styles.textBox}>Total de Juros: R$</Text>
       </View>
 
       <View style={styles.box}>
-        <Text style={styles.textBox}>Valor Investido: </Text>
+        <Text style={styles.textBox}>Valor Investido: R$</Text>
       </View>
 
       <View style={styles.box}>
-        <Text style={styles.textBox}>Valor Total:</Text>
+        <Text style={styles.textBox}>Valor Total: R${totalValue.toFixed(2)}</Text>
       </View>
     </View>
   );
