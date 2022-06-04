@@ -106,8 +106,7 @@ export const styles = StyleSheet.create({
     width: 300,
     backgroundColor: '#fff',
     borderRadius: 8,
-    margin: 7,
-    flexDirection: 'row'
+    margin: 7
    },
    textBox: {
     padding: 8.5,
