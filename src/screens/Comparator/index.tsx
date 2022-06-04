@@ -8,7 +8,6 @@ import { TextInputMask } from 'react-native-masked-text'
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
 import SelectDropdown from "react-native-select-dropdown";
-import AppLoading from "expo-app-loading";
 interface ISelicRate {
   data: String;
   valor: String;
@@ -38,17 +37,13 @@ export function Comparator() {
   }, []);
 
   const latestSelicRate = selicRate[selicRate.length - 1];
-
-  if (selicRate.length <= 0) {
-    return <AppLoading />;
-  }
   
   // Opções dos select
   const time = ["Meses", "Anos"];
   const type = ["Selic", "IPCA", "CDI", "Poupança"];
 
   return (
-    
+    <ScrollView>
     <View style={styles.container}>
       <View style={styles.header}>
         <Avatar urlImage="https://github.com/Vitor-php.png" />
@@ -136,7 +131,7 @@ export function Comparator() {
       
       <View style={styles.line}></View>
 
-      <ScrollView>
+      
       <Text style={styles.total}>TOTAL:</Text>
 
       <View style={styles.boxAndText}>
@@ -178,8 +173,7 @@ export function Comparator() {
         <Text style={styles.textBox}>Valor Total:</Text>
       </View>
       </View>
-    </ScrollView>
     </View>
-    
+    </ScrollView>
   );
 }
