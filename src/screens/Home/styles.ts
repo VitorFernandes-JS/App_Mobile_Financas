@@ -27,11 +27,11 @@ export const styles = StyleSheet.create({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3,
+      borderWidth: 5,
+      borderColor: (theme.colors.heading)
    },
    iconCalculator: {
       marginTop: 2,
-      
    },
    textButtonCalculator: {
       color: (theme.colors.heading),
@@ -50,11 +50,11 @@ export const styles = StyleSheet.create({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3
+      borderWidth: 5,
+      borderColor: (theme.colors.heading)
    },
    iconComparator: {
       marginTop: 2,
-      
    },
    textButtonComparator: {
       color: (theme.colors.heading),
@@ -62,7 +62,6 @@ export const styles = StyleSheet.create({
       fontSize: 20,
       fontFamily: theme.fonts.text500,
       marginTop: 10
-      
    },
    buttonIndexes: {
       marginTop: 20,
@@ -73,11 +72,11 @@ export const styles = StyleSheet.create({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3
+      borderWidth: 5,
+      borderColor: (theme.colors.heading)
    },
    iconIndexes: {
       marginTop: 2,
-      
    },
    textButtonIndexes: {
       color: (theme.colors.heading),
@@ -95,7 +94,8 @@ export const styles = StyleSheet.create({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3
+      borderWidth: 5,
+      borderColor: (theme.colors.heading)
    },
    iconVideo: {
       marginTop: 2,
