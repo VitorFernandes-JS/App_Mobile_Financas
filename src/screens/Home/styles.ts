@@ -15,9 +15,9 @@ export const styles = StyleSheet.create({
   },
    title: {
       fontFamily: theme.fonts.title700,
-      fontSize: 40,
+      fontSize: 47,
       textAlign: 'center',
-      marginBottom: 20,
+      marginBottom: 15,
    },
    buttonCalculator: {
       backgroundColor: (theme.colors.google),
