@@ -27,9 +27,9 @@ export function Calculator() {
 
   const [totalValue, setTotalValue] = useState(0);
 
-  const [yearsOrMounth, setYearsOrMounth] = useState('Anos');
+  const [yearsOrMounthTime, setYearsOrMounthTime] = useState('Anos');
 
-  const [yearsOrMounth1, setYearsOrMounth1] = useState('Anual');
+  const [yearsOrMounthFees, setYearsOrMounthFees] = useState('Anual');
 
   function handleHome() {
     navigation.navigate("Home");
@@ -38,8 +38,6 @@ export function Calculator() {
   // Opções dos select
   const time = ["Meses", "Anos"];
   const fees = ["Mensal", "Anual"];
-
-  console.warn(yearsOrMounth);
 
   return (
     <ScrollView>
@@ -97,7 +95,7 @@ export function Calculator() {
           <SelectDropdown
             data={time}
             defaultButtonText={"Anos"}
-            onSelect={selectedItem => setYearsOrMounth(selectedItem)}
+            onSelect={selectedItem => setYearsOrMounthTime(selectedItem)}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
             }}
@@ -121,9 +119,7 @@ export function Calculator() {
           <SelectDropdown
             data={fees}
             defaultButtonText={"Anual"}
-            onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
-            }}
+            onSelect={selectedItem => setYearsOrMounthFees(selectedItem)}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
             }}
