@@ -1,4 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView} from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
@@ -6,19 +12,24 @@ import SelectDropdown from "react-native-select-dropdown";
 
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
+import { Calcular } from "../../controls/Calculator";
 
 export function Calculator() {
   const navigation = useNavigation();
 
-  const [initialValue, setInitialValue] = useState('')
+  const [initialValue, setInitialValue] = useState(0);
 
-  const [valueMonth, setValueMonth] = useState('')
+  const [valueMonth, setValueMonth] = useState(0);
 
-  const [timeInput, setTimeInput] = useState(0)
+  const [timeInput, setTimeInput] = useState(0);
 
-  const [feesInput, setFeesInput] = useState(0)
+  const [feesInput, setFeesInput] = useState(0);
 
-  const [totalValue, setTotalValue] = useState(0)
+  const [totalValue, setTotalValue] = useState(0);
+
+  const [yearsOrMounth, setYearsOrMounth] = useState('Anos');
+
+  const [yearsOrMounth1, setYearsOrMounth1] = useState('Anual');
 
   function handleHome() {
     navigation.navigate("Home");
@@ -28,136 +39,124 @@ export function Calculator() {
   const time = ["Meses", "Anos"];
   const fees = ["Mensal", "Anual"];
 
+  console.warn(yearsOrMounth);
+
   return (
-  <ScrollView>
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Avatar urlImage="https://github.com/Vitor-php.png" />
-        <BackButton onPress={handleHome} />
-      </View >
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Avatar urlImage="https://github.com/Vitor-php.png" />
+          <BackButton onPress={handleHome} />
+        </View>
 
-      <Text style={styles.title}>CALCULADORA</Text>
+        <Text style={styles.title}>CALCULADORA</Text>
 
-      <View style={styles.viewInitialValue}>
-        <Text style={styles.InitialValue}>
-          VALOR {"\n"}
-          INICIAL
-        </Text>
-        <TextInput
-          // value={initialValue}
-          keyboardType={'numeric'}
-          onChangeText={text => {setInitialValue(text)}}
-          style={styles.inputInitialValue}
-          placeholder="R$00,00"
-          placeholderTextColor={'#808080'}
-        />
-      </View>
-
-      <View style={styles.viewInitialValue}>
-        <Text style={styles.InitialValue}>
-          VALOR {"\n"}
-          MENSAL
-        </Text>
-        <TextInput
-          keyboardType={'numeric'}
-          onChangeText={(text) => {setValueMonth(text)}}
-          style={styles.inputInitialValue}
-          placeholder="R$00,00"
-          placeholderTextColor={'#808080'}
-        />
-      </View>
-
-      <View style={styles.viewInitialValue}>
-        <Text style={styles.timeText}>TEMPO</Text>
-        <TextInput
-          keyboardType={'numeric'}
-          onChangeText={(text) => {setTimeInput(Number(text))}}
-          style={styles.inputTime}
-          placeholder="1"
-          placeholderTextColor={'#808080'}
-        />
-        <SelectDropdown
-          data={time}
-          defaultButtonText={'Anos'}
-          onSelect={(selectedItem, index) => {
-            console.log(selectedItem, index);
-          }}
-          buttonTextAfterSelection={(selectedItem, index) => {
-            return selectedItem;
-            
-          }}
-          rowTextForSelection={(item, index) => {
-            return item;
-          }}
-        />
-      </View>
-      
-      <View style={styles.viewInitialValue}>
-        <Text style={styles.feesText}>JUROS</Text>
-        <TextInput
-          keyboardType={'numbers-and-punctuation'}
-          onChangeText={(text) => {setFeesInput(Number(text))}}
-          style={styles.inputFees}
-          placeholder="1"
-          placeholderTextColor={'#808080'}
-        />
-        <SelectDropdown
-          data={fees}
-          defaultButtonText={'Anual'}
-          onSelect={(selectedItem, index) => {
-            console.log(selectedItem, index);
-          }}
-          buttonTextAfterSelection={(selectedItem, index) => {
-            return selectedItem;
-          }}
-          rowTextForSelection={(item, index) => {
-            return item;
-          }}
-        />
-      </View>
-
-          <TouchableOpacity 
-            style={styles.buttonCalculate}
-            onPress={() => {
-              let i = 1;
-              let juros = 0;
-              let total = 0;
-            while (i <= Number(timeInput)) {
-              if (i === 1) {
-                juros =
-                  (total + Number(initialValue)) *
-                  (Number(feesInput) / 100);
-                i++;
-                total = total + Number(initialValue) + juros;
-              } else {
-                juros =
-                  (total + Number(valueMonth)) * (Number(feesInput) / 100);
-                total = total + Number(valueMonth) + juros;
-                i++;
-              }
-            }
-            setTotalValue(Number((total + Number(valueMonth))));
+        <View style={styles.viewInitialValue}>
+          <Text style={styles.InitialValue}>
+            VALOR {"\n"}
+            INICIAL
+          </Text>
+          <TextInput
+            keyboardType={"numeric"}
+            onChangeText={(text) => {
+              setInitialValue(Number(text));
             }}
-          >
-            <Text style={styles.textCalculate}>CALCULAR</Text>
-          </TouchableOpacity>
+            style={styles.inputInitialValue}
+            placeholder="R$00,00"
+            placeholderTextColor={"#808080"}
+          />
+        </View>
 
-      <View style={styles.line}></View>
-      <Text style={styles.total}>TOTAL:</Text>
+        <View style={styles.viewInitialValue}>
+          <Text style={styles.InitialValue}>
+            VALOR {"\n"}
+            MENSAL
+          </Text>
+          <TextInput
+            keyboardType={"numeric"}
+            onChangeText={(text) => {
+              setValueMonth(Number(text));
+            }}
+            style={styles.inputInitialValue}
+            placeholder="R$00,00"
+            placeholderTextColor={"#808080"}
+          />
+        </View>
 
-      <View style={styles.box}>
-        <Text style={styles.textBox}>Total de Juros: R$</Text>
+        <View style={styles.viewInitialValue}>
+          <Text style={styles.timeText}>TEMPO</Text>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+              setTimeInput(Number(text));
+            }}
+            style={styles.inputTime}
+            placeholder="1"
+            placeholderTextColor={"#808080"}
+          />
+          <SelectDropdown
+            data={time}
+            defaultButtonText={"Anos"}
+            onSelect={selectedItem => setYearsOrMounth(selectedItem)}
+            buttonTextAfterSelection={(selectedItem, index) => {
+              return selectedItem;
+            }}
+            rowTextForSelection={(item, index) => {
+              return item;
+            }}
+          />
+        </View>
+
+        <View style={styles.viewInitialValue}>
+          <Text style={styles.feesText}>JUROS</Text>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+            setFeesInput(Number(text));
+            }}
+            style={styles.inputFees}
+            placeholder="1"
+            placeholderTextColor={"#808080"}
+          />
+          <SelectDropdown
+            data={fees}
+            defaultButtonText={"Anual"}
+            onSelect={(selectedItem, index) => {
+              console.log(selectedItem, index);
+            }}
+            buttonTextAfterSelection={(selectedItem, index) => {
+              return selectedItem;
+            }}
+            rowTextForSelection={(item, index) => {
+              return item;
+            }}
+          />
+        </View>
+
+        <TouchableOpacity
+          style={styles.buttonCalculate}
+          onPress={() => {Calcular({feesInput, initialValue, setTotalValue, timeInput, valueMonth})}}
+        >
+          <Text style={styles.textCalculate}>CALCULAR</Text>
+        </TouchableOpacity>
+
+        <View style={styles.line}></View>
+        <Text style={styles.total}>TOTAL:</Text>
+
+        <View style={styles.box}>
+          <Text style={styles.textBox}>Total de Juros: R$</Text>
+        </View>
+
+        <View style={styles.box}>
+          <Text style={styles.textBox}>Valor Investido: R$</Text>
+        </View>
+
+        <View style={styles.box}>
+          <Text style={styles.textBox}>
+            Valor Total: R${Number(totalValue).toFixed(2)}
+          </Text>
+        </View>
       </View>
-
-      <View style={styles.box}>
-        <Text style={styles.textBox}>Valor Investido: R$</Text>
-      </View>
-
-      <View style={styles.box}>
-        <Text style={styles.textBox}>Valor Total: R${totalValue.toFixed(2)}</Text>
-      </View>
-    </View>
     </ScrollView>
   );
 }
-
