@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styles } from "./styles";
 import { View, TouchableOpacity, Text, ScrollView } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 
 import { BackButton } from "../../components/BackButton";
@@ -13,10 +13,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
 export function Home() {
-  type PropTypeBT = {
-    style: string;
-  };
-
   const navigation = useNavigation();
 
   function handleHome() {
@@ -38,7 +34,7 @@ export function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Avatar urlImage="https://github.com/Vitor-php.png" />
+        <Avatar source={{ uri: profile.picture}} />
         <BackButton onPress={handleHome} />
       </View>
 

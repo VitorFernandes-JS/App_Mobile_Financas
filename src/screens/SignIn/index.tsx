@@ -7,6 +7,13 @@ import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
 import IllustrationImg from "../../assets/illustration.png";
 import { styles } from "./styles";
 
+type AuthResponse = {
+  type: string;
+  params: {
+    access_token: string;
+  }
+}
+
   export function SignIn() {
     const navigation = useNavigation();
     
@@ -16,12 +23,14 @@ import { styles } from "./styles";
       const RESPONSE_YPE = 'token';
       const SCOPE = encodeURI('profile email');
 
-
      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_YPE}&scope=${SCOPE}`;
-     const response = await AuthSession.startAsync({ authUrl });
-     console.log(response);
+     const { type, params } = await AuthSession
+     .startAsync({ authUrl }) as AuthResponse;
 
-      navigation.navigate('Home');
+     if(type === "success"){
+      navigation.navigate('Home', { token:params.access_token });
+     }
+
     }
 
   return (
