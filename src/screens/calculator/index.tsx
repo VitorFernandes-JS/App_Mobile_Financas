@@ -12,7 +12,7 @@ import SelectDropdown from "react-native-select-dropdown";
 
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
-import { Calcular } from "../../controls/Calculator";
+import { Calcular } from "../../controls/calculatorController";
 
 export function Calculator() {
   const navigation = useNavigation();
