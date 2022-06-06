@@ -1,6 +1,6 @@
 import { Avatar } from '../../components/Avatar';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { BackButton } from '../../components/BackButton'
 import { View, Text,} from 'react-native';
 import { useNavigation } from "@react-navigation/native";
@@ -11,12 +11,18 @@ interface ISelicRate {
   valor: String;
 }
 
-export function Indexes() { 
+interface IIndexesProps {
+  route: any;
+  children: ReactNode
+}
+
+export function Indexes({ route }: IIndexesProps) { 
+  const { token } = route.params
 
   const navigation = useNavigation();
     
   function handleHome() {
-   navigation.navigate('Home')
+   navigation.navigate('Home', { token })
   }
 
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([])

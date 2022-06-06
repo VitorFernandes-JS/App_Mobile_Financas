@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
@@ -14,8 +14,15 @@ import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
 import { Calcular } from "../../controls/calculatorController";
 
-export function Calculator() {
+interface ICalculatorProps {
+  route: any;
+  children: ReactNode
+}
+
+export function Calculator({ route }: ICalculatorProps) {
   const navigation = useNavigation();
+
+  const { token } = route.params
 
   const [initialValue, setInitialValue] = useState(0);
 
@@ -32,7 +39,7 @@ export function Calculator() {
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState('Anual');
 
   function handleHome() {
-    navigation.navigate("Home");
+    navigation.navigate("Home", { token });
   }
 
   // Opções dos select

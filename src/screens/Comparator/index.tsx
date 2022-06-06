@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { View, Text, TextInput, ScrollView, TouchableOpacity} from "react-native";
 import axios from "axios";
 import { styles } from "./styles";
@@ -13,7 +13,14 @@ interface ISelicRate {
   valor: String;
 }
 
-export function Comparator() {
+interface IComparatorProps {
+  route: any;
+  children: ReactNode
+}
+
+export function Comparator({ route }: IComparatorProps) {
+  const { token } = route.params
+
   const navigation = useNavigation();
 
   const [timeInput, setTimeInput] = useState(0)
@@ -23,7 +30,7 @@ export function Comparator() {
   const [typeSelect, setTypeSelect] = useState('')
 
   function handleHome() {
-    navigation.navigate("Home");
+    navigation.navigate("Home", { token });
   }
 
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);

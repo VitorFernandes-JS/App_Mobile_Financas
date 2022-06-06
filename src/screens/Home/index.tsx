@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { styles } from "./styles";
 import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -13,35 +13,30 @@ import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-// import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+interface IHomeProps {
+  route: any;
+  children: ReactNode
+}
 
-// type RootStackParamList = {
-//   Home: undefined;
-//   Profile: { userId: string };
-//   Feed: { sort: 'latest' | 'top' } | undefined;
-// };
-
-// type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
-
-export function Home({ route }: any) {
+export function Home({ route }: IHomeProps) {
   const { token } = route.params
 
   const navigation = useNavigation();
 
   function handleHome() {
-    navigation.navigate("SignIn", { token: token });
+    navigation.navigate("SignIn", { token });
   }
 
   function CalculatorRote() {
-    navigation.navigate("Calculator", { token: token });
+    navigation.navigate("Calculator", { token });
   }
 
   function ComparatorRote() {
-    navigation.navigate("Comparator", { token: token });
+    navigation.navigate("Comparator", { token });
   }
 
   function IndexesRote() {
-    navigation.navigate("Indexes", { token: token });
+    navigation.navigate("Indexes", { token });
   }
 
   return (
