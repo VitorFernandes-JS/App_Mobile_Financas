@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { styles } from "./styles";
 import { View, TouchableOpacity, Text, ScrollView } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 
 import { BackButton } from "../../components/BackButton";
 import { Avatar } from "../../components/Avatar";
+
 // Icones
 import { Ionicons } from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons';
@@ -34,7 +35,7 @@ export function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Avatar source={{ uri: profile.picture}} />
+        <Avatar/>
         <BackButton onPress={handleHome} />
       </View>
 

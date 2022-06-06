@@ -46,7 +46,7 @@ export function Comparator() {
     <ScrollView>
     <View style={styles.container}>
       <View style={styles.header}>
-        <Avatar urlImage="https://github.com/Vitor-php.png" />
+        <Avatar/>
         <BackButton onPress={handleHome} />
       </View>
       <Text style={styles.title}>COMPARADOR</Text>

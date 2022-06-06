@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { Image } from 'react-native';
+import { Image, Text } from 'react-native';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
@@ -19,7 +19,7 @@ type Params = {
     picture: string;
   }
 
-export function Avatar({ source }) {
+export function Avatar( ) {
     const { secondary, heading  } = theme.colors
 
     const [profile, setProfile] = useState({} as Profile);
