@@ -30,7 +30,6 @@ type AuthResponse = {
      if(type === "success"){
       navigation.navigate('Home', { token:params.access_token });
      }
-
     }
 
   return (

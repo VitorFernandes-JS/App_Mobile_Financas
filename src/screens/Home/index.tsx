@@ -13,23 +13,35 @@ import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-export function Home() {
+// import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+
+// type RootStackParamList = {
+//   Home: undefined;
+//   Profile: { userId: string };
+//   Feed: { sort: 'latest' | 'top' } | undefined;
+// };
+
+// type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+
+export function Home({ route }: any) {
+  const { token } = route.params
+
   const navigation = useNavigation();
 
   function handleHome() {
-    navigation.navigate("SignIn");
+    navigation.navigate("SignIn", { token: token });
   }
 
   function CalculatorRote() {
-    navigation.navigate("Calculator");
+    navigation.navigate("Calculator", { token: token });
   }
 
   function ComparatorRote() {
-    navigation.navigate("Comparator");
+    navigation.navigate("Comparator", { token: token });
   }
 
   function IndexesRote() {
-    navigation.navigate("Indexes");
+    navigation.navigate("Indexes", { token: token });
   }
 
   return (
