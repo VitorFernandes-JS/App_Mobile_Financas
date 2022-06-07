@@ -49,13 +49,7 @@ export function Calcular({
       // console.warn(juros, total)
     }
   }
-
   setTotalValue((total + valueMonth));
   setTotalFees(totalJuros)
   setTotalValueInvested((total + valueMonth) - totalJuros)
 }
-
-// 100 + 3
-// 103 + 6
-// 1
-//
