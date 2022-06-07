@@ -14,5 +14,8 @@ export const theme = {
         title500: 'Rajdhani_500Medium',
         text400: 'Inter_400Regular',
         text500: 'Inter_500Medium',
+        Roboto700: 'Roboto_700Bold',
+        Roboto400: 'Roboto_400Regular', 
+        Roboto300: 'Roboto_300Light'
     }
 };
