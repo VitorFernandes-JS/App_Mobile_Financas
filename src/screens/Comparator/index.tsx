@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
 import SelectDropdown from "react-native-select-dropdown";
+import { calcComparator } from "../../controls/comparatorController";
 interface ISelicRate {
   data: String;
   valor: String;
@@ -44,17 +45,21 @@ export function Comparator({ route }: IComparatorProps) {
   const navigation = useNavigation();
 
   const [timeInput, setTimeInput] = useState(0);
+  const [ipcaRate, setIpcaRate] = useState(0);
+  const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
 
   const [valueMonth, setValueMonth] = useState("");
-
   const [typeSelect, setTypeSelect] = useState("Selic");
+  const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Anos")
+
+  const [valueTotalIpca, setValueTotalIpca] = useState(0)
+  const [valueTotalSelic, setValueTotalSelic] = useState(0)
+  const [valueTotalSavings, setValueTotalSavings] = useState(0)
+  const [valueTotalCdi, setValueTotalCdi] = useState(0)
 
   function handleHome() {
     navigation.navigate("Home", { token });
   }
-
-  const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
-  const [ipcaRate, setIpcaRate] = useState(0);
 
   useEffect(() => {
     //API SELIC
@@ -71,8 +76,6 @@ export function Comparator({ route }: IComparatorProps) {
       )
       .then((response) => setIpcaRate(+response.data[0].resultados[0].series[0].serie[202204]));
   }, []);
-
-  console.log(ipcaRate)
 
   const latestSelicRate = selicRate[selicRate.length - 1];
 
@@ -98,7 +101,7 @@ export function Comparator({ route }: IComparatorProps) {
             keyboardType= 'numeric'
             value={valueMonth}
             onChangeText={(text) => {
-              setValueMonth(text);
+            setValueMonth(text);
             }}
             style={styles.inputInitialValue}
             placeholder="R$00,00"
@@ -120,8 +123,8 @@ export function Comparator({ route }: IComparatorProps) {
           <SelectDropdown
             data={time}
             defaultButtonText={"Anos"}
-            onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
+            onSelect={(selectedItem) => {
+              setYearsOrMounthTime(selectedItem)
             }}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
@@ -156,7 +159,21 @@ export function Comparator({ route }: IComparatorProps) {
           />
         </View>
 
-        <TouchableOpacity style={styles.buttonCalculate}>
+        <TouchableOpacity 
+          style={styles.buttonCalculate}
+          onPress={() => calcComparator({
+            ipcaRate,
+            selicRate: +latestSelicRate.valor,
+            timeInput,
+            valueMonth,
+            yearsOrMounthTime,
+            setValueTotalCdi,
+            setValueTotalIpca,
+            setValueTotalSavings,
+            setValueTotalSelic,
+           })
+          }
+        >
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
 
@@ -170,7 +187,7 @@ export function Comparator({ route }: IComparatorProps) {
             tempo e os aportes mensais, renderia isso:
           </Text>
           <View style={styles.box1}>
-            <Text style={styles.textBox}>Valor Total:</Text>
+            <Text style={styles.textBox}>Valor Total: R$ {Number(valueTotalSelic).toFixed(2)}</Text>
           </View>
         </View>
 
@@ -180,7 +197,7 @@ export function Comparator({ route }: IComparatorProps) {
             tempo e os aportes mensais, renderia isso:
           </Text>
           <View style={styles.box2}>
-            <Text style={styles.textBox}>Valor Total:</Text>
+            <Text style={styles.textBox}>Valor Total: R$ {Number(valueTotalIpca).toFixed(2)}</Text>
           </View>
         </View>
 
@@ -190,7 +207,7 @@ export function Comparator({ route }: IComparatorProps) {
             tempo e os aportes mensais, renderia isso:
           </Text>
           <View style={styles.box3}>
-            <Text style={styles.textBox}>Valor Total:</Text>
+            <Text style={styles.textBox}>Valor Total: R$ {Number(valueTotalCdi).toFixed(2)}</Text>
           </View>
         </View>
 
@@ -200,7 +217,7 @@ export function Comparator({ route }: IComparatorProps) {
             tempo e os aportes mensais, renderia isso:
           </Text>
           <View style={styles.box4}>
-            <Text style={styles.textBox}>Valor Total:</Text>
+            <Text style={styles.textBox}>Valor Total: R$ {Number(valueTotalSavings).toFixed(2)}</Text>
           </View>
         </View>
       </View>
