@@ -15,9 +15,10 @@ export const styles = StyleSheet.create({
    },
    title: {
     fontFamily: theme.fonts.title700,
-    fontSize: 40,
+    fontSize: 42,
+    fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 15,
+    marginBottom: 13,
     marginTop: 8
    },
    viewInitialValue: {
@@ -98,7 +99,8 @@ export const styles = StyleSheet.create({
 	 },
    total: {
     fontFamily: theme.fonts.title700,
-    fontSize: 40,
+    fontSize: 38,
+    fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 10,
     marginTop: 10
@@ -110,8 +112,17 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     margin: 7
    },
-   textBox: {
+   textBox1: {
     padding: 8.5,
-   }
+    color: '#ff0035'
+   },
+   textBox2: {
+    padding: 8.5,
+    color: '#000086'
+   },
+   textBox3: {
+    padding: 8.5,
+    color: 'green'
+   },
   
 });

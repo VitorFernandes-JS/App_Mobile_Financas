@@ -158,15 +158,15 @@ export function Calculator({ route }: ICalculatorProps) {
         <Text style={styles.total}>TOTAL:</Text>
 
         <View style={styles.box}>
-          <Text style={styles.textBox}>Total de Juros: R${Number(totalFees).toFixed(2)}</Text>
+          <Text style={styles.textBox1}>Total de Juros: R${Number(totalFees).toFixed(2)}</Text>
         </View>
 
         <View style={styles.box}>
-          <Text style={styles.textBox}>Valor Investido: R${Number(totalValueInvested).toFixed(2)}</Text>
+          <Text style={styles.textBox2}>Valor Investido: R${Number(totalValueInvested).toFixed(2)}</Text>
         </View>
 
         <View style={styles.box}>
-          <Text style={styles.textBox}>
+          <Text style={styles.textBox3}>
             Valor Total: R${Number(totalValue).toFixed(2)}
           </Text>
         </View>

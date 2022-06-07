@@ -4,9 +4,15 @@ import { theme } from '../../global/styles/theme';
 
 
 export const styles = StyleSheet.create({
+   imgteste: {
+      width: 100,
+      height: 100,
+
+   },
    container: {
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
+    
    },
    header: {
    flexDirection: 'row',
@@ -15,99 +21,56 @@ export const styles = StyleSheet.create({
   },
    title: {
       fontFamily: theme.fonts.title700,
-      fontSize: 47,
+      fontWeight: 'bold',
+      fontSize: 48,
       textAlign: 'center',
-      marginBottom: 15,
+      marginBottom: 20,
    },
    buttonCalculator: {
-      backgroundColor: (theme.colors.google),
-      borderRadius: 20,
-      width: 250,
-      height: 150,
+      backgroundColor: '#000000',
+      borderRadius: 21,
+      width: 190,
+      height: 160,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 5,
-      borderColor: (theme.colors.heading)
+      borderWidth: 3.5,
+      borderColor: '#fff',
+      marginLeft: 5
    },
    iconCalculator: {
-      marginTop: 2,
+      marginTop: -2,
    },
    textButtonCalculator: {
-      color: (theme.colors.heading),
+      color: '#fff',
       textAlign: 'center',
-      fontSize: 20,
-      fontFamily: theme.fonts.text500,
+      fontSize: 26,
+      fontFamily: theme.fonts.title500,
+      fontWeight: 'bold',
       marginTop: 10
-      
    },
    buttonComparator: {
       marginTop: 20,
-      backgroundColor: (theme.colors.google),
-      borderRadius: 20,
-      width: 250,
-      height: 150,
+      backgroundColor: '#000000',
+      borderRadius: 21,
+      width: 190,
+      height: 160,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 5,
-      borderColor: (theme.colors.heading)
+      borderWidth: 3.5,
+      borderColor: '#fff',
+      marginLeft: 5
    },
    iconComparator: {
-      marginTop: 2,
+      marginTop: -2,
    },
    textButtonComparator: {
-      color: (theme.colors.heading),
+      color: '#fff',
       textAlign: 'center',
-      fontSize: 20,
-      fontFamily: theme.fonts.text500,
+      fontSize: 26,
+      fontFamily: theme.fonts.title500,
+      fontWeight: 'bold',
       marginTop: 10
-   },
-   buttonIndexes: {
-      marginTop: 20,
-      backgroundColor: (theme.colors.google),
-      borderRadius: 20,
-      width: 250,
-      height: 150,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderWidth: 5,
-      borderColor: (theme.colors.heading)
-   },
-   iconIndexes: {
-      marginTop: 2,
-   },
-   textButtonIndexes: {
-      color: (theme.colors.heading),
-      textAlign: 'center',
-      fontSize: 20,
-      fontFamily: theme.fonts.text500,
-      marginTop: 10
-   },
-   buttonVideo: {
-      marginTop: 20,
-      backgroundColor: (theme.colors.google),
-      borderRadius: 20,
-      width: 250,
-      height: 150,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderWidth: 5,
-      borderColor: (theme.colors.heading)
-   },
-   iconVideo: {
-      marginTop: 2,
-      
-   },
-   textButtonVideo: {
-      color: (theme.colors.heading),
-      textAlign: 'center',
-      fontSize: 20,
-      fontFamily: theme.fonts.text500,
-      marginTop: 10
-      
-   },
-
+   }, 
 });

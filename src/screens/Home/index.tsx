@@ -54,7 +54,7 @@ export function Home({ route }: IHomeProps) {
           style={styles.buttonCalculator}
           onPress={CalculatorRote}
         >
-          <Ionicons style={styles.iconCalculator} name="ios-calculator-outline" size={60} color="white" />
+          <Ionicons style={styles.iconCalculator} name="ios-calculator-outline" size={63} color="white" />
           <Text style={styles.textButtonCalculator}>CALCULADORA</Text>
         </TouchableOpacity>
 
@@ -62,40 +62,40 @@ export function Home({ route }: IHomeProps) {
           style={styles.buttonComparator}
           onPress={ComparatorRote}
         >
-          <Entypo style={styles.iconComparator} name="pie-chart" size={60} color="white" />
+          <Entypo style={styles.iconComparator} name="pie-chart" size={63} color="white" />
           <Text style={styles.textButtonComparator}>COMPARADOR</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.buttonIndexes}
+          style={styles.buttonComparator}
           onPress={IndexesRote}
         >
-          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
-          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
+          <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="white" />
+          <Text style={styles.textButtonComparator}>ÍNDICES</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.buttonVideo}
+          style={styles.buttonComparator}
           onPress={IndexesRote}
         >
-          <AntDesign style={styles.iconVideo} name="youtube" size={60} color="white" />
-          <Text style={styles.textButtonVideo}>VÍDEOS</Text>
+          <AntDesign style={styles.iconComparator} name="youtube" size={63} color="white" />
+          <Text style={styles.textButtonComparator}>VÍDEOS</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.buttonIndexes}
+          style={styles.buttonComparator}
           onPress={IndexesRote}
         >
-          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
-          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
+          <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="white" />
+          <Text style={styles.textButtonComparator}>ÍNDICES</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.buttonIndexes}
+          style={styles.buttonComparator}
           onPress={IndexesRote}
         >
-          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={60} color="white" />
-          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
+          <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="white" />
+          <Text style={styles.textButtonComparator}>ÍNDICES</Text>
         </TouchableOpacity>
         </ScrollView>
       </View>

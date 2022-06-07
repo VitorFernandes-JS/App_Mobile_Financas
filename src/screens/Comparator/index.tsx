@@ -13,6 +13,10 @@ interface ISelicRate {
   valor: String;
 }
 
+interface IIpcaRate {
+  serie: String;
+}
+
 interface IComparatorProps {
   route: any;
   children: ReactNode
@@ -27,24 +31,36 @@ export function Comparator({ route }: IComparatorProps) {
 
   const [valueMonth, setValueMonth] = useState('')
 
-  const [typeSelect, setTypeSelect] = useState('')
+  const [typeSelect, setTypeSelect] = useState('Selic')
 
   function handleHome() {
     navigation.navigate("Home", { token });
   }
 
+
+  
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
+  const [ipcaRate, setIpcaRate] = useState<IIpcaRate[]>([]);
 
   useEffect(() => {
+    //API SELIC
     axios
       .get(
         "https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados/ultimos/10?formato=json"
       )
       .then((response) => setSelicRate(response.data));
+
+    //API IPCA
+    axios
+    .get(
+      "https://servicodados.ibge.gov.br/api/v3/agregados/7060/periodos/202001%7C202204/variaveis/69?localidades=N1[all]&classificacao=315[7169]"
+    )
+    .then((response) => setSelicRate(response.data));
   }, []);
 
   const latestSelicRate = selicRate[selicRate.length - 1];
-  
+  const latestSelicRate = selicRate[selicRate.length - 1];
+
   // Opções dos select
   const time = ["Meses", "Anos"];
   const type = ["Selic", "IPCA", "CDI", "Poupança"];
@@ -106,12 +122,13 @@ export function Comparator({ route }: IComparatorProps) {
 
       <View style={styles.viewInitialValue}>
         <Text style={styles.typeText}>TIPO</Text>
-        <TextInput
+        <TextInputMask
+          type={'only-numbers'}
           value={typeSelect}
           editable={false}
           style={styles.inputType}
-          placeholder="Selic"
-          placeholderTextColor={'#808080'}
+          placeholder={typeSelect}
+          placeholderTextColor={'#000000'}
         />
         <SelectDropdown
           data={type}

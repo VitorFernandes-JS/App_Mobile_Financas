@@ -16,9 +16,10 @@ export const styles = StyleSheet.create({
         title: {
             color: theme.colors.heading,
             textAlign: 'center',
-            fontSize: 38,
+            fontSize: 40,
             marginBottom:10,
             fontFamily: theme.fonts.title700,
+            fontWeight: 'bold',
             lineHeight: 40,
             marginTop: 85,
         },
@@ -28,11 +29,11 @@ export const styles = StyleSheet.create({
         },
         subtitle: {
             color: theme.colors.heading,
-            fontSize: 20,
+            fontSize: 17,
             fontStyle: 'italic',
             textAlign: 'center',
             marginBottom: 47,
-            fontFamily: theme.fonts.title500,
-            lineHeight: 25,
+            fontFamily: theme.fonts.text500,
+            lineHeight: 24,
         }
 });
