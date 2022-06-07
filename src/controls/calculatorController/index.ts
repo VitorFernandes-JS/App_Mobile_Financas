@@ -5,7 +5,9 @@ interface ICalcularProps {
   feesInput: number;
   yearsOrMounthTime: string;
   yearsOrMounthFees: string;
-  setTotalValue: (arg0: any) => any;
+  setTotalValue: (arg: any) => any;
+  setTotalFees: (arg: any) => any;
+  setTotalValueInvested: (arg: any) => any;
 }
 
 export function Calcular({
@@ -16,28 +18,44 @@ export function Calcular({
   timeInput,
   feesInput,
   setTotalValue,
+  setTotalFees,
+  setTotalValueInvested
 }: ICalcularProps) {
   let i = 1;
   let juros = 0;
   let total = 0;
-  let fees = 0;
-  let time = 0;
+  let fees = feesInput;
+  let time = timeInput;
+  let totalJuros = 0
+
   if (yearsOrMounthTime === "Anos") {
-    time = timeInput * 12
+    time *= 12
   }
   if (yearsOrMounthFees === "Anual") {
-    fees = feesInput / 12
+    fees /= 12.6
   }
   while (i <= time) {
     if (i === 1) {
-      juros = (total + Number(initialValue)) * (fees / 100);
-      i++;
+      juros = Math.round((total + Number(initialValue)) * (fees / 100));
+      totalJuros += juros
       total = total + Number(initialValue) + juros;
+      i++;
+      // console.warn(juros, total)
     } else {
-      juros = (total + Number(valueMonth)) * (fees / 100);
+      juros = Math.round((total + Number(initialValue)) * (fees / 100));
+      totalJuros += juros
       total = total + Number(valueMonth) + juros;
       i++;
+      // console.warn(juros, total)
     }
   }
+
   setTotalValue((total + valueMonth));
+  setTotalFees(totalJuros)
+  setTotalValueInvested((total + valueMonth) - totalJuros)
 }
+
+// 100 + 3
+// 103 + 6
+// 1
+//

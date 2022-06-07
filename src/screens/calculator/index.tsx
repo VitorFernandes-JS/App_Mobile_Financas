@@ -25,18 +25,17 @@ export function Calculator({ route }: ICalculatorProps) {
   const { token } = route.params
 
   const [initialValue, setInitialValue] = useState(0);
-
   const [valueMonth, setValueMonth] = useState(0);
-
   const [timeInput, setTimeInput] = useState(0);
-
   const [feesInput, setFeesInput] = useState(0);
-
   const [totalValue, setTotalValue] = useState(0);
+  const [totalFees, setTotalFees] = useState(0);
+  const [totalValueInvested, setTotalValueInvested] = useState(0)
 
-  const [yearsOrMounthTime, setYearsOrMounthTime] = useState('Anos');
+  const [yearsOrMounthTime, setYearsOrMounthTime] = useState('Meses');
+  const [yearsOrMounthFees, setYearsOrMounthFees] = useState('Mensal');
 
-  const [yearsOrMounthFees, setYearsOrMounthFees] = useState('Anual');
+  
 
   function handleHome() {
     navigation.navigate("Home", { token });
@@ -45,6 +44,7 @@ export function Calculator({ route }: ICalculatorProps) {
   // Opções dos select
   const time = ["Meses", "Anos"];
   const fees = ["Mensal", "Anual"];
+
 
   return (
     <ScrollView>
@@ -101,7 +101,7 @@ export function Calculator({ route }: ICalculatorProps) {
           />
           <SelectDropdown
             data={time}
-            defaultButtonText={"Anos"}
+            defaultButtonText={"Meses"}
             onSelect={selectedItem => setYearsOrMounthTime(selectedItem)}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
@@ -125,7 +125,7 @@ export function Calculator({ route }: ICalculatorProps) {
           />
           <SelectDropdown
             data={fees}
-            defaultButtonText={"Anual"}
+            defaultButtonText={"Mensal"}
             onSelect={selectedItem => setYearsOrMounthFees(selectedItem)}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
@@ -138,7 +138,18 @@ export function Calculator({ route }: ICalculatorProps) {
 
         <TouchableOpacity
           style={styles.buttonCalculate}
-          onPress={() => {Calcular({feesInput, initialValue, setTotalValue, timeInput, valueMonth})}}
+          onPress={() => {Calcular({
+              feesInput, 
+              initialValue, 
+              timeInput, 
+              valueMonth, 
+              yearsOrMounthFees, 
+              yearsOrMounthTime,
+              setTotalFees,
+              setTotalValue, 
+              setTotalValueInvested
+            })
+          }}
         >
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
@@ -147,11 +158,11 @@ export function Calculator({ route }: ICalculatorProps) {
         <Text style={styles.total}>TOTAL:</Text>
 
         <View style={styles.box}>
-          <Text style={styles.textBox}>Total de Juros: R$</Text>
+          <Text style={styles.textBox}>Total de Juros: R${Number(totalFees).toFixed(2)}</Text>
         </View>
 
         <View style={styles.box}>
-          <Text style={styles.textBox}>Valor Investido: R$</Text>
+          <Text style={styles.textBox}>Valor Investido: R${Number(totalValueInvested).toFixed(2)}</Text>
         </View>
 
         <View style={styles.box}>
