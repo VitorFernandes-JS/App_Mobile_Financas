@@ -4,15 +4,9 @@ import { theme } from '../../global/styles/theme';
 
 
 export const styles = StyleSheet.create({
-   imgteste: {
-      width: 100,
-      height: 100,
-
-   },
    container: {
     width: '100%',
     alignItems: 'center',
-    
    },
    header: {
    flexDirection: 'row',
@@ -29,7 +23,7 @@ export const styles = StyleSheet.create({
    buttonCalculator: {
       backgroundColor: '#000000',
       borderRadius: 21,
-      width: 190,
+      width: '50%',
       height: 160,
       display: 'flex',
       alignItems: 'center',

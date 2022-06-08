@@ -38,14 +38,9 @@ export function Avatar( ) {
       },[])
     
     return (
-        <LinearGradient
-        style={styles.container}
-        colors={[ secondary, heading  ]}
-        >
             <Image 
                 source={{ uri: profile.picture }}
                 style={ styles.avatar } 
             />
-        </LinearGradient>
     )
 }

@@ -47,9 +47,9 @@ export function Home({ route }: IHomeProps) {
       </View>
 
       <View>
-        <Text style={styles.title}>ESCOLHA:</Text>
+        <Text style={styles.title}>MENU</Text>
         
-        <ScrollView>
+        <View>
         <TouchableOpacity
           style={styles.buttonCalculator}
           onPress={CalculatorRote}
@@ -65,6 +65,7 @@ export function Home({ route }: IHomeProps) {
           <Entypo style={styles.iconComparator} name="pie-chart" size={63} color="white" />
           <Text style={styles.textButtonComparator}>COMPARADOR</Text>
         </TouchableOpacity>
+        </View>
 
         <TouchableOpacity
           style={styles.buttonComparator}
@@ -97,7 +98,6 @@ export function Home({ route }: IHomeProps) {
           <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="white" />
           <Text style={styles.textButtonComparator}>ÍNDICES</Text>
         </TouchableOpacity>
-        </ScrollView>
       </View>
     </View>
   );
