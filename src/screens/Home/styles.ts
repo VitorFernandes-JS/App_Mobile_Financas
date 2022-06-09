@@ -18,18 +18,21 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 48,
       textAlign: 'center',
-      marginBottom: 20,
+      marginBottom: 15,
+   },
+   viewCalculatorAndComparator: {
+      flexDirection: 'row',
    },
    buttonCalculator: {
       backgroundColor: '#000000',
       borderRadius: 21,
-      width: '50%',
+      width: 170,
       height: 160,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       borderWidth: 3.5,
-      borderColor: '#fff',
+      borderColor: '#80ffbf',
       marginLeft: 5
    },
    iconCalculator: {
@@ -38,23 +41,22 @@ export const styles = StyleSheet.create({
    textButtonCalculator: {
       color: '#fff',
       textAlign: 'center',
-      fontSize: 26,
+      fontSize: 20,
       fontFamily: theme.fonts.title500,
       fontWeight: 'bold',
       marginTop: 10
    },
    buttonComparator: {
-      marginTop: 20,
       backgroundColor: '#000000',
       borderRadius: 21,
-      width: 190,
+      width: 170,
       height: 160,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       borderWidth: 3.5,
-      borderColor: '#fff',
-      marginLeft: 5
+      borderColor: '#4d79ff',
+      marginLeft: 9
    },
    iconComparator: {
       marginTop: -2,
@@ -62,9 +64,67 @@ export const styles = StyleSheet.create({
    textButtonComparator: {
       color: '#fff',
       textAlign: 'center',
-      fontSize: 26,
+      fontSize: 20,
       fontFamily: theme.fonts.title500,
       fontWeight: 'bold',
       marginTop: 10
    }, 
+   viewIndexesAndVideos: {
+      flexDirection: 'row',
+      marginTop: 15,
+   },
+   buttonIndexes: {
+      backgroundColor: '#000000',
+      borderRadius: 21,
+      width: 170,
+      height: 160,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 3.5,
+      borderColor: '#ffff33',
+      marginLeft: 6
+   },
+   buttonVideo: {
+      backgroundColor: '#000000',
+      borderRadius: 21,
+      width: 170,
+      height: 160,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 3.5,
+      borderColor: '#ff4d4d',
+      marginLeft: 8
+   },
+   viewFinancingAndLoan: {
+      flexDirection: 'row',
+      marginTop: 15
+   },
+   buttonSimulator: {
+      backgroundColor: '#000000',
+      borderRadius: 21,
+      width: 170,
+      height: 160,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 3.5,
+      borderColor: '#663300',
+      marginLeft: 7
+   },
+   buttonLoan: {
+      backgroundColor: '#000000',
+      borderRadius: 21,
+      width: 170,
+      height: 160,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: 3.5,
+      borderColor: '#33cc00',
+      marginLeft: 8
+   },
+   
+   
 });

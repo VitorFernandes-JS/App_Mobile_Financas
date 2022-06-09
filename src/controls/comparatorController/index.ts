@@ -48,10 +48,11 @@ export function calcComparator({
 	let totalFeesSavings = 0;
 	let totalFeesCdi = 0;
 
-	let totalIpca = 0;
-	let totalSelic = 0;
-	let totalSavings = 0;
-	let totalCdi = 0;
+
+	let totalIpca = handleWithWhat('sum', 0, +valueMonth, totalFeesIpca)
+	let totalSelic = handleWithWhat('sum', 0, +valueMonth, totalFeesSelic)
+	let totalSavings = handleWithWhat('sum', 0, +valueMonth, totalFeesSavings)
+	let totalCdi = handleWithWhat('sum', 0, +valueMonth, totalFeesCdi)
 
 	let time = timeInput;
 
@@ -61,10 +62,7 @@ export function calcComparator({
 
 	while (i <= time) {
 		if (i === 1) {
-			totalIpca += handleWithWhat('sum', totalIpca, +valueMonth, totalFeesIpca)
-			totalSelic += handleWithWhat('sum', totalSelic, +valueMonth, totalFeesSelic)
-			totalSavings += handleWithWhat('sum', totalSavings, +valueMonth, totalFeesSavings)
-			totalCdi += handleWithWhat('sum', totalCdi, +valueMonth, totalFeesCdi)
+		
 		} else {
 			totalFeesIpca = handleWithWhat('fees', totalIpca, +valueMonth, feesIpca) 
 			totalIpca += handleWithWhat('sum', totalIpca, +valueMonth, totalFeesIpca)

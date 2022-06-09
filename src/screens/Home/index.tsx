@@ -49,12 +49,12 @@ export function Home({ route }: IHomeProps) {
       <View>
         <Text style={styles.title}>MENU</Text>
         
-        <View>
+        <View style={styles.viewCalculatorAndComparator}>
         <TouchableOpacity
           style={styles.buttonCalculator}
           onPress={CalculatorRote}
         >
-          <Ionicons style={styles.iconCalculator} name="ios-calculator-outline" size={63} color="white" />
+          <Ionicons style={styles.iconCalculator} name="ios-calculator-outline" size={63} color="#80ffbf" />
           <Text style={styles.textButtonCalculator}>CALCULADORA</Text>
         </TouchableOpacity>
 
@@ -62,42 +62,46 @@ export function Home({ route }: IHomeProps) {
           style={styles.buttonComparator}
           onPress={ComparatorRote}
         >
-          <Entypo style={styles.iconComparator} name="pie-chart" size={63} color="white" />
+          <Entypo style={styles.iconComparator} name="pie-chart" size={63} color="#4d79ff" />
           <Text style={styles.textButtonComparator}>COMPARADOR</Text>
         </TouchableOpacity>
         </View>
 
+        <View style={styles.viewIndexesAndVideos}>
         <TouchableOpacity
-          style={styles.buttonComparator}
+          style={styles.buttonIndexes}
           onPress={IndexesRote}
         >
-          <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="white" />
+          <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="#ffff33" />
           <Text style={styles.textButtonComparator}>ÍNDICES</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.buttonComparator}
+          style={styles.buttonVideo}
           onPress={IndexesRote}
         >
-          <AntDesign style={styles.iconComparator} name="youtube" size={63} color="white" />
+          <AntDesign style={styles.iconComparator} name="youtube" size={63} color="#ff4d4d" />
           <Text style={styles.textButtonComparator}>VÍDEOS</Text>
         </TouchableOpacity>
+        </View>
 
+        <View style={styles.viewFinancingAndLoan}>
         <TouchableOpacity
-          style={styles.buttonComparator}
+          style={styles.buttonSimulator}
           onPress={IndexesRote}
         >
-          <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="white" />
-          <Text style={styles.textButtonComparator}>ÍNDICES</Text>
+          <AntDesign style={styles.iconComparator} name="home" size={63} color="#663300" />
+          <Text style={styles.textButtonComparator}>FINANCIAMENTO</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.buttonComparator}
+          style={styles.buttonLoan}
           onPress={IndexesRote}
         >
-          <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="white" />
-          <Text style={styles.textButtonComparator}>ÍNDICES</Text>
+          <Entypo style={styles.iconComparator} name="credit" size={63} color="#33cc00" />
+          <Text style={styles.textButtonComparator}>EMPRÉSTIMO</Text>
         </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
