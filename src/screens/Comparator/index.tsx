@@ -27,16 +27,16 @@ interface IComparatorProps {
 interface IAxiosGet {
   id: string;
   resultados: [
-      {
-        series: [
-          {
-            serie: {
-              202204: string;
-            }
-          }
-        ]
-      }
-    ]
+    {
+      series: [
+        {
+          serie: {
+            202204: string;
+          };
+        }
+      ];
+    }
+  ];
 }
 
 export function Comparator({ route }: IComparatorProps) {
@@ -50,12 +50,12 @@ export function Comparator({ route }: IComparatorProps) {
 
   const [valueMonth, setValueMonth] = useState("");
   const [typeSelect, setTypeSelect] = useState("Selic");
-  const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Anos")
+  const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Anos");
 
-  const [valueTotalIpca, setValueTotalIpca] = useState(0)
-  const [valueTotalSelic, setValueTotalSelic] = useState(0)
-  const [valueTotalSavings, setValueTotalSavings] = useState(0)
-  const [valueTotalCdi, setValueTotalCdi] = useState(0)
+  const [valueTotalIpca, setValueTotalIpca] = useState(0);
+  const [valueTotalSelic, setValueTotalSelic] = useState(0);
+  const [valueTotalSavings, setValueTotalSavings] = useState(0);
+  const [valueTotalCdi, setValueTotalCdi] = useState(0);
 
   function handleHome() {
     navigation.navigate("Home", { token });
@@ -74,7 +74,9 @@ export function Comparator({ route }: IComparatorProps) {
       .get<IAxiosGet[]>(
         "https://servicodados.ibge.gov.br/api/v3/agregados/7060/periodos/202001%7C202204/variaveis/69?localidades=N1[all]&classificacao=315[7169]"
       )
-      .then((response) => setIpcaRate(+response.data[0].resultados[0].series[0].serie[202204]));
+      .then((response) =>
+        setIpcaRate(+response.data[0].resultados[0].series[0].serie[202204])
+      );
   }, []);
 
   const latestSelicRate = selicRate[selicRate.length - 1];
@@ -98,10 +100,10 @@ export function Comparator({ route }: IComparatorProps) {
             MENSAL
           </Text>
           <TextInput
-            keyboardType= 'numeric'
+            keyboardType="numbers-and-punctuation"
             value={valueMonth}
             onChangeText={(text) => {
-            setValueMonth(text);
+              setValueMonth(text);
             }}
             style={styles.inputInitialValue}
             placeholder="R$00,00"
@@ -112,7 +114,7 @@ export function Comparator({ route }: IComparatorProps) {
         <View style={styles.viewInitialValue}>
           <Text style={styles.timeText}>TEMPO</Text>
           <TextInput
-            keyboardType="numeric"
+            keyboardType="numbers-and-punctuation"
             onChangeText={(text) => {
               setTimeInput(Number(text));
             }}
@@ -124,7 +126,7 @@ export function Comparator({ route }: IComparatorProps) {
             data={time}
             defaultButtonText={"Anos"}
             onSelect={(selectedItem) => {
-              setYearsOrMounthTime(selectedItem)
+              setYearsOrMounthTime(selectedItem);
             }}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
@@ -147,7 +149,6 @@ export function Comparator({ route }: IComparatorProps) {
             data={type}
             defaultButtonText={"Selic"}
             onSelect={(selectedItem, index) => {
-              console.log(selectedItem, index);
               setTypeSelect(selectedItem);
             }}
             buttonTextAfterSelection={(selectedItem, index) => {
@@ -159,19 +160,20 @@ export function Comparator({ route }: IComparatorProps) {
           />
         </View>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.buttonCalculate}
-          onPress={() => calcComparator({
-            ipcaRate,
-            selicRate: +latestSelicRate.valor,
-            timeInput,
-            valueMonth,
-            yearsOrMounthTime,
-            setValueTotalCdi,
-            setValueTotalIpca,
-            setValueTotalSavings,
-            setValueTotalSelic,
-           })
+          onPress={() =>
+            calcComparator({
+              ipcaRate,
+              selicRate: +latestSelicRate.valor,
+              timeInput,
+              valueMonth,
+              yearsOrMounthTime,
+              setValueTotalCdi,
+              setValueTotalIpca,
+              setValueTotalSavings,
+              setValueTotalSelic,
+            })
           }
         >
           <Text style={styles.textCalculate}>CALCULAR</Text>
@@ -187,7 +189,9 @@ export function Comparator({ route }: IComparatorProps) {
             tempo e os aportes mensais, renderia isso:
           </Text>
           <View style={styles.box1}>
-            <Text style={styles.textBox}>Valor Total: R$ {Number(valueTotalSelic).toFixed(2)}</Text>
+            <Text style={styles.textBox}>
+              Valor Total: R$ {Number(valueTotalSelic).toFixed(2)}
+            </Text>
           </View>
         </View>
 
@@ -197,7 +201,9 @@ export function Comparator({ route }: IComparatorProps) {
             tempo e os aportes mensais, renderia isso:
           </Text>
           <View style={styles.box2}>
-            <Text style={styles.textBox}>Valor Total: R$ {Number(valueTotalIpca).toFixed(2)}</Text>
+            <Text style={styles.textBox}>
+              Valor Total: R$ {Number(valueTotalIpca).toFixed(2)}
+            </Text>
           </View>
         </View>
 
@@ -207,7 +213,9 @@ export function Comparator({ route }: IComparatorProps) {
             tempo e os aportes mensais, renderia isso:
           </Text>
           <View style={styles.box3}>
-            <Text style={styles.textBox}>Valor Total: R$ {Number(valueTotalCdi).toFixed(2)}</Text>
+            <Text style={styles.textBox}>
+              Valor Total: R$ {Number(valueTotalCdi).toFixed(2)}
+            </Text>
           </View>
         </View>
 
@@ -217,7 +225,9 @@ export function Comparator({ route }: IComparatorProps) {
             tempo e os aportes mensais, renderia isso:
           </Text>
           <View style={styles.box4}>
-            <Text style={styles.textBox}>Valor Total: R$ {Number(valueTotalSavings).toFixed(2)}</Text>
+            <Text style={styles.textBox}>
+              Valor Total: R$ {Number(valueTotalSavings).toFixed(2)}
+            </Text>
           </View>
         </View>
       </View>

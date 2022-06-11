@@ -104,7 +104,8 @@ export const styles = StyleSheet.create({
     marginTop: 10
    },
    boxAndText: {
-    margin: 4
+    margin: 4,
+    alignItems: 'center',
    },
    textTopBox: {
     fontFamily: theme.fonts.text500,
