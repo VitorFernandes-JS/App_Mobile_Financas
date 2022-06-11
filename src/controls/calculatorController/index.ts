@@ -10,6 +10,11 @@ interface ICalcularParams {
   setTotalValueInvested: (arg: any) => any;
 }
 
+function calculateInterest(total: number, rate: number) {
+  var interest = rate/100+1;
+  return parseFloat((total * interest).toFixed(4));
+}
+
 export function Calcular({
   yearsOrMounthTime,
   yearsOrMounthFees,
@@ -26,7 +31,6 @@ export function Calcular({
   let total = 0;
   let fees = feesInput;
   let time = timeInput;
-  let totalJuros = 0
 
   if (yearsOrMounthTime === "Anos") {
     time *= 12
@@ -38,22 +42,19 @@ export function Calcular({
 
   while (i <= time) {
     if (i === 1) {
-      juros = (total + Number(initialValue)) * (fees / 100);
-      totalJuros += juros
-      total = total + Number(initialValue) + juros;
-      console.log(total, juros)
+      juros = calculateInterest(Number(initialValue), fees) - Number(initialValue)
+      total = calculateInterest(Number(initialValue), fees)
       i++;
+      
       // console.warn(juros, total)
     } else {
-      juros = (total + Number(initialValue)) * (fees / 100);
-      totalJuros += juros
-      total = total + Number(valueMonth) + juros;
-      console.log(total, juros)
+      juros = calculateInterest(Number(valueMonth), fees) - Number(valueMonth)
+      total = calculateInterest(total + Number(valueMonth), fees)
       i++;
       // console.warn(juros, total)
     }
   }
-  setTotalValue((total + valueMonth));
-  setTotalFees(totalJuros)
-  setTotalValueInvested((total + valueMonth) - totalJuros)
+  setTotalValue(total + valueMonth);
+  setTotalFees((total + valueMonth) - ((valueMonth * time) + initialValue))
+  setTotalValueInvested((valueMonth * time) + initialValue)
 }

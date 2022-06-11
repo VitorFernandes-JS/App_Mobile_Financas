@@ -48,7 +48,6 @@ export function calcComparator({
 	let totalFeesSavings = 0;
 	let totalFeesCdi = 0;
 
-
 	let totalIpca = handleWithWhat('sum', 0, +valueMonth, totalFeesIpca)
 	let totalSelic = handleWithWhat('sum', 0, +valueMonth, totalFeesSelic)
 	let totalSavings = handleWithWhat('sum', 0, +valueMonth, totalFeesSavings)
@@ -60,23 +59,18 @@ export function calcComparator({
 		time *= 12
 	}
 
-	while (i <= time) {
-		if (i === 1) {
-		
-		} else {
-			totalFeesIpca = handleWithWhat('fees', totalIpca, +valueMonth, feesIpca) 
-			totalIpca += handleWithWhat('sum', totalIpca, +valueMonth, totalFeesIpca)
+	while (i < time) {
+		totalFeesIpca = handleWithWhat('fees', totalIpca, +valueMonth, feesIpca) 
+		totalIpca += handleWithWhat('sum', totalIpca, +valueMonth, totalFeesIpca)
 
-			totalFeesSelic = handleWithWhat('fees', totalSelic, +valueMonth, feesSelic)
-			totalSelic += handleWithWhat('sum', totalSelic, +valueMonth, totalFeesSelic) 
+		totalFeesSelic = handleWithWhat('fees', totalSelic, +valueMonth, feesSelic)
+		totalSelic += handleWithWhat('sum', totalSelic, +valueMonth, totalFeesSelic) 
 
-			totalFeesSavings = handleWithWhat('fees', totalSavings, +valueMonth, feesSavings)
-			totalSavings += handleWithWhat('sum', totalSavings, +valueMonth, totalFeesSavings)
+		totalFeesSavings = handleWithWhat('fees', totalSavings, +valueMonth, feesSavings)
+		totalSavings += handleWithWhat('sum', totalSavings, +valueMonth, totalFeesSavings)
 
-			totalFeesCdi = handleWithWhat('fees', totalCdi, +valueMonth, feesCdi)
-			totalCdi += handleWithWhat('sum', totalCdi, +valueMonth, totalFeesCdi)
-		}
-
+		totalFeesCdi = handleWithWhat('fees', totalCdi, +valueMonth, feesCdi)
+		totalCdi += handleWithWhat('sum', totalCdi, +valueMonth, totalFeesCdi)
 		i++;
 	}
 	setValueTotalIpca(totalIpca)
