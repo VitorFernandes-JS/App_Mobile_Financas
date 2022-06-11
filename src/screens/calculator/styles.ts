@@ -105,24 +105,31 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10
    },
-   box: {
+   box1: {
     height:35,
     width: 300,
-    backgroundColor: '#fff',
+    backgroundColor: '#ff8080',
     borderRadius: 8,
     margin: 7
    },
-   textBox1: {
-    padding: 8.5,
-    color: '#ff0035'
+   box2: {
+    height:35,
+    width: 300,
+    backgroundColor: '#6666ff',
+    borderRadius: 8,
+    margin: 7
    },
-   textBox2: {
-    padding: 8.5,
-    color: '#000086'
+   box3: {
+    height:35,
+    width: 300,
+    backgroundColor: '#99ff99',
+    borderRadius: 8,
+    margin: 7
    },
-   textBox3: {
+   textBox: {
     padding: 8.5,
-    color: 'green'
+    color: '#000'
    },
+  
   
 });

@@ -110,15 +110,15 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text500,
     marginHorizontal: 7
    },
+   textBox: {
+    padding: 8.5,
+   },
    box1: {
     height:35,
     width: 300,
     backgroundColor: '#99ff99',
     borderRadius: 8,
     margin: 7
-   },
-   textBox: {
-    padding: 8.5,
    },
    box2: {
     height:35,

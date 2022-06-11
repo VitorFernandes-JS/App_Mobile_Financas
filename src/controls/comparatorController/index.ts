@@ -13,6 +13,11 @@ interface IComparatorParams {
 
 type IHandleWithWhat = 'fees' | 'sum'
 
+function calculateInterest(total: number, rate: number) {
+	var interest = rate/100+1;
+	return parseFloat((total * interest).toFixed(4));
+}
+
 function handleWithWhat(
 		word: IHandleWithWhat, 
 		totalValue: number, 
@@ -37,7 +42,6 @@ export function calcComparator({
 	setValueTotalCdi
  }: IComparatorParams) {
 	let i = 1;
-
 	let feesIpca = ipcaRate / 12;
 	let feesSelic = selicRate * 22;
 	let feesSavings = 0.5;
@@ -48,10 +52,10 @@ export function calcComparator({
 	let totalFeesSavings = 0;
 	let totalFeesCdi = 0;
 
-	let totalIpca = handleWithWhat('sum', 0, +valueMonth, totalFeesIpca)
-	let totalSelic = handleWithWhat('sum', 0, +valueMonth, totalFeesSelic)
-	let totalSavings = handleWithWhat('sum', 0, +valueMonth, totalFeesSavings)
-	let totalCdi = handleWithWhat('sum', 0, +valueMonth, totalFeesCdi)
+	let totalIpca = +valueMonth
+	let totalSelic = +valueMonth 
+	let totalSavings = +valueMonth
+	let totalCdi = +valueMonth 
 
 	let time = timeInput;
 
@@ -60,19 +64,26 @@ export function calcComparator({
 	}
 
 	while (i < time) {
+		
 		totalFeesIpca = handleWithWhat('fees', totalIpca, +valueMonth, feesIpca) 
 		totalIpca += handleWithWhat('sum', totalIpca, +valueMonth, totalFeesIpca)
+		// totalIpca = calculateInterest(totalIpca + Number(valueMonth), feesIpca)
 
 		totalFeesSelic = handleWithWhat('fees', totalSelic, +valueMonth, feesSelic)
 		totalSelic += handleWithWhat('sum', totalSelic, +valueMonth, totalFeesSelic) 
+		// totalSelic = calculateInterest(totalSelic + Number(valueMonth), 1.0625)
 
 		totalFeesSavings = handleWithWhat('fees', totalSavings, +valueMonth, feesSavings)
 		totalSavings += handleWithWhat('sum', totalSavings, +valueMonth, totalFeesSavings)
+		// totalSavings = calculateInterest(totalSavings + Number(valueMonth), feesSavings)
 
 		totalFeesCdi = handleWithWhat('fees', totalCdi, +valueMonth, feesCdi)
 		totalCdi += handleWithWhat('sum', totalCdi, +valueMonth, totalFeesCdi)
+		// totalCdi = calculateInterest(totalCdi + Number(valueMonth), feesCdi)
+
 		i++;
 	}
+
 	setValueTotalIpca(totalIpca)
 	setValueTotalSelic(totalSelic)
 	setValueTotalSavings(totalSavings)

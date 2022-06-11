@@ -62,9 +62,9 @@ export function Calculator({ route }: ICalculatorProps) {
             INICIAL
           </Text>
           <TextInput
-            keyboardType={"numeric"}
+            keyboardType={'numbers-and-punctuation'}
             onChangeText={(text) => {
-              setInitialValue(Number(text));
+            setInitialValue(Number(text));
             }}
             style={styles.inputInitialValue}
             placeholder="R$00,00"
@@ -78,9 +78,9 @@ export function Calculator({ route }: ICalculatorProps) {
             MENSAL
           </Text>
           <TextInput
-            keyboardType={"numeric"}
+            keyboardType={'numbers-and-punctuation'}
             onChangeText={(text) => {
-              setValueMonth(Number(text));
+            setValueMonth(Number(text));
             }}
             style={styles.inputInitialValue}
             placeholder="R$00,00"
@@ -91,9 +91,9 @@ export function Calculator({ route }: ICalculatorProps) {
         <View style={styles.viewInitialValue}>
           <Text style={styles.timeText}>TEMPO</Text>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={'numbers-and-punctuation'}
             onChangeText={(text) => {
-              setTimeInput(Number(text));
+            setTimeInput(Number(text));
             }}
             style={styles.inputTime}
             placeholder="1"
@@ -115,7 +115,7 @@ export function Calculator({ route }: ICalculatorProps) {
         <View style={styles.viewInitialValue}>
           <Text style={styles.feesText}>JUROS</Text>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={'numbers-and-punctuation'}
             onChangeText={(text) => {
             setFeesInput(Number(text));
             }}
@@ -157,16 +157,16 @@ export function Calculator({ route }: ICalculatorProps) {
         <View style={styles.line}></View>
         <Text style={styles.total}>TOTAL:</Text>
 
-        <View style={styles.box}>
-          <Text style={styles.textBox1}>Total de Juros: R${Number(totalFees).toFixed(2)}</Text>
+        <View style={styles.box1}>
+          <Text style={styles.textBox}>Total de Juros: R${Number(totalFees).toFixed(2)}</Text>
         </View>
 
-        <View style={styles.box}>
-          <Text style={styles.textBox2}>Valor Investido: R${Number(totalValueInvested).toFixed(2)}</Text>
+        <View style={styles.box2}>
+          <Text style={styles.textBox}>Valor Investido: R${Number(totalValueInvested).toFixed(2)}</Text>
         </View>
 
-        <View style={styles.box}>
-          <Text style={styles.textBox3}>
+        <View style={styles.box3}>
+          <Text style={styles.textBox}>
             Valor Total: R${Number(totalValue).toFixed(2)}
           </Text>
         </View>
