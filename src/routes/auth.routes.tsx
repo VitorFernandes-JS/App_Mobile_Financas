@@ -40,6 +40,7 @@ export function AuthRoutes() {
                 name="Indexes"
                 component={Indexes}
             />
+            
         </Navigator>
     )
 }

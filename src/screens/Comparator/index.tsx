@@ -62,7 +62,11 @@ export function Comparator({ route }: IComparatorProps) {
   }
 
   useEffect(() => {
+    // fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados/ultimos/10?formato=json')
+    //   .then(response => response.json())
+    //   .then(data => data)
     //API SELIC
+
     axios
       .get(
         "https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados/ultimos/10?formato=json"

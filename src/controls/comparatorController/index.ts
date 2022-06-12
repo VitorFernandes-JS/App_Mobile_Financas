@@ -1,4 +1,3 @@
-
 interface IComparatorParams {
 	timeInput: number;
 	ipcaRate: number;
@@ -11,23 +10,9 @@ interface IComparatorParams {
 	setValueTotalCdi: (arg: any) => any;
 }
 
-type IHandleWithWhat = 'fees' | 'sum'
-
 function calculateInterest(total: number, rate: number) {
 	var interest = rate/100+1;
 	return parseFloat((total * interest).toFixed(4));
-}
-
-function handleWithWhat(
-		word: IHandleWithWhat, 
-		totalValue: number, 
-		valueMonth: number, 
-		feesOrTotalFees: number
-	): number {
-	if(word === 'fees') {
-		return totalValue * (feesOrTotalFees / 100)
-	}
-	return valueMonth + feesOrTotalFees
 }
 
 export function calcComparator({ 
@@ -42,20 +27,15 @@ export function calcComparator({
 	setValueTotalCdi
  }: IComparatorParams) {
 	let i = 1;
-	let feesIpca = ipcaRate / 12;
-	let feesSelic = selicRate * 22;
+	let feesIpca = ipcaRate / 12; // transformando juros IPCA p/mês
+	let feesSelic = selicRate * 22; // transformando juros SELIC p/mês
 	let feesSavings = 0.5;
-	let feesCdi = (selicRate - (selicRate * 0.01)) * 22; 
-
-	let totalFeesIpca = 0;
-	let totalFeesSelic = 0;
-	let totalFeesSavings = 0;
-	let totalFeesCdi = 0;
+	let feesCdi = (selicRate - (selicRate * 0.01)) * 22; // CDI = -1/10 da SELIC
 
 	let totalIpca = +valueMonth
 	let totalSelic = +valueMonth 
 	let totalSavings = +valueMonth
-	let totalCdi = +valueMonth 
+	let totalCdi = +valueMonth
 
 	let time = timeInput;
 
@@ -64,23 +44,19 @@ export function calcComparator({
 	}
 
 	while (i < time) {
-		
-		totalFeesIpca = handleWithWhat('fees', totalIpca, +valueMonth, feesIpca) 
-		totalIpca += handleWithWhat('sum', totalIpca, +valueMonth, totalFeesIpca)
-		// totalIpca = calculateInterest(totalIpca + Number(valueMonth), feesIpca)
+		// console.log(`--------------------------------- ${i + 1} MÊS ---------------------------------`)
+		totalIpca = calculateInterest(totalIpca, feesIpca) + Number(valueMonth)
+		totalSelic = calculateInterest(totalSelic, feesSelic) + Number(valueMonth)
+		totalSavings = calculateInterest(totalSavings, feesSavings) + Number(valueMonth)
+		totalCdi = calculateInterest(totalCdi, feesCdi) + Number(valueMonth)
 
-		totalFeesSelic = handleWithWhat('fees', totalSelic, +valueMonth, feesSelic)
-		totalSelic += handleWithWhat('sum', totalSelic, +valueMonth, totalFeesSelic) 
-		// totalSelic = calculateInterest(totalSelic + Number(valueMonth), 1.0625)
-
-		totalFeesSavings = handleWithWhat('fees', totalSavings, +valueMonth, feesSavings)
-		totalSavings += handleWithWhat('sum', totalSavings, +valueMonth, totalFeesSavings)
-		// totalSavings = calculateInterest(totalSavings + Number(valueMonth), feesSavings)
-
-		totalFeesCdi = handleWithWhat('fees', totalCdi, +valueMonth, feesCdi)
-		totalCdi += handleWithWhat('sum', totalCdi, +valueMonth, totalFeesCdi)
-		// totalCdi = calculateInterest(totalCdi + Number(valueMonth), feesCdi)
-
+		// console.log
+		// (`
+		// 	SELIC: ${totalSelic}
+		// 	IPCA: ${totalIpca}
+		// 	CDI: ${totalCdi}
+		// 	POUPANÇA: ${totalSavings}
+		// `)
 		i++;
 	}
 
