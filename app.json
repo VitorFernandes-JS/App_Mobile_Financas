@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "mobile",
+    "name": "BestFinance",
     "slug": "mobile",
     "scheme": "mobile",
     "version": "1.0.0",
@@ -9,7 +9,13 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffff"
+      "backgroundColor": "#ffff",
+      "platforms": [
+        "ios",
+        "android"
+      ] 
+
+      
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -18,9 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bestFinance.mobile"
     },
     "android": {
+      "package": "com.bestFinance.mobile",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
