@@ -100,14 +100,6 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     margin: 2,
   },
-  pointBlue: {
-    width: 16,
-    height: 16,
-    backgroundColor: 'blue',
-    borderRadius: 10,
-    left: 55,
-    marginVertical: -12,
-  },
   pointBlue1: {
     width: 16,
     height: 16,

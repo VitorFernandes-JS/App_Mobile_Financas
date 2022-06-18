@@ -45,7 +45,7 @@ export function Indexes({ route }: IIndexesProps) {
     navigation.navigate("Home", { token });
   }
 
-  const [ipcaRate, setIpcaRate] = useState<IAxiosGet[]>([]);
+  const [ipcaRate, setIpcaRate] = useState('');
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
   //API SELIC
   useEffect(() => {
@@ -70,7 +70,7 @@ export function Indexes({ route }: IIndexesProps) {
     return <AppLoading />;
   }
 
-  if (ipcaRate.length <= 0) {
+  if (ipcaRate === '') {
     return <AppLoading />;
   }
 
@@ -86,6 +86,7 @@ export function Indexes({ route }: IIndexesProps) {
           colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
           style={styles.showSelic}
         >
+          
           <View>
             <Text style={styles.titleSelic}>TAXA SELIC</Text>
             <Text style={styles.textSelic}>
@@ -150,15 +151,10 @@ export function Indexes({ route }: IIndexesProps) {
           </View>
         </LinearGradient>
       </View>
-        <TouchableOpacity>
-        <View style={styles.pointBlue}></View>
-        </TouchableOpacity>
         
-
-        <View style={styles.pointBlue1}></View>
-
-        <View style={styles.pointBlue2}></View>
-
+        
+        <Modal1/>
+        
     </View>
   );
 }
