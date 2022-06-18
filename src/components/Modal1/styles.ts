@@ -8,30 +8,37 @@ interface IViewButtonProps {
 export const styles = StyleSheet.create({
     viewModal: {
         width: 150,
-        height: 150,
+        height: 140,
         backgroundColor: '#fff',
         justifyContent: 'center',
         textAlign: 'center',
         borderRadius: 20,
-        marginTop: 300,
+        top: 300,
         left: 115,
         margin: 20,
         shadowColor: '#1a1a1a',
         shadowOpacity: 0.4,
         shadowRadius: 10
     },
+    interrogation: {
+        color: 'white',
+        left: 4,
+        top: -0.8,
+        fontSize: 11
+    },
     modalText: {
         fontSize: 20,
         textAlign: 'center',
-        top: -5
+        top: -2
     },
     modalSubtitle: {
         fontSize: 13,
         textAlign: 'center',
-        top: -1
+        top: 8.5
     },
     closeModalIcon: {
-        left: 62
+        left: 62,
+        top: -8
     }
 });
 

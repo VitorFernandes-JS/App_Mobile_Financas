@@ -17,10 +17,11 @@ export function Modal1() {
                 <View style={styles.viewModal}>
                 <Text style={styles.modalText}>Informações</Text>
                 <Text style={styles.modalSubtitle}>
-                    Este ícone em azul {`\n`}
-                    significa que o ín-{`\n`}
-                    dice é sobre Renda{`\n`}
-                    Fixa.
+                    Este ícone  <Text/>
+                    <View style={viewButtonStyles({ left: 55, top: -10 }).viewButton}></View>
+                    <Text style={styles.modalSubtitle}>  signifi- {`\n`}
+                    ca que o índice é sobre{`\n`}</Text>
+                    o assunto Renda Fixa.{`\n`}
                 </Text>
                 <TouchableOpacity
                 onPress={() => {
@@ -45,7 +46,7 @@ export function Modal1() {
                     setVisible(true);
                 }}
             >
-                <Text></Text>
+                <Text style={styles.interrogation}>?</Text>
             </TouchableOpacity>
             </View>
 
@@ -55,7 +56,7 @@ export function Modal1() {
                     setVisible(true);
                 }}
             >
-                <Text></Text>
+                <Text style={styles.interrogation}>?</Text>
             </TouchableOpacity>
             </View>
 
@@ -65,7 +66,7 @@ export function Modal1() {
                     setVisible(true);
                 }}
             >
-                <Text></Text>
+                <Text style={styles.interrogation}>?</Text>
             </TouchableOpacity>
             </View>
         </View>
