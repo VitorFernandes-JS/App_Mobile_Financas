@@ -90,6 +90,18 @@ export function Indexes({ route }: IIndexesProps) {
         <Text style={styles.textSelic2}>Anual: {(+latestSelicRate.valor * 254).toFixed(2)}</Text>
         </View>
         </LinearGradient>
+
+        <LinearGradient
+        colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+        style={styles.showSelic}
+        >
+        <View>
+        <Text style={styles.titleSelic}>IPCA</Text>
+        <Text style={styles.textSelic}>Diário: {(+ipcaRate / 254).toFixed(2)}</Text>
+        <Text style={styles.textSelic1}>Mensal: {(+ipcaRate / 12).toFixed(2)}</Text>
+        <Text style={styles.textSelic2}>Anual: {(+ipcaRate).toFixed(2)}</Text>
+        </View>
+        </LinearGradient>
     </View>
 
   )
