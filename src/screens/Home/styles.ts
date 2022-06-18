@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 48,
       textAlign: 'center',
-      marginBottom: 15,
+      marginBottom: 28,
    },
    viewCalculatorAndComparator: {
       flexDirection: 'row',
