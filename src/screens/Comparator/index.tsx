@@ -94,7 +94,7 @@ export function Comparator({ route }: IComparatorProps) {
           <Avatar />
           <BackButton onPress={handleHome} />
         </View>
-        <Text style={styles.title}>COMPARADOR</Text>
+        <Text style={styles.title}>Comparador</Text>
 
         <View style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>

@@ -54,7 +54,7 @@ export function Calculator({ route }: ICalculatorProps) {
           <BackButton onPress={handleHome} />
         </View>
 
-        <Text style={styles.title}>CALCULADORA</Text>
+        <Text style={styles.title}>Calculadora</Text>
 
         <View style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>
