@@ -15,7 +15,10 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         marginTop: 300,
         left: 115,
-        margin: 20
+        margin: 20,
+        shadowColor: '#1a1a1a',
+        shadowOpacity: 0.4,
+        shadowRadius: 10
     },
     modalText: {
         fontSize: 20,
@@ -27,6 +30,9 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         top: -1
     },
+    closeModalIcon: {
+        left: 62
+    }
 });
 
 export const viewButtonStyles = ({ top, left }: IViewButtonProps) => StyleSheet.create({

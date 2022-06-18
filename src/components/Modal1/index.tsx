@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { View, Text, Modal, Button, TouchableOpacity} from 'react-native';
 import { styles, viewButtonStyles } from './styles'
+import { AntDesign } from '@expo/vector-icons';
 
 export function Modal1() {
     const [visible, setVisible] = useState(false)
@@ -21,12 +22,22 @@ export function Modal1() {
                     dice é sobre Renda{`\n`}
                     Fixa.
                 </Text>
-                <Button
-                    title="X"
-                    onPress={() =>{setVisible(false)}}
+                <TouchableOpacity
+                onPress={() => {
+                    setVisible(false);
+                }}
+            >
+                <Text></Text>
+                <AntDesign
+                 name="closecircleo"
+                 color='red'
+                 size={25}
+                 style={styles.closeModalIcon}
                 />
+            </TouchableOpacity>
                 </View>
             </Modal>
+            
 
             <View style={viewButtonStyles({ left: 55, top: -10 }).viewButton}>
             <TouchableOpacity
