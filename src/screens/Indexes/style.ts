@@ -108,41 +108,20 @@ export const styles = StyleSheet.create({
     left: 55,
     marginVertical: -12,
   },
-  textFixe: {
-    textAlign: 'center',
-    fontSize: 13,
-    left: 55,
-    marginVertical: -3.7,
-    color: '#fff',
-  },
   pointBlue1: {
     width: 16,
     height: 16,
     backgroundColor: 'blue',
     borderRadius: 10,
-    left: 177,
+    left: 178.9,
     marginVertical: -12,
-  },
-  textFixe1: {
-    textAlign: 'center',
-    fontSize: 13,
-    left: 177,
-    marginVertical: -3.7,
-    color: '#fff'
   },
   pointBlue2: {
     width: 16,
     height: 16,
     backgroundColor: 'blue',
     borderRadius: 10,
-    left: -72,
-    marginVertical: -12,
-  },
-  textFixe2: {
-    textAlign: 'center',
-    fontSize: 13,
-    left: -72,
-    marginVertical: -3.7,
-    color: '#fff'
+    left: -69.5,
+    marginVertical: -4.4,
   },
 });

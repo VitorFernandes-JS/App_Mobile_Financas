@@ -1,11 +1,12 @@
 import React, { ReactNode, useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./style";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import { theme } from "../../global/styles/theme";
+import { Modal1 } from "../../components/Modal1";
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
 import AppLoading from "expo-app-loading";
@@ -149,15 +150,14 @@ export function Indexes({ route }: IIndexesProps) {
           </View>
         </LinearGradient>
       </View>
-
+        <TouchableOpacity>
         <View style={styles.pointBlue}></View>
-        <Text style={styles.textFixe}>F</Text>
+        </TouchableOpacity>
+        
 
         <View style={styles.pointBlue1}></View>
-        <Text style={styles.textFixe1}>F</Text>
 
         <View style={styles.pointBlue2}></View>
-        <Text style={styles.textFixe2}>F</Text>
 
     </View>
   );
