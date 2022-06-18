@@ -59,10 +59,6 @@ export function Indexes({ route }: IIndexesProps) {
         <Text style={styles.textSelic}>{latestSelicRate.valor}</Text>
         </View>
         </LinearGradient>
-        {/* input VALOR INICIAL*/}
-        {/* input TEMPO [ANO/MES]*/}
-        {/* input VALOR MENSAL*/}
-        {/* input */}
     </View>
 
   )

@@ -1,5 +1,4 @@
 import  { StyleSheet } from 'react-native';
-import { getStatusBarHeight} from 'react-native-iphone-x-helper';
 import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
@@ -23,9 +22,11 @@ export const styles = StyleSheet.create({
    showSelic:{
        width: 250,
        height: 100,
-       borderRadius: 20
+       borderRadius: 20,
+       opacity: 0.87
    },
    textSelic: {
-       lineHeight: 60
+       lineHeight: 60,
+       textAlign: 'center'
    }
 });
