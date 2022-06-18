@@ -101,10 +101,9 @@ export function Indexes({ route }: IIndexesProps) {
         <Text style={styles.textIpca}>Diário: {(+ipcaRate / 254).toFixed(2)}%</Text>
         <Text style={styles.textIpca1}>Mensal: {(+ipcaRate / 12).toFixed(2)}%</Text>
         <Text style={styles.textIpca2}>Anual: {(+ipcaRate).toFixed(2)}%</Text>
-        <Text style={styles.textFixe}>F</Text>
         </View>
         </LinearGradient>
-
+        
         <LinearGradient
         colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
         style={styles.showCdi}
@@ -118,6 +117,10 @@ export function Indexes({ route }: IIndexesProps) {
         </LinearGradient>
 
       </View>
+      <View style={styles.pointBlueAndF}>
+        <View style={styles.pointBlue}></View>
+        <Text style={styles.textFixe}>F</Text>
+        </View>
     </View>
 
   )

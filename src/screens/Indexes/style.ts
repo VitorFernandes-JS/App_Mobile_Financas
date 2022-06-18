@@ -100,10 +100,23 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     margin: 2,
   },
+  pointBlueAndF: {
+    width: '100%',
+    height: '100%'
+  },
+  pointBlue: {
+    width: 16,
+    height: 16,
+    backgroundColor: 'blue',
+    borderRadius: 10,
+    left: 254,
+    marginVertical: -12,
+  },
   textFixe: {
     textAlign: 'center',
-    fontSize: 10,
-    left: 45,
-    marginVertical: -10
+    fontSize: 13,
+    left: 55,
+    marginVertical: -3.7,
+    color: '#fff'
   },
 });
