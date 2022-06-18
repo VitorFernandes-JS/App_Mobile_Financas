@@ -14,6 +14,20 @@ interface ISelicRate {
   valor: String;
 }
 
+interface IAxiosGet {
+  id: string;
+  resultados: [
+    {
+      series: [
+        {
+          serie: {
+            202204: string;
+          };
+        }
+      ];
+    }
+  ];
+}
 interface IIndexesProps {
   route: any;
   children: ReactNode
@@ -30,16 +44,30 @@ export function Indexes({ route }: IIndexesProps) {
    navigation.navigate('Home', { token })
   }
 
+  const [ipcaRate, setIpcaRate] = useState<IAxiosGet[]>([])
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([])
-
+  //API SELIC
   useEffect(() => {
       axios.get('https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados/ultimos/10?formato=json')
           .then((response) => setSelicRate(response.data))
   }, [])
+  //API IPCA
+  axios
+  .get<IAxiosGet[]>(
+    "https://servicodados.ibge.gov.br/api/v3/agregados/7060/periodos/202001%7C202204/variaveis/69?localidades=N1[all]&classificacao=315[7169]"
+  )
+  .then((response) =>
+    setIpcaRate(+response.data[0].resultados[0].series[0].serie[202204])
+  );
+
 
   const latestSelicRate = selicRate[selicRate.length - 1];
   
   if (selicRate.length <= 0) {
+    return <AppLoading />;
+  }
+
+  if (ipcaRate.length <= 0) {
     return <AppLoading />;
   }
 
@@ -56,7 +84,10 @@ export function Indexes({ route }: IIndexesProps) {
         style={styles.showSelic}
         >
         <View>
-        <Text style={styles.textSelic}>{latestSelicRate.valor}</Text>
+        <Text style={styles.titleSelic}>TAXA SELIC</Text>
+        <Text style={styles.textSelic}>Diário: {(+latestSelicRate.valor).toFixed(2)}</Text>
+        <Text style={styles.textSelic1}>Mensal: {(+latestSelicRate.valor * 30).toFixed(2)}</Text>
+        <Text style={styles.textSelic2}>Anual: {(+latestSelicRate.valor * 254).toFixed(2)}</Text>
         </View>
         </LinearGradient>
     </View>

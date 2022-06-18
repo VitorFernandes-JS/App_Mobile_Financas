@@ -8,7 +8,7 @@ export const theme = {
         line: '#414200',
         google: '#000',
         buttonColor: '#ffffff',
-        buttonColor2: '#d9d9d9'
+        buttonColor2: '#d9d9d9',
     },
 
     fonts: {

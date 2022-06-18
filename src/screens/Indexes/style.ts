@@ -20,13 +20,28 @@ export const styles = StyleSheet.create({
     marginTop: 8
    },
    showSelic:{
-       width: 250,
+       width: 115,
        height: 100,
        borderRadius: 20,
        opacity: 0.87
    },
+   titleSelic: {
+    fontFamily: (theme.fonts.title700),
+    textAlign: 'center',
+    fontSize: 18,
+    marginTop: 5,
+    color: '#595959'
+   },
    textSelic: {
-       lineHeight: 60,
-       textAlign: 'center'
+       textAlign: 'center',
+       margin: 2
+   },
+   textSelic1: {
+    textAlign: 'center',
+    margin: 2
+   },
+   textSelic2: {
+       textAlign: 'center',
+       margin: 2
    }
 });
