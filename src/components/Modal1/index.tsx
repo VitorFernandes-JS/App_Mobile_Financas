@@ -12,7 +12,6 @@ export function Modal1() {
                 animationType="slide"
                 transparent={true}
                 visible={visible}
-                // style={styles.modal1}
             >
                 <View style={styles.viewModal}>
                 <Text style={styles.modalText}>Informações</Text>
