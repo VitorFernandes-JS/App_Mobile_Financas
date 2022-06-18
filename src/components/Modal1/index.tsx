@@ -16,12 +16,11 @@ export function Modal1() {
                 <View style={styles.viewModal}>
                 <Text style={styles.modalText}>Informações</Text>
                 <Text style={styles.modalSubtitle}>
-                    Este ícone  <Text/>
+                    Este ícone  </Text>
                     <View style={viewButtonStyles({ left: 55, top: -10 }).viewButton}></View>
                     <Text style={styles.modalSubtitle}>  signifi- {`\n`}
                     ca que o índice é sobre{`\n`}</Text>
                     o assunto Renda Fixa.{`\n`}
-                </Text>
                 <TouchableOpacity
                 onPress={() => {
                     setVisible(false);
@@ -32,7 +31,6 @@ export function Modal1() {
                  name="closecircleo"
                  color='red'
                  size={25}
-                 style={styles.closeModalIcon}
                 />
             </TouchableOpacity>
                 </View>

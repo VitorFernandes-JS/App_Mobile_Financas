@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react';
-import { Image, View, TouchableOpacity } from 'react-native';
+import { Image, View, TouchableOpacity, Modal, Text } from 'react-native';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
 import { useRoute } from '@react-navigation/native';
+import { AntDesign } from '@expo/vector-icons';
 
 type Params = {
     token: string;
@@ -23,6 +24,7 @@ export function Avatar( ) {
 
     const [profile, setProfile] = useState({} as Profile);
     const route = useRoute();
+    const [visible, setVisible] = useState(false)
 
     const { token } = route.params as Params;
 
@@ -38,11 +40,40 @@ export function Avatar( ) {
     
     return (
             <View>
-            <TouchableOpacity
-            
+               <Modal
+                animationType="slide"
+                transparent={true}
+                visible={visible}
+              >
+                <View>
+                <Text style={styles.modalText}>Informações</Text>
+                <Text style={styles.modalSubtitle}>oi</Text>
+                </View>
+
+                <TouchableOpacity
+                onPress={() => {
+                    setVisible(false);
+                }}
             >
+                <Text></Text>
+                <AntDesign
+                 name="closecircleo"
+                 color='red'
+                 size={25}
+                 style={styles.closeModalIcon}
+                />
+            </TouchableOpacity>
+                </Modal>
+
+            <TouchableOpacity
+              onPress={() => {
+                setVisible(true);
+            }}
+            >
+            
             <View style={styles.borderAvatar}></View>
             </TouchableOpacity>
+            
             <Image 
                 source={{ uri: profile.picture }}
                 style={[ styles.avatar, {zIndex: 1} ]} 
