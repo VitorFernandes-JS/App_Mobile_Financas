@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
 
+import { theme } from '../../global/styles/theme';
 import { Avatar } from '../../components/Avatar';
 import { BackButton } from '../../components/BackButton'
 import AppLoading from 'expo-app-loading';
@@ -22,6 +23,8 @@ export function Indexes({ route }: IIndexesProps) {
   const { token } = route.params
 
   const navigation = useNavigation();
+
+  const { buttonColor, buttonColor2 } =  theme.colors;
     
   function handleHome() {
    navigation.navigate('Home', { token })
@@ -48,10 +51,14 @@ export function Indexes({ route }: IIndexesProps) {
         <BackButton onPress={handleHome} />
       </View>
         <Text style={styles.title}>Índices</Text>
-        
-        <View style={styles.showSelic}>
+        <LinearGradient
+        colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+        style={styles.showSelic}
+        >
+        <View>
         <Text style={styles.textSelic}>{latestSelicRate.valor}</Text>
         </View>
+        </LinearGradient>
         {/* input VALOR INICIAL*/}
         {/* input TEMPO [ANO/MES]*/}
         {/* input VALOR MENSAL*/}
