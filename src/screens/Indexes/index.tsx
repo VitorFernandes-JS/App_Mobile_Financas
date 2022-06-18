@@ -86,9 +86,9 @@ export function Indexes({ route }: IIndexesProps) {
         >
         <View>
         <Text style={styles.titleSelic}>TAXA SELIC</Text>
-        <Text style={styles.textSelic}>Diário: {(+latestSelicRate.valor).toFixed(2)}</Text>
-        <Text style={styles.textSelic1}>Mensal: {(+latestSelicRate.valor * 30).toFixed(2)}</Text>
-        <Text style={styles.textSelic2}>Anual: {(+latestSelicRate.valor * 254).toFixed(2)}</Text>
+        <Text style={styles.textSelic}>Diário: {(+latestSelicRate.valor).toFixed(2)}%</Text>
+        <Text style={styles.textSelic1}>Mensal: {(+latestSelicRate.valor * 30).toFixed(2)}%</Text>
+        <Text style={styles.textSelic2}>Anual: {(+latestSelicRate.valor * 254).toFixed(2)}%</Text>
         </View>
         </LinearGradient>
 
@@ -98,12 +98,26 @@ export function Indexes({ route }: IIndexesProps) {
         >
         <View>
         <Text style={styles.titleIpca}>IPCA</Text>
-        <Text style={styles.textIpca}>Diário: {(+ipcaRate / 254).toFixed(2)}</Text>
-        <Text style={styles.textIpca1}>Mensal: {(+ipcaRate / 12).toFixed(2)}</Text>
-        <Text style={styles.textIpca2}>Anual: {(+ipcaRate).toFixed(2)}</Text>
+        <Text style={styles.textIpca}>Diário: {(+ipcaRate / 254).toFixed(2)}%</Text>
+        <Text style={styles.textIpca1}>Mensal: {(+ipcaRate / 12).toFixed(2)}%</Text>
+        <Text style={styles.textIpca2}>Anual: {(+ipcaRate).toFixed(2)}%</Text>
+        <Text style={styles.textFixe}>F</Text>
         </View>
         </LinearGradient>
+
+        <LinearGradient
+        colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+        style={styles.showCdi}
+        >
+        <View>
+        <Text style={styles.titleCdi}>CDI</Text>
+        <Text style={styles.textCdi}>Diário: {(+latestSelicRate.valor - (+latestSelicRate.valor * 0.01)).toFixed(2)}%</Text>
+        <Text style={styles.textCdi1}>Mensal: {((+latestSelicRate.valor - (+latestSelicRate.valor * 0.01)) * 30).toFixed(2)}%</Text>
+        <Text style={styles.textCdi2}>Anual: {((+latestSelicRate.valor - (+latestSelicRate.valor * 0.01)) * 254).toFixed(2)}%</Text>
         </View>
+        </LinearGradient>
+
+      </View>
     </View>
 
   )

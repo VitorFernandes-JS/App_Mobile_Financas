@@ -74,4 +74,36 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     margin: 2,
   },
+  showCdi: {
+    width: 115,
+    height: 100,
+    borderRadius: 20,
+    opacity: 0.87,
+    left: 15
+  },
+  titleCdi: {
+    fontFamily: theme.fonts.title700,
+    textAlign: "center",
+    fontSize: 18,
+    marginTop: 5,
+    color: "#595959",
+  },
+  textCdi: {
+    textAlign: "center",
+    margin: 2,
+  },
+  textCdi1: {
+    textAlign: "center",
+    margin: 2,
+  },
+  textCdi2: {
+    textAlign: "center",
+    margin: 2,
+  },
+  textFixe: {
+    textAlign: 'center',
+    fontSize: 10,
+    left: 45,
+    marginVertical: -10
+  },
 });
