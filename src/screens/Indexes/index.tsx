@@ -57,7 +57,7 @@ export function Indexes({ route }: IIndexesProps) {
     "https://servicodados.ibge.gov.br/api/v3/agregados/7060/periodos/202001%7C202204/variaveis/69?localidades=N1[all]&classificacao=315[7169]"
   )
   .then((response) =>
-    setIpcaRate(+response.data[0].resultados[0].series[0].serie[202204])
+    setIpcaRate(response.data[0].resultados[0].series[0].serie[202204])
   );
 
 
@@ -79,6 +79,7 @@ export function Indexes({ route }: IIndexesProps) {
         <BackButton onPress={handleHome} />
       </View>
         <Text style={styles.title}>Índices</Text>
+        <View style={styles.viewSelicAndIpca}>
         <LinearGradient
         colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
         style={styles.showSelic}
@@ -93,15 +94,16 @@ export function Indexes({ route }: IIndexesProps) {
 
         <LinearGradient
         colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
-        style={styles.showSelic}
+        style={styles.showIpca}
         >
         <View>
-        <Text style={styles.titleSelic}>IPCA</Text>
-        <Text style={styles.textSelic}>Diário: {(+ipcaRate / 254).toFixed(2)}</Text>
-        <Text style={styles.textSelic1}>Mensal: {(+ipcaRate / 12).toFixed(2)}</Text>
-        <Text style={styles.textSelic2}>Anual: {(+ipcaRate).toFixed(2)}</Text>
+        <Text style={styles.titleIpca}>IPCA</Text>
+        <Text style={styles.textIpca}>Diário: {(+ipcaRate / 254).toFixed(2)}</Text>
+        <Text style={styles.textIpca1}>Mensal: {(+ipcaRate / 12).toFixed(2)}</Text>
+        <Text style={styles.textIpca2}>Anual: {(+ipcaRate).toFixed(2)}</Text>
         </View>
         </LinearGradient>
+        </View>
     </View>
 
   )

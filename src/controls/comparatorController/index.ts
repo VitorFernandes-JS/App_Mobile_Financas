@@ -29,7 +29,7 @@ export function calcComparator({
 	let i = 1;
 	let feesIpca = ipcaRate / 12; // transformando juros IPCA p/mês
 	let feesSelic = selicRate * 22; // transformando juros SELIC p/mês
-	let feesSavings = 0.5;
+	let feesSavings = 0.5; // a poupança rende 0.5 ao mês quando a selic está acima de 8.5%
 	let feesCdi = (selicRate - (selicRate * 0.01)) * 22; // CDI = -1/10 da SELIC
 
 	let totalIpca = +valueMonth
