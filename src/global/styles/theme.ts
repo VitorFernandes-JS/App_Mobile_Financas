@@ -7,7 +7,8 @@ export const theme = {
         secondary:'#f2f2f2',
         line: '#414200',
         google: '#000',
-        buttonColor: '#fff',
+        buttonColor: '#ffffff',
+        buttonColor2: '#d9d9d9'
     },
 
     fonts: {

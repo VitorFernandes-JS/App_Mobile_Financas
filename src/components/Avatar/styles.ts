@@ -6,9 +6,20 @@ export const styles = StyleSheet.create({
         height: 58,
         borderRadius: 50,
         borderWidth: 3,
-        marginTop: 33,
-        left: 190,
+        marginTop: 45,
+        left: 210,
         marginRight: 22,
-        borderColor: 'white'
+        borderColor: 'white',
+        position: 'absolute',
+        zIndex: 1,
+    },
+    borderAvatar: {
+        backgroundColor: '#fff',
+        width: 150,
+        height: 58,
+        borderRadius: 50,
+        marginTop: 45,
+        left: 210,
+        marginRight: -45,
     }
 });

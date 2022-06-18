@@ -1,9 +1,8 @@
 import React, { useState, useEffect} from 'react';
-import { Image, Text } from 'react-native';
+import { Image, View } from 'react-native';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useRoute } from '@react-navigation/native';
 
 type Params = {
@@ -38,9 +37,12 @@ export function Avatar( ) {
       },[])
     
     return (
+            <View>
+            <View style={styles.borderAvatar}></View>
             <Image 
                 source={{ uri: profile.picture }}
-                style={ styles.avatar } 
+                style={[ styles.avatar, {zIndex: 1} ]} 
             />
+            </View>
     )
 }

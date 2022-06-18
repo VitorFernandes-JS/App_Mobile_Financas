@@ -24,49 +24,45 @@ export const styles = StyleSheet.create({
       flexDirection: 'row',
    },
    buttonCalculator: {
-      backgroundColor: '#000000',
       borderRadius: 21,
-      width: 170,
-      height: 160,
+      width: 135,
+      height: 130,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3.5,
-      borderColor: '#80ffbf',
-      marginLeft: 5
+      marginLeft: 5,
+      marginRight: 15
    },
    iconCalculator: {
       marginTop: -2,
+      marginLeft: 25
    },
    textButtonCalculator: {
-      color: '#fff',
+      color: '#000',
       textAlign: 'center',
       fontSize: 20,
-      fontFamily: theme.fonts.title500,
-      fontWeight: 'bold',
+      fontFamily: theme.fonts.title700,
       marginTop: 10
    },
    buttonComparator: {
-      backgroundColor: '#000000',
       borderRadius: 21,
-      width: 170,
-      height: 160,
+      width: 135,
+      height: 130,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3.5,
-      borderColor: '#4d79ff',
-      marginLeft: 9
+      marginLeft: 9,
+      marginRight: 15
    },
    iconComparator: {
       marginTop: -2,
+      marginLeft: 24
    },
    textButtonComparator: {
-      color: '#fff',
+      color: '#000',
       textAlign: 'center',
       fontSize: 20,
-      fontFamily: theme.fonts.title500,
-      fontWeight: 'bold',
+      fontFamily: theme.fonts.title700,
       marginTop: 10
    }, 
    viewIndexesAndVideos: {
@@ -74,57 +70,93 @@ export const styles = StyleSheet.create({
       marginTop: 15,
    },
    buttonIndexes: {
-      backgroundColor: '#000000',
       borderRadius: 21,
-      width: 170,
-      height: 160,
+      width: 135,
+      height: 130,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3.5,
-      borderColor: '#ffff33',
-      marginLeft: 6
+      marginLeft: 6,
+      marginRight: 15
    },
+   iconIndexes: {
+      marginTop: -2,
+      marginLeft: 9
+   },
+   textButtonIndexes: {
+      color: '#000',
+      textAlign: 'center',
+      fontSize: 20,
+      fontFamily: theme.fonts.title700,
+      marginTop: 10
+   }, 
    buttonVideo: {
-      backgroundColor: '#000000',
       borderRadius: 21,
-      width: 170,
-      height: 160,
+      width: 135,
+      height: 130,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3.5,
-      borderColor: '#ff4d4d',
-      marginLeft: 8
+      marginLeft: 8,
+      marginRight: 15
    },
+   iconVideo: {
+      marginTop: -2,
+      marginLeft: 3
+   },
+   textButtonVideo: {
+      color: '#000',
+      textAlign: 'center',
+      fontSize: 20,
+      fontFamily: theme.fonts.title700,
+      marginTop: 10
+   }, 
    viewFinancingAndLoan: {
       flexDirection: 'row',
       marginTop: 15
    },
-   buttonSimulator: {
-      backgroundColor: '#000000',
+   buttonFinancing: {
       borderRadius: 21,
-      width: 170,
-      height: 160,
+      width: 135,
+      height: 130,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3.5,
-      borderColor: '#663300',
-      marginLeft: 7
+      marginLeft: 7,
+      marginRight: 15
    },
+   iconFinancing: {
+      marginTop: -2,
+      marginLeft: 14
+   },
+   textButtonFinancing: {
+      color: '#000',
+      textAlign: 'center',
+      fontSize: 20,
+      fontFamily: theme.fonts.title700,
+      marginTop: 10
+   }, 
    buttonLoan: {
-      backgroundColor: '#000000',
       borderRadius: 21,
-      width: 170,
-      height: 160,
+      width: 135,
+      height: 130,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      borderWidth: 3.5,
-      borderColor: '#33cc00',
-      marginLeft: 8
+      marginLeft: 8,
+      marginRight: 15
    },
+   iconLoan: {
+      marginTop: -2,
+      marginLeft: 23
+   },
+   textButtonLoan: {
+      color: '#000',
+      textAlign: 'center',
+      fontSize: 20,
+      fontFamily: theme.fonts.title700,
+      marginTop: 10
+   }, 
    
    
 });

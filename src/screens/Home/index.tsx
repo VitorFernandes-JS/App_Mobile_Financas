@@ -2,8 +2,9 @@ import React, { ReactNode } from "react";
 import { styles } from "./styles";
 import { View, TouchableOpacity, Text, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { LinearGradient } from 'expo-linear-gradient';
 
-
+import { theme } from '../../global/styles/theme';
 import { BackButton } from "../../components/BackButton";
 import { Avatar } from "../../components/Avatar";
 
@@ -22,6 +23,8 @@ export function Home({ route }: IHomeProps) {
   const { token } = route.params
 
   const navigation = useNavigation();
+
+  const { buttonColor, buttonColor2 } =  theme.colors;
 
   function handleHome() {
     navigation.navigate("SignIn", { token });
@@ -50,57 +53,86 @@ export function Home({ route }: IHomeProps) {
         <Text style={styles.title}>MENU</Text>
         
         <View style={styles.viewCalculatorAndComparator}>
+
+        <LinearGradient
+        colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+        style={styles.buttonCalculator}
+        >
+
         <TouchableOpacity
-          style={styles.buttonCalculator}
           onPress={CalculatorRote}
         >
-          <Ionicons style={styles.iconCalculator} name="ios-calculator-outline" size={63} color="#80ffbf" />
+          <MaterialCommunityIcons style={styles.iconCalculator} name="calculator-variant" size={63} color="#595959" />
           <Text style={styles.textButtonCalculator}>CALCULADORA</Text>
         </TouchableOpacity>
+        </LinearGradient>
+
+        <LinearGradient
+        colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+        style={styles.buttonComparator}
+        >
 
         <TouchableOpacity
-          style={styles.buttonComparator}
           onPress={ComparatorRote}
         >
-          <Entypo style={styles.iconComparator} name="pie-chart" size={63} color="#4d79ff" />
+          <Entypo style={styles.iconComparator} name="pie-chart" size={63} color="#595959" />
           <Text style={styles.textButtonComparator}>COMPARADOR</Text>
         </TouchableOpacity>
+        </LinearGradient>
         </View>
+        
 
         <View style={styles.viewIndexesAndVideos}>
-        <TouchableOpacity
-          style={styles.buttonIndexes}
-          onPress={IndexesRote}
-        >
-          <MaterialCommunityIcons style={styles.iconComparator} name="finance" size={63} color="#ffff33" />
-          <Text style={styles.textButtonComparator}>ÍNDICES</Text>
-        </TouchableOpacity>
 
+        <LinearGradient
+         colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+         style={styles.buttonIndexes}
+        >
         <TouchableOpacity
-          style={styles.buttonVideo}
           onPress={IndexesRote}
         >
-          <AntDesign style={styles.iconComparator} name="youtube" size={63} color="#ff4d4d" />
-          <Text style={styles.textButtonComparator}>VÍDEOS</Text>
+          <MaterialCommunityIcons style={styles.iconIndexes} name="finance" size={63} color="#595959" />
+          <Text style={styles.textButtonIndexes}>ÍNDICES</Text>
         </TouchableOpacity>
+        </LinearGradient>
+
+        <LinearGradient
+        colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+        style={styles.buttonVideo}
+        >
+        <TouchableOpacity
+          onPress={IndexesRote}
+        >
+          <AntDesign style={styles.iconVideo} name="youtube" size={63} color="#595959" />
+          <Text style={styles.textButtonVideo}>VÍDEOS</Text>
+        </TouchableOpacity>
+        </LinearGradient>
         </View>
 
         <View style={styles.viewFinancingAndLoan}>
+        <LinearGradient
+        colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+        style={styles.buttonFinancing}
+        >
         <TouchableOpacity
-          style={styles.buttonSimulator}
           onPress={IndexesRote}
         >
-          <AntDesign style={styles.iconComparator} name="home" size={63} color="#663300" />
-          <Text style={styles.textButtonComparator}>FINANCIAMENTO</Text>
+          <AntDesign style={styles.iconFinancing} name="home" size={63} color="#595959" />
+          <Text style={styles.textButtonFinancing}>FINANCIAR</Text>
         </TouchableOpacity>
+        </LinearGradient>
 
+        <LinearGradient
+        colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
+        style={styles.buttonLoan}
+        >
         <TouchableOpacity
-          style={styles.buttonLoan}
           onPress={IndexesRote}
         >
-          <Entypo style={styles.iconComparator} name="credit" size={63} color="#33cc00" />
-          <Text style={styles.textButtonComparator}>EMPRÉSTIMO</Text>
+          <Entypo style={styles.iconLoan} name="credit" size={63} color="#595959" />
+          <Text style={styles.textButtonLoan}>EMPRÉSTIMO</Text>
         </TouchableOpacity>
+        </LinearGradient>
         </View>
       </View>
     </View>
