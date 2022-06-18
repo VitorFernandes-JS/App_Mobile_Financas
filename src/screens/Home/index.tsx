@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { styles } from "./styles";
-import { View, TouchableOpacity, Text, ScrollView } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -9,7 +9,6 @@ import { BackButton } from "../../components/BackButton";
 import { Avatar } from "../../components/Avatar";
 
 // Icones
-import { Ionicons } from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';

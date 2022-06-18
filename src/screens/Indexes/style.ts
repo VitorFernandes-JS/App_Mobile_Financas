@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     marginTop: 8
    },
    showSelic:{
-    
+    backgroundColor: '#fff'
    },
    textSelic: {
        lineHeight: 60

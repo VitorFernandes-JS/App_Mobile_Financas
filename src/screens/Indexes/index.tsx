@@ -1,10 +1,12 @@
-import { Avatar } from '../../components/Avatar';
-import axios from 'axios';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { BackButton } from '../../components/BackButton'
 import { View, Text,} from 'react-native';
-import { useNavigation } from "@react-navigation/native";
 import { styles } from './style'
+import axios from 'axios';
+import { useNavigation } from "@react-navigation/native";
+import { LinearGradient } from 'expo-linear-gradient';
+
+import { Avatar } from '../../components/Avatar';
+import { BackButton } from '../../components/BackButton'
 import AppLoading from 'expo-app-loading';
 interface ISelicRate {
   data: String;
@@ -46,6 +48,7 @@ export function Indexes({ route }: IIndexesProps) {
         <BackButton onPress={handleHome} />
       </View>
         <Text style={styles.title}>Índices</Text>
+        
         <View style={styles.showSelic}>
         <Text style={styles.textSelic}>{latestSelicRate.valor}</Text>
         </View>
