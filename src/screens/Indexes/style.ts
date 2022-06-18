@@ -13,6 +13,13 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'space-between',
    },
+   title: {
+    fontFamily: theme.fonts.title700,
+    fontSize: 40,
+    textAlign: 'center',
+    marginBottom: 15,
+    marginTop: 8
+   },
    textoSelic: {
        lineHeight: 60
    }
