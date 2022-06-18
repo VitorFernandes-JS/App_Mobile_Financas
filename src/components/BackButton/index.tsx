@@ -17,7 +17,7 @@ export function BackButton({...rest} : RectButtonProps) {
             <AntDesign
                 name="left"
                 color={theme.colors.google}
-                size={25}
+                size={32}
             />
         </RectButton>
         </View>

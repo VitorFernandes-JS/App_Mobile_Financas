@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         width: 47,
         borderRadius: 50,
         alignItems: 'flex-start',
-        marginTop: -40,
+        marginTop: -45,
         right: 135
     },
     borderBackButton: {
