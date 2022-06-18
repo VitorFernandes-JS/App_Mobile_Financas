@@ -11,8 +11,7 @@ export const styles = StyleSheet.create({
         marginRight: 22,
         borderColor: 'white',
         position: 'absolute',
-        zIndex: 1,
-    },
+    },       
     borderAvatar: {
         backgroundColor: '#fff',
         width: 150,

@@ -151,10 +151,7 @@ export function Indexes({ route }: IIndexesProps) {
           </View>
         </LinearGradient>
       </View>
-        
-        
-        <Modal1/>
-        
-    </View>
+    <Modal1/> 
+  </View>
   );
 }
