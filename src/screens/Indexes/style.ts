@@ -20,7 +20,8 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 8
    },
-   textoSelic: {
+
+   textSelic: {
        lineHeight: 60
    }
 });

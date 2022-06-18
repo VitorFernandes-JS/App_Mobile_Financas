@@ -46,7 +46,9 @@ export function Indexes({ route }: IIndexesProps) {
         <BackButton onPress={handleHome} />
       </View>
         <Text style={styles.title}>Índeces</Text>
-        <Text style={styles.textoSelic}>{latestSelicRate.valor}</Text>
+        <View style={styles.showSelic}>
+        <Text style={styles.textSelic}>{latestSelicRate.valor}</Text>
+        </View>
         {/* input VALOR INICIAL*/}
         {/* input TEMPO [ANO/MES]*/}
         {/* input VALOR MENSAL*/}
