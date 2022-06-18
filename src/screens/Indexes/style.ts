@@ -100,16 +100,12 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     margin: 2,
   },
-  pointBlueAndF: {
-    width: '100%',
-    height: '100%'
-  },
   pointBlue: {
     width: 16,
     height: 16,
     backgroundColor: 'blue',
     borderRadius: 10,
-    left: 254,
+    left: 55,
     marginVertical: -12,
   },
   textFixe: {
@@ -117,24 +113,35 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     left: 55,
     marginVertical: -3.7,
-    color: '#fff'
-  },
-  pointBlueAndF1: {
-    width: '100%',
-    height: '100%'
+    color: '#fff',
   },
   pointBlue1: {
     width: 16,
     height: 16,
     backgroundColor: 'blue',
     borderRadius: 10,
-    left: 254,
+    left: 177,
     marginVertical: -12,
   },
   textFixe1: {
     textAlign: 'center',
     fontSize: 13,
-    left: 55,
+    left: 177,
+    marginVertical: -3.7,
+    color: '#fff'
+  },
+  pointBlue2: {
+    width: 16,
+    height: 16,
+    backgroundColor: 'blue',
+    borderRadius: 10,
+    left: -72,
+    marginVertical: -12,
+  },
+  textFixe2: {
+    textAlign: 'center',
+    fontSize: 13,
+    left: -72,
     marginVertical: -3.7,
     color: '#fff'
   },

@@ -150,15 +150,15 @@ export function Indexes({ route }: IIndexesProps) {
         </LinearGradient>
       </View>
 
-      <View style={styles.pointBlueAndF}>
         <View style={styles.pointBlue}></View>
         <Text style={styles.textFixe}>F</Text>
-      </View>
 
-      <View style={styles.pointBlueAndF1}>
         <View style={styles.pointBlue1}></View>
         <Text style={styles.textFixe1}>F</Text>
-      </View>
+
+        <View style={styles.pointBlue2}></View>
+        <Text style={styles.textFixe2}>F</Text>
+
     </View>
   );
 }
