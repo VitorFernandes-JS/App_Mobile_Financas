@@ -45,7 +45,7 @@ export function Indexes({ route }: IIndexesProps) {
         <Avatar/>
         <BackButton onPress={handleHome} />
       </View>
-        <Text style={styles.title}>Índeces</Text>
+        <Text style={styles.title}>Índices</Text>
         <View style={styles.showSelic}>
         <Text style={styles.textSelic}>{latestSelicRate.valor}</Text>
         </View>
