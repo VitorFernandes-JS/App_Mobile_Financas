@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
         marginRight: 22,
         borderColor: 'white',
         position: 'absolute',
+        zIndex: 2,
     },       
     borderAvatar: {
         backgroundColor: '#fff',
@@ -22,18 +23,16 @@ export const styles = StyleSheet.create({
         marginRight: -45,
     },
     viewModal: {
-        width: 150,
+        width: 130,
         height: 140,
         backgroundColor: '#fff',
         justifyContent: 'center',
         textAlign: 'center',
         borderRadius: 20,
-        top: 300,
-        left: 115,
+        top: 70,
+        left: 270,
         margin: 20,
-        shadowColor: '#1a1a1a',
-        shadowOpacity: 0.4,
-        shadowRadius: 10
+        zIndex: 1,
     },
     modalText: {
         fontSize: 20,
