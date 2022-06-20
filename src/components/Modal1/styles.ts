@@ -1,4 +1,5 @@
 import { StyleSheet} from 'react-native';
+import { theme } from '../../global/styles/theme';
 
 interface IViewButtonProps {
   left?: number,
@@ -29,7 +30,12 @@ export const styles = StyleSheet.create({
     modalText: {
         fontSize: 20,
         textAlign: 'center',
-        top: -2
+        top: -3.2
+    },
+    line: {
+        width: 150,
+        height: 1.5,
+        backgroundColor: (theme.colors.google)
     },
     modalSubtitle: {
         fontSize: 13,

@@ -70,10 +70,6 @@ export function Indexes({ route }: IIndexesProps) {
     return <AppLoading />;
   }
 
-  if (ipcaRate === '') {
-    return <AppLoading />;
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>

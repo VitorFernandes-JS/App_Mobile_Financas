@@ -15,6 +15,7 @@ export function Modal1() {
             >
                 <View style={styles.viewModal}>
                 <Text style={styles.modalText}>Informações</Text>
+                <View style={styles.line}></View>
                 <Text style={styles.modalSubtitle}>
                     Este ícone  <Text/>
                     <View style={viewButtonStyles({ left: 55, top: -10 }).viewButton}></View>
