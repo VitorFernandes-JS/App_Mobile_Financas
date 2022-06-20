@@ -93,11 +93,11 @@ export const styles = StyleSheet.create({
   },
   viewModal: {
     justifyContent: 'center',
-    width: 230,
+    width: 280,
     height: 250,
     backgroundColor: 'white',
     borderRadius: 20,
-    left: 90,    
+    left: 66.5,    
     top: 250,
     shadowColor: '#1a1a1a',
     shadowOpacity: 0.7,
@@ -112,41 +112,41 @@ export const styles = StyleSheet.create({
     top: 1.5
    },
    line: {
-    width: 230,
+    width: 280,
     height: 1.2,
     backgroundColor: (theme.colors.google),
     top: -9.5
    },
    box1: {
     height:35,
-    width: 200,
+    width: 240,
     backgroundColor: '#ff8080',
     borderRadius: 8,
     margin: 7,
-    left: 8
+    left: 14
    },
    box2: {
     height:35,
-    width: 200,
+    width: 240,
     backgroundColor: '#6666ff',
     borderRadius: 8,
     margin: 7,
-    left: 8
+    left: 14
    },
    box3: {
-    height:35,
-    width: 200,
+    height: 35,
+    width: 240,
     backgroundColor: '#99ff99',
     borderRadius: 8,
     margin: 7,
-    left: 8
+    left: 14
    },
    textBox: {
     padding: 8.5,
     color: '#000'
    },
    closeModalIcon: {
-    left: 100,
+    left: 128,
     top: -10
   },
   
