@@ -8,6 +8,7 @@ interface ICalcularParams {
   setTotalValue: (arg: any) => any;
   setTotalFees: (arg: any) => any;
   setTotalValueInvested: (arg: any) => any;
+  setModal: (arg: any) => any;
 }
 
 function calculateInterest(total: number, rate: number) {
@@ -24,7 +25,8 @@ export function Calcular({
   feesInput,
   setTotalValue,
   setTotalFees,
-  setTotalValueInvested
+  setTotalValueInvested,
+  setModal
 }: ICalcularParams) {
   let i = 1;
   let fees = feesInput;
@@ -49,4 +51,6 @@ export function Calcular({
   setTotalValue(total + valueMonth);
   setTotalFees((total + valueMonth) - ((valueMonth * time) + initialValue))
   setTotalValueInvested((valueMonth * time) + initialValue)
+  setModal(true)
 }
+

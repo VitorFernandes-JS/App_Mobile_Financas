@@ -4,12 +4,14 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Modal
 } from "react-native";
 import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
 
+import { AntDesign } from '@expo/vector-icons';
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
 import { Calcular } from "../../controls/calculatorController";
@@ -31,6 +33,7 @@ export function Calculator({ route }: ICalculatorProps) {
   const [totalValue, setTotalValue] = useState(0);
   const [totalFees, setTotalFees] = useState(0);
   const [totalValueInvested, setTotalValueInvested] = useState(0)
+  const [modal, setModal] = useState(false)
 
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState('Meses');
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState('Mensal');
@@ -147,14 +150,21 @@ export function Calculator({ route }: ICalculatorProps) {
               yearsOrMounthTime,
               setTotalFees,
               setTotalValue, 
-              setTotalValueInvested
+              setTotalValueInvested,
+              setModal
             })
           }}
         >
+          
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
+        
 
-        <View style={styles.line}></View>
+        <Modal
+           animationType="slide"
+           transparent={true}
+           visible={modal}
+        >
         <Text style={styles.total}>TOTAL:</Text>
 
         <View style={styles.box1}>
@@ -169,8 +179,22 @@ export function Calculator({ route }: ICalculatorProps) {
           <Text style={styles.textBox}>
             Valor Total: R${Number(totalValue).toFixed(2)}
           </Text>
+          <TouchableOpacity
+                onPress={() => {
+                    setModal(false);
+                }}
+                >
+                <Text></Text>
+                <AntDesign
+                 name="closecircleo"
+                 color='red'
+                 size={25}
+                 style={styles.closeModalIcon}
+                />
+            </TouchableOpacity>
         </View>
+        </Modal>
       </View>
-    </ScrollView>
+      </ScrollView>
   );
 }

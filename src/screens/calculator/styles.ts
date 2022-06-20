@@ -130,6 +130,10 @@ export const styles = StyleSheet.create({
     padding: 8.5,
     color: '#000'
    },
+   closeModalIcon: {
+    left: 62,
+    top: -8
+}
   
   
 });
