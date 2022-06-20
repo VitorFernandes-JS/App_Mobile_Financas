@@ -90,50 +90,65 @@ export const styles = StyleSheet.create({
     color: '#000',
     fontSize: 25,
     fontFamily: theme.fonts.title700
-   },
-	 line: {
-    marginTop: 10,
-		height: 2,
-    width: 300,
-    backgroundColor: '#000'
-	 },
+  },
+  viewModal: {
+    justifyContent: 'center',
+    width: 230,
+    height: 250,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    left: 90,    
+    top: 250,
+    shadowColor: '#1a1a1a',
+    shadowOpacity: 0.7,
+    shadowRadius: 14
+  },
    total: {
     fontFamily: theme.fonts.title700,
     fontSize: 38,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 10,
-    marginTop: 10
+    top: 1.5
+   },
+   line: {
+    width: 230,
+    height: 1.2,
+    backgroundColor: (theme.colors.google),
+    top: -9.5
    },
    box1: {
     height:35,
-    width: 300,
+    width: 200,
     backgroundColor: '#ff8080',
     borderRadius: 8,
-    margin: 7
+    margin: 7,
+    left: 8
    },
    box2: {
     height:35,
-    width: 300,
+    width: 200,
     backgroundColor: '#6666ff',
     borderRadius: 8,
-    margin: 7
+    margin: 7,
+    left: 8
    },
    box3: {
     height:35,
-    width: 300,
+    width: 200,
     backgroundColor: '#99ff99',
     borderRadius: 8,
-    margin: 7
+    margin: 7,
+    left: 8
    },
    textBox: {
     padding: 8.5,
     color: '#000'
    },
    closeModalIcon: {
-    left: 62,
-    top: -8
-}
+    left: 100,
+    top: -10
+  },
   
   
 });

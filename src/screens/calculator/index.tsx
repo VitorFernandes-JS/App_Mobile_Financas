@@ -159,14 +159,15 @@ export function Calculator({ route }: ICalculatorProps) {
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
         
-
+        <View>
         <Modal
            animationType="slide"
            transparent={true}
            visible={modal}
         >
+        <View style={styles.viewModal}>
         <Text style={styles.total}>TOTAL:</Text>
-
+        <View style={styles.line}></View>
         <View style={styles.box1}>
           <Text style={styles.textBox}>Total de Juros: R${Number(totalFees).toFixed(2)}</Text>
         </View>
@@ -177,16 +178,16 @@ export function Calculator({ route }: ICalculatorProps) {
 
         <View style={styles.box3}>
           <Text style={styles.textBox}>
-            Valor Total: R${Number(totalValue).toFixed(2)}
-          </Text>
-          <TouchableOpacity
+            Valor Total: R${Number(totalValue).toFixed(2)}</Text>
+            </View>
+            <TouchableOpacity
                 onPress={() => {
                     setModal(false);
                 }}
                 >
                 <Text></Text>
                 <AntDesign
-                 name="closecircleo"
+                 name="closesquare"
                  color='red'
                  size={25}
                  style={styles.closeModalIcon}
@@ -194,6 +195,7 @@ export function Calculator({ route }: ICalculatorProps) {
             </TouchableOpacity>
         </View>
         </Modal>
+      </View>
       </View>
       </ScrollView>
   );
