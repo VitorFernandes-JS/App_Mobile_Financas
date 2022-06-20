@@ -6,6 +6,7 @@ import { styles } from "./styles";
 import { useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { EvilIcons } from "@expo/vector-icons";
 
 type Params = {
   token: string;
@@ -48,7 +49,19 @@ export function Avatar() {
     <View>
       <Modal animationType="fade" transparent={true} visible={visible}>
         <View style={styles.viewModal}>
-          <Text style={styles.modalText}>Perfil</Text>
+          <Text style={styles.modalText}>PERFIL</Text>
+          <View style={styles.line}></View>
+          <View style={styles.viewUser}>
+            <TouchableOpacity
+              onPress={handleSignIn} 
+            >
+              <EvilIcons
+              name="user"
+              style={styles.iconUser}
+              />
+              <Text style={styles.textUser}>Ver Perfil</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.viewIconExit}>
             <TouchableOpacity
               onPress={handleSignIn} 
@@ -68,9 +81,9 @@ export function Avatar() {
           >
             <Text></Text>
             <AntDesign
-              name="closecircleo"
+              name="closesquare"
               color="red"
-              size={25}
+              size={27}
               style={styles.closeModalIcon}
             />
           </TouchableOpacity>

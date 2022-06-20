@@ -7,7 +7,7 @@ export function Modal1() {
     const [visible, setVisible] = useState(false)
     
     return(
-        <View>
+        <View style={styles.viewModalPrimary}>
             <Modal
                 animationType="slide"
                 transparent={true}
