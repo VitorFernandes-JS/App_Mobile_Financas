@@ -39,13 +39,17 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         top: -2
     },
-    modalSubtitle: {
-        fontSize: 13,
-        textAlign: 'center',
-        top: 8.5
+    viewIconExit: {
+        flexDirection: 'row'
     },
     closeModalIcon: {
         left: 62,
         top: -8
-    }
+    },
+    textExitForSignIn: {
+
+    },
+    iconExitForSignIn: {
+        fontSize: 20 
+    },
 });

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Image, View, TouchableOpacity, Modal, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
-import { theme } from "../../global/styles/theme";
 import { useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 type Params = {
   token: string;
@@ -20,8 +21,7 @@ type Profile = {
 };
 
 export function Avatar() {
-  const { secondary, heading } = theme.colors;
-
+  const navigation = useNavigation();
   const [profile, setProfile] = useState({} as Profile);
   const route = useRoute();
   const [visible, setVisible] = useState(false);
@@ -36,6 +36,10 @@ export function Avatar() {
     setProfile(userInfo);
   }
 
+  function handleSignIn() {
+    navigation.navigate("SignIn");
+  }
+
   useEffect(() => {
     loadProfile();
   }, []);
@@ -45,7 +49,17 @@ export function Avatar() {
       <Modal animationType="fade" transparent={true} visible={visible}>
         <View style={styles.viewModal}>
           <Text style={styles.modalText}>Perfil</Text>
-          <Text style={styles.modalSubtitle}>oi</Text>
+          <View style={styles.viewIconExit}>
+            <TouchableOpacity
+              onPress={handleSignIn} 
+            >
+              <MaterialCommunityIcons
+              name="exit-to-app"
+              style={styles.iconExitForSignIn}
+              />
+              <Text style={styles.textExitForSignIn}>Sair</Text>
+            </TouchableOpacity>
+          </View>
 
           <TouchableOpacity
             onPress={() => {
