@@ -37,19 +37,24 @@ export const styles = StyleSheet.create({
     modalText: {
         fontSize: 20,
         textAlign: 'center',
-        top: -2
+        top: -10
     },
     viewIconExit: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    iconExitForSignIn: {
+        fontSize: 17,
+        right: 26.5,
+        transform: [{ rotate: '180deg' }]
+    },
+    textExitForSignIn: {
+        marginTop: -17.5,
+        left: 3.5,
+        fontSize: 15
     },
     closeModalIcon: {
         left: 62,
-        top: -8
-    },
-    textExitForSignIn: {
-
-    },
-    iconExitForSignIn: {
-        fontSize: 20 
+        top: 10
     },
 });
