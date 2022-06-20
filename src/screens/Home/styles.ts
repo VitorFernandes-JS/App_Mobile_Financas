@@ -81,7 +81,7 @@ export const styles = StyleSheet.create({
    },
    iconIndexes: {
       marginTop: -2,
-      marginLeft: 9
+      marginLeft: 6
    },
    textButtonIndexes: {
       color: '#000',
@@ -127,7 +127,7 @@ export const styles = StyleSheet.create({
    },
    iconFinancing: {
       marginTop: -2,
-      marginLeft: 14
+      marginLeft: 13
    },
    textButtonFinancing: {
       color: '#000',
