@@ -12,6 +12,7 @@ import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
 
 import { AntDesign } from "@expo/vector-icons";
+import { Historic } from "../../components/Historic";
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
 import { Calcular } from "../../controls/calculatorController";
@@ -193,6 +194,7 @@ export function Calculator({ route }: ICalculatorProps) {
               </TouchableOpacity>
             </View>
           </Modal>
+          <Historic/>
         </View>
       </View>
     </ScrollView>

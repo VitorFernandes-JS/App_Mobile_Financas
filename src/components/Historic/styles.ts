@@ -1,3 +1,8 @@
+import { StyleSheet } from 'react-native';
+import { theme } from '../../global/styles/theme';
+
+export const styles = StyleSheet.create({
+
 lineHistoric: {
     top: 10,
     width: 300,
@@ -13,3 +18,4 @@ lineHistoric: {
     fontSize: 25,
     fontFamily: (theme.fonts.title500)
   }
+});
