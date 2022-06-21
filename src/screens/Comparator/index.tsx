@@ -102,34 +102,40 @@ export function Comparator({ route }: IComparatorProps) {
         <Text style={styles.title}>Comparador</Text>
 
         <View>
-        <TouchableOpacity
-          onPress={() => {
-            setModalInterrogation(true);
-        }}
-        >
+          <TouchableOpacity
+            onPress={() => {
+              setModalInterrogation(true);
+            }}
+          >
             <AntDesign
-                 name="questioncircleo"
-                 size={20}
-                 style={styles.iconInterrogation}
-                />
-            </TouchableOpacity>
-            </View>
-        <Modal animationType="fade" transparent={true} visible={modalInterrogation}>
+              name="questioncircleo"
+              size={20}
+              style={styles.iconInterrogation}
+            />
+          </TouchableOpacity>
+        </View>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalInterrogation}
+        >
           <View style={styles.viewModalInterrogation}>
-            <Text style={styles.textModalInterrogation}>Este é o comparador de investimentos, você simula alguns aportes e ele monstra qual seria seu lucro em cada produto financeiro.
+            <Text style={styles.textModalInterrogation}>
+              Este é o comparador de investimentos, você simula alguns aportes e
+              ele monstra qual seria seu lucro em cada produto financeiro.
             </Text>
             <TouchableOpacity
-                onPress={() => {
-                    setModalInterrogation(false);
-                }}
-                >
-                <Text></Text>
-                <AntDesign
-                 name="closecircle"
-                 color='red'
-                 size={20}
-                 style={styles.closeModalInterrogationIcon}
-                />
+              onPress={() => {
+                setModalInterrogation(false);
+              }}
+            >
+              <Text></Text>
+              <AntDesign
+                name="closecircle"
+                color="red"
+                size={20}
+                style={styles.closeModalInterrogationIcon}
+              />
             </TouchableOpacity>
           </View>
         </Modal>
@@ -220,14 +226,16 @@ export function Comparator({ route }: IComparatorProps) {
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
 
-      <Historic/>
+        <Historic />
         <View>
           <Modal animationType="slide" transparent={true} visible={modal}>
             <View style={styles.viewModal}>
               <Text style={styles.total}>TOTAL:</Text>
               <View style={styles.line}></View>
               <View style={styles.boxAndText}>
-                <View style={styles.viewTopBoxSelic}><Text style={styles.textTopBoxSelic}>TESOURO SELIC</Text></View>
+                <View style={styles.viewTopBoxSelic}>
+                  <Text style={styles.textTopBoxSelic}>TESOURO SELIC</Text>
+                </View>
                 <View style={styles.box1}>
                   <Text style={styles.textBox}>
                     Valor Total: R$ {Number(valueTotalSelic).toFixed(2)}
@@ -236,7 +244,9 @@ export function Comparator({ route }: IComparatorProps) {
               </View>
 
               <View style={styles.boxAndText}>
-                <View style={styles.viewTopBoxIpca}><Text style={styles.textTopBoxIpca}>TESOURO IPCA</Text></View>
+                <View style={styles.viewTopBoxIpca}>
+                  <Text style={styles.textTopBoxIpca}>TESOURO IPCA</Text>
+                </View>
                 <View style={styles.box2}>
                   <Text style={styles.textBox}>
                     Valor Total: R$ {Number(valueTotalIpca).toFixed(2)}
@@ -245,7 +255,9 @@ export function Comparator({ route }: IComparatorProps) {
               </View>
 
               <View style={styles.boxAndText}>
-                <View style={styles.viewTopBoxCdi}><Text style={styles.textTopBoxCdi}>CDI</Text></View>
+                <View style={styles.viewTopBoxCdi}>
+                  <Text style={styles.textTopBoxCdi}>CDI</Text>
+                </View>
                 <View style={styles.box3}>
                   <Text style={styles.textBox}>
                     Valor Total: R$ {Number(valueTotalCdi).toFixed(2)}
@@ -254,7 +266,9 @@ export function Comparator({ route }: IComparatorProps) {
               </View>
 
               <View style={styles.boxAndText}>
-                <View style={styles.viewTopBoxSavings}><Text style={styles.textTopBoxSavings}>POUPANÇA</Text></View>
+                <View style={styles.viewTopBoxSavings}>
+                  <Text style={styles.textTopBoxSavings}>POUPANÇA</Text>
+                </View>
                 <View style={styles.box4}>
                   <Text style={styles.textBox}>
                     Valor Total: R$ {Number(valueTotalSavings).toFixed(2)}
