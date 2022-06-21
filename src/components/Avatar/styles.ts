@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     marginRight: 22,
     borderColor: "white",
     position: "absolute",
+    zIndex: 3
   },
   borderAvatar: {
     backgroundColor: "#fff",
@@ -21,6 +22,10 @@ export const styles = StyleSheet.create({
     top: 45,
     left: 210,
     marginRight: -45,
+    zIndex: 2
+  },
+  viewAvatarAndBorder: {
+    zIndex: 1
   },
   viewModal: {
     width: 200,

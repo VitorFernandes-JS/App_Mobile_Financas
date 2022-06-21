@@ -83,15 +83,18 @@ export function Avatar() {
         </View>
       </Modal>
 
+      <View style={styles.viewAvatarAndBorder}>
       <TouchableOpacity
         onPress={() => {
           setVisible(true);
         }}
       >
+        
         <View style={styles.borderAvatar}></View>
-      </TouchableOpacity>
-
+      
       <Image source={{ uri: profile.picture }} style={[styles.avatar]} />
+      </TouchableOpacity>
+      </View>
     </View>
   );
 }
