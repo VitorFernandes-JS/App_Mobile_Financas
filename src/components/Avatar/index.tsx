@@ -52,23 +52,16 @@ export function Avatar() {
           <Text style={styles.modalText}>PERFIL</Text>
           <View style={styles.line}></View>
           <View style={styles.viewUser}>
-            <TouchableOpacity
-              onPress={handleSignIn} 
-            >
-              <EvilIcons
-              name="user"
-              style={styles.iconUser}
-              />
+            <TouchableOpacity onPress={handleSignIn}>
+              <EvilIcons name="user" style={styles.iconUser} />
               <Text style={styles.textUser}>Ver Perfil</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.viewIconExit}>
-            <TouchableOpacity
-              onPress={handleSignIn} 
-            >
+            <TouchableOpacity onPress={handleSignIn}>
               <MaterialCommunityIcons
-              name="exit-to-app"
-              style={styles.iconExitForSignIn}
+                name="exit-to-app"
+                style={styles.iconExitForSignIn}
               />
               <Text style={styles.textExitForSignIn}>Sair</Text>
             </TouchableOpacity>
@@ -97,11 +90,8 @@ export function Avatar() {
       >
         <View style={styles.borderAvatar}></View>
       </TouchableOpacity>
-      
-      <Image
-        source={{ uri: profile.picture }}
-        style={[styles.avatar]}
-      />
+
+      <Image source={{ uri: profile.picture }} style={[styles.avatar]} />
     </View>
   );
 }
