@@ -10,7 +10,7 @@ import { theme } from "../../global/styles/theme";
 export function Profile() {
     return (
         <View>
-            
+            <Text>TESTE - PROFILE</Text>
         </View>
     );
 };

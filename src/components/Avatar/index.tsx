@@ -41,6 +41,11 @@ export function Avatar() {
     navigation.navigate("SignIn");
   }
 
+  function handleProfile() {
+    navigation.navigate("Profile");
+    setVisible(false);
+  }
+
   useEffect(() => {
     loadProfile();
   }, []);
@@ -52,7 +57,7 @@ export function Avatar() {
           <Text style={styles.modalText}>PERFIL</Text>
           <View style={styles.line}></View>
           <View style={styles.viewUser}>
-            <TouchableOpacity onPress={handleSignIn}>
+            <TouchableOpacity onPress={handleProfile}>
               <EvilIcons name="user" style={styles.iconUser} />
               <Text style={styles.textUser}>Ver Perfil</Text>
             </TouchableOpacity>
