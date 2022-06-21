@@ -149,6 +149,4 @@ export const styles = StyleSheet.create({
     left: 128,
     top: -10
   },
-  
-  
 });

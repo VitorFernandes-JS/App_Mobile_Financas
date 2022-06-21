@@ -4,27 +4,27 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Modal
+  Modal,
 } from "react-native";
 import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
 
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
 import { Avatar } from "../../components/Avatar";
 import { BackButton } from "../../components/BackButton";
 import { Calcular } from "../../controls/calculatorController";
 
 interface ICalculatorProps {
   route: any;
-  children: ReactNode
+  children: ReactNode;
 }
 
 export function Calculator({ route }: ICalculatorProps) {
   const navigation = useNavigation();
 
-  const { token } = route.params
+  const { token } = route.params;
 
   const [initialValue, setInitialValue] = useState(0);
   const [valueMonth, setValueMonth] = useState(0);
@@ -32,13 +32,11 @@ export function Calculator({ route }: ICalculatorProps) {
   const [feesInput, setFeesInput] = useState(0);
   const [totalValue, setTotalValue] = useState(0);
   const [totalFees, setTotalFees] = useState(0);
-  const [totalValueInvested, setTotalValueInvested] = useState(0)
-  const [modal, setModal] = useState(false)
+  const [totalValueInvested, setTotalValueInvested] = useState(0);
+  const [modal, setModal] = useState(false);
 
-  const [yearsOrMounthTime, setYearsOrMounthTime] = useState('Meses');
-  const [yearsOrMounthFees, setYearsOrMounthFees] = useState('Mensal');
-
-  
+  const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
+  const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
 
   function handleHome() {
     navigation.navigate("Home", { token });
@@ -48,12 +46,11 @@ export function Calculator({ route }: ICalculatorProps) {
   const time = ["Meses", "Anos"];
   const fees = ["Mensal", "Anual"];
 
-
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Avatar/>
+          <Avatar />
           <BackButton onPress={handleHome} />
         </View>
 
@@ -65,9 +62,9 @@ export function Calculator({ route }: ICalculatorProps) {
             INICIAL
           </Text>
           <TextInput
-            keyboardType={'numbers-and-punctuation'}
+            keyboardType={"numbers-and-punctuation"}
             onChangeText={(text) => {
-            setInitialValue(Number(text));
+              setInitialValue(Number(text));
             }}
             style={styles.inputInitialValue}
             placeholder="R$00,00"
@@ -81,9 +78,9 @@ export function Calculator({ route }: ICalculatorProps) {
             MENSAL
           </Text>
           <TextInput
-            keyboardType={'numbers-and-punctuation'}
+            keyboardType={"numbers-and-punctuation"}
             onChangeText={(text) => {
-            setValueMonth(Number(text));
+              setValueMonth(Number(text));
             }}
             style={styles.inputInitialValue}
             placeholder="R$00,00"
@@ -94,9 +91,9 @@ export function Calculator({ route }: ICalculatorProps) {
         <View style={styles.viewInitialValue}>
           <Text style={styles.timeText}>TEMPO</Text>
           <TextInput
-            keyboardType={'numbers-and-punctuation'}
+            keyboardType={"numbers-and-punctuation"}
             onChangeText={(text) => {
-            setTimeInput(Number(text));
+              setTimeInput(Number(text));
             }}
             style={styles.inputTime}
             placeholder="1"
@@ -105,7 +102,7 @@ export function Calculator({ route }: ICalculatorProps) {
           <SelectDropdown
             data={time}
             defaultButtonText={"Meses"}
-            onSelect={selectedItem => setYearsOrMounthTime(selectedItem)}
+            onSelect={(selectedItem) => setYearsOrMounthTime(selectedItem)}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
             }}
@@ -118,9 +115,9 @@ export function Calculator({ route }: ICalculatorProps) {
         <View style={styles.viewInitialValue}>
           <Text style={styles.feesText}>JUROS</Text>
           <TextInput
-            keyboardType={'numbers-and-punctuation'}
+            keyboardType={"numbers-and-punctuation"}
             onChangeText={(text) => {
-            setFeesInput(Number(text));
+              setFeesInput(Number(text));
             }}
             style={styles.inputFees}
             placeholder="1"
@@ -129,7 +126,7 @@ export function Calculator({ route }: ICalculatorProps) {
           <SelectDropdown
             data={fees}
             defaultButtonText={"Mensal"}
-            onSelect={selectedItem => setYearsOrMounthFees(selectedItem)}
+            onSelect={(selectedItem) => setYearsOrMounthFees(selectedItem)}
             buttonTextAfterSelection={(selectedItem, index) => {
               return selectedItem;
             }}
@@ -141,62 +138,63 @@ export function Calculator({ route }: ICalculatorProps) {
 
         <TouchableOpacity
           style={styles.buttonCalculate}
-          onPress={() => {Calcular({
-              feesInput, 
-              initialValue, 
-              timeInput, 
-              valueMonth, 
-              yearsOrMounthFees, 
+          onPress={() => {
+            Calcular({
+              feesInput,
+              initialValue,
+              timeInput,
+              valueMonth,
+              yearsOrMounthFees,
               yearsOrMounthTime,
               setTotalFees,
-              setTotalValue, 
+              setTotalValue,
               setTotalValueInvested,
-              setModal
-            })
+              setModal,
+            });
           }}
         >
-          
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
-        
+
         <View>
-        <Modal
-           animationType="slide"
-           transparent={true}
-           visible={modal}
-        >
-        <View style={styles.viewModal}>
-        <Text style={styles.total}>TOTAL:</Text>
-        <View style={styles.line}></View>
-        <View style={styles.box1}>
-          <Text style={styles.textBox}>Total de Juros: R${Number(totalFees).toFixed(2)}</Text>
-        </View>
+          <Modal animationType="slide" transparent={true} visible={modal}>
+            <View style={styles.viewModal}>
+              <Text style={styles.total}>TOTAL:</Text>
+              <View style={styles.line}></View>
+              <View style={styles.box1}>
+                <Text style={styles.textBox}>
+                  Total de Juros: R${Number(totalFees).toFixed(2)}
+                </Text>
+              </View>
 
-        <View style={styles.box2}>
-          <Text style={styles.textBox}>Valor Investido: R${Number(totalValueInvested).toFixed(2)}</Text>
-        </View>
+              <View style={styles.box2}>
+                <Text style={styles.textBox}>
+                  Valor Investido: R${Number(totalValueInvested).toFixed(2)}
+                </Text>
+              </View>
 
-        <View style={styles.box3}>
-          <Text style={styles.textBox}>
-            Valor Total: R${Number(totalValue).toFixed(2)}</Text>
-            </View>
-            <TouchableOpacity
+              <View style={styles.box3}>
+                <Text style={styles.textBox}>
+                  Valor Total: R${Number(totalValue).toFixed(2)}
+                </Text>
+              </View>
+              <TouchableOpacity
                 onPress={() => {
-                    setModal(false);
+                  setModal(false);
                 }}
-                >
+              >
                 <Text></Text>
                 <AntDesign
-                 name="closesquare"
-                 color='red'
-                 size={25}
-                 style={styles.closeModalIcon}
+                  name="closesquare"
+                  color="red"
+                  size={25}
+                  style={styles.closeModalIcon}
                 />
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </View>
+          </Modal>
         </View>
-        </Modal>
       </View>
-      </View>
-      </ScrollView>
+    </ScrollView>
   );
 }
