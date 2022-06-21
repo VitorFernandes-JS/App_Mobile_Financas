@@ -12,7 +12,6 @@
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.2",
     "@expo-google-fonts/rajdhani": "^0.2.2",
-    "@expo-google-fonts/roboto": "^0.2.2",
     "@react-native-community/google-signin": "^5.0.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-picker/picker": "^2.4.1",
