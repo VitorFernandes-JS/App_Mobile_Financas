@@ -58,35 +58,40 @@ export function Calculator({ route }: ICalculatorProps) {
 
         <Text style={styles.title}>Calculadora</Text>
         <View>
-        <TouchableOpacity
-          onPress={() => {
-            setModalInterrogation(true);
-        }}
-        >
+          <TouchableOpacity
+            onPress={() => {
+              setModalInterrogation(true);
+            }}
+          >
             <AntDesign
-                 name="questioncircleo"
-                 size={20}
-                 style={styles.iconInterrogation}
-                />
-            </TouchableOpacity>
-            </View>
-        <Modal animationType="fade" transparent={true} visible={modalInterrogation}>
+              name="questioncircleo"
+              size={20}
+              style={styles.iconInterrogation}
+            />
+          </TouchableOpacity>
+        </View>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalInterrogation}
+        >
           <View style={styles.viewModalInterrogation}>
-            <Text style={styles.textModalInterrogation}>A calculadora de Juros Compostos pode
-              ser usada para calcular tanto investimentos no Longo Prazo ou também juros de divídas.
+            <Text style={styles.textModalInterrogation}>
+              A calculadora de Juros Compostos pode ser usada para calcular
+              tanto investimentos no Longo Prazo ou também juros de divídas.
             </Text>
             <TouchableOpacity
-                onPress={() => {
-                    setModalInterrogation(false);
-                }}
-                >
-                <Text></Text>
-                <AntDesign
-                 name="closecircle"
-                 color='red'
-                 size={20}
-                 style={styles.closeModalInterrogationIcon}
-                />
+              onPress={() => {
+                setModalInterrogation(false);
+              }}
+            >
+              <Text></Text>
+              <AntDesign
+                name="closecircle"
+                color="red"
+                size={20}
+                style={styles.closeModalInterrogationIcon}
+              />
             </TouchableOpacity>
           </View>
         </Modal>
@@ -228,7 +233,7 @@ export function Calculator({ route }: ICalculatorProps) {
               </TouchableOpacity>
             </View>
           </Modal>
-          <Historic/>
+          <Historic />
         </View>
       </View>
     </ScrollView>
