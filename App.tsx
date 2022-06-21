@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { StatusBar } from "react-native";
 import { useFonts } from "expo-font";
 import { Inter_400Regular, Inter_500Medium } from "@expo-google-fonts/inter";

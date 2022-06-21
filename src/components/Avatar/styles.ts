@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 3,
     top: 45,
-    left: 210,
+    left: 261,
     marginRight: 22,
     borderColor: "white",
     position: "absolute",
@@ -16,11 +16,11 @@ export const styles = StyleSheet.create({
   },
   borderAvatar: {
     backgroundColor: "#fff",
-    width: 150,
+    width: 235,
     height: 58,
     borderRadius: 50,
     top: 45,
-    left: 210,
+    left: 260,
     marginRight: -45,
     zIndex: 2
   },

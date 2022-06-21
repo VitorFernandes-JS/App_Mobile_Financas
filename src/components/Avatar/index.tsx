@@ -42,7 +42,7 @@ export function Avatar() {
   }
 
   function handleProfile() {
-    navigation.navigate("Profile");
+    navigation.navigate("Profile", { token });
     setVisible(false);
   }
 

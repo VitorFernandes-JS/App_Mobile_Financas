@@ -8,14 +8,14 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
     alignItems: "flex-start",
     marginTop: -45,
-    right: 135,
+    right: 145,
   },
   borderBackButton: {
     height: 58,
-    width: 150,
+    width: 180,
     borderRadius: 50,
     marginTop: 45,
     backgroundColor: "#fff",
-    right: 225,
+    right: 270,
   },
 });
