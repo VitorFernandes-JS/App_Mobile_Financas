@@ -50,7 +50,17 @@ export function Profile({ route }: IProfileProps) {
             <BackButton onPress={handleHome}/>
             </View>
             <Image source={{ uri: profile.picture }} style={[styles.avatar]} />
-            <Text>TESTE - PROFILE</Text>
+            <View style={styles.viewGivenName}>
+            <Text style={styles.givenName}>Bem-vindo, {profile.given_name}!</Text>
+            </View>
+            <View>
+              <Text>Nome:</Text>
+              <Text>{profile.given_name}</Text>
+            </View>
+            <View>
+              <Text>Sobrenome:</Text>
+              <Text>{profile.family_name}</Text>
+            </View>
         </View>
     );
 };

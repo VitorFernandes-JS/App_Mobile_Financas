@@ -25,8 +25,9 @@ export const styles = StyleSheet.create({
   givenName: {
     fontFamily: (theme.fonts.text500),
     fontSize: 20,
-    right: -49,
-    color: '#4d4d4d'
+    color: '#4d4d4d',
+    textAlign: 'center',
+    marginLeft: 30
   },
   viewAvatar: {
     right: 100,

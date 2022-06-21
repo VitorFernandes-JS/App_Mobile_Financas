@@ -16,5 +16,21 @@ export const styles = StyleSheet.create({
         borderRadius: 13,
         borderWidth: 3,
         borderColor: (theme.colors.heading),
-    }
+        marginBottom: 20
+    },
+    viewGivenName: {
+        width: 330,
+        height: 50,
+        backgroundColor: '#333333',
+        justifyContent: 'center',
+        borderRadius: 7,
+
+    },
+    givenName: {
+        fontSize: 27.5,
+        fontFamily: (theme.fonts.title500),
+        textAlign: 'center',
+        color: (theme.colors.heading)
+    },
+
 });
