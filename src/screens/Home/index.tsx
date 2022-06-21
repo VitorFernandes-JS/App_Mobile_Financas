@@ -1,8 +1,9 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { styles } from "./styles";
 import { View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRoute } from "@react-navigation/native";
 
 import { theme } from "../../global/styles/theme";
 import { Avatar } from "../../components/Avatar";
@@ -17,10 +18,29 @@ interface IHomeProps {
   children: ReactNode;
 }
 
+type Params = {
+  token: string;
+};
+
+type Profile = {
+  family_name: string;
+  given_name: string;
+  name: string;
+  picture: string;
+};
+
 export function Home({ route }: IHomeProps) {
+  const navigation = useNavigation();
+  const [profile, setProfile] = useState({} as Profile);
   const { token } = route.params;
 
-  const navigation = useNavigation();
+  async function loadProfile() {
+    const response = await fetch(
+      `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`
+    );
+    const userInfo = await response.json();
+    setProfile(userInfo);
+  }
 
   const { buttonColor, buttonColor2 } = theme.colors;
 
@@ -40,9 +60,16 @@ export function Home({ route }: IHomeProps) {
     navigation.navigate("Indexes", { token });
   }
 
+  useEffect(() => {
+    loadProfile();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <View style={styles.viewGivenName}>
+          <Text style={styles.givenName}>Olá, {profile.given_name}!</Text>
+        </View>
         <View style={styles.viewAvatar}>
         <Avatar/>
         </View>

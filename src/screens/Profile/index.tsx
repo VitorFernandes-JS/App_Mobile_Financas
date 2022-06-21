@@ -2,10 +2,8 @@ import React, { ReactNode, useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
-import { LinearGradient } from "expo-linear-gradient";
 
 import { AntDesign } from "@expo/vector-icons";
-import { theme } from "../../global/styles/theme";
 import { BackButton } from "../../components/BackButton";
 interface IProfileProps {
     route: any;
@@ -28,7 +26,6 @@ interface IProfileProps {
 export function Profile({ route }: IProfileProps) {
     const navigation = useNavigation();
     const [profile, setProfile] = useState({} as Profile);
-    
     const { token } = route.params;
     
     async function loadProfile() {

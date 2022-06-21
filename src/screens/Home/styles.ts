@@ -11,9 +11,26 @@ export const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "space-between",
   },
+  viewGivenName: {
+    width: 230,
+    height: 58,
+    backgroundColor: '#fff',
+    marginBottom: 80,
+    top: 45,
+    borderRadius: 50,
+    left: -135,
+    textAlign: 'center',
+    justifyContent: 'center'
+  },
+  givenName: {
+    fontFamily: (theme.fonts.text500),
+    fontSize: 20,
+    right: -49,
+    color: '#4d4d4d'
+  },
   viewAvatar: {
-    right: 90,
-    marginBottom: 55
+    right: 100,
+    position: 'absolute'
   },
   title: {
     fontFamily: theme.fonts.title700,
