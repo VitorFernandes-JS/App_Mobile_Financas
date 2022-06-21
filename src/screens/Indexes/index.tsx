@@ -1,10 +1,11 @@
 import React, { ReactNode, useEffect, useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Modal } from "react-native";
 import { styles } from "./style";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 
+import { AntDesign } from "@expo/vector-icons";
 import { theme } from "../../global/styles/theme";
 import { Modal1 } from "../../components/Modal1";
 import { Avatar } from "../../components/Avatar";
@@ -47,6 +48,9 @@ export function Indexes({ route }: IIndexesProps) {
 
   const [ipcaRate, setIpcaRate] = useState('');
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
+  
+  const [modalInterrogation, setModalInterrogation] = useState(false);
+
   //API SELIC
   useEffect(() => {
     axios
@@ -78,7 +82,38 @@ export function Indexes({ route }: IIndexesProps) {
       </View>
       <Text style={styles.title}>Índices</Text>
 
-      
+      <View>
+        <TouchableOpacity
+          onPress={() => {
+            setModalInterrogation(true);
+        }}
+        >
+            <AntDesign
+                 name="questioncircleo"
+                 size={20}
+                 style={styles.iconInterrogation}
+                />
+            </TouchableOpacity>
+            </View>
+        <Modal animationType="fade" transparent={true} visible={modalInterrogation}>
+          <View style={styles.viewModalInterrogation}>
+            <Text style={styles.textModalInterrogation}>Aqui estão os principais índices de Renda Fixa e Renda Variável que você precisa.
+            </Text>
+            <TouchableOpacity
+                onPress={() => {
+                    setModalInterrogation(false);
+                }}
+                >
+                <Text></Text>
+                <AntDesign
+                 name="closecircle"
+                 color='red'
+                 size={20}
+                 style={styles.closeModalInterrogationIcon}
+                />
+            </TouchableOpacity>
+          </View>
+        </Modal>
 
       <View style={styles.viewSelicAndIpca}>
         <LinearGradient

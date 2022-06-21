@@ -19,6 +19,33 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 8,
   },
+  iconInterrogation: {
+    left: 87,
+    top: -48.5,
+    color: (theme.colors.heading)
+   },
+   viewModalInterrogation: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 300,
+    height: 80,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    left: 55,    
+    top: 158,
+    shadowColor: '#1a1a1a',
+    shadowOpacity: 0.7,
+    shadowRadius: 14
+  },
+  textModalInterrogation:{
+    marginRight: 3,
+    textAlign: 'center',
+    top: 12
+  },
+  closeModalInterrogationIcon: {
+    left: 140,
+    top: 8
+  },
   viewSelicAndIpca: {
     flexDirection: 'row'
   },
