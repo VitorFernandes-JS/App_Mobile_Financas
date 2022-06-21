@@ -90,56 +90,117 @@ export const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: theme.fonts.title700
    },
-   line: {
-    marginTop: 10,
-		height: 2,
-    width: 300,
-    backgroundColor: '#000'
-	 },
+   viewModal: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 330,
+    height: 375,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    left: 42,    
+    top: 172,
+    shadowColor: '#1a1a1a',
+    shadowOpacity: 0.7,
+    shadowRadius: 14
+  },
    total: {
     fontFamily: theme.fonts.title700,
     fontSize: 40,
     textAlign: 'center',
-    marginBottom: 8,
-    marginTop: 10
+    marginBottom: 10,
+    fontWeight: 'bold',
+    top: 1.5
+   },
+   line: {
+    width: 330,
+    height: 1.2,
+    backgroundColor: (theme.colors.google),
+    top: -9.5
    },
    boxAndText: {
-    margin: 4,
+    margin: 1,
     alignItems: 'center',
    },
-   textTopBox: {
+   viewTopBoxSelic: {
+    width: 130,
+    backgroundColor: (theme.colors.heading),
+    borderRadius: 15,
+    left: 75,
+    top: 15,
+    zIndex: 1
+   },
+   textTopBoxSelic: {
     fontFamily: theme.fonts.text500,
-    marginHorizontal: 7
+    left: 8.5
+   },
+   viewTopBoxIpca: {
+    width: 130,
+    backgroundColor: (theme.colors.heading),
+    borderRadius: 15,
+    left: 75,
+    top: 15,
+    zIndex: 1
+   },
+   textTopBoxIpca: {
+    fontFamily: theme.fonts.text500,
+    left: 13.5
+   },
+   viewTopBoxCdi: {
+    width: 45,
+    backgroundColor: (theme.colors.heading),
+    borderRadius: 15,
+    left: 114,
+    top: 15,
+    zIndex: 1
+   },
+   textTopBoxCdi: {
+    fontFamily: theme.fonts.text500,
+    left: 11.2
+   },
+   viewTopBoxSavings: {
+    width: 100,
+    backgroundColor: (theme.colors.heading),
+    borderRadius: 15,
+    left: 87,
+    top: 15,
+    zIndex: 1
+   },
+   textTopBoxSavings: {
+    fontFamily: theme.fonts.text500,
+    left: 11.8
    },
    textBox: {
     padding: 8.5,
    },
    box1: {
     height:35,
-    width: 300,
+    width: 270,
     backgroundColor: '#99ff99',
     borderRadius: 8,
     margin: 7
    },
    box2: {
     height:35,
-    width: 300,
+    width: 270,
     backgroundColor: '#ff8080',
     borderRadius: 8,
     margin: 7
    },
    box3: {
     height:35,
-    width: 300,
+    width: 270,
     backgroundColor: '#6666ff',
     borderRadius: 8,
     margin: 7
    },
    box4: {
     height:35,
-    width: 300,
+    width: 270,
     backgroundColor: '#ffff99',
     borderRadius: 8,
     margin: 7
    },
+   closeModalIcon: {
+    top: -10
+  },
 });

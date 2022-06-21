@@ -5,12 +5,15 @@ import {
   TextInput,
   ScrollView,
   TouchableOpacity,
+  Modal,
 } from "react-native";
 import axios from "axios";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
+import { AntDesign } from "@expo/vector-icons";
 import { Avatar } from "../../components/Avatar";
+import { Historic } from "../../components/Historic";
 import { BackButton } from "../../components/BackButton";
 import SelectDropdown from "react-native-select-dropdown";
 import { calcComparator } from "../../controls/comparatorController";
@@ -54,6 +57,7 @@ export function Comparator({ route }: IComparatorProps) {
   const [valueTotalSelic, setValueTotalSelic] = useState(0);
   const [valueTotalSavings, setValueTotalSavings] = useState(0);
   const [valueTotalCdi, setValueTotalCdi] = useState(0);
+  const [modal, setModal] = useState(false);
 
   function handleHome() {
     navigation.navigate("Home", { token });
@@ -63,7 +67,7 @@ export function Comparator({ route }: IComparatorProps) {
     // fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados/ultimos/10?formato=json')
     //   .then(response => response.json())
     //   .then(data => data)
-    
+
     //API SELIC
     axios
       .get(
@@ -175,62 +179,69 @@ export function Comparator({ route }: IComparatorProps) {
               setValueTotalIpca,
               setValueTotalSavings,
               setValueTotalSelic,
+              setModal,
             })
           }
         >
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
 
-        <View style={styles.line}></View>
+      <Historic/>
+        <View>
+          <Modal animationType="slide" transparent={true} visible={modal}>
+            <View style={styles.viewModal}>
+              <Text style={styles.total}>TOTAL:</Text>
+              <View style={styles.line}></View>
+              <View style={styles.boxAndText}>
+                <View style={styles.viewTopBoxSelic}><Text style={styles.textTopBoxSelic}>TESOURO SELIC</Text></View>
+                <View style={styles.box1}>
+                  <Text style={styles.textBox}>
+                    Valor Total: R$ {Number(valueTotalSelic).toFixed(2)}
+                  </Text>
+                </View>
+              </View>
 
-        <Text style={styles.total}>TOTAL:</Text>
+              <View style={styles.boxAndText}>
+                <View style={styles.viewTopBoxIpca}><Text style={styles.textTopBoxIpca}>TESOURO IPCA</Text></View>
+                <View style={styles.box2}>
+                  <Text style={styles.textBox}>
+                    Valor Total: R$ {Number(valueTotalIpca).toFixed(2)}
+                  </Text>
+                </View>
+              </View>
 
-        <View style={styles.boxAndText}>
-          <Text style={styles.textTopBox}>
-            Seu dinheiro no TESOURO SELIC, usando esse {"\n"}
-            tempo e os aportes mensais, renderia isso:
-          </Text>
-          <View style={styles.box1}>
-            <Text style={styles.textBox}>
-              Valor Total: R$ {Number(valueTotalSelic).toFixed(2)}
-            </Text>
-          </View>
-        </View>
+              <View style={styles.boxAndText}>
+                <View style={styles.viewTopBoxCdi}><Text style={styles.textTopBoxCdi}>CDI</Text></View>
+                <View style={styles.box3}>
+                  <Text style={styles.textBox}>
+                    Valor Total: R$ {Number(valueTotalCdi).toFixed(2)}
+                  </Text>
+                </View>
+              </View>
 
-        <View style={styles.boxAndText}>
-          <Text style={styles.textTopBox}>
-            Seu dinheiro no TESOURO IPCA, usando esse {"\n"}
-            tempo e os aportes mensais, renderia isso:
-          </Text>
-          <View style={styles.box2}>
-            <Text style={styles.textBox}>
-              Valor Total: R$ {Number(valueTotalIpca).toFixed(2)}
-            </Text>
-          </View>
-        </View>
-
-        <View style={styles.boxAndText}>
-          <Text style={styles.textTopBox}>
-            Seu dinheiro no CDI, usando esse {"\n"}
-            tempo e os aportes mensais, renderia isso:
-          </Text>
-          <View style={styles.box3}>
-            <Text style={styles.textBox}>
-              Valor Total: R$ {Number(valueTotalCdi).toFixed(2)}
-            </Text>
-          </View>
-        </View>
-
-        <View style={styles.boxAndText}>
-          <Text style={styles.textTopBox}>
-            Seu dinheiro no POUPANÇA, usando esse {"\n"}
-            tempo e os aportes mensais, renderia isso:
-          </Text>
-          <View style={styles.box4}>
-            <Text style={styles.textBox}>
-              Valor Total: R$ {Number(valueTotalSavings).toFixed(2)}
-            </Text>
-          </View>
+              <View style={styles.boxAndText}>
+                <View style={styles.viewTopBoxSavings}><Text style={styles.textTopBoxSavings}>POUPANÇA</Text></View>
+                <View style={styles.box4}>
+                  <Text style={styles.textBox}>
+                    Valor Total: R$ {Number(valueTotalSavings).toFixed(2)}
+                  </Text>
+                </View>
+              </View>
+              <TouchableOpacity
+                onPress={() => {
+                  setModal(false);
+                }}
+              >
+                <Text></Text>
+                <AntDesign
+                  name="closesquare"
+                  color="red"
+                  size={25}
+                  style={styles.closeModalIcon}
+                />
+              </TouchableOpacity>
+            </View>
+          </Modal>
         </View>
       </View>
     </ScrollView>

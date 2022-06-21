@@ -92,6 +92,7 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.title700
   },
   viewModal: {
+    alignItems: 'center',
     justifyContent: 'center',
     width: 280,
     height: 250,
@@ -105,7 +106,7 @@ export const styles = StyleSheet.create({
   },
    total: {
     fontFamily: theme.fonts.title700,
-    fontSize: 38,
+    fontSize: 40,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 10,
@@ -123,7 +124,6 @@ export const styles = StyleSheet.create({
     backgroundColor: '#ff8080',
     borderRadius: 8,
     margin: 7,
-    left: 14
    },
    box2: {
     height:35,
@@ -131,7 +131,6 @@ export const styles = StyleSheet.create({
     backgroundColor: '#6666ff',
     borderRadius: 8,
     margin: 7,
-    left: 14
    },
    box3: {
     height: 35,
@@ -139,14 +138,12 @@ export const styles = StyleSheet.create({
     backgroundColor: '#99ff99',
     borderRadius: 8,
     margin: 7,
-    left: 14
    },
    textBox: {
     padding: 8.5,
     color: '#000'
    },
    closeModalIcon: {
-    left: 128,
     top: -10
   },
 });

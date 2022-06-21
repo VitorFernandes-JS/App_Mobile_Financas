@@ -8,6 +8,7 @@ interface IComparatorParams {
 	setValueTotalSelic: (arg: any) => any;
 	setValueTotalSavings: (arg: any) => any;
 	setValueTotalCdi: (arg: any) => any;
+	setModal: (arg: any) => any;
 }
 
 function calculateInterest(total: number, rate: number) {
@@ -24,7 +25,8 @@ export function calcComparator({
 	setValueTotalIpca,
 	setValueTotalSelic,
 	setValueTotalSavings,
-	setValueTotalCdi
+	setValueTotalCdi,
+	setModal
  }: IComparatorParams) {
 	let i = 1;
 	let feesIpca = ipcaRate / 12; // transformando juros IPCA p/mês
@@ -64,5 +66,6 @@ export function calcComparator({
 	setValueTotalSelic(totalSelic)
 	setValueTotalSavings(totalSavings)
 	setValueTotalCdi(totalCdi)
+	setModal(true)
 }
 	
