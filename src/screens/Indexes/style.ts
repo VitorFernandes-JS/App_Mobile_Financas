@@ -22,39 +22,39 @@ export const styles = StyleSheet.create({
   iconInterrogation: {
     left: 87,
     top: -48.5,
-    color: (theme.colors.heading)
-   },
-   viewModalInterrogation: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    color: theme.colors.heading,
+  },
+  viewModalInterrogation: {
+    alignItems: "center",
+    justifyContent: "center",
     width: 300,
     height: 80,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 20,
-    left: 55,    
+    left: 55,
     top: 158,
-    shadowColor: '#1a1a1a',
+    shadowColor: "#1a1a1a",
     shadowOpacity: 0.7,
-    shadowRadius: 14
+    shadowRadius: 14,
   },
-  textModalInterrogation:{
+  textModalInterrogation: {
     marginRight: 3,
-    textAlign: 'center',
-    top: 12
+    textAlign: "center",
+    top: 12,
   },
   closeModalInterrogationIcon: {
     left: 140,
-    top: 8
+    top: 8,
   },
   viewSelicAndIpca: {
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   showSelic: {
     width: 115,
     height: 100,
     borderRadius: 20,
     opacity: 0.87,
-    right: 5
+    right: 5,
   },
   titleSelic: {
     fontFamily: theme.fonts.title700,
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
     height: 100,
     borderRadius: 20,
     opacity: 0.87,
-    left: 5
+    left: 5,
   },
   titleIpca: {
     fontFamily: theme.fonts.title700,
@@ -106,7 +106,7 @@ export const styles = StyleSheet.create({
     height: 100,
     borderRadius: 20,
     opacity: 0.87,
-    left: 15
+    left: 15,
   },
   titleCdi: {
     fontFamily: theme.fonts.title700,
@@ -130,7 +130,7 @@ export const styles = StyleSheet.create({
   pointBlue1: {
     width: 16,
     height: 16,
-    backgroundColor: 'blue',
+    backgroundColor: "blue",
     borderRadius: 10,
     left: 178.9,
     marginVertical: -12,
@@ -138,7 +138,7 @@ export const styles = StyleSheet.create({
   pointBlue2: {
     width: 16,
     height: 16,
-    backgroundColor: 'blue',
+    backgroundColor: "blue",
     borderRadius: 10,
     left: -69.5,
     marginVertical: -4.4,
