@@ -15,7 +15,7 @@ lineHistoric: {
   },
   viewHistoricInternal: {
     top: 30,
-    width: 250,
+    width: 270,
     height: 158,
     borderRadius: 15,
     backgroundColor: (theme.colors.secondary),
@@ -34,7 +34,7 @@ lineHistoric: {
   },
   lineHistoric1: {
     top: 5,
-    width: 250,
+    width: 270,
     height: 1,
     backgroundColor: (theme.colors.google),
   },
@@ -46,7 +46,7 @@ lineHistoric: {
   },
   lineHistoric2: {
     top: 10,
-    width: 250,
+    width: 270,
     height: 1,
     backgroundColor: (theme.colors.google),
   },
@@ -58,7 +58,7 @@ lineHistoric: {
   },
   lineHistoric3: {
     top: 15,
-    width: 250,
+    width: 270,
     height: 1,
     backgroundColor: (theme.colors.google),
   },
@@ -70,7 +70,7 @@ lineHistoric: {
   },
   lineHistoric4: {
     top: 20,
-    width: 250,
+    width: 270,
     height: 1,
     backgroundColor: (theme.colors.google),
   },
@@ -82,7 +82,7 @@ lineHistoric: {
   },
   lineHistoric5: {
     top: 25,
-    width: 250,
+    width: 270,
     height: 1,
     backgroundColor: (theme.colors.google),
   },
