@@ -5,7 +5,6 @@ import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import { theme } from "../../global/styles/theme";
-import { BackButton } from "../../components/BackButton";
 import { Avatar } from "../../components/Avatar";
 
 // Icones
@@ -44,8 +43,9 @@ export function Home({ route }: IHomeProps) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Avatar />
-        <BackButton onPress={handleHome} />
+        <View style={styles.viewAvatar}>
+        <Avatar/>
+        </View>
       </View>
 
       <View>

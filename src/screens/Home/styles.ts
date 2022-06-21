@@ -11,6 +11,10 @@ export const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "space-between",
   },
+  viewAvatar: {
+    right: 90,
+    marginBottom: 55
+  },
   title: {
     fontFamily: theme.fonts.title700,
     fontWeight: "bold",
