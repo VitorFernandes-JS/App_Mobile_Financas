@@ -46,9 +46,9 @@ export function Indexes({ route }: IIndexesProps) {
     navigation.navigate("Home", { token });
   }
 
-  const [ipcaRate, setIpcaRate] = useState('');
+  const [ipcaRate, setIpcaRate] = useState("");
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
-  
+
   const [modalInterrogation, setModalInterrogation] = useState(false);
 
   //API SELIC
@@ -86,41 +86,46 @@ export function Indexes({ route }: IIndexesProps) {
         <TouchableOpacity
           onPress={() => {
             setModalInterrogation(true);
-        }}
+          }}
         >
+          <AntDesign
+            name="questioncircleo"
+            size={20}
+            style={styles.iconInterrogation}
+          />
+        </TouchableOpacity>
+      </View>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalInterrogation}
+      >
+        <View style={styles.viewModalInterrogation}>
+          <Text style={styles.textModalInterrogation}>
+            Aqui estão os principais índices de Renda Fixa e Renda Variável que
+            você precisa.
+          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              setModalInterrogation(false);
+            }}
+          >
+            <Text></Text>
             <AntDesign
-                 name="questioncircleo"
-                 size={20}
-                 style={styles.iconInterrogation}
-                />
-            </TouchableOpacity>
-            </View>
-        <Modal animationType="fade" transparent={true} visible={modalInterrogation}>
-          <View style={styles.viewModalInterrogation}>
-            <Text style={styles.textModalInterrogation}>Aqui estão os principais índices de Renda Fixa e Renda Variável que você precisa.
-            </Text>
-            <TouchableOpacity
-                onPress={() => {
-                    setModalInterrogation(false);
-                }}
-                >
-                <Text></Text>
-                <AntDesign
-                 name="closecircle"
-                 color='red'
-                 size={20}
-                 style={styles.closeModalInterrogationIcon}
-                />
-            </TouchableOpacity>
-          </View>
-        </Modal>
+              name="closecircle"
+              color="red"
+              size={20}
+              style={styles.closeModalInterrogationIcon}
+            />
+          </TouchableOpacity>
+        </View>
+      </Modal>
 
       <View style={styles.viewSelicAndIpca}>
         <LinearGradient
           colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
           style={styles.showSelic}
         >
-          
           <View>
             <Text style={styles.titleSelic}>TAXA SELIC</Text>
             <Text style={styles.textSelic}>
@@ -185,7 +190,7 @@ export function Indexes({ route }: IIndexesProps) {
           </View>
         </LinearGradient>
       </View>
-    <Modal1/> 
-  </View>
+      <Modal1 />
+    </View>
   );
 }
