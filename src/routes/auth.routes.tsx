@@ -7,6 +7,7 @@ import { SignIn } from "../screens/SignIn";
 import { Calculator } from "../screens/Calculator";
 import { Comparator } from "../screens/Comparator";
 import { Indexes } from "../screens/Indexes";
+import { Profile } from "../screens/Profile"
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -21,6 +22,7 @@ export function AuthRoutes() {
       }}
     >
       <Screen name="SignIn" component={SignIn} />
+      <Screen name="Profile" component={Profile} />
       <Screen name="Home" component={Home} />
       <Screen name="Calculator" component={Calculator} />
       <Screen name="Comparator" component={Comparator} />
