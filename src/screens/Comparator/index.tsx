@@ -58,6 +58,7 @@ export function Comparator({ route }: IComparatorProps) {
   const [valueTotalSavings, setValueTotalSavings] = useState(0);
   const [valueTotalCdi, setValueTotalCdi] = useState(0);
   const [modal, setModal] = useState(false);
+  const [modalInterrogation, setModalInterrogation] = useState(false);
 
   function handleHome() {
     navigation.navigate("Home", { token });
@@ -99,6 +100,39 @@ export function Comparator({ route }: IComparatorProps) {
           <BackButton onPress={handleHome} />
         </View>
         <Text style={styles.title}>Comparador</Text>
+
+        <View>
+        <TouchableOpacity
+          onPress={() => {
+            setModalInterrogation(true);
+        }}
+        >
+            <AntDesign
+                 name="questioncircleo"
+                 size={20}
+                 style={styles.iconInterrogation}
+                />
+            </TouchableOpacity>
+            </View>
+        <Modal animationType="fade" transparent={true} visible={modalInterrogation}>
+          <View style={styles.viewModalInterrogation}>
+            <Text style={styles.textModalInterrogation}>Este é o comparador de investimentos, você simula alguns aportes e ele monstra qual seria seu lucro em cada produto financeiro.
+            </Text>
+            <TouchableOpacity
+                onPress={() => {
+                    setModalInterrogation(false);
+                }}
+                >
+                <Text></Text>
+                <AntDesign
+                 name="closecircle"
+                 color='red'
+                 size={20}
+                 style={styles.closeModalInterrogationIcon}
+                />
+            </TouchableOpacity>
+          </View>
+        </Modal>
 
         <View style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>

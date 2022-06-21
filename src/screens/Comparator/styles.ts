@@ -17,9 +17,35 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.title700,
     fontSize: 40,
     textAlign: 'center',
-    marginBottom: 15,
+    marginBottom: -2,
     marginTop: 8
    },
+   iconInterrogation: {
+    left: 130,
+    top: -33,
+    color: (theme.colors.heading)
+   },
+   viewModalInterrogation: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 300,
+    height: 80,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    left: 55,    
+    top: 158,
+    shadowColor: '#1a1a1a',
+    shadowOpacity: 0.7,
+    shadowRadius: 14
+  },
+  textModalInterrogation:{
+    marginRight: 3,
+    textAlign: 'center',
+    top: 12
+  },
+  closeModalInterrogationIcon: {
+    left: 140
+  },
    viewInitialValue: {
     flexDirection: 'row'
    },

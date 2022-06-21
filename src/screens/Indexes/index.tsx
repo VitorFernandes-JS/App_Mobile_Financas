@@ -77,6 +77,9 @@ export function Indexes({ route }: IIndexesProps) {
         <BackButton onPress={handleHome} />
       </View>
       <Text style={styles.title}>Índices</Text>
+
+      
+
       <View style={styles.viewSelicAndIpca}>
         <LinearGradient
           colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
