@@ -35,6 +35,7 @@ export function Calculator({ route }: ICalculatorProps) {
   const [totalFees, setTotalFees] = useState(0);
   const [totalValueInvested, setTotalValueInvested] = useState(0);
   const [modal, setModal] = useState(false);
+  const [modalInterrogation, setModalInterrogation] = useState(false);
 
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
@@ -56,6 +57,39 @@ export function Calculator({ route }: ICalculatorProps) {
         </View>
 
         <Text style={styles.title}>Calculadora</Text>
+        <View>
+        <TouchableOpacity
+          onPress={() => {
+            setModalInterrogation(true);
+        }}
+        >
+            <AntDesign
+                 name="questioncircleo"
+                 size={20}
+                 style={styles.iconInterrogation}
+                />
+            </TouchableOpacity>
+            </View>
+        <Modal animationType="fade" transparent={true} visible={modalInterrogation}>
+          <View style={styles.viewModalInterrogation}>
+            <Text style={styles.textModalInterrogation}>A calculadora de Juros Compostos pode
+              ser usada para calcular tanto investimentos no Longo Prazo ou também juros de divídas.
+            </Text>
+            <TouchableOpacity
+                onPress={() => {
+                    setModalInterrogation(false);
+                }}
+                >
+                <Text></Text>
+                <AntDesign
+                 name="closecircle"
+                 color='red'
+                 size={20}
+                 style={styles.closeModalInterrogationIcon}
+                />
+            </TouchableOpacity>
+          </View>
+        </Modal>
 
         <View style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>
