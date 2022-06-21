@@ -1,175 +1,174 @@
-import  { StyleSheet } from 'react-native';
-import { getStatusBarHeight} from 'react-native-iphone-x-helper';
-import { theme } from '../../global/styles/theme';
+import { StyleSheet } from "react-native";
+import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
-   container: {
-    width: '100%',
-    alignItems: 'center',
-    flexDirection: 'column',
-   },
-   header: {
-		 flexDirection: 'row',
-    display: 'flex',
-    justifyContent: 'space-between',
-   },
-   title: {
+  container: {
+    width: "100%",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+  header: {
+    flexDirection: "row",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  title: {
     fontFamily: theme.fonts.title700,
     fontSize: 42,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginBottom: -2,
-    marginTop: 8
-   },
-   iconInterrogation: {
+    marginTop: 8,
+  },
+  iconInterrogation: {
     left: 130,
     top: -35,
-    color: (theme.colors.heading)
-   },
-   viewModalInterrogation: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    color: theme.colors.heading,
+  },
+  viewModalInterrogation: {
+    alignItems: "center",
+    justifyContent: "center",
     width: 300,
     height: 80,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 20,
-    left: 55,    
+    left: 55,
     top: 158,
-    shadowColor: '#1a1a1a',
+    shadowColor: "#1a1a1a",
     shadowOpacity: 0.7,
-    shadowRadius: 14
+    shadowRadius: 14,
   },
-  textModalInterrogation:{
+  textModalInterrogation: {
     marginRight: 3,
-    textAlign: 'center',
-    top: 12
+    textAlign: "center",
+    top: 12,
   },
   closeModalInterrogationIcon: {
-    left: 140
+    left: 140,
   },
-   viewInitialValue: {
-    flexDirection: 'row'
-   },
-   InitialValue: {
+  viewInitialValue: {
+    flexDirection: "row",
+  },
+  InitialValue: {
     flex: 1,
-    flexDirection: 'row',
-    width: '50%',
-    display: 'flex',
+    flexDirection: "row",
+    width: "50%",
+    display: "flex",
     marginTop: 15,
     fontSize: 20,
     fontFamily: theme.fonts.text500,
-    marginLeft: 94
-   },
-   inputInitialValue: {
-    width: '40%',
+    marginLeft: 94,
+  },
+  inputInitialValue: {
+    width: "40%",
     borderRadius: 8,
     margin: 11,
     borderWidth: 3,
     padding: 10,
     marginRight: 60,
-   },
-   timeText: {
+  },
+  timeText: {
     flex: 1,
-    flexDirection: 'row',
-    width: '50%',
-    display: 'flex',
+    flexDirection: "row",
+    width: "50%",
+    display: "flex",
     marginTop: 17,
     fontSize: 20,
     fontFamily: theme.fonts.text500,
-    marginLeft: 94
-   },
-   inputTime: {
+    marginLeft: 94,
+  },
+  inputTime: {
     height: 37,
-    width: '23%',
+    width: "23%",
     borderRadius: 8,
     margin: 11,
     borderWidth: 3,
     padding: 3,
     marginRight: -18,
-   },
+  },
   feesText: {
     flex: 1,
-    flexDirection: 'row',
-    width: '50%',
-    display: 'flex',
+    flexDirection: "row",
+    width: "50%",
+    display: "flex",
     marginTop: 17,
     fontSize: 20,
     fontFamily: theme.fonts.text500,
-    marginLeft: 94
-   },
-   inputFees: {
+    marginLeft: 94,
+  },
+  inputFees: {
     height: 37,
-    width: '23%',
+    width: "23%",
     borderRadius: 8,
     margin: 11,
     borderWidth: 3,
     padding: 3,
     marginRight: -18,
-   },
-   buttonCalculate: {
-    backgroundColor: '#fff',
+  },
+  buttonCalculate: {
+    backgroundColor: "#fff",
     borderRadius: 8,
     padding: 6,
-    margin: 10
-   },
-   textCalculate: {
-    color: '#000',
+    margin: 10,
+  },
+  textCalculate: {
+    color: "#000",
     fontSize: 25,
-    fontFamily: theme.fonts.title700
+    fontFamily: theme.fonts.title700,
   },
   viewModal: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     width: 280,
     height: 250,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 20,
-    left: 66.5,    
+    left: 66.5,
     top: 250,
-    shadowColor: '#1a1a1a',
+    shadowColor: "#1a1a1a",
     shadowOpacity: 0.7,
-    shadowRadius: 14
+    shadowRadius: 14,
   },
-   total: {
+  total: {
     fontFamily: theme.fonts.title700,
     fontSize: 40,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginBottom: 10,
-    top: 1.5
-   },
-   line: {
+    top: 1.5,
+  },
+  line: {
     width: 280,
     height: 1.2,
-    backgroundColor: (theme.colors.google),
-    top: -9.5
-   },
-   box1: {
-    height:35,
-    width: 240,
-    backgroundColor: '#ff8080',
-    borderRadius: 8,
-    margin: 7,
-   },
-   box2: {
-    height:35,
-    width: 240,
-    backgroundColor: '#6666ff',
-    borderRadius: 8,
-    margin: 7,
-   },
-   box3: {
+    backgroundColor: theme.colors.google,
+    top: -9.5,
+  },
+  box1: {
     height: 35,
     width: 240,
-    backgroundColor: '#99ff99',
+    backgroundColor: "#ff8080",
     borderRadius: 8,
     margin: 7,
-   },
-   textBox: {
+  },
+  box2: {
+    height: 35,
+    width: 240,
+    backgroundColor: "#6666ff",
+    borderRadius: 8,
+    margin: 7,
+  },
+  box3: {
+    height: 35,
+    width: 240,
+    backgroundColor: "#99ff99",
+    borderRadius: 8,
+    margin: 7,
+  },
+  textBox: {
     padding: 8.5,
-    color: '#000'
-   },
-   closeModalIcon: {
-    top: -10
+    color: "#000",
+  },
+  closeModalIcon: {
+    top: -10,
   },
 });
