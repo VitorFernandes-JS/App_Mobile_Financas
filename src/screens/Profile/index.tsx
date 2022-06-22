@@ -65,6 +65,7 @@ export function Profile({ route }: IProfileProps) {
             </View>
             <View style={styles.location}>
               <Text style={styles.textLocation}>Localização: {profile.locale}</Text>
+              
             </View>
             </View>
         </View>

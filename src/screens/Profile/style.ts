@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         top: 40,
         width: 370,
         height: 467,
-        backgroundColor: (theme.colors.heading),
+        backgroundColor: '#fff',
         borderRadius: 20,
         left: 40
     },
