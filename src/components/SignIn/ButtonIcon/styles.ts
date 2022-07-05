@@ -6,13 +6,15 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: 60,
     backgroundColor: theme.colors.color5,
-    borderRadius: 10,
+    borderRadius: 15,
     flexDirection: "row",
     alignItems: "center",
     display: "flex",
     paddingLeft: 3,
     paddingRight: 1,
-    top: 30
+    top: 30,
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 0.5,height: 3}
   },
   icon: {
     width: 35,
