@@ -1100,10 +1100,10 @@
   resolved "https://registry.npmjs.org/@expo-google-fonts/rajdhani/-/rajdhani-0.2.2.tgz"
   integrity sha512-Zl4OxXmyPo8jqJJAv0bbKzAT1A/LuxMinABxAqUmFT8QXoNXkAifY/mnGCqx4DL03gbOemjdYlfLvsvbIkvP/g==
 
-"@expo-google-fonts/roboto@^0.2.2":
+"@expo-google-fonts/raleway@^0.2.2":
   version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/roboto/-/roboto-0.2.2.tgz#0a9f4685e8d02bdb0d2d2919c102f531bdb353d4"
-  integrity sha512-qP0oZsR8rTID5T9wEXSt9yCYMnKYKlvIlrJGGpd+t71Obt2J51+51PBpvxd5c8fpABEru3zx6ENmpU9lzwr8zw==
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/raleway/-/raleway-0.2.2.tgz#4cb2acf94723ee66f3a911bfe02b89cf5f170bef"
+  integrity sha512-/MUWS14hN9K25PgS7viQwZwasijwL1plIs1gSFu03uyaMCoSMXXrp+Jc1Am51Gj7IomPfVqSOhrbkSfYTeq6cQ==
 
 "@expo/config-plugins@4.0.18", "@expo/config-plugins@^4.0.2":
   version "4.0.18"
