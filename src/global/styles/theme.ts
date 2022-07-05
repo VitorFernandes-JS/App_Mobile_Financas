@@ -9,8 +9,14 @@ export const theme = {
   },
 
   fonts: {
-    title700: "Rajdhani_700Bold",
-    title500: "Rajdhani_500Medium",
-    text400: "Inter_400Regular",
+    font1: "Raleway_100Thin", 
+    font2: "Raleway_200ExtraLight", 
+    font3: "Raleway_300Light", 
+    font4: "Raleway_400Regular", 
+    font5: "Raleway_500Medium", 
+    font6: "Raleway_600SemiBold", 
+    font7: "Raleway_700Bold", 
+    font8: "Raleway_800ExtraBold", 
+    font9: "Raleway_900Black"
   },
 };
