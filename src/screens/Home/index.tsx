@@ -60,20 +60,6 @@ export function Home({ route }: IHomeProps) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.viewGivenName}>
-          <Text style={styles.givenName}>Olá, {profile.given_name}!</Text>
-        </View>
-        <View style={styles.viewAvatar}>
-        </View>
-      </View>
-
-      <View>
-        <Text style={styles.title}>MENU</Text>
-
-        
-            
-        </View>
       </View>
   );
 }
