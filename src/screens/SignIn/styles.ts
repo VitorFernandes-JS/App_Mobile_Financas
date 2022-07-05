@@ -16,23 +16,27 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font7_bold,
     fontSize: 45,
     color: theme.colors.color2,
-    shadowOpacity: 0.1
+    shadowOpacity: 0.1,
+    top: -40
   },
   title2: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 45,
-    shadowOpacity: 0.2
+    shadowOpacity: 0.2,
+    top: -40
   },
   title3: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 45,
     color: theme.colors.color2,
-    shadowOpacity: 0.1
+    shadowOpacity: 0.1,
+    top: -40
   },
   title4: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 45,
-    shadowOpacity: 0.2
+    shadowOpacity: 0.2,
+    top: -40
   },
   content: {
     marginTop: -77,
@@ -45,10 +49,11 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     fontFamily: theme.fonts.font7_bold,
     lineHeight: 30,
-    marginTop: 85,
+    marginTop: 20,
   },
   image: {
     width: 345,
     height: 345,
+    top: -40
   },
 });
