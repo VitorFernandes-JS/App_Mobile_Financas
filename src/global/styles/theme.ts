@@ -9,14 +9,14 @@ export const theme = {
   },
 
   fonts: {
-    font1: "Raleway_100Thin", 
-    font2: "Raleway_200ExtraLight", 
-    font3: "Raleway_300Light", 
-    font4: "Raleway_400Regular", 
-    font5: "Raleway_500Medium", 
-    font6: "Raleway_600SemiBold", 
-    font7: "Raleway_700Bold", 
-    font8: "Raleway_800ExtraBold", 
-    font9: "Raleway_900Black"
+    font1_thin: "Raleway_100Thin", 
+    font2_extraLight: "Raleway_200ExtraLight", 
+    font3_light: "Raleway_300Light", 
+    font4_regular: "Raleway_400Regular", 
+    font5_medium: "Raleway_500Medium", 
+    font6_semiBold: "Raleway_600SemiBold", 
+    font7_bold: "Raleway_700Bold", 
+    font8_extraBold: "Raleway_800ExtraBold", 
+    font9_black: "Raleway_900Black"
   },
 };

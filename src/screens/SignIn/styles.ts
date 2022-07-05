@@ -14,17 +14,16 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 50,
   },
   title: {
-    color: theme.colors.heading,
+    color: theme.colors.color2,
     textAlign: "center",
-    fontSize: 40,
+    fontSize: 24,
     marginBottom: 10,
-    fontFamily: theme.fonts.title700,
-    fontWeight: "bold",
-    lineHeight: 40,
+    fontFamily: theme.fonts.font7_bold,
+    lineHeight: 30,
     marginTop: 85,
   },
   image: {
-    width: 315,
-    height: 315,
+    width: 345,
+    height: 345,
   },
 });
