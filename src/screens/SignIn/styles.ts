@@ -9,6 +9,12 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  viewTitle:{
+    flexDirection: "row",
+  },
+  title1: {
+    
+  },
   content: {
     marginTop: -77,
     paddingHorizontal: 50,
