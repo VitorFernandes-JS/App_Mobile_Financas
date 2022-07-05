@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import * as AuthSession from "expo-auth-session";
 
 import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
@@ -47,6 +47,9 @@ export function SignIn() {
         </Text>
         <ButtonIcon title="Entrar com Google" onPress={handleSignIn} />
       </View>
+      <TouchableOpacity>
+      <Text style={styles.contactUs}>Fale Conosco</Text>
+      </TouchableOpacity>
     </View>
   );
 }

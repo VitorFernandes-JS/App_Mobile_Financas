@@ -2,10 +2,6 @@ import { StyleSheet } from "react-native";
 import { theme } from "../../../global/styles/theme";
 
 export const styles = StyleSheet.create({
-  icon: {
-    width: 35,
-    height: 35,
-  },
   container: {
     width: "100%",
     height: 60,
@@ -16,13 +12,18 @@ export const styles = StyleSheet.create({
     display: "flex",
     paddingLeft: 3,
     paddingRight: 1,
+    top: 30
+  },
+  icon: {
+    width: 35,
+    height: 35,
   },
   title: {
     flex: 1,
     color: theme.colors.color1,
     fontSize: 17,
     textAlign: "center",
-    fontWeight: "bold",
+    fontFamily: theme.fonts.font5_medium
   },
   contentWrapper: {
     width: "70%",
