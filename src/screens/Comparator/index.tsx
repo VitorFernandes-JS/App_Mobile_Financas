@@ -13,7 +13,6 @@ import { useNavigation } from "@react-navigation/native";
 
 import { AntDesign } from "@expo/vector-icons";
 import { Avatar } from "../../components/Avatar";
-import { Historic } from "../../components/Historic";
 import { BackButton } from "../../components/BackButton";
 import SelectDropdown from "react-native-select-dropdown";
 import { calcComparator } from "../../controls/comparatorController";
@@ -226,7 +225,6 @@ export function Comparator({ route }: IComparatorProps) {
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
 
-        <Historic />
         <View>
           <Modal animationType="slide" transparent={true} visible={modal}>
             <View style={styles.viewModal}>
