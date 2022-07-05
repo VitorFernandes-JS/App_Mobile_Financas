@@ -37,7 +37,7 @@ export function SignIn() {
   return (
     <View style={styles.container}>
       <View style={styles.viewTitle}>
-      <Text style={styles.tile1}>B</Text><Text style={styles.tile2}>est</Text><Text style={styles.tile3}>F</Text><Text style={styles.tile4}>inance</Text>
+      <Text style={styles.title1}>B</Text><Text style={styles.title2}>est</Text><Text style={styles.title3}>F</Text><Text style={styles.title4}>inance</Text>
       </View>
       <Image source={IllustrationImg} style={styles.image} />
       <View style={styles.content}>

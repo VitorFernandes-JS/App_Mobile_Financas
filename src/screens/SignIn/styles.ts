@@ -13,7 +13,26 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
   },
   title1: {
-    
+    fontFamily: theme.fonts.font7_bold,
+    fontSize: 45,
+    color: theme.colors.color2,
+    shadowOpacity: 0.1
+  },
+  title2: {
+    fontFamily: theme.fonts.font7_bold,
+    fontSize: 45,
+    shadowOpacity: 0.2
+  },
+  title3: {
+    fontFamily: theme.fonts.font7_bold,
+    fontSize: 45,
+    color: theme.colors.color2,
+    shadowOpacity: 0.1
+  },
+  title4: {
+    fontFamily: theme.fonts.font7_bold,
+    fontSize: 45,
+    shadowOpacity: 0.2
   },
   content: {
     marginTop: -77,
