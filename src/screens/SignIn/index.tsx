@@ -39,12 +39,8 @@ export function SignIn() {
       <Image source={IllustrationImg} style={styles.image} />
       <View style={styles.content}>
         <Text style={styles.title}>
-          Aprender finanças {`\n`}
-          nunca foi tão fácil!
-        </Text>
-        <Text style={styles.subtitle}>
-          Aprenda sobre finanças do básico {`\n`}
-          ao avançado tudo em um só lugar.
+          Educação Financeira {`\n`}
+          na palma da sua mão!
         </Text>
         <ButtonIcon title="Entrar com Google" onPress={handleSignIn} />
       </View>

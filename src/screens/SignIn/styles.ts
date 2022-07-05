@@ -24,16 +24,7 @@ export const styles = StyleSheet.create({
     marginTop: 85,
   },
   image: {
-    width: 385,
-    height: 385,
-  },
-  subtitle: {
-    color: theme.colors.heading,
-    fontSize: 17,
-    fontStyle: "italic",
-    textAlign: "center",
-    marginBottom: 47,
-    fontFamily: theme.fonts.text500,
-    lineHeight: 24,
+    width: 315,
+    height: 315,
   },
 });
