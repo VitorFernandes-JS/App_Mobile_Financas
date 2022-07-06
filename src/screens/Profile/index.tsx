@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
 
-import { AntDesign } from "@expo/vector-icons";
 import { BackButton } from "../../components/BackButton";
 interface IProfileProps {
     route: any;

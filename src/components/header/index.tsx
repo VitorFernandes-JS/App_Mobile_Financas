@@ -1,4 +1,5 @@
-import React from "react";
+import React, { ReactNode, useState, useEffect } from "react";
+
 import { View, Text } from "react-native";
 import { styles } from "./styles";
 import { Avatar } from "../Avatar";
