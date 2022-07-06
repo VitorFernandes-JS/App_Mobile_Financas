@@ -1,5 +1,5 @@
 import {
-  View,
+  SafeAreaView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -49,14 +49,14 @@ export function Calculator({ route }: ICalculatorProps) {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.header}>
+      <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.header}>
           <Avatar />
           <BackButton onPress={handleHome} />
-        </View>
+        </SafeAreaView>
 
         <Text style={styles.title}>Calculadora</Text>
-        <View>
+        <SafeAreaView>
           <TouchableOpacity
             onPress={() => {
               setModalInterrogation(true);
@@ -68,13 +68,13 @@ export function Calculator({ route }: ICalculatorProps) {
               style={styles.iconInterrogation}
             />
           </TouchableOpacity>
-        </View>
+        </SafeAreaView>
         <Modal
           animationType="fade"
           transparent={true}
           visible={modalInterrogation}
         >
-          <View style={styles.viewModalInterrogation}>
+          <SafeAreaView style={styles.viewModalInterrogation}>
             <Text style={styles.textModalInterrogation}>
               A calculadora de Juros Compostos pode ser usada para calcular
               tanto investimentos no Longo Prazo ou também juros de divídas.
@@ -92,10 +92,10 @@ export function Calculator({ route }: ICalculatorProps) {
                 style={styles.closeModalInterrogationIcon}
               />
             </TouchableOpacity>
-          </View>
+          </SafeAreaView>
         </Modal>
 
-        <View style={styles.viewInitialValue}>
+        <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>
             VALOR {"\n"}
             INICIAL
@@ -109,9 +109,9 @@ export function Calculator({ route }: ICalculatorProps) {
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
           />
-        </View>
+        </SafeAreaView>
 
-        <View style={styles.viewInitialValue}>
+        <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>
             VALOR {"\n"}
             MENSAL
@@ -125,9 +125,9 @@ export function Calculator({ route }: ICalculatorProps) {
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
           />
-        </View>
+        </SafeAreaView>
 
-        <View style={styles.viewInitialValue}>
+        <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.timeText}>TEMPO</Text>
           <TextInput
             keyboardType={"numbers-and-punctuation"}
@@ -149,9 +149,9 @@ export function Calculator({ route }: ICalculatorProps) {
               return item;
             }}
           />
-        </View>
+        </SafeAreaView>
 
-        <View style={styles.viewInitialValue}>
+        <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.feesText}>JUROS</Text>
           <TextInput
             keyboardType={"numbers-and-punctuation"}
@@ -173,7 +173,7 @@ export function Calculator({ route }: ICalculatorProps) {
               return item;
             }}
           />
-        </View>
+        </SafeAreaView>
 
         <TouchableOpacity
           style={styles.buttonCalculate}
@@ -195,28 +195,28 @@ export function Calculator({ route }: ICalculatorProps) {
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
 
-        <View>
+        <SafeAreaView>
           <Modal animationType="slide" transparent={true} visible={modal}>
-            <View style={styles.viewModal}>
+            <SafeAreaView style={styles.viewModal}>
               <Text style={styles.total}>TOTAL:</Text>
-              <View style={styles.line}></View>
-              <View style={styles.box1}>
+              <SafeAreaView style={styles.line}></SafeAreaView>
+              <SafeAreaView style={styles.box1}>
                 <Text style={styles.textBox}>
                   Total de Juros: R${Number(totalFees).toFixed(2)}
                 </Text>
-              </View>
+              </SafeAreaView>
 
-              <View style={styles.box2}>
+              <SafeAreaView style={styles.box2}>
                 <Text style={styles.textBox}>
                   Valor Investido: R${Number(totalValueInvested).toFixed(2)}
                 </Text>
-              </View>
+              </SafeAreaView>
 
-              <View style={styles.box3}>
+              <SafeAreaView style={styles.box3}>
                 <Text style={styles.textBox}>
                   Valor Total: R${Number(totalValue).toFixed(2)}
                 </Text>
-              </View>
+              </SafeAreaView>
               <TouchableOpacity
                 onPress={() => {
                   setModal(false);
@@ -230,10 +230,10 @@ export function Calculator({ route }: ICalculatorProps) {
                   style={styles.closeModalIcon}
                 />
               </TouchableOpacity>
-            </View>
+            </SafeAreaView>
           </Modal>
-        </View>
-      </View>
+        </SafeAreaView>
+      </SafeAreaView>
     </ScrollView>
   );
 }
