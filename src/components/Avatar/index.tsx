@@ -4,9 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
 import { useRoute } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { EvilIcons } from "@expo/vector-icons";
+
 
 type Params = {
   token: string;
