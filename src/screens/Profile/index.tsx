@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, Image } from "react-native";
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
 
@@ -44,29 +44,28 @@ export function Profile({ route }: IProfileProps) {
       }, []);
 
     return (
-        <View style={styles.container}>
-            <View style={styles.backButton}>
+        <SafeAreaView style={styles.container}>
+            <SafeAreaView style={styles.backButton}>
             <BackButton onPress={handleHome}/>
-            </View>
-            <View style={styles.border}>
+            </SafeAreaView>
+            <SafeAreaView style={styles.border}>
             <Image source={{ uri: profile.picture }} style={[styles.avatar]} />
-            <View style={styles.viewGivenName}>
+            <SafeAreaView style={styles.viewGivenName}>
             <Text style={styles.givenName}>Bem-vindo, {profile.given_name}!</Text>
-            </View>
-            <View style={styles.name}>
+            </SafeAreaView>
+            <SafeAreaView style={styles.name}>
               <Text style={styles.textName}>Nome: {profile.given_name}</Text>
-            </View>
-            <View style={styles.familyName}>
+            </SafeAreaView>
+            <SafeAreaView style={styles.familyName}>
               <Text style={styles.textFamilyName}>Sobrenome: {profile.family_name}</Text>
-            </View>
-            <View style={styles.email}>
+            </SafeAreaView>
+            <SafeAreaView style={styles.email}>
               <Text style={styles.textEmail}>E-mail: {profile.email}</Text>
-            </View>
-            <View style={styles.location}>
+            </SafeAreaView>
+            <SafeAreaView style={styles.location}>
               <Text style={styles.textLocation}>Localização: {profile.locale}</Text>
-              
-            </View>
-            </View>
-        </View>
+            </SafeAreaView>
+            </SafeAreaView>
+        </SafeAreaView>
     );
 };
