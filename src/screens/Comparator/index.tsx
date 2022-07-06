@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import {
-  View,
+  SafeAreaView,
   Text,
   TextInput,
   ScrollView,
@@ -93,14 +93,14 @@ export function Comparator({ route }: IComparatorProps) {
 
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.header}>
+      <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.header}>
           <Avatar />
           <BackButton onPress={handleHome} />
-        </View>
+        </SafeAreaView>
         <Text style={styles.title}>Comparador</Text>
 
-        <View>
+        <SafeAreaView>
           <TouchableOpacity
             onPress={() => {
               setModalInterrogation(true);
@@ -112,13 +112,13 @@ export function Comparator({ route }: IComparatorProps) {
               style={styles.iconInterrogation}
             />
           </TouchableOpacity>
-        </View>
+        </SafeAreaView>
         <Modal
           animationType="fade"
           transparent={true}
           visible={modalInterrogation}
         >
-          <View style={styles.viewModalInterrogation}>
+          <SafeAreaView style={styles.viewModalInterrogation}>
             <Text style={styles.textModalInterrogation}>
               Este é o comparador de investimentos, você simula alguns aportes e
               ele monstra qual seria seu lucro em cada produto financeiro.
@@ -136,10 +136,10 @@ export function Comparator({ route }: IComparatorProps) {
                 style={styles.closeModalInterrogationIcon}
               />
             </TouchableOpacity>
-          </View>
+          </SafeAreaView>
         </Modal>
 
-        <View style={styles.viewInitialValue}>
+        <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>
             VALOR{"\n"}
             MENSAL
@@ -154,9 +154,9 @@ export function Comparator({ route }: IComparatorProps) {
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
           />
-        </View>
+        </SafeAreaView>
 
-        <View style={styles.viewInitialValue}>
+        <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.timeText}>TEMPO</Text>
           <TextInput
             keyboardType="numbers-and-punctuation"
@@ -180,9 +180,9 @@ export function Comparator({ route }: IComparatorProps) {
               return item;
             }}
           />
-        </View>
+        </SafeAreaView>
 
-        <View style={styles.viewInitialValue}>
+        <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.typeText}>TIPO</Text>
           <TextInput
             editable={false}
@@ -203,7 +203,7 @@ export function Comparator({ route }: IComparatorProps) {
               return item;
             }}
           />
-        </View>
+        </SafeAreaView>
 
         <TouchableOpacity
           style={styles.buttonCalculate}
@@ -225,54 +225,54 @@ export function Comparator({ route }: IComparatorProps) {
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity>
 
-        <View>
+        <SafeAreaView>
           <Modal animationType="slide" transparent={true} visible={modal}>
-            <View style={styles.viewModal}>
+            <SafeAreaView style={styles.viewModal}>
               <Text style={styles.total}>TOTAL:</Text>
-              <View style={styles.line}></View>
-              <View style={styles.boxAndText}>
-                <View style={styles.viewTopBoxSelic}>
+              <SafeAreaView style={styles.line}></SafeAreaView>
+              <SafeAreaView style={styles.boxAndText}>
+                <SafeAreaView style={styles.viewTopBoxSelic}>
                   <Text style={styles.textTopBoxSelic}>TESOURO SELIC</Text>
-                </View>
-                <View style={styles.box1}>
+                </SafeAreaView>
+                <SafeAreaView style={styles.box1}>
                   <Text style={styles.textBox}>
                     Valor Total: R$ {Number(valueTotalSelic).toFixed(2)}
                   </Text>
-                </View>
-              </View>
+                </SafeAreaView>
+              </SafeAreaView>
 
-              <View style={styles.boxAndText}>
-                <View style={styles.viewTopBoxIpca}>
+              <SafeAreaView style={styles.boxAndText}>
+                <SafeAreaView style={styles.viewTopBoxIpca}>
                   <Text style={styles.textTopBoxIpca}>TESOURO IPCA</Text>
-                </View>
-                <View style={styles.box2}>
+                </SafeAreaView>
+                <SafeAreaView style={styles.box2}>
                   <Text style={styles.textBox}>
                     Valor Total: R$ {Number(valueTotalIpca).toFixed(2)}
                   </Text>
-                </View>
-              </View>
+                </SafeAreaView>
+              </SafeAreaView>
 
-              <View style={styles.boxAndText}>
-                <View style={styles.viewTopBoxCdi}>
+              <SafeAreaView style={styles.boxAndText}>
+                <SafeAreaView style={styles.viewTopBoxCdi}>
                   <Text style={styles.textTopBoxCdi}>CDI</Text>
-                </View>
-                <View style={styles.box3}>
+                </SafeAreaView>
+                <SafeAreaView style={styles.box3}>
                   <Text style={styles.textBox}>
                     Valor Total: R$ {Number(valueTotalCdi).toFixed(2)}
                   </Text>
-                </View>
-              </View>
+                </SafeAreaView>
+              </SafeAreaView>
 
-              <View style={styles.boxAndText}>
-                <View style={styles.viewTopBoxSavings}>
+              <SafeAreaView style={styles.boxAndText}>
+                <SafeAreaView style={styles.viewTopBoxSavings}>
                   <Text style={styles.textTopBoxSavings}>POUPANÇA</Text>
-                </View>
-                <View style={styles.box4}>
+                </SafeAreaView>
+                <SafeAreaView style={styles.box4}>
                   <Text style={styles.textBox}>
                     Valor Total: R$ {Number(valueTotalSavings).toFixed(2)}
                   </Text>
-                </View>
-              </View>
+                </SafeAreaView>
+              </SafeAreaView>
               <TouchableOpacity
                 onPress={() => {
                   setModal(false);
@@ -286,10 +286,10 @@ export function Comparator({ route }: IComparatorProps) {
                   style={styles.closeModalIcon}
                 />
               </TouchableOpacity>
-            </View>
+            </SafeAreaView>
           </Modal>
-        </View>
-      </View>
+        </SafeAreaView>
+      </SafeAreaView>
     </ScrollView>
   );
 }
