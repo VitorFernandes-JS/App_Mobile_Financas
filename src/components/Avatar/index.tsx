@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Image, View} from "react-native";
+import { Image, SafeAreaView} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
