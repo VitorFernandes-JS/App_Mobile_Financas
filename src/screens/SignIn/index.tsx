@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, Image, TouchableOpacity } from "react-native";
 import * as AuthSession from "expo-auth-session";
 
 import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
@@ -35,21 +35,21 @@ export function SignIn() {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.viewTitle}>
+    <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.viewTitle}>
       <Text style={styles.title1}>B</Text><Text style={styles.title2}>est</Text><Text style={styles.title3}>F</Text><Text style={styles.title4}>inance</Text>
-      </View>
+      </SafeAreaView>
       <Image source={IllustrationImg} style={styles.image} />
-      <View style={styles.content}>
+      <SafeAreaView style={styles.content}>
         <Text style={styles.title}>
           Educação Financeira {`\n`}
           na palma da sua mão!
         </Text>
         <ButtonIcon title="Entrar com Google" onPress={handleSignIn} />
-      </View>
+      </SafeAreaView>
       <TouchableOpacity>
       <Text style={styles.contactUs}>Fale Conosco</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
