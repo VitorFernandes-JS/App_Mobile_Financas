@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { SafeAreaView } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -8,11 +8,11 @@ import { theme } from "../../global/styles/theme";
 
 export function BackButton({ ...rest }: RectButtonProps) {
   return (
-    <View>
-      <View style={styles.borderBackButton}></View>
+    <SafeAreaView>
+      <SafeAreaView style={styles.borderBackButton}></SafeAreaView>
       <RectButton style={styles.container} {...rest}>
         <AntDesign name="left" color={theme.colors.color1} size={32} />
       </RectButton>
-    </View>
+    </SafeAreaView>
   );
 }
