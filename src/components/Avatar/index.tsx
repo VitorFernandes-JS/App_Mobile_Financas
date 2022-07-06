@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Image, View, TouchableOpacity, Modal, Text } from "react-native";
+import { Image, View, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
@@ -49,54 +49,7 @@ export function Avatar() {
 
   return (
     <View>
-      <Modal animationType="fade" transparent={true} visible={visible}>
-        <View style={styles.viewModal}>
-          <Text style={styles.modalText}>PERFIL</Text>
-          <View style={styles.line}></View>
-          <View style={styles.viewUser}>
-            <TouchableOpacity onPress={handleProfile}>
-              <EvilIcons name="user" style={styles.iconUser} />
-              <Text style={styles.textUser}>Ver Perfil</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.viewIconExit}>
-            <TouchableOpacity onPress={handleSignIn}>
-              <MaterialCommunityIcons
-                name="exit-to-app"
-                style={styles.iconExitForSignIn}
-              />
-              <Text style={styles.textExitForSignIn}>Sair</Text>
-            </TouchableOpacity>
-          </View>
-
-          <TouchableOpacity
-            onPress={() => {
-              setVisible(false);
-            }}
-          >
-            <Text></Text>
-            <AntDesign
-              name="closesquare"
-              color="red"
-              size={27}
-              style={styles.closeModalIcon}
-            />
-          </TouchableOpacity>
-        </View>
-      </Modal>
-
-      <View style={styles.viewAvatarAndBorder}>
-      <TouchableOpacity
-        onPress={() => {
-          setVisible(true);
-        }}
-      >
-        
-        <View style={styles.borderAvatar}></View>
-      
       <Image source={{ uri: profile.picture }} style={[styles.avatar]} />
-      </TouchableOpacity>
       </View>
-    </View>
   );
 }

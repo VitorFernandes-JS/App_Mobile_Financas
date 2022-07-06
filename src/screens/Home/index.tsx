@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 
 import { theme } from "../../global/styles/theme";
-import { Avatar } from "../../components/headerAndFooter/Avatar";
+import { Header } from "../../components/header";
 
 
 interface IHomeProps {
@@ -60,6 +60,7 @@ export function Home({ route }: IHomeProps) {
 
   return (
     <View style={styles.container}>
+      <Header/>
       </View>
   );
 }
