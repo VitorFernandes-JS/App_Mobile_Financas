@@ -1,6 +1,6 @@
 import React, { ReactNode, useState, useEffect } from "react";
 
-import { View, Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 import { Avatar } from "../Avatar";
 
@@ -31,8 +31,8 @@ export function Header({ route }:IProfileProps ) {
 
 
     return(
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
         <Avatar/>
-    </View>
+    </SafeAreaView>
     )
 };
