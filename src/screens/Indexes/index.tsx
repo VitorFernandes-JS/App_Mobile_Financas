@@ -1,9 +1,8 @@
 import React, { ReactNode, useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, Modal } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, Modal } from "react-native";
 import { styles } from "./style";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
-import { LinearGradient } from "expo-linear-gradient";
 
 import { AntDesign } from "@expo/vector-icons";
 import { theme } from "../../global/styles/theme";
@@ -40,8 +39,6 @@ export function Indexes({ route }: IIndexesProps) {
 
   const navigation = useNavigation();
 
-  const { buttonColor, buttonColor2 } = theme.colors;
-
   function handleHome() {
     navigation.navigate("Home", { token });
   }
@@ -75,14 +72,14 @@ export function Indexes({ route }: IIndexesProps) {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.header}>
         <Avatar />
         <BackButton onPress={handleHome} />
-      </View>
+      </SafeAreaView>
       <Text style={styles.title}>Índices</Text>
 
-      <View>
+      <SafeAreaView>
         <TouchableOpacity
           onPress={() => {
             setModalInterrogation(true);
@@ -94,13 +91,13 @@ export function Indexes({ route }: IIndexesProps) {
             style={styles.iconInterrogation}
           />
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
       <Modal
         animationType="fade"
         transparent={true}
         visible={modalInterrogation}
       >
-        <View style={styles.viewModalInterrogation}>
+        <SafeAreaView style={styles.viewModalInterrogation}>
           <Text style={styles.textModalInterrogation}>
             Aqui estão os principais índices de Renda Fixa e Renda Variável que
             você precisa.
@@ -118,15 +115,12 @@ export function Indexes({ route }: IIndexesProps) {
               style={styles.closeModalInterrogationIcon}
             />
           </TouchableOpacity>
-        </View>
+        </SafeAreaView>
       </Modal>
 
-      <View style={styles.viewSelicAndIpca}>
-        <LinearGradient
-          colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
-          style={styles.showSelic}
-        >
-          <View>
+      <SafeAreaView style={styles.viewSelicAndIpca}>
+     
+          <SafeAreaView>
             <Text style={styles.titleSelic}>TAXA SELIC</Text>
             <Text style={styles.textSelic}>
               Diário: {(+latestSelicRate.valor).toFixed(2)}%
@@ -137,14 +131,11 @@ export function Indexes({ route }: IIndexesProps) {
             <Text style={styles.textSelic2}>
               Anual: {(+latestSelicRate.valor * 254).toFixed(2)}%
             </Text>
-          </View>
-        </LinearGradient>
+          </SafeAreaView>
+       
 
-        <LinearGradient
-          colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
-          style={styles.showIpca}
-        >
-          <View>
+      
+          <SafeAreaView>
             <Text style={styles.titleIpca}>IPCA</Text>
             <Text style={styles.textIpca}>
               Diário: {(+ipcaRate / 254).toFixed(2)}%
@@ -155,14 +146,10 @@ export function Indexes({ route }: IIndexesProps) {
             <Text style={styles.textIpca2}>
               Anual: {(+ipcaRate).toFixed(2)}%
             </Text>
-          </View>
-        </LinearGradient>
+          </SafeAreaView>
 
-        <LinearGradient
-          colors={[theme.colors.buttonColor, theme.colors.buttonColor2]}
-          style={styles.showCdi}
-        >
-          <View>
+        
+          <SafeAreaView>
             <Text style={styles.titleCdi}>CDI</Text>
             <Text style={styles.textCdi}>
               Diário:{" "}
@@ -187,10 +174,9 @@ export function Indexes({ route }: IIndexesProps) {
               ).toFixed(2)}
               %
             </Text>
-          </View>
-        </LinearGradient>
-      </View>
+          </SafeAreaView>
+      </SafeAreaView>
       <Modal1 />
-    </View>
+    </SafeAreaView>
   );
 }
