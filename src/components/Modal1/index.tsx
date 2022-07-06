@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Modal, Button, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, Modal, TouchableOpacity } from "react-native";
 import { styles, viewButtonStyles } from "./styles";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -7,16 +7,16 @@ export function Modal1() {
   const [visible, setVisible] = useState(false);
 
   return (
-    <View>
+    <SafeAreaView>
       <Modal animationType="slide" transparent={true} visible={visible}>
-        <View style={styles.viewModal}>
+        <SafeAreaView style={styles.viewModal}>
           <Text style={styles.modalText}>Informações</Text>
-          <View style={styles.line}></View>
+          <SafeAreaView style={styles.line}></SafeAreaView>
           <Text style={styles.modalSubtitle}>
             Este ícone <Text />
-            <View
+            <SafeAreaView
               style={viewButtonStyles({ left: 55, top: -10 }).viewButton}
-            ></View>
+            ></SafeAreaView>
             <Text style={styles.modalSubtitle}>
               {" "}
               signifi- {`\n`}
@@ -37,10 +37,10 @@ export function Modal1() {
               style={styles.closeModalIcon}
             />
           </TouchableOpacity>
-        </View>
+        </SafeAreaView>
       </Modal>
 
-      <View style={viewButtonStyles({ left: 55, top: -10 }).viewButton}>
+      <SafeAreaView style={viewButtonStyles({ left: 55, top: -10 }).viewButton}>
         <TouchableOpacity
           onPress={() => {
             setVisible(true);
@@ -48,9 +48,9 @@ export function Modal1() {
         >
           <Text style={styles.interrogation}>?</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
 
-      <View style={viewButtonStyles({ left: -70, top: -24 }).viewButton}>
+      <SafeAreaView style={viewButtonStyles({ left: -70, top: -24 }).viewButton}>
         <TouchableOpacity
           onPress={() => {
             setVisible(true);
@@ -58,9 +58,9 @@ export function Modal1() {
         >
           <Text style={styles.interrogation}>?</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
 
-      <View style={viewButtonStyles({ left: 180, top: -36 }).viewButton}>
+      <SafeAreaView style={viewButtonStyles({ left: 180, top: -36 }).viewButton}>
         <TouchableOpacity
           onPress={() => {
             setVisible(true);
@@ -68,7 +68,7 @@ export function Modal1() {
         >
           <Text style={styles.interrogation}>?</Text>
         </TouchableOpacity>
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaView>
   );
 }
