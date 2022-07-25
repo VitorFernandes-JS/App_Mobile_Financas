@@ -15,7 +15,7 @@
     "@expo-google-fonts/raleway": "^0.2.2",
     "@react-native-community/google-signin": "^5.0.0",
     "@react-native-community/masked-view": "^0.1.11",
-    "@react-native-picker/picker": "^2.4.1",
+    "@react-native-picker/picker": "2.2.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/stack": "^6.2.1",
     "axios": "^0.27.2",
