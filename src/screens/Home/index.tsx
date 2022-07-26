@@ -33,9 +33,7 @@ export function Home({ route }: IProfileProps) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header
-        route={handleHome}
-      />
-      </SafeAreaView>
+      <Header token={token} />
+    </SafeAreaView>
   );
 }

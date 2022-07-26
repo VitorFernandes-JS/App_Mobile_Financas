@@ -5,7 +5,7 @@ import { styles } from "./styles";
 import { Avatar } from "../Avatar";
 
 interface IProfileProps {
-    route: any;
+    token: string;
   }
 
   type Params = {
@@ -16,11 +16,9 @@ interface IProfileProps {
     given_name: string;
   };
 
-export function Header({ route }:IProfileProps ) {
-
+export function Header({ token }: IProfileProps) {
     const [profile, setProfile] = useState({} as Profile);
-    const { token } = route.params;
-    
+
     async function loadProfile() {
         const response = await fetch(
           `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`
@@ -29,10 +27,14 @@ export function Header({ route }:IProfileProps ) {
         setProfile(userInfo);
       }
 
+      useEffect(() => {
+        loadProfile();
+      }, []);
 
     return(
-    <SafeAreaView style={styles.container}>
-        <Avatar/>
-    </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <Text>{profile.given_name}</Text>
+        <Avatar />
+      </SafeAreaView>
     )
 };

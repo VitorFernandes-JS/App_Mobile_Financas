@@ -48,6 +48,6 @@ export function Avatar() {
   return (
     <SafeAreaView>
       <Image source={{ uri: profile.picture }} style={[styles.avatar]} />
-      </SafeAreaView>
+    </SafeAreaView>
   );
 }
