@@ -11,4 +11,18 @@ export const styles = StyleSheet.create({
       shadowOffset: {width: 1, height: 1},
       margin: -10
     },
+    textWelcome: {
+      fontSize: 24,
+      fontFamily: theme.fonts.font7_bold,
+      top: 40,
+      color: theme.colors.color3,
+      marginLeft: 28
+    },
+    textName: {
+      fontSize: 24,
+      fontFamily: theme.fonts.font7_bold,
+      top: 38,
+      color: theme.colors.color1,
+      marginLeft: 28
+    }
   });

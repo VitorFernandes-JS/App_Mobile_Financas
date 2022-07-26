@@ -1,6 +1,6 @@
 import React, { ReactNode, useState, useEffect } from "react";
 
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./styles";
 import { Avatar } from "../Avatar";
 
@@ -33,7 +33,9 @@ export function Header({ token }: IProfileProps) {
 
     return(
       <SafeAreaView style={styles.container}>
-        <Text>Olá{profile.given_name}</Text>
+        <Text style={styles.textWelcome}>Bem-Vindo,</Text>
+        <Text style={styles.textName}>{profile.given_name}</Text>
+        <Image source={{}}/>
         <Avatar />
       </SafeAreaView>
     )
