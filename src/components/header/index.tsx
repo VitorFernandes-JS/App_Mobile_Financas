@@ -3,6 +3,7 @@ import React, { ReactNode, useState, useEffect } from "react";
 import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./styles";
 import { Avatar } from "../Avatar";
+import happyEmoji from "../../assets/emo";
 
 interface IProfileProps {
     token: string;
@@ -35,7 +36,7 @@ export function Header({ token }: IProfileProps) {
       <SafeAreaView style={styles.container}>
         <Text style={styles.textWelcome}>Bem-Vindo,</Text>
         <Text style={styles.textName}>{profile.given_name}</Text>
-        <Image source={{}}/>
+        <Image source={{uri: ('')}}/>
         <Avatar />
       </SafeAreaView>
     )
