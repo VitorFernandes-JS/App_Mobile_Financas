@@ -150,7 +150,6 @@ export const styles = StyleSheet.create({
     marginLeft: 13,
   },
   textButtonFinancing: {
-    color: "#000",
     textAlign: "center",
     fontSize: 20,
     fontFamily: theme.fonts.title700,

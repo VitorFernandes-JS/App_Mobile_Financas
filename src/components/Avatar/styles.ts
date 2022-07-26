@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     height: 60,
     borderRadius: 50,
     borderWidth: 3,
-    top: 42,
+    top: 25,
     left: 317,
     marginRight: 22,
     borderColor: theme.colors.color2,

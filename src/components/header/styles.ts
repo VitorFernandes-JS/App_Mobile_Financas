@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
       backgroundColor: theme.colors.color5,
       borderRadius: 20,
       shadowOpacity: 0.4,
-      shadowOffset: {width: 1, height: 1}    
+      shadowOffset: {width: 1, height: 1},
+      margin: -10
     },
   });

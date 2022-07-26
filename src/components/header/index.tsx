@@ -33,7 +33,7 @@ export function Header({ token }: IProfileProps) {
 
     return(
       <SafeAreaView style={styles.container}>
-        <Text>{profile.given_name}</Text>
+        <Text>Olá{profile.given_name}</Text>
         <Avatar />
       </SafeAreaView>
     )
