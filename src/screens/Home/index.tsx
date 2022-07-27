@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
+import { Baseboard } from "../../components/baseboard"
 
 interface IProfileProps {
   route: any;
@@ -34,6 +35,10 @@ export function Home({ route }: IProfileProps) {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
+
+      <Baseboard/>
     </SafeAreaView>
+
+    
   );
 }
