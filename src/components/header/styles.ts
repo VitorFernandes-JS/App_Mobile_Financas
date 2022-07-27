@@ -24,5 +24,10 @@ export const styles = StyleSheet.create({
       top: 38,
       color: theme.colors.color1,
       marginLeft: 28
-    }
+    },
+    iconEmojiHappy: {
+      width: 26,
+      height: 25.52,
+      top: 12,
+    },
   });
