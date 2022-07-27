@@ -6,38 +6,40 @@ import { Avatar } from "../Avatar";
 import happyEmoji from "../../assets/emoji_feliz.png";
 
 interface IProfileProps {
-    token: string;
-  }
+  token: string;
+}
 
-  type Params = {
-    token: string;
-  };
+type Params = {
+  token: string;
+};
 
-  type Profile = {
-    given_name: string;
-  };
+type Profile = {
+  given_name: string;
+};
 
 export function Header({ token }: IProfileProps) {
-    const [profile, setProfile] = useState({} as Profile);
+  const [profile, setProfile] = useState({} as Profile);
 
-    async function loadProfile() {
-        const response = await fetch(
-          `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`
-        );
-        const userInfo = await response.json();
-        setProfile(userInfo);
-      }
+  async function loadProfile() {
+    const response = await fetch(
+      `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`
+    );
+    const userInfo = await response.json();
+    setProfile(userInfo);
+  }
 
-      useEffect(() => {
-        loadProfile();
-      }, []);
+  useEffect(() => {
+    loadProfile();
+  }, []);
 
-    return(
-      <SafeAreaView style={styles.container}>
-        <Text style={styles.textWelcome}>Bem-Vindo,</Text>
-        <Text style={styles.textName}>{profile.given_name} <Image source={happyEmoji} style={styles.iconEmojiHappy}/></Text>
-        
-        <Avatar />
-      </SafeAreaView>
-    )
-};
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.textWelcome}>Bem-Vindo,</Text>
+      <Text style={styles.textName}>
+        {profile.given_name}{" "}
+        <Image source={happyEmoji} style={styles.iconEmojiHappy} />
+      </Text>
+      <Avatar />
+    </SafeAreaView>
+  );
+}
