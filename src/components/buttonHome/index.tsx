@@ -9,4 +9,4 @@ import {
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
-export function b
+export function but
