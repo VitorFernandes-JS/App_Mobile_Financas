@@ -3,4 +3,6 @@ Um aplicativo mobile com ferramentais voltados a educação financeira, totalmen
 
 Tela de autenticação do Aplicativo: (autenticação somente via Google)
 
-![IMG_8023](https://user-images.githubusercontent.com/80361373/181597733-766860cb-35d9-4d93-85c3-d7fe2083a894.PNG)
+
+
+![IMG_8023](https://user-images.githubusercontent.com/80361373/181598306-a3bcc7d4-ffc2-49a5-9ac0-8319471c4a15.PNG)
