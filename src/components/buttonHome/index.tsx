@@ -9,5 +9,5 @@ import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 export function buttonHome() {
-    <SafeAreaView
+    <SafeAreaView></SafeAreaView>
 }
