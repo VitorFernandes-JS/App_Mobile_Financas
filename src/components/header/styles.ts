@@ -4,7 +4,7 @@ import { theme } from "../../global/styles/theme";
 export const styles = StyleSheet.create({
     container: {
       width: 415,
-      height: 130,
+      height: 100,
       backgroundColor: theme.colors.color5,
       borderRadius: 20,
       shadowOpacity: 0.4,
@@ -14,14 +14,14 @@ export const styles = StyleSheet.create({
     textWelcome: {
       fontSize: 24,
       fontFamily: theme.fonts.font7_bold,
-      top: 40,
+      top: 25,
       color: theme.colors.color3,
       marginLeft: 28
     },
     textName: {
       fontSize: 24,
       fontFamily: theme.fonts.font7_bold,
-      top: 38,
+      top: 23,
       color: theme.colors.color1,
       marginLeft: 28
     },
