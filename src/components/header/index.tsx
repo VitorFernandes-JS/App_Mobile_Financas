@@ -32,7 +32,6 @@ export function Header() {
     loadProfile();
   }, []);
 
-
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.textWelcome}>Bem-Vindo,</Text>
