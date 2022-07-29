@@ -5,7 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
-import { Baseboard } from "../../components/baseboard"
+import { Baseboard } from "../../components/baseboard";
+import { buttonHome } from "../../components/buttonHome"
 
 interface IProfileProps {
   route: any;
