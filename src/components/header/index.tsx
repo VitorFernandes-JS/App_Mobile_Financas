@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./styles";
@@ -8,10 +8,6 @@ import happyEmoji from "../../assets/emoji_feliz.png";
 interface IProfileProps {
   token: string;
 }
-
-type Params = {
-  token: string;
-};
 
 type Profile = {
   given_name: string;

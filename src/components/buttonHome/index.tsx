@@ -15,9 +15,9 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
     navigation.navigate("Calculator", { token });
   }
   return (
-    <SafeAreaView>
-      <RectButton style={styles.container} {...rest}>
-        
+    <SafeAreaView style={styles.container}>
+      <RectButton style={styles.button} {...rest}>
+
       </RectButton>
     </SafeAreaView>
   );

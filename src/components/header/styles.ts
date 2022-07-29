@@ -28,6 +28,5 @@ export const styles = StyleSheet.create({
     iconEmojiHappy: {
       width: 26,
       height: 25.52,
-      top: 12,
     },
   });
