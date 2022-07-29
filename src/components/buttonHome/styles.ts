@@ -13,8 +13,11 @@ export const styles = StyleSheet.create({
         backgroundColor: theme.colors.color2,
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'column',
         borderRadius: 15,
-        top: 70
+        top: 70,
+        shadowOpacity: 0.3,
+        shadowOffset: {width: 1.5, height: 1.5},
     },
 });
 
@@ -25,7 +28,10 @@ export const viewButtonStyles = ({ top, left }: IViewButtonProps) =>
         height: 100,
         borderRadius: 15,
         backgroundColor: theme.colors.color5,
+        shadowOpacity: 0.3,
+        shadowOffset: {width: 1.5, height: 1.5},
         left,
         top,
+        
     }
   });

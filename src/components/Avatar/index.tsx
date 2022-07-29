@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Image, SafeAreaView} from "react-native";
+import { Image, SafeAreaView, Text} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "./styles";
@@ -20,7 +20,6 @@ export function Avatar() {
   const navigation = useNavigation();
   const [profile, setProfile] = useState({} as Profile);
   const route = useRoute();
-  const [visible, setVisible] = useState(false);
 
   const { token } = route.params as Params;
 
@@ -32,22 +31,13 @@ export function Avatar() {
     setProfile(userInfo);
   }
 
-  function handleSignIn() {
-    navigation.navigate("SignIn");
-  }
-
-  function handleProfile() {
-    navigation.navigate("Profile", { token });
-    setVisible(false);
-  }
-
   useEffect(() => {
     loadProfile();
   }, []);
 
   return (
     <SafeAreaView>
-      <Image source={{ uri: profile.picture }} style={[styles.avatar]} />
+      <Image source={{ uri: profile.picture }} style={[styles.avatar]}/>
     </SafeAreaView>
   );
 }
