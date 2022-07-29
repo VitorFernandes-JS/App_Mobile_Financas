@@ -10,6 +10,6 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font7_bold,
     fontSize: 38,
     top: 35,
-    color: theme.colors.color4
+    color: theme.colors.color4,
   },
 });
