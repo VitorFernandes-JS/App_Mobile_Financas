@@ -8,7 +8,6 @@ import { CalculatorImg } from "../../assets/icon_calculadora.png";
 
 interface IButtonHomeProps {
   token: string;
-  img: any;
 }
 
 export function ButtonHome({ token, img, ...rest }: IButtonHomeProps) {
@@ -24,8 +23,11 @@ export function ButtonHome({ token, img, ...rest }: IButtonHomeProps) {
         style={viewButtonStyles({ left: -60, top: -80 }).button}
         {...rest}
       >
+        <SafeAreaView style={styles.viewCalculator}>
+          <Image source={CalculatorImg} style={styles.iconCalculator}></Image>
+        </SafeAreaView>
         <SafeAreaView>
-          <Image source={CalculatorImg}></Image>
+          <Text>teste</Text>
         </SafeAreaView>
       </RectButton>
       <RectButton

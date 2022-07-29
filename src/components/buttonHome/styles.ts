@@ -19,6 +19,14 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowOffset: {width: 1.5, height: 1.5},
     },
+    viewCalculator: {
+      width: '50%'
+    },
+    iconCalculator: {
+      width: 52,
+      height: 52,
+
+    },
 });
 
 export const viewButtonStyles = ({ top, left }: IViewButtonProps) =>
