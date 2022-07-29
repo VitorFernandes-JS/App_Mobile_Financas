@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, Text, Image } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
-import { styles } from "./styles";
+import { styles, viewButtonStyles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 interface IButtonHomeProps {
@@ -16,9 +16,11 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <RectButton style={styles.button} {...rest}>
-
+      <RectButton style={viewButtonStyles({ left: -60, top: -80}).button} {...rest}>
       </RectButton>
+      <RectButton style={viewButtonStyles({ left: 60, top: -179.5}).button} {...rest}>
+      </RectButton>
+      
     </SafeAreaView>
   );
 }
