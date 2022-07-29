@@ -9,6 +9,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 15,
-        top: 120
+        top: 70
     }
 });
