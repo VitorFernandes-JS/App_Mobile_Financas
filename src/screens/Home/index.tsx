@@ -23,7 +23,5 @@ export function Home({ token }: IHomeProps) {
         <ButtonHome token={token}/>
       <Baseboard token={token}/>
     </SafeAreaView>
-
-    
   );
 }
