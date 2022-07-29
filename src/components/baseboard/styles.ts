@@ -3,9 +3,10 @@ import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
     container: {
+        position: 'absolute',
         width: 415,
         height: 106,
-        top: 550,
+        top: 660,
         backgroundColor: theme.colors.color5,
         borderRadius: 20,
         shadowOpacity: 0.4,

@@ -10,21 +10,19 @@ import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 interface IButtonHomeProps {
-  route: any;
+  token: string;
 }
 
-export function ButtonHome({ route }: IButtonHomeProps) {
+export function ButtonHome({ token }: IButtonHomeProps) {
   const navigation = useNavigation();
-  const { token } = route.params;
 
   function CalculatorRote() {
     navigation.navigate("Calculator", { token });
   }
-
-
-    <SafeAreaView>
-        <Button title="teste" onPress={CalculatorRote}>
-        <Text>teste</Text>
-        </Button>
-    </SafeAreaView>
+  return( <SafeAreaView>
+    <Button title="teste" onPress={CalculatorRote}>
+    <Text>teste</Text>
+    </Button>
+  </SafeAreaView>
+  ); 
 }

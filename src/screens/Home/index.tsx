@@ -9,21 +9,19 @@ import { Baseboard } from "../../components/baseboard";
 import { ButtonHome } from "../../components/buttonHome"
 
 interface IHomeProps {
-  route: any;
+  token: string;
 }
 
 
-export function Home({ route }: IHomeProps) {
-  const { token } = route.params;
+export function Home({ token }: IHomeProps) {
 
   
 
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token}/>
-        <ButtonHome {...route} />
-          
-      <Baseboard {...token}/>
+        <ButtonHome token={token}/>
+      <Baseboard token={token}/>
     </SafeAreaView>
 
     
