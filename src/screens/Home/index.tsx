@@ -1,42 +1,28 @@
-import React, { ReactNode, useState, useEffect } from "react";
+import React, { ReactNode } from "react";
 import { styles } from "./styles";
-import { SafeAreaView, TouchableOpacity, Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
-import { buttonHome } from "../../components/buttonHome"
+import { ButtonHome } from "../../components/buttonHome"
 
-interface IProfileProps {
+interface IHomeProps {
   route: any;
-  children: ReactNode;
 }
 
-export function Home({ route }: IProfileProps) {
-  const navigation = useNavigation();
+
+export function Home({ route }: IHomeProps) {
   const { token } = route.params;
 
-  function handleHome() {
-    navigation.navigate("SignIn", { token });
-  }
-
-  function CalculatorRote() {
-    navigation.navigate("Calculator", { token });
-  }
-
-  function ComparatorRote() {
-    navigation.navigate("Comparator", { token });
-  }
-
-  function IndexesRote() {
-    navigation.navigate("Indexes", { token });
-  }
+  
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
-
+      <Header token={token}/>
+        <ButtonHome {...route} />
+          
       <Baseboard {...token}/>
     </SafeAreaView>
 
