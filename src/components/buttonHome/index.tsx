@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  Text,
-  Image,
-} from "react-native";
+import { SafeAreaView, Text, Image } from "react-native";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -18,8 +14,11 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   function CalculatorRote() {
     navigation.navigate("Calculator", { token });
   }
-  return( <SafeAreaView>
-    <RectButton style={styles.container} {...rest}></RectButton>
-  </SafeAreaView>
-  ); 
+  return (
+    <SafeAreaView>
+      <RectButton style={styles.container} {...rest}>
+        
+      </RectButton>
+    </SafeAreaView>
+  );
 }
