@@ -11,7 +11,7 @@ interface IButtonHomeProps {
   img: any;
 }
 
-export function ButtonHome({ token, img ,...rest }: IButtonHomeProps) {
+export function ButtonHome({ token, img , ...rest }: IButtonHomeProps) {
   const navigation = useNavigation();
 
   function CalculatorRote() {
