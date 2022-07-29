@@ -12,14 +12,12 @@ interface IHomeProps {
   token: string;
 }
 
-
 export function Home({ token }: IHomeProps) {
-
-  
 
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token}/>
+      <Text style={styles.title}>Menu</Text>
         <ButtonHome token={token}/>
       <Baseboard token={token}/>
     </SafeAreaView>
