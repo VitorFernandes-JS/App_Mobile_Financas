@@ -1,8 +1,6 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { styles } from "./styles";
 import { SafeAreaView, Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
