@@ -37,7 +37,7 @@ export function Home({ route }: IProfileProps) {
     <SafeAreaView style={styles.container}>
       <Header token={token} />
 
-      <Baseboard/>
+      <Baseboard {...token}/>
     </SafeAreaView>
 
     
