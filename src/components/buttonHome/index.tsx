@@ -24,7 +24,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
         {...rest}
       >
         <SafeAreaView style={styles.viewCalculator}>
-          <Image source={CalculatorImg} style={styles.iconCalculator}></Image>
+          <Image source={CalculatorImg} style={styles.iconCalculator}/>
         </SafeAreaView>
         <SafeAreaView>
           <Text>teste</Text>

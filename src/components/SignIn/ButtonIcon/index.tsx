@@ -12,7 +12,7 @@ export function ButtonIcon({ title, ...rest }: Props) {
   return (
     <RectButton style={styles.container} {...rest}>
       <SafeAreaView style={styles.iconWrapper}>
-        <Image source={GoogleImg} style={styles.icon} />
+        <Image source={GoogleImg} style={styles.icon}/>
       </SafeAreaView>
       <SafeAreaView style={styles.contentWrapper}>
         <Text style={styles.title}>{title}</Text>
