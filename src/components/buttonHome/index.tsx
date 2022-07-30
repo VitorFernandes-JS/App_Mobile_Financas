@@ -4,7 +4,8 @@ import { RectButton, RectButtonProps } from "react-native-gesture-handler";
 import { styles, viewButtonStyles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
-import { CalculatorImg } from "../../assets/icon_calculadora.png";
+import CalculatorImg  from "../../assets/icon_calculadora.png";
+import ComparatorImg from "../../assets/icon_comparar.png"
 
 interface IButtonHomeProps {
   token: string;
@@ -19,21 +20,19 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   return (
     <SafeAreaView style={styles.container}>
       <RectButton
-        onPress={CalculatorRote}
-        style={viewButtonStyles({ left: -60, top: -80 }).button}
-        {...rest}
+        onPress={CalculatorRote} style={viewButtonStyles({ left: -60, top: -80 }).button} {...rest}
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={CalculatorImg} style={styles.iconCalculator}/>
-        </SafeAreaView>
-        <SafeAreaView>
-          <Text>teste</Text>
+          <Text style={styles.textCalculator}>CALCULADORA</Text>
         </SafeAreaView>
       </RectButton>
       <RectButton
         style={viewButtonStyles({ left: 60, top: -179.5 }).button}
         {...rest}
-      ></RectButton>
+      >
+        
+      </RectButton>
     </SafeAreaView>
   );
 }

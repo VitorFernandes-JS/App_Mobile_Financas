@@ -15,18 +15,24 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'column',
         borderRadius: 15,
-        top: 70,
+        top: 64,
         shadowOpacity: 0.3,
         shadowOffset: {width: 1.5, height: 1.5},
     },
     viewCalculator: {
-      width: '50%'
+      alignItems: 'center',
     },
     iconCalculator: {
       width: 52,
       height: 52,
-
+      shadowOpacity: 0.3,
+      shadowOffset: {width: 1.5, height: 2.0},
+      margin: 10
     },
+    textCalculator: {
+      fontSize: 10,
+      fontFamily: theme.fonts.font7_bold
+    }
 });
 
 export const viewButtonStyles = ({ top, left }: IViewButtonProps) =>
