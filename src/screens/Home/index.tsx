@@ -14,8 +14,11 @@ interface IHomeProps {
 export function Home({ token }: IHomeProps) {
   return (
     <SafeAreaView style={styles.container}>
-      <Header />
-      <Text style={styles.title}>Menu <ModalPattern/></Text>
+      <Header/>
+      <SafeAreaView style={styles.viewMenuModal}>
+      <Text style={styles.title}>Menu </Text> 
+      <ModalPattern/>
+      </SafeAreaView>  
       <ButtonHome token={token} />
       <Baseboard token={token} />
     </SafeAreaView>

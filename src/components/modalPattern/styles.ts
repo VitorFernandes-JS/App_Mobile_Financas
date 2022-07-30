@@ -8,6 +8,14 @@ export const styles = StyleSheet.create({
         height: 100,
         backgroundColor: theme.colors.color5
     },
-   
+    viewQuestion: {
+        width: 15,
+        height: 15,
+        
+    },
+   question: {
+    color: theme.colors.color1,
+    top: 55
+   }
 });
 

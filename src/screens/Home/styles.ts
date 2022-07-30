@@ -12,4 +12,7 @@ export const styles = StyleSheet.create({
     top: 35,
     color: theme.colors.color4,
   },
+  viewMenuModal: {
+    flexDirection: 'row',
+  }
 });

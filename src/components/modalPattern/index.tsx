@@ -45,8 +45,13 @@ export function ModalPattern() {
             setVisible(true);
           }}
         >
-        
+        <AntDesign
+        name="questioncircleo"
+        size={15}
+        style={styles.question}
+        />
         </RectButton>
+
     </SafeAreaView>
   );
 }
