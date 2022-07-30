@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, Modal, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, Modal } from "react-native";
 import { styles, viewButtonStyles } from "./styles";
 import { AntDesign } from "@expo/vector-icons";
 
