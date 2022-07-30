@@ -26,7 +26,7 @@ export function Modal1() {
             </Text>
             o assunto Renda Fixa.{`\n`}
           </Text>
-          <TouchableOpacity
+          <RectButton
             onPress={() => {
               setVisible(false);
             }}
@@ -38,38 +38,38 @@ export function Modal1() {
               size={25}
               style={styles.closeModalIcon}
             />
-          </TouchableOpacity>
+          </RectButton>
         </SafeAreaView>
       </Modal>
 
       <SafeAreaView style={viewButtonStyles({ left: 55, top: -10 }).viewButton}>
-        <TouchableOpacity
+        <RectButton
           onPress={() => {
             setVisible(true);
           }}
         >
           <Text style={styles.interrogation}>?</Text>
-        </TouchableOpacity>
+        </RectButton>
       </SafeAreaView>
 
       <SafeAreaView style={viewButtonStyles({ left: -70, top: -24 }).viewButton}>
-        <TouchableOpacity
+        <RectButton
           onPress={() => {
             setVisible(true);
           }}
         >
           <Text style={styles.interrogation}>?</Text>
-        </TouchableOpacity>
+        </RectButton>
       </SafeAreaView>
 
       <SafeAreaView style={viewButtonStyles({ left: 180, top: -36 }).viewButton}>
-        <TouchableOpacity
+        <RectButton
           onPress={() => {
             setVisible(true);
           }}
         >
           <Text style={styles.interrogation}>?</Text>
-        </TouchableOpacity>
+        </RectButton>
       </SafeAreaView>
     </SafeAreaView>
   );
