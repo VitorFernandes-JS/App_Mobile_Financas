@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text, Modal } from "react-native";
-import { styles, viewButtonStyles } from "./styles";
+import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 
 import { AntDesign } from "@expo/vector-icons";
 
-export function Modal1() {
+export function ModalPattern() {
     const [visible, setVisible] = useState(false);
 
     return (
@@ -17,7 +17,7 @@ export function Modal1() {
                     <Text style={styles.modalSubtitle}>
                         Este ícone <Text />
                         <SafeAreaView
-                            style={viewButtonStyles({ left: 55, top: -10 }).viewButton}
+                            style={styles.viewButton}
                         ></SafeAreaView>
                         <Text style={styles.modalSubtitle}>
                             {" "}
@@ -41,6 +41,17 @@ export function Modal1() {
                     </RectButton>
                 </SafeAreaView>
             </Modal>
+
+            <SafeAreaView style={styles.viewButton}>
+        <RectButton
+          onPress={() => {
+            setVisible(true);
+          }}
+        >
+          <Text style={styles.interrogation}>?</Text>
+        </RectButton>
+      </SafeAreaView>
+
         </SafeAreaView>
     )
 };
