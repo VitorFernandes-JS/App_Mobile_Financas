@@ -19,20 +19,67 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   }
   return (
     <SafeAreaView style={styles.container}>
+
       <RectButton
-        onPress={CalculatorRote} style={viewButtonStyles({ left: -60, top: -80 }).button} {...rest}
+        onPress={CalculatorRote} style={viewButtonStyles({ left: -60, top: 130 }).button} {...rest}
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={CalculatorImg} style={styles.iconCalculator}/>
           <Text style={styles.textCalculator}>CALCULADORA</Text>
         </SafeAreaView>
       </RectButton>
+
       <RectButton
-        style={viewButtonStyles({ left: 60, top: -179.5 }).button}
+        style={viewButtonStyles({ left: -60, top: 150 }).button}
         {...rest}
       >
-        
+         <SafeAreaView style={styles.viewCalculator}>
+          <Image source={ComparatorImg} style={styles.iconCalculator}/>
+          <Text style={styles.textCalculator}>ÍNDICES</Text>
+          </SafeAreaView>
       </RectButton>
+
+      <RectButton
+        style={viewButtonStyles({ left: -60, top: 170 }).button}
+        {...rest}
+      >
+         <SafeAreaView style={styles.viewCalculator}>
+          <Image source={ComparatorImg} style={styles.iconCalculator}/>
+          <Text style={styles.textCalculator}>FINANCIAR</Text>
+          </SafeAreaView>
+      </RectButton>
+
+      <RectButton
+        style={viewButtonStyles({ left: 60, top: -170 }).button}
+        {...rest}
+      >
+         <SafeAreaView style={styles.viewCalculator}>
+          <Image source={ComparatorImg} style={styles.iconCalculator}/>
+          <Text style={styles.textCalculator}>COMPARADOR</Text>
+          </SafeAreaView>
+      </RectButton>
+
+      <RectButton
+        style={viewButtonStyles({ left: 60, top: -150 }).button}
+        {...rest}
+      >
+         <SafeAreaView style={styles.viewCalculator}>
+          <Image source={ComparatorImg} style={styles.iconCalculator}/>
+          <Text style={styles.textCalculator}>VÍDEOS</Text>
+          </SafeAreaView>
+      </RectButton>
+
+      <RectButton
+        style={viewButtonStyles({ left: 60, top: -130 }).button}
+        {...rest}
+      >
+         <SafeAreaView style={styles.viewCalculator}>
+          <Image source={ComparatorImg} style={styles.iconCalculator}/>
+          <Text style={styles.textCalculator}>EMPRÉSTIMO</Text>
+          </SafeAreaView>
+      </RectButton>
+
+
     </SafeAreaView>
   );
 }
