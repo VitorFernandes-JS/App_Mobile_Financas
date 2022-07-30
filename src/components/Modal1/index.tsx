@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text, Modal } from "react-native";
 import { styles, viewButtonStyles } from "./styles";
+import { RectButton } from "react-native-gesture-handler";
+
 import { AntDesign } from "@expo/vector-icons";
 
 export function Modal1() {

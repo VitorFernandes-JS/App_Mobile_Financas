@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
       height: 52,
       shadowOpacity: 0.3,
       shadowOffset: {width: 1.5, height: 2.0},
-      margin: 10
+      margin: 11.5
     },
     textCalculator: {
       fontSize: 10,
