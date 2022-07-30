@@ -83,7 +83,6 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
           </SafeAreaView>
       </RectButton>
 
-
     </SafeAreaView>
   );
 }
