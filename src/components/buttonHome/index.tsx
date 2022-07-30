@@ -5,7 +5,8 @@ import { styles, viewButtonStyles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 import CalculatorImg  from "../../assets/icon_calculadora.png";
-import ComparatorImg from "../../assets/icon_comparar.png"
+import ComparatorImg from "../../assets/icon_comparar.png";
+import IndecesImg from "../../assets/icon_indeces.png"
 
 interface IButtonHomeProps {
   token: string;
