@@ -40,15 +40,13 @@ export function ModalPattern() {
         </SafeAreaView>
       </Modal>
 
-      <SafeAreaView style={styles.viewButton}>
         <RectButton
           onPress={() => {
             setVisible(true);
           }}
         >
-          <Text style={styles.interrogation}>?</Text>
+        
         </RectButton>
-      </SafeAreaView>
     </SafeAreaView>
   );
 }
