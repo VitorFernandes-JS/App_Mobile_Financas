@@ -71,6 +71,7 @@ export function Modal1() {
           <Text style={styles.interrogation}>?</Text>
         </RectButton>
       </SafeAreaView>
+      
     </SafeAreaView>
   );
 }
