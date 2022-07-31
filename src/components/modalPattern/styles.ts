@@ -6,12 +6,12 @@ export const styles = StyleSheet.create({
  
     
     viewModal: {
-        width: 100,
-        height: 100,
-        backgroundColor: theme.colors.color5,
-      
-        top: '45%',
-        left: '40%'
+        width: 200,
+        height: 200,
+        backgroundColor: theme.colors.color6,
+        borderRadius: 15,
+        top: '30%',
+        left: '26%'
     },
     interrogation: {
         width: 20,

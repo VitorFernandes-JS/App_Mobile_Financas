@@ -14,6 +14,7 @@ export function ModalPattern() {
     <SafeAreaView>
       <Modal animationType="slide" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
+          <Text style={styles.modalText}>Informações</Text>
           <SafeAreaView style={styles.line}></SafeAreaView>
             <SafeAreaView style={styles.viewButton}></SafeAreaView>
             <Text style={styles.modalSubtitle}>
