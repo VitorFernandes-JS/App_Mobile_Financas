@@ -47,7 +47,7 @@ export function ModalPattern() {
             console.log('teste')
           }}
         >
-                <Image source={InterrogationImg}/>
+                <Image source={InterrogationImg} style={styles.interrogation}/>
         </RectButton>
 
     </SafeAreaView>
