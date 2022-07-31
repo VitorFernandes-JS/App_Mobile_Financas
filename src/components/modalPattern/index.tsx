@@ -14,18 +14,11 @@ export function ModalPattern() {
     <SafeAreaView>
       <Modal animationType="slide" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
-          <Text style={styles.modalText}>Informações</Text>
           <SafeAreaView style={styles.line}></SafeAreaView>
-          <Text style={styles.modalSubtitle}>
-            Este ícone <Text />
             <SafeAreaView style={styles.viewButton}></SafeAreaView>
             <Text style={styles.modalSubtitle}>
-              {" "}
-              signifi- {`\n`}
-              ca que o índice é sobre{`\n`}
+              teste
             </Text>
-            o assunto Renda Fixa.{`\n`}
-          </Text>
           <RectButton
             onPress={() => {
               setVisible(false);
@@ -43,11 +36,12 @@ export function ModalPattern() {
       </Modal>
 
         <RectButton
+          style={styles.interrogation}
           onPress={() => {
-            console.log('teste')
+            setVisible(true)
           }}
         >
-                <Image source={InterrogationImg} style={styles.interrogation}/>
+                <Image source={InterrogationImg} style={styles.interrogation1}/>
         </RectButton>
 
     </SafeAreaView>

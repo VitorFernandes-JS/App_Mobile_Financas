@@ -10,6 +10,7 @@ export function Modal1() {
 
   return (
     <SafeAreaView>
+      
       <Modal animationType="slide" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.modalText}>Informações</Text>
