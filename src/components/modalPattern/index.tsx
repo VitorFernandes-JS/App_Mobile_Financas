@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, Modal } from "react-native";
+import { SafeAreaView, Text, Modal, Image } from "react-native";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 
 import { AntDesign } from "@expo/vector-icons";
+
+import InterrogationImg from "../../assets/ponto-de-interrogacao.png"
 
 export function ModalPattern() {
   const [visible, setVisible] = useState(false);
@@ -42,14 +44,10 @@ export function ModalPattern() {
 
         <RectButton
           onPress={() => {
-            setVisible(true);
+            console.log('teste')
           }}
         >
-        <AntDesign
-        name="questioncircleo"
-        size={15}
-        style={styles.question}
-        />
+                <Image source={InterrogationImg}/>
         </RectButton>
 
     </SafeAreaView>

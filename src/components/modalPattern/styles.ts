@@ -8,14 +8,20 @@ export const styles = StyleSheet.create({
         height: 100,
         backgroundColor: theme.colors.color5
     },
-    viewQuestion: {
-        width: 15,
-        height: 15,
-        
+    question: {
+     color: theme.colors.color1,
+     top: 53.5,
+     
     },
-   question: {
-    color: theme.colors.color1,
-    top: 55
-   }
+    borderQuestion: {
+        width: 17,
+        height: 17,
+        backgroundColor: theme.colors.color3,
+        top: 53.5,
+        borderRadius: 50,
+    },
+    insideQuestion: {
+
+    },
 });
 
