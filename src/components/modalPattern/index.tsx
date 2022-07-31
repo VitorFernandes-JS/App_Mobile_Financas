@@ -28,7 +28,6 @@ export function ModalPattern({ text }: IModalPattern) {
               setVisible(false);
             }}
           >
-            <Text></Text>
             <AntDesign
               name="closecircleo"
               color="red"

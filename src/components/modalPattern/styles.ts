@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.font4_regular
     },
     closeModalIcon: {
-        top: 55,
+        top: 65,
         left: '45%'
     }
    
