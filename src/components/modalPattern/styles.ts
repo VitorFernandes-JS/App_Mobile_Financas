@@ -13,15 +13,6 @@ export const styles = StyleSheet.create({
      top: 53.5,
      
     },
-    borderQuestion: {
-        width: 17,
-        height: 17,
-        backgroundColor: theme.colors.color3,
-        top: 53.5,
-        borderRadius: 50,
-    },
-    insideQuestion: {
-
-    },
+   
 });
 
