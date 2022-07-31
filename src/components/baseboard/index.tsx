@@ -5,6 +5,7 @@ import {
   Image,
   Pressable,
 } from "react-native";
+import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
@@ -26,10 +27,10 @@ export function Baseboard({ token }: Params) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Pressable onPress={handleHome} style={styles.iconHome}>
+      <RectButton onPress={handleHome} style={styles.iconHome}>
         <AntDesign name="home" size={40} style={styles.iconHome} />
         <Text style={styles.textHome}>Menu</Text>
-      </Pressable>
+      </RectButton>
 
       <Pressable>
         <Ionicons name="wallet-outline" size={40} style={styles.iconWallet} />
