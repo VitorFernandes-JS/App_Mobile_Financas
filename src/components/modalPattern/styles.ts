@@ -22,7 +22,8 @@ export const styles = StyleSheet.create({
     interrogation1: {
         width: 20,
         height: 20,
-        top: -1
+        top: -1,
+        opacity: 0.6
     },
     modalText: {
         fontFamily: theme.fonts.font5_medium,
@@ -36,6 +37,15 @@ export const styles = StyleSheet.create({
         top: 7,
         backgroundColor: theme.colors.color3,
       },
+    modalSubtitle: {
+        margin: 10,
+        top: 10,
+        fontFamily: theme.fonts.font4_regular
+    },
+    closeModalIcon: {
+        top: 55,
+        left: '45%'
+    }
    
 });
 

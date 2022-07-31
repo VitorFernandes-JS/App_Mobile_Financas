@@ -7,7 +7,11 @@ import { AntDesign } from "@expo/vector-icons";
 
 import InterrogationImg from "../../assets/ponto-de-interrogacao.png"
 
-export function ModalPattern() {
+interface IModalPattern {
+  text: string;
+}
+
+export function ModalPattern({ text }: IModalPattern) {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -17,7 +21,7 @@ export function ModalPattern() {
           <Text style={styles.modalText}>Informações</Text>
           <SafeAreaView style={styles.line}></SafeAreaView>
             <Text style={styles.modalSubtitle}>
-              teste
+              {text}
             </Text>
           <RectButton
             onPress={() => {
