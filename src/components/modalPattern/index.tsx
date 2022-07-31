@@ -16,7 +16,6 @@ export function ModalPattern() {
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.modalText}>Informações</Text>
           <SafeAreaView style={styles.line}></SafeAreaView>
-            <SafeAreaView style={styles.viewButton}></SafeAreaView>
             <Text style={styles.modalSubtitle}>
               teste
             </Text>
