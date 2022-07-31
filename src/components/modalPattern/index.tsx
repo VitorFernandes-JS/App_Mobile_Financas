@@ -24,6 +24,7 @@ export function ModalPattern({ text }: IModalPattern) {
               {text}
             </Text>
           <RectButton
+            style={styles.rectButtoncloseModalIcon}
             onPress={() => {
               setVisible(false);
             }}
@@ -32,7 +33,6 @@ export function ModalPattern({ text }: IModalPattern) {
               name="closecircleo"
               color="red"
               size={25}
-              style={styles.closeModalIcon}
             />
           </RectButton>
         </SafeAreaView>

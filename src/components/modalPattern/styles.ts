@@ -42,10 +42,11 @@ export const styles = StyleSheet.create({
         top: 10,
         fontFamily: theme.fonts.font4_regular
     },
-    closeModalIcon: {
+    rectButtoncloseModalIcon: {
         top: 65,
         left: '45%'
-    }
+    },
+    
    
 });
 
