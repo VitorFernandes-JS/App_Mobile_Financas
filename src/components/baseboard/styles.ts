@@ -6,34 +6,36 @@ export const styles = StyleSheet.create({
         position: 'absolute',
         width: 415,
         height: 106,
-        top: 660,
+        top: 675,
         backgroundColor: theme.colors.color5,
         borderRadius: 20,
         shadowOpacity: 0.4,
         shadowOffset: {width: 1, height: 1},
     },
     iconHome: {
-        opacity: 0.8,
-        top: 5,
-        marginLeft: 17,
-        color: theme.colors.color1
+        width: 55,
+        height: 55,
+        opacity: 0.6,
+        top: 6,
+        marginLeft: 30,
+        color: theme.colors.color1,
+
     },
     textHome: {
-        top: 7,
-        marginLeft: 20,
+        top: 2,
+        marginLeft: 2,
         color: theme.colors.color1,
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular
     },
     iconWallet: {
-        top: -45,
+        top: -48,
         marginLeft: 110,
         color: theme.colors.color1,
         opacity: 0.6,
     },
     textWallet: {
-        top: -44,
-        marginLeft: 109,
+        top: -2,
         color: theme.colors.color1,
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular

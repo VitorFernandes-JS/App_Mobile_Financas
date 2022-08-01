@@ -27,32 +27,34 @@ export function Baseboard({ token }: Params) {
 
   return (
     <SafeAreaView style={styles.container}>
+
       <RectButton onPress={handleHome} style={styles.iconHome}>
-        <AntDesign name="home" size={40} style={styles.iconHome} />
+        <AntDesign name="home" size={35}  />
         <Text style={styles.textHome}>Menu</Text>
       </RectButton>
 
-      <Pressable>
-        <Ionicons name="wallet-outline" size={40} style={styles.iconWallet} />
+      <RectButton style={styles.iconWallet}>
+        <Ionicons name="wallet-outline" size={35}/>
         <Text style={styles.textWallet}>Carteira</Text>
-      </Pressable>
+      </RectButton>
 
-      <Pressable>
+      <RectButton>
         <SafeAreaView style={styles.borderStar}/>
             <Image source={star} style={styles.iconStar}/>
             <Text style={styles.textGoal}>Metas</Text>
         <SafeAreaView style={styles.borderStar1}/>
-      </Pressable>
+      </RectButton>
 
-      <Pressable>
-        <AntDesign name="hearto" size={40} style={styles.iconFavorite}/>
+      <RectButton>
+        <AntDesign name="hearto" size={35} style={styles.iconFavorite}/>
         <Text style={styles.textFavorite}>Favoritos</Text>
-      </Pressable>
+      </RectButton>
 
-      <Pressable>
-        <AntDesign name="user" size={40} style={styles.iconProfile}/>
+      <RectButton>
+        <AntDesign name="user" size={35} style={styles.iconProfile}/>
         <Text style={styles.textProfile}>Perfil</Text>
-      </Pressable>
+      </RectButton>
+
     </SafeAreaView>
   );
 }
