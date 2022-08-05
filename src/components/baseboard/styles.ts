@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
         top: 6,
         marginLeft: 30,
         color: theme.colors.color1,
-
     },
     textHome: {
         top: 2,
@@ -35,10 +34,11 @@ export const styles = StyleSheet.create({
         opacity: 0.6,
     },
     textWallet: {
-        top: -2,
+        top: -1,
         color: theme.colors.color1,
         fontSize: 12,
-        fontFamily: theme.fonts.font4_regular
+        fontFamily: theme.fonts.font4_regular,
+        marginLeft: -4
     },
     borderStar: {
         width: 60,
