@@ -39,6 +39,7 @@ export const styles = StyleSheet.create({
     margin: 10,
     top: 10,
     fontFamily: theme.fonts.font4_regular,
+    textAlign: "center",
   },
   rectButtoncloseModalIcon: {
     top: 65,
