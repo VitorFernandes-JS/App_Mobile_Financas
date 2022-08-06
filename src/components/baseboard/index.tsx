@@ -4,7 +4,7 @@ import {
   Text,
   Image,
 } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
+import { BaseButton, RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
@@ -45,12 +45,12 @@ export function Baseboard({ token }: Params) {
       </RectButton>
 
       <RectButton onPress={handleHome} style={styles.iconFavorite}>
-        <AntDesign name="hearto" size={35}/>
+        <AntDesign name="hearto" size={35} />
         <Text style={styles.textFavorite}>Favoritos</Text>
       </RectButton>
 
-      <RectButton onPress={handleHome} style={styles.iconProfile}>
-        <AntDesign name="user" size={35} />
+      <RectButton  onPress={handleHome} style={styles.iconProfile}>
+        <AntDesign name="user" size={35}/>
         <Text style={styles.textProfile}>Perfil</Text>
       </RectButton>
 

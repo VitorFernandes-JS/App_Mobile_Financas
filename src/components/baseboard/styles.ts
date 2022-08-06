@@ -81,7 +81,8 @@ export const styles = StyleSheet.create({
         opacity: 0.6,
     },
     textFavorite: {
-        marginLeft: 100,
+        top: -260,
+        marginLeft: 250,
         color: theme.colors.color1,
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular
@@ -100,5 +101,6 @@ export const styles = StyleSheet.create({
         color: theme.colors.color1,
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular
-    }
+    },
+ 
 });
