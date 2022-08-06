@@ -3,7 +3,6 @@ import {
   SafeAreaView,
   Text,
   Image,
-  Pressable,
 } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
