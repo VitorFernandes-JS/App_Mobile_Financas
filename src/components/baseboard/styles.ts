@@ -75,14 +75,13 @@ export const styles = StyleSheet.create({
     iconFavorite: {
         width: 55,
         height: 55,
-        top: -260,
-        marginLeft: 255,
+        top: -263,
+        marginLeft: 270,
         color: theme.colors.color1,
         opacity: 0.6,
     },
     textFavorite: {
-        top: -260,
-        marginLeft: 250,
+        marginLeft: -6,
         color: theme.colors.color1,
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular
@@ -90,14 +89,13 @@ export const styles = StyleSheet.create({
     iconProfile: {
         width: 55,
         height: 55,
-        top: -315.5,
-        marginLeft: 340,
+        top: -317,
+        marginLeft: 350,
         color: theme.colors.color1,
         opacity: 0.6,
     },
     textProfile: {
-        top: -313.8,
-        marginLeft: 347,
+        marginLeft: 3,
         color: theme.colors.color1,
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular
