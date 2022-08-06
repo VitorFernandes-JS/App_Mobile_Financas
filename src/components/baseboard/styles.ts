@@ -28,6 +28,8 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.font4_regular
     },
     iconWallet: {
+        width: 55,
+        height: 55,
         top: -48,
         marginLeft: 110,
         color: theme.colors.color1,
@@ -71,19 +73,22 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.font4_regular
     },
     iconFavorite: {
+        width: 55,
+        height: 55,
         top: -260,
         marginLeft: 255,
         color: theme.colors.color1,
         opacity: 0.6,
     },
     textFavorite: {
-        top: -260,
-        marginLeft: 250,
+        marginLeft: 100,
         color: theme.colors.color1,
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular
     },
     iconProfile: {
+        width: 55,
+        height: 55,
         top: -315.5,
         marginLeft: 340,
         color: theme.colors.color1,

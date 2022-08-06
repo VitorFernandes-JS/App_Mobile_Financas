@@ -21,18 +21,18 @@ export function Baseboard({ token }: Params) {
   const navigation = useNavigation();
 
   function handleHome() {
-    navigation.navigate("Home", { token });
+    navigation.navigate("SignIn", { token });
   }
 
   return (
     <SafeAreaView style={styles.container}>
 
       <RectButton onPress={handleHome} style={styles.iconHome}>
-        <AntDesign name="home" size={35}  />
+        <AntDesign name="home" size={35} />
         <Text style={styles.textHome}>Menu</Text>
       </RectButton>
 
-      <RectButton style={styles.iconWallet}>
+      <RectButton onPress={handleHome} style={styles.iconWallet}>
         <Ionicons name="wallet-outline" size={35}/>
         <Text style={styles.textWallet}>Carteira</Text>
       </RectButton>
@@ -44,13 +44,13 @@ export function Baseboard({ token }: Params) {
         <SafeAreaView style={styles.borderStar1}/>
       </RectButton>
 
-      <RectButton>
-        <AntDesign name="hearto" size={35} style={styles.iconFavorite}/>
+      <RectButton onPress={handleHome} style={styles.iconFavorite}>
+        <AntDesign name="hearto" size={35}/>
         <Text style={styles.textFavorite}>Favoritos</Text>
       </RectButton>
 
-      <RectButton>
-        <AntDesign name="user" size={35} style={styles.iconProfile}/>
+      <RectButton onPress={handleHome} style={styles.iconProfile}>
+        <AntDesign name="user" size={35} />
         <Text style={styles.textProfile}>Perfil</Text>
       </RectButton>
 
