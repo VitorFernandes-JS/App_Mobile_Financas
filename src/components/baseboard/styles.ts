@@ -102,5 +102,4 @@ export const styles = StyleSheet.create({
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular
     },
- 
 });
