@@ -31,5 +31,12 @@ export const styles = StyleSheet.create({
     },
     viewTitle_Modal: {
         flexDirection: 'row',
+    },
+    data: {
+        fontSize: 15,
+        fontFamily: theme.fonts.font5_medium,
+        marginLeft: 20,
+        top: -117,
+        color: theme.colors.color4
     }
 });

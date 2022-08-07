@@ -8,7 +8,9 @@ interface IHeaderWallet {
   value: string;
 }
 
+
 export function HeaderWallet({ text, value }: IHeaderWallet) {
+  let date = new Date()
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.body}>
@@ -17,7 +19,9 @@ export function HeaderWallet({ text, value }: IHeaderWallet) {
           <ModalWallet text="teste" />
         </SafeAreaView>
           <Text style={styles.value}>R$ {value}</Text>
+          <Text style={styles.data}>{(date.toLocaleDateString())}</Text>
       </SafeAreaView>
     </SafeAreaView>
   );
 }
+
