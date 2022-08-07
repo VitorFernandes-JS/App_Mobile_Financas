@@ -1,6 +1,7 @@
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView } from "react-native";
 
+import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
 
 interface IWalletProps {
@@ -10,6 +11,7 @@ interface IWalletProps {
 export function Wallet({ token }: IWalletProps) {
   return (
     <SafeAreaView>
+      <HeaderWallet/>
       <Baseboard token={token} />
     </SafeAreaView>
   );
