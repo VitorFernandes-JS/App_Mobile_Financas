@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
         marginLeft: 2,
         color: theme.colors.color1,
         fontSize: 12,
-        fontFamily: theme.fonts.font4_regular
+        fontFamily: theme.fonts.font4_regular,
     },
     iconWallet: {
         width: 55,
@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
         color: theme.colors.color1,
         fontSize: 12,
         fontFamily: theme.fonts.font4_regular,
-        marginLeft: -4
+        marginLeft: -4,
     },
     borderStar: {
         width: 60,
@@ -70,7 +70,8 @@ export const styles = StyleSheet.create({
         marginLeft: 188,
         color: theme.colors.color1,
         fontSize: 12,
-        fontFamily: theme.fonts.font4_regular
+        fontFamily: theme.fonts.font4_regular,
+        opacity: 0.6,
     },
     iconFavorite: {
         width: 55,
