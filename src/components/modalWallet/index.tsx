@@ -11,7 +11,7 @@ interface IModalPattern {
   text: string;
 }
 
-export function ModalPattern({ text }: IModalPattern) {
+export function ModalWallet({ text }: IModalPattern) {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -39,7 +39,7 @@ export function ModalPattern({ text }: IModalPattern) {
       </Modal>
 
         <RectButton
-          style={viewButtonStyles({ top: 50 }).interrogation}
+          style={viewButtonStyles({ top: 67 }).interrogation}
           onPress={() => {
             setVisible(true)
           }}

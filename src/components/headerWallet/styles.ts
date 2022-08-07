@@ -17,7 +17,17 @@ export const styles = StyleSheet.create({
         fontSize: 40,
         fontFamily: theme.fonts.font7_bold,
         top: 50,
-        marginLeft: 20
+        marginLeft: 20,
+        color: theme.colors.color1
+    },
+    value: {
+        width: 200,
+        height: 200,
+        fontSize: 25,
+        fontFamily: theme.fonts.font5_medium,
+        top: 50,
+        marginLeft: 20,
+        color: theme.colors.color5
     },
     viewTitle_Modal: {
         flexDirection: 'row',
