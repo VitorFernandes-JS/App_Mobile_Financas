@@ -10,8 +10,8 @@ export const styles = StyleSheet.create({
         width: 415,
         height: 250,
         backgroundColor: theme.colors.color2,
-        borderRadius: 20,
-        top: -15
+        borderRadius: 25,
+        top: -18
     },
     title: {
         fontSize: 40,
@@ -38,5 +38,17 @@ export const styles = StyleSheet.create({
         marginLeft: 20,
         top: -117,
         color: theme.colors.color4
+    },
+    walletImg: {
+        width: 100,
+        height: 100,
+        top: -205,
+        marginLeft: 270
+    },
+    trocaImg: {
+        width: 30,
+        height: 30,
+        top: -235,
+        marginLeft: 350
     }
 });
