@@ -4,7 +4,6 @@ import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-import WalletImg from "../../assets/wallet.png";
 import TrocaImg from "../../assets/troca.png"
 
 import { ModalWallet } from "../../components/modalWallet";
@@ -12,10 +11,11 @@ interface IHeaderWallet {
   text: string;
   value: string;
   token: string;
+  img: any;
 }
 
 
-export function HeaderWallet({ text, value, token }: IHeaderWallet) {
+export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
   const navigation = useNavigation();
 
   function handleHome() {
@@ -32,7 +32,7 @@ export function HeaderWallet({ text, value, token }: IHeaderWallet) {
         </SafeAreaView>
           <Text style={styles.value}>R$ {value}</Text>
           <Text style={styles.data}>{(date.toLocaleDateString())}</Text>
-            <Image source={WalletImg} style={styles.walletImg}></Image>
+            <Image source={img} style={styles.walletImg}></Image>
           <RectButton onPress={handleHome} style={styles.trocaImg1}>
             <Image source={TrocaImg} style={styles.trocaImg}></Image>
           </RectButton>
