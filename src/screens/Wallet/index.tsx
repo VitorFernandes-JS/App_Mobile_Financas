@@ -11,7 +11,7 @@ interface IWalletProps {
 export function Wallet({ token }: IWalletProps) {
   return (
     <SafeAreaView>
-      <HeaderWallet text="Carteira " value="1000,00"/>
+      <HeaderWallet text="Carteira " value="1000,00" token={token}/>
       <Baseboard token={token} />
     </SafeAreaView>
   );

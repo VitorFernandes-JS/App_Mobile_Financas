@@ -50,5 +50,9 @@ export const styles = StyleSheet.create({
         height: 30,
         top: -235,
         marginLeft: 350
-    }
+    },
+    reactButtonWalletImg_TrocaImg: {
+        width: 50
+    },
+    
 });
