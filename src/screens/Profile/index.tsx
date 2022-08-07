@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, useEffect } from "react";
-import { SafeAreaView, Text, TouchableOpacity, Image } from "react-native";
+import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
 
