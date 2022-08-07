@@ -21,8 +21,13 @@ export function Baseboard({ token }: Params) {
   const navigation = useNavigation();
 
   function handleHome() {
-    navigation.navigate("SignIn", { token });
+    navigation.navigate("Home", { token });
   }
+
+  function handleWallet() {
+    navigation.navigate("Wallet", { token })
+  }
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,7 +37,7 @@ export function Baseboard({ token }: Params) {
         <Text style={styles.textHome}>Menu</Text>
       </RectButton>
 
-      <RectButton onPress={handleHome} style={styles.iconWallet}>
+      <RectButton onPress={handleWallet} style={styles.iconWallet}>
         <Ionicons name="wallet-outline" size={35}/>
         <Text style={styles.textWallet}>Carteira</Text>
       </RectButton>

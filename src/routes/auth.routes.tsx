@@ -8,11 +8,11 @@ import { Calculator } from "../screens/Calculator";
 import { Comparator } from "../screens/Comparator";
 import { Indexes } from "../screens/Indexes";
 import { Profile } from "../screens/Profile";
+import { Wallet } from "../screens/Wallet";
 import { Favorite } from "../screens/Favorite";
 import { Financing } from "../screens/Financing";
 import { Videos } from "../screens/Videos";
 import { Loan } from "../screens/Loan";
-import { Wallet } from "../screens/Wallet";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -32,6 +32,7 @@ export function AuthRoutes() {
       <Screen name="Calculator" component={Calculator} />
       <Screen name="Comparator" component={Comparator} />
       <Screen name="Indexes" component={Indexes} />
+      <Screen name="Wallet" component={Wallet} />
     </Navigator>
   );
 }
