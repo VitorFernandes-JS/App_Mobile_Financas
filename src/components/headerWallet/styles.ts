@@ -48,11 +48,14 @@ export const styles = StyleSheet.create({
     trocaImg: {
         width: 30,
         height: 30,
-        top: -235,
+    },
+    trocaImg1: {
+        width: 30,
+        height: 30,
+        top: -230,
         marginLeft: 350
     },
-    reactButtonWalletImg_TrocaImg: {
-        width: 50
-    },
     
+   
+
 });

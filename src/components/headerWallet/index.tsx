@@ -32,8 +32,8 @@ export function HeaderWallet({ text, value, token }: IHeaderWallet) {
         </SafeAreaView>
           <Text style={styles.value}>R$ {value}</Text>
           <Text style={styles.data}>{(date.toLocaleDateString())}</Text>
-          <RectButton onPress={handleHome} style={styles.reactButtonWalletImg_TrocaImg}>
             <Image source={WalletImg} style={styles.walletImg}></Image>
+          <RectButton onPress={handleHome} style={styles.trocaImg1}>
             <Image source={TrocaImg} style={styles.trocaImg}></Image>
           </RectButton>
       </SafeAreaView>
