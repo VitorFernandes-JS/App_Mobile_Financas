@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text, Modal, Image } from "react-native";
-import { styles } from "./styles";
+import { styles, viewButtonStyles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -39,7 +39,7 @@ export function ModalPattern({ text }: IModalPattern) {
       </Modal>
 
         <RectButton
-          style={styles.interrogation}
+          style={viewButtonStyles({ top: 50 }).interrogation}
           onPress={() => {
             setVisible(true)
           }}

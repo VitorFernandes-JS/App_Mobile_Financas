@@ -12,11 +12,6 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.7,
     shadowOffset: { width: 2, height: 2 },
   },
-  interrogation: {
-    width: 20,
-    height: 20,
-    top: 53,
-  },
   interrogation1: {
     width: 20,
     height: 20,
@@ -44,5 +39,14 @@ export const styles = StyleSheet.create({
   rectButtoncloseModalIcon: {
     top: 65,
     left: "45%",
+  },
+});
+
+  export const viewButtonStyles = ({ top }: IViewButtonProps) =>
+  StyleSheet.create({
+  interrogation: {
+    width: 20,
+    height: 20,
+    top
   },
 });
