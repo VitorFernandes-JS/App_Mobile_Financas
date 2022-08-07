@@ -7,7 +7,12 @@ import { SignIn } from "../screens/SignIn";
 import { Calculator } from "../screens/Calculator";
 import { Comparator } from "../screens/Comparator";
 import { Indexes } from "../screens/Indexes";
-import { Profile } from "../screens/Profile"
+import { Profile } from "../screens/Profile";
+import { Favorite } from "../screens/Favorite";
+import { Financing } from "../screens/Financing";
+import { Videos } from "../screens/Videos";
+import { Loan } from "../screens/Loan";
+import { Wallet } from "../screens/Wallet";
 
 const { Navigator, Screen } = createStackNavigator();
 
