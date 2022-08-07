@@ -11,7 +11,9 @@ export const styles = StyleSheet.create({
         height: 250,
         backgroundColor: theme.colors.color2,
         borderRadius: 25,
-        top: -18
+        top: -18,
+        shadowOpacity: 0.2,
+        shadowOffset: {width: 0.5,height: 3}
     },
     title: {
         fontSize: 40,
