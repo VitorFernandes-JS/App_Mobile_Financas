@@ -1,12 +1,17 @@
 import React from "react";
 import { SafeAreaView, Text} from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-export function Wallet() {
+import { Baseboard } from "../../components/baseboard";
+
+interface IWalletProps {
+    token: string;
+  }
+
+export function Wallet({ token }: IWalletProps) {
 
     return(
         <SafeAreaView>
-        <Text>teste</Text>
+            <Baseboard token={token}/>
     </SafeAreaView>
     )
  

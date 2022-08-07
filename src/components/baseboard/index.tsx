@@ -4,7 +4,7 @@ import {
   Text,
   Image,
 } from "react-native";
-import { BaseButton, RectButton } from "react-native-gesture-handler";
+import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
