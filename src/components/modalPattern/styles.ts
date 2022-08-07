@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
 
+interface IViewButtonProps {
+  top?: number;
+}
+
 export const styles = StyleSheet.create({
   viewModal: {
     width: 200,
@@ -42,11 +46,11 @@ export const styles = StyleSheet.create({
   },
 });
 
-  export const viewButtonStyles = ({ top }: IViewButtonProps) =>
+export const viewButtonStyles = ({ top }: IViewButtonProps) =>
   StyleSheet.create({
-  interrogation: {
-    width: 20,
-    height: 20,
-    top
-  },
-});
+    interrogation: {
+      width: 20,
+      height: 20,
+      top,
+    },
+  });
