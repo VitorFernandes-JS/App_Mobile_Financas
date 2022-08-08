@@ -45,7 +45,9 @@ export const styles = StyleSheet.create({
         width: 100,
         height: 100,
         top: -205,
-        marginLeft: 270
+        marginLeft: 270,
+        shadowOpacity: 0.5,
+        shadowOffset: {width: 1,height: 1}
     },
     trocaImg: {
         width: 30,

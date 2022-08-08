@@ -48,5 +48,7 @@ export function ModalWallet({ text }: IModalPattern) {
         </RectButton>
 
     </SafeAreaView>
+
+    
   );
 }
