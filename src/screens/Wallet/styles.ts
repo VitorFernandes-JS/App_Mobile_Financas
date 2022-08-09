@@ -26,4 +26,11 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     color: theme.colors.color4
   },
+  line: {
+    width: 1,
+    height: 101,
+    backgroundColor: theme.colors.color3,
+    left: 150,
+    top: -61
+  }
 });

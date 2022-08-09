@@ -23,6 +23,7 @@ export function Wallet({ token }: IWalletProps) {
       <SafeAreaView style={styles.box}>
         <Text style={styles.textEnter}>Entrada</Text>
         <Text style={styles.valueOpen}>R$ 4.000,00</Text>
+        <SafeAreaView style={styles.line}/>
       </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>
