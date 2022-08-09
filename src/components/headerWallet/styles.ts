@@ -25,9 +25,9 @@ export const styles = StyleSheet.create({
     value: {
         width: 200,
         height: 200,
-        fontSize: 25,
-        fontFamily: theme.fonts.font5_medium,
-        top: 50,
+        fontSize: 27,
+        fontFamily: theme.fonts.font5_medium_inter,
+        top: 48,
         marginLeft: 20,
         color: theme.colors.color5,
     },
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     },
     data: {
         fontSize: 15,
-        fontFamily: theme.fonts.font5_medium,
+        fontFamily: theme.fonts.font5_medium_inter,
         marginLeft: 20,
         top: -117,
         color: theme.colors.color4
