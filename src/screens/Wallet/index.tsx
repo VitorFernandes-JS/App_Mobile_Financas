@@ -15,11 +15,16 @@ interface IWalletProps {
 export function Wallet({ token }: IWalletProps) {
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderWallet text="Carteira " value="1000,00" token={token} img={WalletImg} />
-        <SafeAreaView style={styles.box}>
-          <Text style={styles.textEnter}>Entrada</Text>
-          <ModalWallet text="teste"/>
-        </SafeAreaView>
+      <HeaderWallet
+        text="Carteira "
+        value="1000,00"
+        token={token}
+        img={WalletImg}
+      />
+      <SafeAreaView style={styles.box}>
+        <Text style={styles.textEnter}>Entrada</Text>
+        <ModalWallet text="teste" />
+      </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>
   );
