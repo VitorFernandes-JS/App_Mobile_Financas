@@ -1,7 +1,28 @@
 import React from "react";
 import { StatusBar } from "react-native";
 import { useFonts } from "expo-font";
-import { Raleway_100Thin, Raleway_200ExtraLight, Raleway_300Light, Raleway_400Regular, Raleway_500Medium, Raleway_600SemiBold, Raleway_700Bold, Raleway_800ExtraBold, Raleway_900Black  } from "@expo-google-fonts/raleway";
+import {
+  Raleway_100Thin,
+  Raleway_200ExtraLight,
+  Raleway_300Light,
+  Raleway_400Regular,
+  Raleway_500Medium,
+  Raleway_600SemiBold,
+  Raleway_700Bold,
+  Raleway_800ExtraBold,
+  Raleway_900Black,
+} from "@expo-google-fonts/raleway";
+import {
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
 import AppLoading from "expo-app-loading";
 import { theme } from "./src/global/styles/theme";
 
@@ -10,15 +31,24 @@ import { Background } from "./src/components/Background";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    Raleway_100Thin, 
-    Raleway_200ExtraLight, 
-    Raleway_300Light, 
-    Raleway_400Regular, 
-    Raleway_500Medium, 
-    Raleway_600SemiBold, 
-    Raleway_700Bold, 
-    Raleway_800ExtraBold, 
-    Raleway_900Black
+    Raleway_100Thin,
+    Raleway_200ExtraLight,
+    Raleway_300Light,
+    Raleway_400Regular,
+    Raleway_500Medium,
+    Raleway_600SemiBold,
+    Raleway_700Bold,
+    Raleway_800ExtraBold,
+    Raleway_900Black,
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
   });
 
   if (!fontsLoaded) {
@@ -27,11 +57,10 @@ export default function App() {
 
   return (
     <Background>
-    <StatusBar
-    hidden
-    backgroundColor={theme.colors.color2}
-    translucent={true}
-    />
+      <StatusBar
+        hidden
+        translucent={true}
+      />
       <Routes />
     </Background>
   );

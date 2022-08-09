@@ -1092,7 +1092,7 @@
 
 "@expo-google-fonts/inter@^0.2.2":
   version "0.2.2"
-  resolved "https://registry.npmjs.org/@expo-google-fonts/inter/-/inter-0.2.2.tgz"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/inter/-/inter-0.2.2.tgz#bd5624be6c92e7621aa9ddb5bd72757604729121"
   integrity sha512-dU6mSczI2xkRZbUhQQ5VB+D4AqLOF8ufCIfA1iBjrPZ/Qnka88E5Ez2Mvm41exdKR76norVvYD5GJIQYEEoO/Q==
 
 "@expo-google-fonts/rajdhani@^0.2.2":
