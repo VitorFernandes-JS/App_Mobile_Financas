@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.font5_medium,
         top: 50,
         marginLeft: 20,
-        color: theme.colors.color5
+        color: theme.colors.color5,
     },
     viewTitle_Modal: {
         flexDirection: 'row',

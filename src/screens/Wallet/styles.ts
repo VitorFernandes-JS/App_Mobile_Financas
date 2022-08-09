@@ -18,6 +18,6 @@ export const styles = StyleSheet.create({
   textEnter: {
     margin: 10,
     color: "#26B602",
-    fontFamily: theme.fonts.font4_regular,
+    fontFamily: theme.fonts.font5_medium,
   },
 });
