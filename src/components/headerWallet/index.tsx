@@ -4,7 +4,7 @@ import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-import TrocaImg from "../../assets/troca.png"
+import TrocaImg from "../../assets/troca.png";
 
 import { ModalWallet } from "../../components/modalWallet";
 interface IHeaderWallet {
@@ -14,7 +14,6 @@ interface IHeaderWallet {
   img: any;
 }
 
-
 export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
   const navigation = useNavigation();
 
@@ -22,7 +21,7 @@ export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
     navigation.navigate("Home", { token });
   }
 
-  let date = new Date()
+  let date = new Date();
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.body}>
@@ -30,14 +29,13 @@ export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
           <Text style={styles.title}>{text}</Text>
           <ModalWallet text="teste" />
         </SafeAreaView>
-          <Text style={styles.value}>R$ {value}</Text>
-          <Text style={styles.data}>{(date.toLocaleDateString())}</Text>
-            <Image source={img} style={styles.walletImg}></Image>
-          <RectButton onPress={handleHome} style={styles.trocaImg1}>
-            <Image source={TrocaImg} style={styles.trocaImg}></Image>
-          </RectButton>
+        <Text style={styles.value}>R$ {value}</Text>
+        <Text style={styles.data}>{date.toLocaleDateString()}</Text>
+        <Image source={img} style={styles.walletImg}></Image>
+        <RectButton onPress={handleHome} style={styles.trocaImg1}>
+          <Image source={TrocaImg} style={styles.trocaImg}></Image>
+        </RectButton>
       </SafeAreaView>
     </SafeAreaView>
   );
 }
-
