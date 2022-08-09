@@ -16,11 +16,15 @@ export function Home({ token }: IHomeProps) {
     <SafeAreaView style={styles.container}>
       <Header/>
       <SafeAreaView style={styles.viewMenuModal}>
-      <Text style={styles.title}>Menu </Text> 
-      <ModalPattern text={'Aqui você encontra as principais funcionalidades do BestFinance.'}/>
-      </SafeAreaView>  
-      <ButtonHome token={token} />
-      <Baseboard token={token} />
+        <Text style={styles.title}>Menu </Text>
+        <ModalPattern
+          text={
+            "Aqui você encontra as principais funcionalidades do BestFinance."
+          }
+        />
+      </SafeAreaView>
+      <ButtonHome token={token}/>
+      <Baseboard token={token}/>
     </SafeAreaView>
   );
 }
