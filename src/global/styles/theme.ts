@@ -9,6 +9,7 @@ export const theme = {
   },
 
   fonts: {
+    // fonte Raleway
     font1_thin: "Raleway_100Thin", 
     font2_extraLight: "Raleway_200ExtraLight", 
     font3_light: "Raleway_300Light", 
@@ -17,6 +18,16 @@ export const theme = {
     font6_semiBold: "Raleway_600SemiBold", 
     font7_bold: "Raleway_700Bold", 
     font8_extraBold: "Raleway_800ExtraBold", 
-    font9_black: "Raleway_900Black"
+    font9_black: "Raleway_900Black",
+    // fonte Inter
+    font1_thin_inter: "Inter_100Thin",
+    font2_extraLight_inter: "Inter_200ExtraLight",
+    font3_light_inter: "Inter_300Light",
+    font4_regular_inter: "Inter_400Regular",
+    font5_medium_inter: "Inter_500Medium",
+    font6_semiBold_inter: "Inter_600SemiBold",
+    font7_bold_inter: "Inter_700Bold",
+    font8_extraBold_inter: "Inter_800ExtraBold",
+    font9_black_inter: "Inter_900Black",
   },
 };
