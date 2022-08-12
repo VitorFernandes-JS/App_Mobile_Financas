@@ -24,7 +24,6 @@ import {
   Inter_900Black,
 } from "@expo-google-fonts/inter";
 import AppLoading from "expo-app-loading";
-import { theme } from "./src/global/styles/theme";
 
 import { Routes } from "./src/routes";
 import { Background } from "./src/components/Background";

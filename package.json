@@ -13,6 +13,7 @@
     "@expo-google-fonts/inter": "^0.2.2",
     "@expo-google-fonts/rajdhani": "^0.2.2",
     "@expo-google-fonts/raleway": "^0.2.2",
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/google-signin": "^5.0.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-picker/picker": "2.2.1",
@@ -43,7 +44,7 @@
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "react-native-select-dropdown": "^1.13.0",
-    "react-native-svg": "12.1.1",
+    "react-native-svg": "^12.4.4",
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4",
     "styled-components": "^5.3.5"
