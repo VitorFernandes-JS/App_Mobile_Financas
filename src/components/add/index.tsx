@@ -8,7 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 export function Add() {
   return (
     <SafeAreaView style={styles.container}>
-      <RectButton>
+      <RectButton onPress={() => console.log('teste1')}>
         <SafeAreaView style={styles.body}>
           <Ionicons name="add" size={22} style={styles.iconTrash} />
         </SafeAreaView>
