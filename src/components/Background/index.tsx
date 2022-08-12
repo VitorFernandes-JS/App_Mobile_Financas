@@ -7,12 +7,5 @@ type Props = {
 };
 
 export function Background({ children }: Props) {
-
-  return (
-    <SafeAreaView
-      style={styles.container}
-    >
-      {children}
-      </SafeAreaView>
-  );
+  return <SafeAreaView style={styles.container}>{children}</SafeAreaView>;
 }
