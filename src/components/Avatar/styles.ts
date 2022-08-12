@@ -12,6 +12,4 @@ export const styles = StyleSheet.create({
     marginRight: 22,
     borderColor: theme.colors.color2,
   },
-
-
 });
