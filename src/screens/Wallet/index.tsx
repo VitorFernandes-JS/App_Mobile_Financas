@@ -1,11 +1,12 @@
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, ScrollView } from "react-native";
+import { styles } from "./styles";
 
 import WalletImg from "../../assets/wallet.png";
 
 import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
-import { styles } from "./styles";
+import { BoxExtract } from "../../components/boxExtract";
 
 interface IWalletProps {
   token: string;
@@ -26,6 +27,9 @@ export function Wallet({ token }: IWalletProps) {
         <SafeAreaView style={styles.line}/>
         <Text style={styles.textLeft}>Saída:</Text>
         <Text style={styles.valueLeft}>R$ 10.000,00</Text>
+      </SafeAreaView>
+      <SafeAreaView style={styles.body}>
+          <BoxExtract/>
       </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>

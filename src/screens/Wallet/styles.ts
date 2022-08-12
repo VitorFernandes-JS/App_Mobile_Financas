@@ -52,5 +52,8 @@ export const styles = StyleSheet.create({
     color: theme.colors.color4,
     top: 45,
     right: 112
+  },
+  body: {
+    width: '100%',
   }
 });
