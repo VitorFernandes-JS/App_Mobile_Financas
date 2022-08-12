@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     width: 200,
     height: 200,
     fontSize: 27,
-    fontFamily: theme.fonts.font5_medium_inter,
+    fontFamily: theme.fonts.font6_semiBold_inter,
     top: 48,
     marginLeft: 20,
     color: theme.colors.color5,
