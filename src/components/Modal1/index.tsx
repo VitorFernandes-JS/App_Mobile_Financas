@@ -10,7 +10,6 @@ export function Modal1() {
 
   return (
     <SafeAreaView>
-      
       <Modal animationType="slide" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.modalText}>Informações</Text>
@@ -53,7 +52,9 @@ export function Modal1() {
         </RectButton>
       </SafeAreaView>
 
-      <SafeAreaView style={viewButtonStyles({ left: -70, top: -24 }).viewButton}>
+      <SafeAreaView
+        style={viewButtonStyles({ left: -70, top: -24 }).viewButton}
+      >
         <RectButton
           onPress={() => {
             setVisible(true);
@@ -63,7 +64,9 @@ export function Modal1() {
         </RectButton>
       </SafeAreaView>
 
-      <SafeAreaView style={viewButtonStyles({ left: 180, top: -36 }).viewButton}>
+      <SafeAreaView
+        style={viewButtonStyles({ left: 180, top: -36 }).viewButton}
+      >
         <RectButton
           onPress={() => {
             setVisible(true);
@@ -72,7 +75,6 @@ export function Modal1() {
           <Text style={styles.interrogation}>?</Text>
         </RectButton>
       </SafeAreaView>
-      
     </SafeAreaView>
   );
 }
