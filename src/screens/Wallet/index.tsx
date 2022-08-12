@@ -8,6 +8,7 @@ import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
 import { BoxExtract } from "../../components/boxExtract";
 import { Trash } from "../../components/trash";
+import { Add } from "../../components/add";
 
 interface IWalletProps {
   token: string;
@@ -31,6 +32,9 @@ export function Wallet({ token }: IWalletProps) {
       </SafeAreaView>
       <SafeAreaView style={styles.viewTrash}>
         <Trash />
+      </SafeAreaView>
+      <SafeAreaView style={styles.viewAdd}>
+        <Add/>
       </SafeAreaView>
       <SafeAreaView style={styles.body}>
         <BoxExtract />

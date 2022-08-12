@@ -59,5 +59,9 @@ export const styles = StyleSheet.create({
   viewTrash: {
     top: -110,
     left: 140
+  },
+  viewAdd: {
+    top: -137,
+    left: -140
   }
 });

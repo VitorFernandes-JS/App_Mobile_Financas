@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
     height: 25,
     backgroundColor: "#FF0000",
     borderRadius: 5,
-    opacity: 0.8,
     alignItems: "center",
     justifyContent: "center",
   },

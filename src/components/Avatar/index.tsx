@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Image, SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
 import { styles } from "./styles";
 import { useRoute } from "@react-navigation/native";
 
