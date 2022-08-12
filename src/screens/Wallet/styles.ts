@@ -55,5 +55,9 @@ export const styles = StyleSheet.create({
   },
   body: {
     width: '100%',
+  },
+  viewTrash: {
+    top: -110,
+    left: 140
   }
 });
