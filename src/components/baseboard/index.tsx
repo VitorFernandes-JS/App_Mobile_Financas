@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  Text,
-  Image,
-} from "react-native";
+import { SafeAreaView, Text, Image } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -25,28 +21,26 @@ export function Baseboard({ token }: Params) {
   }
 
   function handleWallet() {
-    navigation.navigate("Wallet", { token })
+    navigation.navigate("Wallet", { token });
   }
-
 
   return (
     <SafeAreaView style={styles.container}>
-
       <RectButton onPress={handleHome} style={styles.iconHome}>
         <AntDesign name="home" size={35} />
         <Text style={styles.textHome}>Menu</Text>
       </RectButton>
 
       <RectButton onPress={handleWallet} style={styles.iconWallet}>
-        <Ionicons name="wallet-outline" size={35}/>
+        <Ionicons name="wallet-outline" size={35} />
         <Text style={styles.textWallet}>Carteira</Text>
       </RectButton>
 
       <RectButton>
-        <SafeAreaView style={styles.borderStar}/>
-            <Image source={star} style={styles.iconStar}/>
-            <Text style={styles.textGoal}>Metas</Text>
-        <SafeAreaView style={styles.borderStar1}/>
+        <SafeAreaView style={styles.borderStar} />
+        <Image source={star} style={styles.iconStar} />
+        <Text style={styles.textGoal}>Metas</Text>
+        <SafeAreaView style={styles.borderStar1} />
       </RectButton>
 
       <RectButton onPress={handleHome} style={styles.iconFavorite}>
@@ -54,11 +48,10 @@ export function Baseboard({ token }: Params) {
         <Text style={styles.textFavorite}>Favoritos</Text>
       </RectButton>
 
-      <RectButton  onPress={handleHome} style={styles.iconProfile}>
-        <AntDesign name="user" size={35}/>
+      <RectButton onPress={handleHome} style={styles.iconProfile}>
+        <AntDesign name="user" size={35} />
         <Text style={styles.textProfile}>Perfil</Text>
       </RectButton>
-
     </SafeAreaView>
   );
 }
