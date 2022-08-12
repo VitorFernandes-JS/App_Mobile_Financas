@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     width: 180,
     borderRadius: 50,
     marginTop: 45,
-    backgroundColor: "#fff",
+    backgroundColor: theme.colors.color6,
     right: 270,
   },
 });
