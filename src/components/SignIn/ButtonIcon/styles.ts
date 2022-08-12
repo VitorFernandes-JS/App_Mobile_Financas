@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     paddingRight: 1,
     top: 30,
     shadowOpacity: 0.2,
-    shadowOffset: {width: 0.5,height: 3}
+    shadowOffset: { width: 0.5, height: 3 },
   },
   icon: {
     width: 35,
@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     color: theme.colors.color1,
     fontSize: 17,
     textAlign: "center",
-    fontFamily: theme.fonts.font5_medium
+    fontFamily: theme.fonts.font5_medium,
   },
   contentWrapper: {
     width: "70%",
