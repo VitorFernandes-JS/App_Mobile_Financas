@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
     width: 250,
     height: 0.5,
     backgroundColor: theme.colors.color4,
+    top: 90
   },
   modalSubtitle: {
     fontSize: 13,
@@ -37,8 +38,8 @@ export const styles = StyleSheet.create({
     top: 8.5,
   },
   closeModalIcon: {
-    left: 62,
-    top: -8,
+    left: 210,
+    top: 100,
   },
   body: {
     width: 25,
