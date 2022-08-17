@@ -25,9 +25,21 @@ export function Add() {
             <AntDesign
               name="closecircle"
               color="red"
-              size={25}
+              size={22}
               style={styles.closeModalIcon}
             />
+          </RectButton>
+
+          <RectButton
+           onPress={() => {
+            setVisible(false);
+          }}
+          >
+            <SafeAreaView style={styles.viewButtonAdd}>
+            <SafeAreaView style={styles.buttonAdd}>
+              <Text style={styles.textAdd}>Adicionar</Text>
+            </SafeAreaView>
+            </SafeAreaView>
           </RectButton>
         </SafeAreaView>
       </Modal>
