@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   viewValue: {
-    top: -5,
+    top: 8,
   },
   boxGreen: {
     width: 50,
@@ -38,13 +38,13 @@ export const styles = StyleSheet.create({
     borderRadius: 7,
   },
   textInputValue: {
-    textAlign: 'center',
+    textAlign: "center",
     top: 7,
     fontSize: 13.5,
     fontFamily: theme.fonts.font5_medium_inter,
   },
   viewValue1: {
-    top: -5,
+    top: 8,
   },
   boxGreen1: {
     width: 75,
@@ -74,13 +74,13 @@ export const styles = StyleSheet.create({
     borderRadius: 7,
   },
   textInputValue1: {
-    textAlign: 'center',
+    textAlign: "center",
     top: 7,
     fontSize: 13.5,
     fontFamily: theme.fonts.font5_medium_inter,
   },
   viewValue2: {
-    top: -5,
+    top: 8,
   },
   boxGreen2: {
     width: 75,
@@ -110,7 +110,7 @@ export const styles = StyleSheet.create({
     borderRadius: 7,
   },
   textInputValue2: {
-    textAlign: 'center',
+    textAlign: "center",
     top: 7,
     fontSize: 13.5,
     fontFamily: theme.fonts.font5_medium_inter,

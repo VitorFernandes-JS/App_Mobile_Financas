@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 
 import { TextField } from "../textField";
+import { ModalWallet } from "../../components/modalWallet";
 
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
@@ -15,7 +16,7 @@ export function Add() {
     <SafeAreaView style={styles.container}>
       <Modal animationType="slide" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
-          <TextField/>
+          <TextField />
           <SafeAreaView style={styles.line}></SafeAreaView>
           <RectButton
             onPress={() => {
@@ -31,16 +32,20 @@ export function Add() {
           </RectButton>
 
           <RectButton
-           onPress={() => {
-            setVisible(false);
-          }}
+            onPress={() => {
+              setVisible(false);
+            }}
           >
             <SafeAreaView style={styles.viewButtonAdd}>
-            <SafeAreaView style={styles.buttonAdd}>
-              <Text style={styles.textAdd}>Adicionar</Text>
-            </SafeAreaView>
+              <SafeAreaView style={styles.buttonAdd}>
+                <Text style={styles.textAdd}>Adicionar</Text>
+              </SafeAreaView>
             </SafeAreaView>
           </RectButton>
+
+          <SafeAreaView style={styles.viewInterrogation}>
+            <ModalWallet text="[escrever aqui]" />
+          </SafeAreaView>
         </SafeAreaView>
       </Modal>
 

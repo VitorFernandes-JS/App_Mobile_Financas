@@ -5,7 +5,6 @@ import { styles } from "./styles";
 export function TextField() {
   return (
     <SafeAreaView style={styles.container}>
-
       <SafeAreaView style={styles.viewValue}>
         <SafeAreaView style={styles.boxGreen}>
           <Text style={styles.textTitleValue}>Valor</Text>
@@ -44,7 +43,6 @@ export function TextField() {
           ></TextInput>
         </SafeAreaView>
       </SafeAreaView>
-
     </SafeAreaView>
   );
 }

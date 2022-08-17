@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     width: 250,
     height: 0.5,
     backgroundColor: theme.colors.color4,
-    top: 5
+    top: 20,
   },
   modalSubtitle: {
     fontSize: 13,
@@ -39,23 +39,27 @@ export const styles = StyleSheet.create({
   },
   closeModalIcon: {
     left: 210,
-    top: 15
+    top: 28,
   },
   viewButtonAdd: {
-    alignItems: 'center',
-    top: -8.5
+    alignItems: "center",
+    top: 5,
   },
   buttonAdd: {
     width: 100,
     height: 25,
     backgroundColor: "#26B602",
-    borderRadius: 5
+    borderRadius: 5,
   },
   textAdd: {
     fontSize: 16,
     color: theme.colors.color6,
-    textAlign: 'center',
+    textAlign: "center",
     top: 2,
+  },
+  viewInterrogation: {
+    top: -83,
+    left: 15,
   },
   body: {
     width: 25,
