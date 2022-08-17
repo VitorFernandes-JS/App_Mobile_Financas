@@ -17,8 +17,8 @@ interface IHeaderWallet {
 export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
   const navigation = useNavigation();
 
-  function handleHome() {
-    navigation.navigate("Home", { token });
+  function handleWalletInvestment() {
+    navigation.navigate("WalletInvestment", { token });
   }
 
   let date = new Date();
@@ -32,7 +32,7 @@ export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
         <Text style={styles.value}>R$ {value}</Text>
         <Text style={styles.data}>{date.toLocaleDateString()}</Text>
         <Image source={img} style={styles.walletImg}></Image>
-        <RectButton onPress={handleHome} style={styles.trocaImg1}>
+        <RectButton onPress={handleWalletInvestment} style={styles.trocaImg1}>
           <Image source={TrocaImg} style={styles.trocaImg}></Image>
         </RectButton>
       </SafeAreaView>

@@ -14,7 +14,7 @@ interface IWalletProps {
   token: string;
 }
 
-export function Wallet_Investment({ token }: IWalletProps) {
+export function WalletInvestment({ token }: IWalletProps) {
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet

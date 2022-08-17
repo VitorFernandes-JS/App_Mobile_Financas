@@ -9,7 +9,7 @@ import { Comparator } from "../screens/Comparator";
 import { Indexes } from "../screens/Indexes";
 import { Profile } from "../screens/Profile";
 import { Wallet } from "../screens/Wallet";
-import { Wallet_Investment } from "../screens/Wallet_Investment";
+import { WalletInvestment } from "../screens/Wallet_Investment";
 // import { Favorite } from "../screens/Favorite";
 // import { Financing } from "../screens/Financing";
 // import { Videos } from "../screens/Videos";
@@ -34,7 +34,7 @@ export function AuthRoutes() {
       <Screen name="Comparator" component={Comparator} />
       <Screen name="Indexes" component={Indexes} />
       <Screen name="Wallet" component={Wallet} />
-      <Screen name="WalletInvestment" component={Wallet_Investment} />
+      <Screen name="WalletInvestment" component={WalletInvestment} />
     </Navigator>
   );
 }
