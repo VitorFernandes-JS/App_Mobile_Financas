@@ -19,8 +19,8 @@ export const styles = StyleSheet.create({
     zIndex: 1,
     shadowColor: "#1a1a1a",
     shadowOpacity: 0.1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
   textTitleValue: {
     fontSize: 14,
@@ -35,11 +35,11 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.color6,
     shadowColor: "#1a1a1a",
     shadowOpacity: 0.1,
-    borderRadius: 7
+    borderRadius: 7,
   },
   textInputValue: {
     marginLeft: 60,
     top: 7,
-    fontFamily: theme.fonts.font5_medium_inter
-  }
+    fontFamily: theme.fonts.font5_medium_inter,
+  },
 });
