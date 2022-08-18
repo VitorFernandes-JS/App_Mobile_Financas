@@ -24,6 +24,8 @@ interface ICalculatorProps {
 export function Calculator({ route }: ICalculatorProps) {
   const navigation = useNavigation();
 
+  // 8==================================================D
+
   const { token } = route.params;
 
   const [initialValue, setInitialValue] = useState(0);

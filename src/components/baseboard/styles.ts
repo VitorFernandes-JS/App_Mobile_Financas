@@ -61,9 +61,13 @@ export const styles = StyleSheet.create({
   iconStar: {
     width: 37,
     height: 37,
-    top: -190,
-    marginLeft: 187,
+    top: -110,
+    marginLeft: 30,
     zIndex: 1,
+  },
+  imgStar: {
+    width: 37,
+    height: 37
   },
   textGoal: {
     top: -170,

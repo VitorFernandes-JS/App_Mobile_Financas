@@ -24,6 +24,10 @@ export function Baseboard({ token }: Params) {
     navigation.navigate("Wallet", { token });
   }
 
+  function handleGoals() {
+    navigation.navigate("Goals", {token})
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <RectButton onPress={handleHome} style={styles.iconHome}>
@@ -36,9 +40,9 @@ export function Baseboard({ token }: Params) {
         <Text style={styles.textWallet}>Carteira</Text>
       </RectButton>
 
-      <RectButton>
         <SafeAreaView style={styles.borderStar} />
-        <Image source={star} style={styles.iconStar} />
+      <RectButton onPress={handleGoals} style={styles.iconStar}>
+        <Image source={star} style={styles.imgStar}/>
         <Text style={styles.textGoal}>Metas</Text>
         <SafeAreaView style={styles.borderStar1} />
       </RectButton>

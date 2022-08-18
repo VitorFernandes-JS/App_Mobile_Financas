@@ -10,6 +10,7 @@ import { Indexes } from "../screens/Indexes";
 import { Profile } from "../screens/Profile";
 import { Wallet } from "../screens/Wallet";
 import { WalletInvestment } from "../screens/Wallet_Investment";
+import { Goals } from "../screens/Goals";
 // import { Favorite } from "../screens/Favorite";
 // import { Financing } from "../screens/Financing";
 // import { Videos } from "../screens/Videos";
@@ -35,6 +36,7 @@ export function AuthRoutes() {
       <Screen name="Indexes" component={Indexes} />
       <Screen name="Wallet" component={Wallet} />
       <Screen name="WalletInvestment" component={WalletInvestment} />
+      <Screen name="Goals" component={Goals} />
     </Navigator>
   );
 }
