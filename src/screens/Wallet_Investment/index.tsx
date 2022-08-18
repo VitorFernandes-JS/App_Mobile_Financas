@@ -34,7 +34,7 @@ export function WalletInvestment({ token }: IWalletProps) {
         <Trash />
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
-        <Add/>
+        <Add />
       </SafeAreaView>
       <SafeAreaView style={styles.body}>
         <BoxExtract />
