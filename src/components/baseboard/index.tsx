@@ -25,7 +25,7 @@ export function Baseboard({ token }: Params) {
   }
 
   function handleGoals() {
-    navigation.navigate("Goals", {token})
+    navigation.navigate("Goals", { token })
   }
 
   return (
