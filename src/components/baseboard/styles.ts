@@ -55,19 +55,20 @@ export const styles = StyleSheet.create({
     height: 50,
     backgroundColor: theme.colors.color6,
     borderRadius: 50,
-    top: -246,
+    top: -195,
     marginLeft: 180,
   },
   iconStar: {
     width: 37,
     height: 37,
-    top: -110,
-    marginLeft: 30,
-    zIndex: 1,
+    borderRadius: 30,
+    top: -240,
+    marginLeft: 187
   },
   imgStar: {
     width: 37,
-    height: 37
+    height: 37,
+    zIndex: 1,
   },
   textGoal: {
     top: -170,
@@ -80,7 +81,7 @@ export const styles = StyleSheet.create({
   iconFavorite: {
     width: 55,
     height: 55,
-    top: -263,
+    top: -250,
     marginLeft: 270,
     color: theme.colors.color1,
     opacity: 0.6,
@@ -94,7 +95,7 @@ export const styles = StyleSheet.create({
   iconProfile: {
     width: 55,
     height: 55,
-    top: -317,
+    top: -305,
     marginLeft: 350,
     color: theme.colors.color1,
     opacity: 0.6,

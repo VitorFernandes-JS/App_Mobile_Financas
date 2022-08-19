@@ -41,10 +41,10 @@ export function Baseboard({ token }: Params) {
       </RectButton>
 
         <SafeAreaView style={styles.borderStar} />
+        <SafeAreaView style={styles.borderStar1} />
       <RectButton onPress={handleGoals} style={styles.iconStar}>
         <Image source={star} style={styles.imgStar}/>
         <Text style={styles.textGoal}>Metas</Text>
-        <SafeAreaView style={styles.borderStar1} />
       </RectButton>
 
       <RectButton onPress={handleHome} style={styles.iconFavorite}>
