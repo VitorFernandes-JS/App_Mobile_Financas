@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 
@@ -14,7 +14,18 @@ interface IWalletProps {
   token: string;
 }
 
+interface ITransactionsWallets {
+  id: string;
+  value: number;
+  category: string;
+  description: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
 export function Wallet({ token }: IWalletProps) {
+  const [ transactionsWallets, setTransactionsWallets ] = useState<ITransactionsWallets[]>([])
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
@@ -34,10 +45,12 @@ export function Wallet({ token }: IWalletProps) {
         <Trash />
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
-        <Add/>
+        <Add transactionsWallets={transactionsWallets} setTransactionsWallets={setTransactionsWallets}/>
       </SafeAreaView>
       <SafeAreaView style={styles.body}>
-        <BoxExtract />
+      {transactionsWallets.map((transactionWallet) => (
+        <BoxExtract transactionWallet={transactionWallet}/>
+      ))}
       </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import { SafeAreaView, Modal, Text } from "react-native";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
@@ -9,14 +9,31 @@ import { ModalWallet } from "../../components/modalWallet";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
-export function Add() {
+interface ITransactionsWallets {
+  id: string;
+  value: number;
+  category: string;
+  description: string;
+  created_at?: Date;
+  updated_at?: Date;
+}
+
+interface IAddProps {
+  transactionsWallets: ITransactionsWallets[];
+  setTransactionsWallets: Dispatch<SetStateAction<ITransactionsWallets[]>>;
+}
+
+export function Add({ transactionsWallets, setTransactionsWallets }: IAddProps) {
   const [visible, setVisible] = useState(false);
+  const [value, setValue] = useState('')
+  const [category, setCategory] = useState('')
+  const [description, setDescription] = useState('')
 
   return (
     <SafeAreaView style={styles.container}>
       <Modal animationType="slide" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
-          <TextField />
+          <TextField setValue={setValue} setCategory={setCategory} setDescription={setDescription} />
           <SafeAreaView style={styles.line}></SafeAreaView>
           <RectButton
             onPress={() => {
@@ -33,6 +50,7 @@ export function Add() {
 
           <RectButton
             onPress={() => {
+              setTransactionsWallets([...transactionsWallets, { id: `'${new Date()}'`, value: Number(value), category, description }])
               setVisible(false);
             }}
           >

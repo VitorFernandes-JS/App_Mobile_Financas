@@ -2,7 +2,13 @@ import React from "react";
 import { SafeAreaView, Text, TextInput } from "react-native";
 import { styles } from "./styles";
 
-export function TextField() {
+interface ITextFieldProps {
+  setValue: (arg1: any) => void;
+  setCategory: (arg2: any) => void;
+  setDescription: (arg3: any) => void;
+}
+
+export function TextField({ setValue, setCategory, setDescription }: ITextFieldProps) {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.viewValue}>
@@ -14,6 +20,7 @@ export function TextField() {
             style={styles.textInputValue}
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
+            onChange={(event) => { setValue(event.target) }}
           ></TextInput>
         </SafeAreaView>
       </SafeAreaView>
@@ -27,6 +34,7 @@ export function TextField() {
             style={styles.textInputValue1}
             placeholder="Salário"
             placeholderTextColor={"#808080"}
+            onChange={(event) => { setCategory(event.target) }}
           ></TextInput>
         </SafeAreaView>
       </SafeAreaView>
@@ -40,6 +48,7 @@ export function TextField() {
             style={styles.textInputValue2}
             placeholder="Empresa"
             placeholderTextColor={"#808080"}
+            onChange={(event) => { setDescription(event.target) }}
           ></TextInput>
         </SafeAreaView>
       </SafeAreaView>
