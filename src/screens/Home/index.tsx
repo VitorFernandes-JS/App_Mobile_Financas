@@ -2,7 +2,7 @@ import React from "react";
 import { styles } from "./styles";
 import { SafeAreaView, Text } from "react-native";
 
-import { Header } from "../../components/header";
+import { Header } from "../../components/headerHome";
 import { Baseboard } from "../../components/baseboard";
 import { ButtonHome } from "../../components/buttonHome";
 import { ModalPattern } from "../../components/modalPattern";
