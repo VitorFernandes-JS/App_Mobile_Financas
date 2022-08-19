@@ -9,9 +9,8 @@ import { theme } from "../../global/styles/theme";
 export function BackButton({ ...rest }: RectButtonProps) {
   return (
     <SafeAreaView>
-      <SafeAreaView style={styles.borderBackButton}></SafeAreaView>
       <RectButton style={styles.container} {...rest}>
-        <AntDesign name="left" color={theme.colors.color1} size={32} />
+        <AntDesign name="left" color={theme.colors.color4} size={32} />
       </RectButton>
     </SafeAreaView>
   );

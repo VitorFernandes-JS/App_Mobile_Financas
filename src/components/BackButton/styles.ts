@@ -10,12 +10,4 @@ export const styles = StyleSheet.create({
     marginTop: -45,
     right: 145,
   },
-  borderBackButton: {
-    height: 58,
-    width: 180,
-    borderRadius: 50,
-    marginTop: 45,
-    backgroundColor: theme.colors.color6,
-    right: 270,
-  },
 });
