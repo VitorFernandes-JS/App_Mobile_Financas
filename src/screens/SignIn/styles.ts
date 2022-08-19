@@ -58,6 +58,6 @@ export const styles = StyleSheet.create({
     top: -50
   },
   contactUs: {
-    top: 110,
+    top: 100,
   }
 });
