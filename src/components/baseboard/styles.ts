@@ -71,8 +71,7 @@ export const styles = StyleSheet.create({
     zIndex: 1,
   },
   textGoal: {
-    top: -170,
-    marginLeft: 188,
+    top: 17,
     color: theme.colors.color1,
     fontSize: 12,
     fontFamily: theme.fonts.font4_regular,

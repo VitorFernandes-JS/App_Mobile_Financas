@@ -11,12 +11,13 @@ interface IGoalsProps {
   }
   
 
-export function Goals({token}:IGoalsProps) {
+export function Goals({ token }: IGoalsProps) {
 
     return(
         <SafeAreaView style={styles.container}>
-            <Header/>
+            <Header  />
             <ModalPattern text="Essa ferramenta te ajuda a controlar suas principais metas!"/>
+                <Text>teste</Text>
             <Baseboard token={token}/>
         </SafeAreaView>
     )
