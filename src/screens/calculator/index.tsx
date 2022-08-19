@@ -3,7 +3,6 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
   Modal,
 } from "react-native";
 import React, { ReactNode, useState } from "react";
@@ -12,9 +11,10 @@ import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
 
 import { AntDesign } from "@expo/vector-icons";
-import { Avatar } from "../../components/Avatar";
-import { BackButton } from "../../components/BackButton";
 import { Calcular } from "../../controls/calculatorController";
+
+import { Baseboard } from "../../components/baseboard";
+import { Header } from "../../components/header";
 
 interface ICalculatorProps {
   route: any;
@@ -48,12 +48,8 @@ export function Calculator({ route }: ICalculatorProps) {
   const fees = ["Mensal", "Anual"];
 
   return (
-    <ScrollView>
       <SafeAreaView style={styles.container}>
-        <SafeAreaView style={styles.header}>
-          <Avatar />
-          <BackButton onPress={handleHome} />
-        </SafeAreaView>
+        <Header token={token}/>
 
         <Text style={styles.title}>Calculadora</Text>
         <SafeAreaView>
@@ -233,7 +229,7 @@ export function Calculator({ route }: ICalculatorProps) {
             </SafeAreaView>
           </Modal>
         </SafeAreaView>
+        <Baseboard token={token}/>
       </SafeAreaView>
-    </ScrollView>
   );
 }

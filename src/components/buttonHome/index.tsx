@@ -18,13 +18,22 @@ interface IButtonHomeProps {
 export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   const navigation = useNavigation();
 
-  function CalculatorRote() {
+  function handleCalculator() {
     navigation.navigate("Calculator", { token });
   }
+
+  function handleComparator() {
+    navigation.navigate("Comparator", { token });
+  }
+
+  function handleIndexes() {
+    navigation.navigate("Indexes", { token });
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <RectButton
-        onPress={CalculatorRote}
+        onPress={handleCalculator}
         style={viewButtonStyles({ left: -60, top: 130 }).button}
         {...rest}
       >
@@ -35,6 +44,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
+        onPress={handleIndexes}
         style={viewButtonStyles({ left: -60, top: 150 }).button}
         {...rest}
       >
@@ -55,6 +65,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
+        onPress={handleComparator}
         style={viewButtonStyles({ left: 60, top: -170 }).button}
         {...rest}
       >

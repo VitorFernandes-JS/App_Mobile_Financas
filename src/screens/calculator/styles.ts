@@ -7,11 +7,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "column",
   },
-  header: {
-    flexDirection: "row",
-    display: "flex",
-    justifyContent: "space-between",
-  },
   title: {
     fontFamily: theme.fonts.title700,
     fontSize: 42,
