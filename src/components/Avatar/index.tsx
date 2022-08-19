@@ -15,7 +15,6 @@ type Profile = {
 };
 
 export function Avatar() {
-  const navigation = useNavigation();
   const [profile, setProfile] = useState({} as Profile);
   const route = useRoute();
 

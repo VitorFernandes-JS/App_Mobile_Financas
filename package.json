@@ -13,6 +13,7 @@
     "@expo-google-fonts/inter": "^0.2.2",
     "@expo-google-fonts/rajdhani": "^0.2.2",
     "@expo-google-fonts/raleway": "^0.2.2",
+    "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/google-signin": "^5.0.0",
     "@react-native-community/masked-view": "^0.1.11",

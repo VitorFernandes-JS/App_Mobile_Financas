@@ -34,7 +34,7 @@ export function Header() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.textWelcome}>Bem-Vindo,</Text>
+      <Text style={styles.textWelcome}>Olá!</Text>
       <Text style={styles.textName}>
         {profile.given_name}{" "}
         <Image source={happyEmoji} style={styles.iconEmojiHappy} />
