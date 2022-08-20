@@ -3,17 +3,15 @@ import {
   SafeAreaView,
   Text,
   TextInput,
-  ScrollView,
   TouchableOpacity,
-  Modal,
 } from "react-native";
 import axios from "axios";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
-import { AntDesign } from "@expo/vector-icons";
-import { Avatar } from "../../components/Avatar";
-import { BackButton } from "../../components/BackButton";
+import { Header } from "../../components/header";
+import { Baseboard } from "../../components/baseboard";
+
 import SelectDropdown from "react-native-select-dropdown";
 import { calcComparator } from "../../controls/comparatorController";
 interface ISelicRate {
@@ -57,17 +55,13 @@ export function Comparator({ route }: IComparatorProps) {
   const [valueTotalSavings, setValueTotalSavings] = useState(0);
   const [valueTotalCdi, setValueTotalCdi] = useState(0);
   const [modal, setModal] = useState(false);
-  const [modalInterrogation, setModalInterrogation] = useState(false);
 
   function handleHome() {
     navigation.navigate("Home", { token });
   }
 
   useEffect(() => {
-    // fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados/ultimos/10?formato=json')
-    //   .then(response => response.json())
-    //   .then(data => data)
-
+    
     //API SELIC
     axios
       .get(
@@ -92,53 +86,9 @@ export function Comparator({ route }: IComparatorProps) {
   const type = ["Selic", "IPCA", "CDI", "Poupança"];
 
   return (
-    <ScrollView>
       <SafeAreaView style={styles.container}>
-        <SafeAreaView style={styles.header}>
-          <Avatar />
-          <BackButton onPress={handleHome} />
-        </SafeAreaView>
-        <Text style={styles.title}>Comparador</Text>
-
-        <SafeAreaView>
-          <TouchableOpacity
-            onPress={() => {
-              setModalInterrogation(true);
-            }}
-          >
-            <AntDesign
-              name="questioncircleo"
-              size={20}
-              style={styles.iconInterrogation}
-            />
-          </TouchableOpacity>
-        </SafeAreaView>
-        <Modal
-          animationType="fade"
-          transparent={true}
-          visible={modalInterrogation}
-        >
-          <SafeAreaView style={styles.viewModalInterrogation}>
-            <Text style={styles.textModalInterrogation}>
-              Este é o comparador de investimentos, você simula alguns aportes e
-              ele monstra qual seria seu lucro em cada produto financeiro.
-            </Text>
-            <TouchableOpacity
-              onPress={() => {
-                setModalInterrogation(false);
-              }}
-            >
-              <Text></Text>
-              <AntDesign
-                name="closecircle"
-                color="red"
-                size={20}
-                style={styles.closeModalInterrogationIcon}
-              />
-            </TouchableOpacity>
-          </SafeAreaView>
-        </Modal>
-
+       <Header token={token}/>
+            
         <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>
             VALOR{"\n"}
@@ -226,70 +176,10 @@ export function Comparator({ route }: IComparatorProps) {
         </TouchableOpacity>
 
         <SafeAreaView>
-          <Modal animationType="slide" transparent={true} visible={modal}>
-            <SafeAreaView style={styles.viewModal}>
-              <Text style={styles.total}>TOTAL:</Text>
-              <SafeAreaView style={styles.line}></SafeAreaView>
-              <SafeAreaView style={styles.boxAndText}>
-                <SafeAreaView style={styles.viewTopBoxSelic}>
-                  <Text style={styles.textTopBoxSelic}>TESOURO SELIC</Text>
-                </SafeAreaView>
-                <SafeAreaView style={styles.box1}>
-                  <Text style={styles.textBox}>
-                    Valor Total: R$ {Number(valueTotalSelic).toFixed(2)}
-                  </Text>
-                </SafeAreaView>
-              </SafeAreaView>
-
-              <SafeAreaView style={styles.boxAndText}>
-                <SafeAreaView style={styles.viewTopBoxIpca}>
-                  <Text style={styles.textTopBoxIpca}>TESOURO IPCA</Text>
-                </SafeAreaView>
-                <SafeAreaView style={styles.box2}>
-                  <Text style={styles.textBox}>
-                    Valor Total: R$ {Number(valueTotalIpca).toFixed(2)}
-                  </Text>
-                </SafeAreaView>
-              </SafeAreaView>
-
-              <SafeAreaView style={styles.boxAndText}>
-                <SafeAreaView style={styles.viewTopBoxCdi}>
-                  <Text style={styles.textTopBoxCdi}>CDI</Text>
-                </SafeAreaView>
-                <SafeAreaView style={styles.box3}>
-                  <Text style={styles.textBox}>
-                    Valor Total: R$ {Number(valueTotalCdi).toFixed(2)}
-                  </Text>
-                </SafeAreaView>
-              </SafeAreaView>
-
-              <SafeAreaView style={styles.boxAndText}>
-                <SafeAreaView style={styles.viewTopBoxSavings}>
-                  <Text style={styles.textTopBoxSavings}>POUPANÇA</Text>
-                </SafeAreaView>
-                <SafeAreaView style={styles.box4}>
-                  <Text style={styles.textBox}>
-                    Valor Total: R$ {Number(valueTotalSavings).toFixed(2)}
-                  </Text>
-                </SafeAreaView>
-              </SafeAreaView>
-              <TouchableOpacity
-                onPress={() => {
-                  setModal(false);
-                }}
-              >
-                <Text></Text>
-                <AntDesign
-                  name="closesquare"
-                  color="red"
-                  size={25}
-                  style={styles.closeModalIcon}
-                />
-              </TouchableOpacity>
-            </SafeAreaView>
-          </Modal>
+          
+             
         </SafeAreaView>
+        <Baseboard token={token}/>
       </SafeAreaView>
-    </ScrollView>
   );
 }

@@ -1,14 +1,13 @@
 import React, { ReactNode, useEffect, useState } from "react";
-import { SafeAreaView, Text, TouchableOpacity, Modal } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 import { styles } from "./style";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 
-import { AntDesign } from "@expo/vector-icons";
-import { theme } from "../../global/styles/theme";
+import { Header } from "../../components/header";
+import { Baseboard } from "../../components/baseboard";
+
 import { Modal1 } from "../../components/Modal1";
-import { Avatar } from "../../components/Avatar";
-import { BackButton } from "../../components/BackButton";
 import AppLoading from "expo-app-loading";
 interface ISelicRate {
   data: String;
@@ -73,50 +72,7 @@ export function Indexes({ route }: IIndexesProps) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <SafeAreaView style={styles.header}>
-        <Avatar />
-        <BackButton onPress={handleHome} />
-      </SafeAreaView>
-      <Text style={styles.title}>Índices</Text>
-
-      <SafeAreaView>
-        <TouchableOpacity
-          onPress={() => {
-            setModalInterrogation(true);
-          }}
-        >
-          <AntDesign
-            name="questioncircleo"
-            size={20}
-            style={styles.iconInterrogation}
-          />
-        </TouchableOpacity>
-      </SafeAreaView>
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalInterrogation}
-      >
-        <SafeAreaView style={styles.viewModalInterrogation}>
-          <Text style={styles.textModalInterrogation}>
-            Aqui estão os principais índices de Renda Fixa e Renda Variável que
-            você precisa.
-          </Text>
-          <TouchableOpacity
-            onPress={() => {
-              setModalInterrogation(false);
-            }}
-          >
-            <Text></Text>
-            <AntDesign
-              name="closecircle"
-              color="red"
-              size={20}
-              style={styles.closeModalInterrogationIcon}
-            />
-          </TouchableOpacity>
-        </SafeAreaView>
-      </Modal>
+      <Header token={token}/>
 
       <SafeAreaView style={styles.viewSelicAndIpca}>
      
@@ -177,6 +133,7 @@ export function Indexes({ route }: IIndexesProps) {
           </SafeAreaView>
       </SafeAreaView>
       <Modal1 />
+      <Baseboard token={token}/>
     </SafeAreaView>
   );
 }
