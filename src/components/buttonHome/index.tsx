@@ -30,6 +30,10 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
     navigation.navigate("Indexes", { token });
   }
 
+  function handleVideos() {
+    navigation.navigate("Videos", { token });
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <RectButton
@@ -76,6 +80,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
+        onPress={handleVideos}
         style={viewButtonStyles({ left: 60, top: -150 }).button}
         {...rest}
       >

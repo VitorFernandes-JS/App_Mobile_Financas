@@ -13,7 +13,7 @@ import { WalletInvestment } from "../screens/Wallet_Investment";
 import { Goals } from "../screens/Goals";
 // import { Favorite } from "../screens/Favorite";
 // import { Financing } from "../screens/Financing";
-// import { Videos } from "../screens/Videos";
+import { Videos } from "../screens/Videos";
 // import { Loan } from "../screens/Loan";
 
 const { Navigator, Screen } = createStackNavigator();
@@ -37,6 +37,7 @@ export function AuthRoutes() {
       <Screen name="Wallet" component={Wallet} />
       <Screen name="WalletInvestment" component={WalletInvestment} />
       <Screen name="Goals" component={Goals} />
+      <Screen name="Videos" component={Videos} />
     </Navigator>
   );
 }
