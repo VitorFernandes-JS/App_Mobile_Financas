@@ -49,13 +49,13 @@ export function Wallet({ token }: IWalletProps) {
       <SafeAreaView style={styles.viewAdd}>
         <Add setTransactionsWallets={setTransactionsWallets} />
       </SafeAreaView>
+      <ScrollView showsVerticalScrollIndicator={true} style={styles.viewScroll}>
       <SafeAreaView style={styles.body}>
-        <ScrollView style={styles.viewScroll}>
           {transactionsWallets.map((transactionWallet) => (
             <BoxExtract transactionWallet={transactionWallet} />
           ))}
-        </ScrollView>
       </SafeAreaView>
+        </ScrollView>
       <Baseboard token={token} />
     </SafeAreaView>
   );
