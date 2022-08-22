@@ -63,5 +63,7 @@ export const styles = StyleSheet.create({
   viewAdd: {
     top: -137,
     left: -140
-  }
+  },
+  viewScroll: {
+  },
 });

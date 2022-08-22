@@ -24,8 +24,4 @@ export const styles = StyleSheet.create({
     margin: 10,
     top: -120,
   },
-  viewScroll: {
-    flex: 1,
-    zIndex: 1
-  },
 });
