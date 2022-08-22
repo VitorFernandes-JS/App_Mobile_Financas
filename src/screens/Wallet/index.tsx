@@ -24,7 +24,9 @@ interface ITransactionsWallets {
 }
 
 export function Wallet({ token }: IWalletProps) {
-  const [ transactionsWallets, setTransactionsWallets ] = useState<ITransactionsWallets[]>([])
+  const [transactionsWallets, setTransactionsWallets] = useState<
+    ITransactionsWallets[]
+  >([]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -45,18 +47,16 @@ export function Wallet({ token }: IWalletProps) {
         <Trash />
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
-        <Add 
-          setTransactionsWallets={setTransactionsWallets}
-        />
+        <Add setTransactionsWallets={setTransactionsWallets} />
       </SafeAreaView>
       <SafeAreaView style={styles.body}>
-      <ScrollView style={styles.viewScroll}>
-      {transactionsWallets.map((transactionWallet) => (
-        <BoxExtract transactionWallet={transactionWallet}/>
-      ))}
-      </ScrollView>
+        <ScrollView style={styles.viewScroll}>
+          {transactionsWallets.map((transactionWallet) => (
+            <BoxExtract transactionWallet={transactionWallet} />
+          ))}
+        </ScrollView>
       </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>
   );
-} 
+}
