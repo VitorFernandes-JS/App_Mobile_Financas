@@ -11,10 +11,10 @@ import { Profile } from "../screens/Profile";
 import { Wallet } from "../screens/Wallet";
 import { WalletInvestment } from "../screens/Wallet_Investment";
 import { Goals } from "../screens/Goals";
-// import { Favorite } from "../screens/Favorite";
-// import { Financing } from "../screens/Financing";
+import { Financing } from "../screens/Financing";
 import { Videos } from "../screens/Videos";
-// import { Loan } from "../screens/Loan";
+import { Loan } from "../screens/Loan";
+// import { Favorite } from "../screens/Favorite";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -38,6 +38,8 @@ export function AuthRoutes() {
       <Screen name="WalletInvestment" component={WalletInvestment} />
       <Screen name="Goals" component={Goals} />
       <Screen name="Videos" component={Videos} />
+      <Screen name="Financing" component={Financing} />
+      <Screen name="Loan" component={Loan} />
     </Navigator>
   );
 }

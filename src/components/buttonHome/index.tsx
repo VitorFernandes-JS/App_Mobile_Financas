@@ -34,6 +34,14 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
     navigation.navigate("Videos", { token });
   }
 
+  function handleFinancing() {
+    navigation.navigate("Financing", { token });
+  }
+
+  function handleLoan() {
+    navigation.navigate("Loan", { token })
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <RectButton
@@ -59,6 +67,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
+        onPress={handleFinancing}
         style={viewButtonStyles({ left: -60, top: 170 }).button}
         {...rest}
       >
@@ -91,6 +100,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
+        onPress={handleLoan}
         style={viewButtonStyles({ left: 60, top: -130 }).button}
         {...rest}
       >
