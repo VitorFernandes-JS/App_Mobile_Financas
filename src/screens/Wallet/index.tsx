@@ -19,8 +19,8 @@ interface ITransactionsWallets {
   value: number;
   category: string;
   description: string;
-  created_at: Date;
-  updated_at: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }
 
 export function Wallet({ token }: IWalletProps) {
@@ -45,7 +45,10 @@ export function Wallet({ token }: IWalletProps) {
         <Trash />
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
-        <Add transactionsWallets={transactionsWallets} setTransactionsWallets={setTransactionsWallets}/>
+        <Add 
+          transactionsWallets={transactionsWallets} 
+          setTransactionsWallets={setTransactionsWallets}
+        />
       </SafeAreaView>
       <SafeAreaView style={styles.body}>
       {transactionsWallets.map((transactionWallet) => (

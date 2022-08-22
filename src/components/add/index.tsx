@@ -33,7 +33,11 @@ export function Add({ transactionsWallets, setTransactionsWallets }: IAddProps) 
     <SafeAreaView style={styles.container}>
       <Modal animationType="slide" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
-          <TextField setValue={setValue} setCategory={setCategory} setDescription={setDescription} />
+          <TextField 
+            setValue={setValue} 
+            setCategory={setCategory} 
+            setDescription={setDescription} 
+          />
           <SafeAreaView style={styles.line}></SafeAreaView>
           <RectButton
             onPress={() => {
@@ -50,7 +54,9 @@ export function Add({ transactionsWallets, setTransactionsWallets }: IAddProps) 
 
           <RectButton
             onPress={() => {
-              setTransactionsWallets([...transactionsWallets, { id: `'${new Date()}'`, value: Number(value), category, description }])
+              setTransactionsWallets((prevState) => {
+                return [...prevState, {id: `'${new Date(), (Math.random() * 100)}'`, value: Number(value), category, description}] 
+              })
               setVisible(false);
             }}
           >
