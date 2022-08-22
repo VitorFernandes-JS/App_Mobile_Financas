@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, ScrollView } from "react-native";
 import { styles } from "./styles";
 
 import WalletImg from "../../assets/wallet.png";
@@ -50,11 +50,13 @@ export function Wallet({ token }: IWalletProps) {
         />
       </SafeAreaView>
       <SafeAreaView style={styles.body}>
+      <ScrollView style={styles.viewScroll}>
       {transactionsWallets.map((transactionWallet) => (
         <BoxExtract transactionWallet={transactionWallet}/>
       ))}
+      </ScrollView>
       </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>
   );
-}
+} 

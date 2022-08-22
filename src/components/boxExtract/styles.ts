@@ -20,8 +20,12 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
-    elevation: 5,
     borderRadius: 5,
+    margin: 10,
+    top: -120,
+  },
+  viewScroll: {
+    flex: 1,
+    zIndex: 1
   },
 });

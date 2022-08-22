@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     position: "absolute",
     width: 415,
     height: 106,
-    top: 665,
+    top: 670,
     backgroundColor: theme.colors.color5,
     borderRadius: 20,
     shadowOpacity: 0.4,
