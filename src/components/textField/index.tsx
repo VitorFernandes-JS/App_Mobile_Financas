@@ -20,7 +20,7 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
             style={styles.textInputValue}
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
-            onChange={(event) => { setValue(event.target) }}
+            onChangeText={(text) => { setValue(text) }}
           ></TextInput>
         </SafeAreaView>
       </SafeAreaView>
@@ -34,7 +34,7 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
             style={styles.textInputValue1}
             placeholder="Salário"
             placeholderTextColor={"#808080"}
-            onChange={(event) => { setCategory(event.target) }}
+            onChangeText={(text) => { setCategory(text) }}
           ></TextInput>
         </SafeAreaView>
       </SafeAreaView>
@@ -48,7 +48,7 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
             style={styles.textInputValue2}
             placeholder="Empresa"
             placeholderTextColor={"#808080"}
-            onChange={(event) => { setDescription(event.target) }}
+            onChangeText={(text) => { setDescription(text) }}
           ></TextInput>
         </SafeAreaView>
       </SafeAreaView>

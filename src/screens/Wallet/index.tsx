@@ -26,6 +26,9 @@ interface ITransactionsWallets {
 export function Wallet({ token }: IWalletProps) {
   const [ transactionsWallets, setTransactionsWallets ] = useState<ITransactionsWallets[]>([])
 
+  console.log(transactionsWallets)
+  console.warn(transactionsWallets)
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
