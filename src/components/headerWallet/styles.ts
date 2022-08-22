@@ -5,14 +5,13 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    flex: 1
   },
   body: {
     width: 415,
     height: 250,
     backgroundColor: theme.colors.color2,
     borderRadius: 25,
-    top: -67,
+    top: -18,
     shadowOpacity: 0.2,
     shadowOffset: { width: 0.5, height: 3 },
   },
