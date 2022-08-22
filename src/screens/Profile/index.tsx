@@ -3,7 +3,6 @@ import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
 
-import { BackButton } from "../../components/BackButton";
 interface IProfileProps {
     route: any;
     children: ReactNode;
