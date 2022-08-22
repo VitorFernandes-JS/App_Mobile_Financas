@@ -28,3 +28,5 @@ export function Home({ token }: IHomeProps) {
     </SafeAreaView>
   );
 }
+
+

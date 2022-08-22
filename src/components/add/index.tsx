@@ -19,11 +19,10 @@ interface ITransactionsWallets {
 }
 
 interface IAddProps {
-  transactionsWallets: ITransactionsWallets[];
   setTransactionsWallets: Dispatch<SetStateAction<ITransactionsWallets[]>>;
 }
 
-export function Add({ transactionsWallets, setTransactionsWallets }: IAddProps) {
+export function Add({ setTransactionsWallets }: IAddProps) {
   const [visible, setVisible] = useState(false);
   const [value, setValue] = useState('')
   const [category, setCategory] = useState('')
