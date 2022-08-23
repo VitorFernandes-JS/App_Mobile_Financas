@@ -1,13 +1,11 @@
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
-import styles from "./styles";
+import { Text, SafeAreaView } from 'react-native'
+import React from 'react'
+import { styles } from "./styles";
 
-export default class index extends Component {
-  render() {
+export function Select(){
     return (
-      <View>
+      <SafeAreaView>
         <Text>index</Text>
-      </View>
+      </SafeAreaView>
     )
-  }
 }
