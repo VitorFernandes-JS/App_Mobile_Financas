@@ -8,14 +8,13 @@ import {
 import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
-import SelectDropdown from "react-native-select-dropdown";
-import { Avatar } from "../../components/Avatar";
 
 import { AntDesign } from "@expo/vector-icons";
 import { Calcular } from "../../controls/calculatorController";
 
 import { Baseboard } from "../../components/baseboard";
 import { Header } from "../../components/header";
+import { ModalPattern } from "../../components/modalPattern";
 
 interface ICalculatorProps {
   route: any;
@@ -25,7 +24,6 @@ interface ICalculatorProps {
 
 export function Calculator({ token }: ICalculatorProps) {
   const navigation = useNavigation();
-
 
   const [initialValue, setInitialValue] = useState(0);
   const [valueMonth, setValueMonth] = useState(0);
@@ -39,31 +37,70 @@ export function Calculator({ token }: ICalculatorProps) {
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
 
-  // Opções dos select
-  const time = ["Meses", "Anos"];
-  const fees = ["Mensal", "Anual"];
-
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
-      
-      <SafeAreaView style={styles.viewInitialValue}>
-        <Text style={styles.InitialValue}>
-          VALOR {"\n"}
-          INICIAL
-        </Text>
-        <TextInput
-          keyboardType={"numbers-and-punctuation"}
-          onChangeText={(text) => {
-            setInitialValue(Number(text));
-          }}
-          style={styles.inputInitialValue}
-          placeholder="R$00,00"
-          placeholderTextColor={"#808080"}
+
+      <SafeAreaView style={styles.viewMenuModal}>
+        <Text style={styles.title}>Juros Compostos </Text>
+        <ModalPattern
+          text={"Aqui você consegue calcular enquanto tempo vai se aposentar!"}
         />
       </SafeAreaView>
 
-      <SafeAreaView style={styles.viewInitialValue}>
+      {/* 1 */}
+
+      <SafeAreaView style={styles.bodyInitialValue}>
+
+        <SafeAreaView style={styles.viewInitialValue}>
+          <Text style={styles.initialValue}>Valor Inicial</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewInitialValue1}>
+          <Text style={styles.initialValue1}>R$</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.inputInitialValue}>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+              setInitialValue(Number(text));
+            }}
+            style={styles.textInputInitialValue}
+            placeholder="R$00,00"
+            placeholderTextColor={"#808080"}
+            maxLength={20}
+          />
+        </SafeAreaView>
+      </SafeAreaView>
+      
+      {/* 2 */}
+
+      <SafeAreaView style={styles.bodyValueMonth}>
+
+        <SafeAreaView style={styles.viewValueMonth}>
+          <Text style={styles.initialValue}>Valor Mensal</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewInitialValue1}>
+          <Text style={styles.initialValue1}>R$</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.inputInitialValue}>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+              setInitialValue(Number(text));
+            }}
+            style={styles.textInputInitialValue}
+            placeholder="R$00,00"
+            placeholderTextColor={"#808080"}
+            maxLength={20}
+          />
+        </SafeAreaView>
+      </SafeAreaView>
+
+      {/* <SafeAreaView style={styles.viewInitialValue1}>
         <Text style={styles.InitialValue}>
           VALOR {"\n"}
           MENSAL
@@ -79,7 +116,7 @@ export function Calculator({ token }: ICalculatorProps) {
         />
       </SafeAreaView>
 
-      <SafeAreaView style={styles.viewInitialValue}>
+      <SafeAreaView style={styles.viewInitialValue2}>
         <Text style={styles.timeText}>TEMPO</Text>
         <TextInput
           keyboardType={"numbers-and-punctuation"}
@@ -90,20 +127,10 @@ export function Calculator({ token }: ICalculatorProps) {
           placeholder="1"
           placeholderTextColor={"#808080"}
         />
-        <SelectDropdown
-          data={time}
-          defaultButtonText={"Meses"}
-          onSelect={(selectedItem) => setYearsOrMounthTime(selectedItem)}
-          buttonTextAfterSelection={(selectedItem, index) => {
-            return selectedItem;
-          }}
-          rowTextForSelection={(item, index) => {
-            return item;
-          }}
-        />
+        
       </SafeAreaView>
 
-      <SafeAreaView style={styles.viewInitialValue}>
+      <SafeAreaView style={styles.viewInitialValue3}>
         <Text style={styles.feesText}>JUROS</Text>
         <TextInput
           keyboardType={"numbers-and-punctuation"}
@@ -114,17 +141,7 @@ export function Calculator({ token }: ICalculatorProps) {
           placeholder="1"
           placeholderTextColor={"#808080"}
         />
-        <SelectDropdown
-          data={fees}
-          defaultButtonText={"Mensal"}
-          onSelect={(selectedItem) => setYearsOrMounthFees(selectedItem)}
-          buttonTextAfterSelection={(selectedItem, index) => {
-            return selectedItem;
-          }}
-          rowTextForSelection={(item, index) => {
-            return item;
-          }}
-        />
+        
       </SafeAreaView>
 
       <TouchableOpacity
@@ -145,9 +162,9 @@ export function Calculator({ token }: ICalculatorProps) {
         }}
       >
         <Text style={styles.textCalculate}>CALCULAR</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <SafeAreaView>
+      {/* <SafeAreaView>
         <Modal animationType="slide" transparent={true} visible={modal}>
           <SafeAreaView style={styles.viewModal}>
             <Text style={styles.total}>TOTAL:</Text>
@@ -184,7 +201,7 @@ export function Calculator({ token }: ICalculatorProps) {
             </TouchableOpacity>
           </SafeAreaView>
         </Modal>
-      </SafeAreaView>
+      </SafeAreaView> */}
       <Baseboard token={token} />
     </SafeAreaView>
   );
