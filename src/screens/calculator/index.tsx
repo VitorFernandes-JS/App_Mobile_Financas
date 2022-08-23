@@ -2,14 +2,12 @@ import {
   SafeAreaView,
   Text,
   TextInput,
-  TouchableOpacity,
-  Modal,
+  Button
 } from "react-native";
 import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 
-import { AntDesign } from "@expo/vector-icons";
 import { Calcular } from "../../controls/calculatorController";
 
 import { Baseboard } from "../../components/baseboard";
@@ -36,6 +34,10 @@ export function Calculator({ token }: ICalculatorProps) {
 
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
+
+  function handleHome() {
+    navigation.navigate("Home", { token });
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -79,26 +81,83 @@ export function Calculator({ token }: ICalculatorProps) {
       <SafeAreaView style={styles.bodyValueMonth}>
 
         <SafeAreaView style={styles.viewValueMonth}>
-          <Text style={styles.initialValue}>Valor Mensal</Text>
+          <Text style={styles.initialValueMonth}>Valor Mensal</Text>
         </SafeAreaView>
 
-        <SafeAreaView style={styles.viewInitialValue1}>
-          <Text style={styles.initialValue1}>R$</Text>
+        <SafeAreaView style={styles.viewValueMonth1}>
+          <Text style={styles.valueMonth1}>R$</Text>
         </SafeAreaView>
 
-        <SafeAreaView style={styles.inputInitialValue}>
+        <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
             keyboardType={"numbers-and-punctuation"}
             onChangeText={(text) => {
               setInitialValue(Number(text));
             }}
-            style={styles.textInputInitialValue}
+            style={styles.textInputValueMonth}
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
             maxLength={20}
           />
         </SafeAreaView>
       </SafeAreaView>
+
+      {/* 3 */}
+
+      <SafeAreaView style={styles.bodyValueMonth}>
+
+        <SafeAreaView style={styles.viewValueMonth}>
+          <Text style={styles.initialValueMonth}>Tempo</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewValueMonth1}>
+          <Text style={styles.valueMonth1}>T</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.inputValueMonth}>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+              setInitialValue(Number(text));
+            }}
+            style={styles.textInputValueMonth}
+            placeholder="10"
+            placeholderTextColor={"#808080"}
+            maxLength={3}
+          />
+        </SafeAreaView>
+      </SafeAreaView>
+
+      {/* 4 */}
+
+      <SafeAreaView style={styles.bodyValueMonth}>
+
+        <SafeAreaView style={styles.viewValueMonth}>
+          <Text style={styles.initialValueMonth}>Juros</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewValueMonth1}>
+          <Text style={styles.valueMonth1}>%</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.inputValueMonth}>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+              setInitialValue(Number(text));
+            }}
+            style={styles.textInputValueMonth}
+            placeholder="10"
+            placeholderTextColor={"#808080"}
+            maxLength={4}
+          />
+        </SafeAreaView>
+      </SafeAreaView>
+            
+      <Button title={"Calcular"} onPress={handleHome}>
+
+      </Button>
+      
 
       {/* <SafeAreaView style={styles.viewInitialValue1}>
         <Text style={styles.InitialValue}>

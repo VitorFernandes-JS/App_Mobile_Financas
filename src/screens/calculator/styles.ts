@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
     zIndex: 2,
     shadowOpacity: 0.3,
     shadowOffset: { width: 1.5, height: 1.5 },
-    top: 13.5
+    top: 10
   },
   initialValue1: {
     fontSize: 20,
@@ -69,7 +69,7 @@ export const styles = StyleSheet.create({
     height: 30,
     backgroundColor: theme.colors.color6,
     borderRadius: 10,
-    top: -15,
+    top: -22,
     marginLeft: 30,
     zIndex: 1,
     shadowOpacity: 0.3,
@@ -92,7 +92,7 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 1.5, height: 1.5 },
     top: 60,
     borderRadius: 12,
-    margin: 15
+    marginTop: 15
   },
   viewValueMonth: {
     width: 133,
@@ -101,9 +101,9 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     marginLeft: -107,
     zIndex: 3,
-    top: 18
+    top: 13
   },
-  initialValue: {
+  initialValueMonth: {
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular,
     color: theme.colors.color1,
@@ -111,7 +111,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 2,
   },
-  viewInitialValue1: {
+  viewValueMonth1: {
     width: 40,
     height: 30,
     backgroundColor: theme.colors.color2,
@@ -120,9 +120,9 @@ export const styles = StyleSheet.create({
     zIndex: 2,
     shadowOpacity: 0.3,
     shadowOffset: { width: 1.5, height: 1.5 },
-    top: 13.5
+    top: 10
   },
-  initialValue1: {
+  valueMonth1: {
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular,
     color: theme.colors.color1,
@@ -130,18 +130,18 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 2,
   },
-  inputInitialValue: {
+  inputValueMonth: {
     width: 200,
     height: 30,
     backgroundColor: theme.colors.color6,
     borderRadius: 10,
-    top: -18,
+    top: -22,
     marginLeft: 30,
     zIndex: 1,
     shadowOpacity: 0.3,
     shadowOffset: { width: 1.5, height: 1.5 },
   },
-  textInputInitialValue: {
+  textInputValueMonth: {
     margin: 9,
     color: theme.colors.color1,
     fontFamily: theme.fonts.font4_regular_inter,
