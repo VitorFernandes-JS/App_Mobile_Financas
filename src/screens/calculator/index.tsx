@@ -9,6 +9,7 @@ import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import SelectDropdown from "react-native-select-dropdown";
+import { Avatar } from "../../components/Avatar";
 
 import { AntDesign } from "@expo/vector-icons";
 import { Calcular } from "../../controls/calculatorController";
@@ -19,12 +20,12 @@ import { Header } from "../../components/header";
 interface ICalculatorProps {
   route: any;
   children: ReactNode;
+  token: string;
 }
 
-export function Calculator({ route }: ICalculatorProps) {
+export function Calculator({ token }: ICalculatorProps) {
   const navigation = useNavigation();
 
-  const { token } = route.params;
 
   const [initialValue, setInitialValue] = useState(0);
   const [valueMonth, setValueMonth] = useState(0);
@@ -45,7 +46,7 @@ export function Calculator({ route }: ICalculatorProps) {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
-
+      
       <SafeAreaView style={styles.viewInitialValue}>
         <Text style={styles.InitialValue}>
           VALOR {"\n"}

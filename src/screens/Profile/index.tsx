@@ -21,12 +21,11 @@ type Profile = {
   picture: string;
 };
 
-export function Profile({ route }: IProfileProps) {
+export function Profile({ token }: Params) {
   const navigation = useNavigation();
   const [profile, setProfile] = useState({} as Profile);
-  const { token } = route.params;
 
-  async function loadProfile() {
+  async function loadProfile({token}: Params) {
     const response = await fetch(
       `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`
     );
@@ -35,13 +34,7 @@ export function Profile({ route }: IProfileProps) {
   }
   console.warn(token)
 
-  function handleHome() {
-    navigation.navigate("Home", { token });
-  }
 
-  useEffect(() => {
-    loadProfile();
-  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
