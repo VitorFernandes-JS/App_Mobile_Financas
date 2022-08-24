@@ -1,9 +1,4 @@
-import {
-  SafeAreaView,
-  Text,
-  TextInput,
-  Button
-} from "react-native";
+import { SafeAreaView, Text, TextInput, Button } from "react-native";
 import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
@@ -53,7 +48,6 @@ export function Calculator({ token }: ICalculatorProps) {
       {/* 1 */}
 
       <SafeAreaView style={styles.bodyInitialValue}>
-
         <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.initialValue}>Valor Inicial</Text>
         </SafeAreaView>
@@ -75,11 +69,10 @@ export function Calculator({ token }: ICalculatorProps) {
           />
         </SafeAreaView>
       </SafeAreaView>
-      
+
       {/* 2 */}
 
       <SafeAreaView style={styles.bodyValueMonth}>
-
         <SafeAreaView style={styles.viewValueMonth}>
           <Text style={styles.initialValueMonth}>Valor Mensal</Text>
         </SafeAreaView>
@@ -105,7 +98,6 @@ export function Calculator({ token }: ICalculatorProps) {
       {/* 3 */}
 
       <SafeAreaView style={styles.bodyValueMonth}>
-
         <SafeAreaView style={styles.viewValueMonth}>
           <Text style={styles.initialValueMonth}>Tempo</Text>
         </SafeAreaView>
@@ -131,7 +123,6 @@ export function Calculator({ token }: ICalculatorProps) {
       {/* 4 */}
 
       <SafeAreaView style={styles.bodyValueMonth}>
-
         <SafeAreaView style={styles.viewValueMonth}>
           <Text style={styles.initialValueMonth}>Juros</Text>
         </SafeAreaView>
@@ -153,11 +144,8 @@ export function Calculator({ token }: ICalculatorProps) {
           />
         </SafeAreaView>
       </SafeAreaView>
-            
-      <Button title={"Calcular"} onPress={handleHome}>
 
-      </Button>
-      
+      <Button title={"Calcular"} onPress={handleHome}></Button>
 
       {/* <SafeAreaView style={styles.viewInitialValue1}>
         <Text style={styles.InitialValue}>
