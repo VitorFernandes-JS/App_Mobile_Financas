@@ -26,7 +26,6 @@ export function Calculator({ token }: ICalculatorProps) {
   const [totalFees, setTotalFees] = useState(0);
   const [totalValueInvested, setTotalValueInvested] = useState(0);
   const [modal, setModal] = useState(false);
-
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
 
