@@ -1,5 +1,11 @@
-import { SafeAreaView, Text, TextInput, Modal, TouchableOpacity } from "react-native";
-import React, { ReactNode, useState } from "react";
+import {
+  SafeAreaView,
+  Text,
+  TextInput,
+  Modal,
+  TouchableOpacity,
+} from "react-native";
+import React, { ReactNode, useCallback, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 
@@ -8,8 +14,11 @@ import { useRoute } from "@react-navigation/native";
 import { Baseboard } from "../../components/baseboard";
 import { Header } from "../../components/header";
 import { ModalPattern } from "../../components/modalPattern";
+import { Select } from "../../components/select";
 
 import { AntDesign } from "@expo/vector-icons";
+import DropDownPicker from "react-native-dropdown-picker";
+import { theme } from "../../global/styles/theme";
 
 interface IRouteParams {
   token: string;
@@ -38,6 +47,27 @@ export function Calculator() {
   const [modal, setModal] = useState(false);
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("Meses");
+  const [items1, setItems1] = useState([
+    {label: 'Meses', value: 'meses'},
+    {label: 'Anos', value: 'anos'}
+  ]);
+  const [items2, setItems2] = useState([
+    {label: 'Mensal', value: 'mensal'},
+    {label: 'Anual', value: 'anual'}
+  ]);
+  const [items1Open, setItems1Open] = useState(false);
+  const [items2Open, setItems2Open] = useState(false);
+
+  const onItems1Open = useCallback(() => {
+    setItems2Open(false);
+  }, []);
+
+  const onItems2Open = useCallback(() => {
+    setItems1Open(false);
+  }, []);
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -118,8 +148,51 @@ export function Calculator() {
           />
         </SafeAreaView>
       </SafeAreaView>
+      <DropDownPicker
+          style={{
+            borderColor: theme.colors.color5,
+            width: 110,
+            marginLeft: 230,
+            backgroundColor: theme.colors.color5,
+            borderRadius: 20,
+          }}
+          translation={{
+            PLACEHOLDER: "Selecione"
+          }}
+          tickIconStyle={{
+            width: 10,
+            height: 10
+          }}
+          dropDownContainerStyle={{
+            backgroundColor: theme.colors.color6,
+            width: 100,
+            height: 80,
+            borderRadius: 10,
+            marginLeft: 230,
+            borderColor: theme.colors.color5,
+          }}
+          textStyle={{
+            fontSize: 10,
+            fontFamily: theme.fonts.font4_regular
+          }}
+          arrowIconStyle={{
+            width: 10,
+            height: 10
+          }}
+          closeIconStyle={{
+            width: 15,
+            height: 15
+          }}
+          open={open}
+          onOpen={onItems1Open}
+          value={value}
+          items={items1}
+          setOpen={setOpen}
+          setValue={setValue}
+          setItems={setItems1}
+        />
 
-      <SafeAreaView style={styles.bodyValueMonth}>
+      <SafeAreaView style={styles.bodyValueMonth2}>
         <SafeAreaView style={styles.viewValueMonth}>
           <Text style={styles.initialValueMonth}>Juros</Text>
         </SafeAreaView>
@@ -140,9 +213,12 @@ export function Calculator() {
             maxLength={4}
           />
         </SafeAreaView>
+        
       </SafeAreaView>
 
-      <TouchableOpacity style={styles.button} onPress={() => {
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
           Calcular({
             feesInput,
             initialValue,
@@ -156,7 +232,53 @@ export function Calculator() {
             setModal,
           });
         }}
-      ><Text style={styles.textButton}>CALCULAR</Text></TouchableOpacity>
+      >
+        <Text style={styles.textButton}>CALCULAR</Text>
+      </TouchableOpacity>
+      <DropDownPicker
+          style={{
+            borderColor: theme.colors.color5,
+            width: 110,
+            marginLeft: 230,
+            backgroundColor: theme.colors.color5,
+            borderRadius: 20,
+            top: -83,
+          }}
+          translation={{
+            PLACEHOLDER: "Selecione"
+          }}
+          tickIconStyle={{
+            width: 10,
+            height: 10
+          }}
+          dropDownContainerStyle={{
+            backgroundColor: theme.colors.color6,
+            width: 100,
+            height: 80,
+            borderRadius: 10,
+            marginLeft: 230,
+            borderColor: theme.colors.color5,
+          }}
+          textStyle={{
+            fontSize: 10,
+            fontFamily: theme.fonts.font4_regular
+          }}
+          arrowIconStyle={{
+            width: 10,
+            height: 10
+          }}
+          closeIconStyle={{
+            width: 15,
+            height: 15
+          }}
+          open={open}
+          onOpen={onItems2Open}
+          value={value}
+          items={items2}
+          setOpen={setOpen}
+          setValue={setValue}
+          setItems={setItems2}
+        />
 
       <SafeAreaView>
         <Modal animationType="slide" transparent={true} visible={modal}>

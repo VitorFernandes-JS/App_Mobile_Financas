@@ -72,14 +72,17 @@ export const styles = StyleSheet.create({
     top: -22,
     marginLeft: 30,
     zIndex: 1,
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 1.5, height: 1.5 },
+
   },
   textInputInitialValue: {
     margin: 9,
     color: theme.colors.color1,
     fontFamily: theme.fonts.font4_regular_inter,
     marginLeft: 15
+  },
+  dropDownPicker1: {
+    width: 30,
+    marginLeft: 300
   },
   bodyValueMonth: {
     alignItems: "center",
@@ -138,8 +141,7 @@ export const styles = StyleSheet.create({
     top: -22,
     marginLeft: 30,
     zIndex: 1,
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 1.5, height: 1.5 },
+   
   },
   textInputValueMonth: {
     margin: 9,
@@ -152,7 +154,7 @@ export const styles = StyleSheet.create({
     height: 50,
     backgroundColor: theme.colors.color2,
     borderRadius: 10,
-    marginTop: 73,
+    top: 40,
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
@@ -164,6 +166,18 @@ export const styles = StyleSheet.create({
     marginTop: 7,
     shadowOpacity: 0.2,
     shadowRadius: 3,
+  },
+  bodyValueMonth2: {
+    alignItems: "center",
+    flexDirection: "column",
+    width: 300,
+    height: 85,
+    backgroundColor: theme.colors.color5,
+    zIndex: 0,
+    shadowOpacity: 0.5,
+    shadowOffset: { width: 1.5, height: 1.5 },
+    top: 25,
+    borderRadius: 12,
   },
   viewModal: {
     alignItems: "center",
