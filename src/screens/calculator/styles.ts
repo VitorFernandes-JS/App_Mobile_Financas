@@ -234,14 +234,14 @@ export const styles = StyleSheet.create({
   box2: {
     height: 35,
     width: 240,
-    backgroundColor: "#6666ff",
+    backgroundColor: theme.colors.color3,
     borderRadius: 8,
     margin: 7,
   },
   box3: {
     height: 35,
     width: 240,
-    backgroundColor: "#99ff99",
+    backgroundColor: theme.colors.color4,
     borderRadius: 8,
     margin: 7,
   },
