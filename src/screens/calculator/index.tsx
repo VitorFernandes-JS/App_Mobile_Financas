@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, TextInput, Button } from "react-native";
+import { SafeAreaView, Text, TextInput, Button, Modal, TouchableOpacity } from "react-native";
 import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
@@ -8,6 +8,8 @@ import { useRoute } from "@react-navigation/native";
 import { Baseboard } from "../../components/baseboard";
 import { Header } from "../../components/header";
 import { ModalPattern } from "../../components/modalPattern";
+
+import { AntDesign } from "@expo/vector-icons";
 
 interface IRouteParams {
   token: string;
@@ -94,7 +96,7 @@ export function Calculator() {
           <TextInput
             keyboardType={"numbers-and-punctuation"}
             onChangeText={(text) => {
-              setInitialValue(Number(text));
+              setValueMonth(Number(text));
             }}
             style={styles.textInputValueMonth}
             placeholder="R$00,00"
@@ -119,7 +121,7 @@ export function Calculator() {
           <TextInput
             keyboardType={"numbers-and-punctuation"}
             onChangeText={(text) => {
-              setInitialValue(Number(text));
+              setTimeInput(Number(text));
             }}
             style={styles.textInputValueMonth}
             placeholder="10"
@@ -144,7 +146,7 @@ export function Calculator() {
           <TextInput
             keyboardType={"numbers-and-punctuation"}
             onChangeText={(text) => {
-              setInitialValue(Number(text));
+              setFeesInput(Number(text));
             }}
             style={styles.textInputValueMonth}
             placeholder="10"
@@ -154,7 +156,21 @@ export function Calculator() {
         </SafeAreaView>
       </SafeAreaView>
 
-      <Button title={"Calcular"} onPress={handleHome}></Button>
+      <Button title={"Calcular"} onPress={() => {
+          Calcular({
+            feesInput,
+            initialValue,
+            timeInput,
+            valueMonth,
+            yearsOrMounthFees,
+            yearsOrMounthTime,
+            setTotalFees,
+            setTotalValue,
+            setTotalValueInvested,
+            setModal,
+          });
+        }}
+      ></Button>
 
       {/* <SafeAreaView style={styles.viewInitialValue1}>
         <Text style={styles.InitialValue}>
@@ -220,7 +236,7 @@ export function Calculator() {
         <Text style={styles.textCalculate}>CALCULAR</Text>
       </TouchableOpacity> */}
 
-      {/* <SafeAreaView>
+      <SafeAreaView>
         <Modal animationType="slide" transparent={true} visible={modal}>
           <SafeAreaView style={styles.viewModal}>
             <Text style={styles.total}>TOTAL:</Text>
@@ -257,7 +273,7 @@ export function Calculator() {
             </TouchableOpacity>
           </SafeAreaView>
         </Modal>
-      </SafeAreaView> */}
+      </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>
   );
