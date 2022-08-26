@@ -8,8 +8,6 @@ type Params = {
 };
 
 type Profile = {
-  given_name: string;
-  name: string;
   picture: string;
 };
 

@@ -22,7 +22,6 @@ export function Header({ token }: IHeaderProps) {
   function handleHome() {
     navigation.navigate("Home", { token });
   }
-
   
   return (
     <SafeAreaView style={styles.container}>

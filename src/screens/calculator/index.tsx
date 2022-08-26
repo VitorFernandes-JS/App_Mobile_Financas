@@ -4,10 +4,14 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 
 import { Calcular } from "../../controls/calculatorController";
-
+import { useRoute } from "@react-navigation/native";
 import { Baseboard } from "../../components/baseboard";
 import { Header } from "../../components/header";
 import { ModalPattern } from "../../components/modalPattern";
+
+interface IRouteParams {
+  token: string;
+}
 
 interface ICalculatorProps {
   route: any;
@@ -15,7 +19,11 @@ interface ICalculatorProps {
   token: string;
 }
 
-export function Calculator({ token }: ICalculatorProps) {
+export function Calculator() {
+  const route = useRoute();
+
+  const { token } = route.params as IRouteParams;
+
   const navigation = useNavigation();
 
   const [initialValue, setInitialValue] = useState(0);
@@ -28,6 +36,8 @@ export function Calculator({ token }: ICalculatorProps) {
   const [modal, setModal] = useState(false);
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
+
+  console.log(token);
 
   function handleHome() {
     navigation.navigate("Home", { token });
