@@ -154,7 +154,7 @@ export const styles = StyleSheet.create({
     height: 50,
     backgroundColor: theme.colors.color2,
     borderRadius: 10,
-    top: 40,
+    top: 87,
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
@@ -176,7 +176,7 @@ export const styles = StyleSheet.create({
     zIndex: 0,
     shadowOpacity: 0.5,
     shadowOffset: { width: 1.5, height: 1.5 },
-    top: 25,
+    top: 75,
     borderRadius: 12,
   },
   viewModal: {

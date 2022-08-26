@@ -148,49 +148,7 @@ export function Calculator() {
           />
         </SafeAreaView>
       </SafeAreaView>
-      <DropDownPicker
-          style={{
-            borderColor: theme.colors.color5,
-            width: 110,
-            marginLeft: 230,
-            backgroundColor: theme.colors.color5,
-            borderRadius: 20,
-          }}
-          translation={{
-            PLACEHOLDER: "Selecione"
-          }}
-          tickIconStyle={{
-            width: 10,
-            height: 10
-          }}
-          dropDownContainerStyle={{
-            backgroundColor: theme.colors.color6,
-            width: 100,
-            height: 80,
-            borderRadius: 10,
-            marginLeft: 230,
-            borderColor: theme.colors.color5,
-          }}
-          textStyle={{
-            fontSize: 10,
-            fontFamily: theme.fonts.font4_regular
-          }}
-          arrowIconStyle={{
-            width: 10,
-            height: 10
-          }}
-          closeIconStyle={{
-            width: 15,
-            height: 15
-          }}
-          open={open}
-          onOpen={onItems1Open}
-          value={value}
-          items={items1}
-          setOpen={setOpen}
-          setValue={setValue}
-          setItems={setItems1}
-        />
+    
 
       <SafeAreaView style={styles.bodyValueMonth2}>
         <SafeAreaView style={styles.viewValueMonth}>
@@ -213,7 +171,6 @@ export function Calculator() {
             maxLength={4}
           />
         </SafeAreaView>
-        
       </SafeAreaView>
 
       <TouchableOpacity
@@ -235,6 +192,52 @@ export function Calculator() {
       >
         <Text style={styles.textButton}>CALCULAR</Text>
       </TouchableOpacity>
+      <DropDownPicker
+          style={{
+            borderColor: theme.colors.color5,
+            width: 110,
+            marginLeft: 230,
+            backgroundColor: theme.colors.color5,
+            borderRadius: 20,
+            top: -132,
+          }}
+          translation={{
+            PLACEHOLDER: "Selecione"
+          }}
+          tickIconStyle={{
+            width: 10,
+            height: 10
+          }}
+          dropDownContainerStyle={{
+            backgroundColor: theme.colors.color6,
+            width: 100,
+            height: 80,
+            borderRadius: 10,
+            marginLeft: 230,
+            borderColor: theme.colors.color5,
+            top: 100,
+          }}
+          textStyle={{
+            fontSize: 10,
+            fontFamily: theme.fonts.font4_regular
+          }}
+          arrowIconStyle={{
+            width: 10,
+            height: 10
+          }}
+          closeIconStyle={{
+            width: 15,
+            height: 15
+          }}
+          open={items1Open}
+          onOpen={onItems1Open}
+          value={value}
+          items={items1}
+          setOpen={setOpen}
+          setValue={setValue}
+          setItems={setItems1}
+        />
+
       <DropDownPicker
           style={{
             borderColor: theme.colors.color5,
