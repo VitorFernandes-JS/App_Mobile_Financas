@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useRoute } from "@react-navigation/native";
+import React from "react";
 
 import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./styles";
 import { Avatar } from "../Avatar";
 import happyEmoji from "../../assets/emoji_feliz.png";
-
 
 interface IHeaderHome {
   given_name: string;

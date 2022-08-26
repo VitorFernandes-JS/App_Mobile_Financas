@@ -1,14 +1,15 @@
-import React, { ReactNode, useState, useEffect } from "react";
-import { SafeAreaView, Text, Image } from "react-native";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./style";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-interface IProfileProps {
-  route: any;
-  children: ReactNode;
-}
+import { Baseboard } from "../../components/baseboard";
 
-type Params = {
+import { Feather } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+
+type IRouteParams = {
   token: string;
 };
 
@@ -21,28 +22,61 @@ type Profile = {
   picture: string;
 };
 
-export function Profile({ token }: Params) {
-  const navigation = useNavigation();
+export function Profile() {
   const [profile, setProfile] = useState({} as Profile);
+  const navigation = useNavigation();
 
-  async function loadProfile({token}: Params) {
+  const route = useRoute();
+  const { token } = route.params as IRouteParams;
+
+  async function loadProfile() {
     const response = await fetch(
       `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`
     );
     const userInfo = await response.json();
     setProfile(userInfo);
   }
-  console.warn(token)
 
-
+  useEffect(() => {
+    loadProfile();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.header}>
         <SafeAreaView>
-          <Image source={{ uri: profile.picture }} style={styles.avatar}></Image>
+          <Image
+            source={{ uri: profile.picture }}
+            style={styles.avatar}
+          ></Image>
         </SafeAreaView>
       </SafeAreaView>
+      <Text style={styles.textGivenName}>{profile.given_name}</Text>
+      <Text style={styles.textFamilyName}>{profile.email}</Text>
+
+      <TouchableOpacity>
+        <SafeAreaView style={styles.box1}>
+          <Text style={styles.textContactUs}>Fale Conosco : </Text>
+          <Feather name="phone-call" style={styles.iconPhone} size={18} />
+        </SafeAreaView>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <SafeAreaView style={styles.box2}>
+          <Text style={styles.textContactUs}>Sair do Perfil: </Text>
+          <Entypo name="export" style={styles.iconPhone} size={18}/>
+        </SafeAreaView>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <SafeAreaView style={styles.box3}>
+          <Text style={styles.textContactUs}>Excluir Conta: </Text>
+          <Ionicons name="trash-outline" style={styles.iconPhone} size={20}/>
+        </SafeAreaView>
+      </TouchableOpacity>
+      <Text style={styles.developedBy}>Desenvolvido por: 
+        Vitor Fernandes Moraes</Text>
+      <Baseboard token="token" />
     </SafeAreaView>
-  )
+  );
 }
