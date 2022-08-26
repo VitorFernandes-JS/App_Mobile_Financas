@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, TextInput, Button, Modal, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, TextInput, Modal, TouchableOpacity } from "react-native";
 import React, { ReactNode, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
@@ -39,24 +39,16 @@ export function Calculator() {
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
 
-  console.log(token);
-
-  function handleHome() {
-    navigation.navigate("Home", { token });
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
 
       <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Juros Compostos </Text>
+        <Text style={styles.title}>Calculadora </Text>
         <ModalPattern
           text={"Aqui você consegue calcular enquanto tempo vai se aposentar!"}
         />
       </SafeAreaView>
-
-      {/* 1 */}
 
       <SafeAreaView style={styles.bodyInitialValue}>
         <SafeAreaView style={styles.viewInitialValue}>
@@ -81,8 +73,6 @@ export function Calculator() {
         </SafeAreaView>
       </SafeAreaView>
 
-      {/* 2 */}
-
       <SafeAreaView style={styles.bodyValueMonth}>
         <SafeAreaView style={styles.viewValueMonth}>
           <Text style={styles.initialValueMonth}>Valor Mensal</Text>
@@ -105,8 +95,6 @@ export function Calculator() {
           />
         </SafeAreaView>
       </SafeAreaView>
-
-      {/* 3 */}
 
       <SafeAreaView style={styles.bodyValueMonth}>
         <SafeAreaView style={styles.viewValueMonth}>
@@ -131,8 +119,6 @@ export function Calculator() {
         </SafeAreaView>
       </SafeAreaView>
 
-      {/* 4 */}
-
       <SafeAreaView style={styles.bodyValueMonth}>
         <SafeAreaView style={styles.viewValueMonth}>
           <Text style={styles.initialValueMonth}>Juros</Text>
@@ -156,7 +142,7 @@ export function Calculator() {
         </SafeAreaView>
       </SafeAreaView>
 
-      <Button title={"Calcular"} onPress={() => {
+      <TouchableOpacity style={styles.button} onPress={() => {
           Calcular({
             feesInput,
             initialValue,
@@ -170,71 +156,7 @@ export function Calculator() {
             setModal,
           });
         }}
-      ></Button>
-
-      {/* <SafeAreaView style={styles.viewInitialValue1}>
-        <Text style={styles.InitialValue}>
-          VALOR {"\n"}
-          MENSAL
-        </Text>
-        <TextInput
-          keyboardType={"numbers-and-punctuation"}
-          onChangeText={(text) => {
-            setValueMonth(Number(text));
-          }}
-          style={styles.inputInitialValue}
-          placeholder="R$00,00"
-          placeholderTextColor={"#808080"}
-        />
-      </SafeAreaView>
-
-      <SafeAreaView style={styles.viewInitialValue2}>
-        <Text style={styles.timeText}>TEMPO</Text>
-        <TextInput
-          keyboardType={"numbers-and-punctuation"}
-          onChangeText={(text) => {
-            setTimeInput(Number(text));
-          }}
-          style={styles.inputTime}
-          placeholder="1"
-          placeholderTextColor={"#808080"}
-        />
-        
-      </SafeAreaView>
-
-      <SafeAreaView style={styles.viewInitialValue3}>
-        <Text style={styles.feesText}>JUROS</Text>
-        <TextInput
-          keyboardType={"numbers-and-punctuation"}
-          onChangeText={(text) => {
-            setFeesInput(Number(text));
-          }}
-          style={styles.inputFees}
-          placeholder="1"
-          placeholderTextColor={"#808080"}
-        />
-        
-      </SafeAreaView>
-
-      <TouchableOpacity
-        style={styles.buttonCalculate}
-        onPress={() => {
-          Calcular({
-            feesInput,
-            initialValue,
-            timeInput,
-            valueMonth,
-            yearsOrMounthFees,
-            yearsOrMounthTime,
-            setTotalFees,
-            setTotalValue,
-            setTotalValueInvested,
-            setModal,
-          });
-        }}
-      >
-        <Text style={styles.textCalculate}>CALCULAR</Text>
-      </TouchableOpacity> */}
+      ><Text style={styles.textButton}>CALCULAR</Text></TouchableOpacity>
 
       <SafeAreaView>
         <Modal animationType="slide" transparent={true} visible={modal}>
