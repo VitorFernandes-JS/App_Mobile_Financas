@@ -64,18 +64,19 @@ export function Profile() {
       <TouchableOpacity>
         <SafeAreaView style={styles.box2}>
           <Text style={styles.textContactUs}>Sair do Perfil: </Text>
-          <Entypo name="export" style={styles.iconPhone} size={18}/>
+          <Entypo name="export" style={styles.iconPhone} size={18} />
         </SafeAreaView>
       </TouchableOpacity>
 
       <TouchableOpacity>
         <SafeAreaView style={styles.box3}>
           <Text style={styles.textContactUs}>Excluir Conta: </Text>
-          <Ionicons name="trash-outline" style={styles.iconPhone} size={20}/>
+          <Ionicons name="trash-outline" style={styles.iconPhone} size={20} />
         </SafeAreaView>
       </TouchableOpacity>
-      <Text style={styles.developedBy}>Desenvolvido por: 
-        Vitor Fernandes Moraes</Text>
+      <Text style={styles.developedBy}>
+        Desenvolvido por: Vitor Fernandes Moraes
+      </Text>
       <Baseboard token="token" />
     </SafeAreaView>
   );

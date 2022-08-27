@@ -10,13 +10,11 @@ interface IHeaderHome {
 }
 
 export function HeaderHome({ given_name }: IHeaderHome) {
-
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.textWelcome}>Olá!</Text>
       <Text style={styles.textName}>
-        {given_name}{" "}
-        <Image source={happyEmoji} style={styles.iconEmojiHappy} />
+        {given_name} <Image source={happyEmoji} style={styles.iconEmojiHappy} />
       </Text>
       <Avatar />
     </SafeAreaView>

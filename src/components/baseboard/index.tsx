@@ -25,11 +25,11 @@ export function Baseboard({ token }: Params) {
   }
 
   function handleGoals() {
-    navigation.navigate("Goals", { token })
+    navigation.navigate("Goals", { token });
   }
-  
+
   function handleProfile() {
-    navigation.navigate("Profile", { token })
+    navigation.navigate("Profile", { token });
   }
 
   return (
@@ -44,10 +44,10 @@ export function Baseboard({ token }: Params) {
         <Text style={styles.textWallet}>Carteira</Text>
       </RectButton>
 
-        <SafeAreaView style={styles.borderStar} />
-        <SafeAreaView style={styles.borderStar1} />
+      <SafeAreaView style={styles.borderStar} />
+      <SafeAreaView style={styles.borderStar1} />
       <RectButton onPress={handleGoals} style={styles.iconStar}>
-        <Image source={star} style={styles.imgStar}/>
+        <Image source={star} style={styles.imgStar} />
         <Text style={styles.textGoal}>Metas</Text>
       </RectButton>
 

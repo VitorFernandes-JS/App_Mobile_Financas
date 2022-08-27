@@ -12,7 +12,7 @@ interface IRouteParams {
   token: string;
 }
 
-interface Profile { 
+interface Profile {
   given_name: string;
 }
 
@@ -37,7 +37,7 @@ export function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderHome given_name={profile.given_name}/>
+      <HeaderHome given_name={profile.given_name} />
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Menu </Text>
         <ModalPattern
@@ -46,10 +46,8 @@ export function Home() {
           }
         />
       </SafeAreaView>
-      <ButtonHome token={token}/>
-      <Baseboard token={token}/>
+      <ButtonHome token={token} />
+      <Baseboard token={token} />
     </SafeAreaView>
   );
 }
-
-

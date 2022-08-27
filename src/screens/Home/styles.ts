@@ -13,6 +13,6 @@ export const styles = StyleSheet.create({
     color: theme.colors.color4,
   },
   viewMenuModal: {
-    flexDirection: 'row',
-  }
+    flexDirection: "row",
+  },
 });
