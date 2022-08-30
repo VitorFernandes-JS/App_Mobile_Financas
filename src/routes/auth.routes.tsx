@@ -14,7 +14,7 @@ import { Goals } from "../screens/Goals";
 import { Financing } from "../screens/Financing";
 import { Videos } from "../screens/Videos";
 import { Loan } from "../screens/Loan";
-// import { Favorite } from "../screens/Favorite";
+import { Favorite } from "../screens/Favorite";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -40,6 +40,7 @@ export function AuthRoutes() {
       <Screen name="Videos" component={Videos} />
       <Screen name="Financing" component={Financing} />
       <Screen name="Loan" component={Loan} />
+      <Screen name="Favorite" component={Favorite} />
     </Navigator>
   );
 }

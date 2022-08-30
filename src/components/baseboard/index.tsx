@@ -32,6 +32,10 @@ export function Baseboard({ token }: Params) {
     navigation.navigate("Profile", { token });
   }
 
+  function handleFavorite() {
+    navigation.navigate("Favorite", { token });
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <RectButton onPress={handleHome} style={styles.iconHome}>
@@ -51,7 +55,7 @@ export function Baseboard({ token }: Params) {
         <Text style={styles.textGoal}>Metas</Text>
       </RectButton>
 
-      <RectButton onPress={handleHome} style={styles.iconFavorite}>
+      <RectButton onPress={handleFavorite} style={styles.iconFavorite}>
         <AntDesign name="hearto" size={35} />
         <Text style={styles.textFavorite}>Favoritos</Text>
       </RectButton>

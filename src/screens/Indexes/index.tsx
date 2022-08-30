@@ -1,8 +1,9 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./style";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
@@ -29,15 +30,16 @@ interface IAxiosGet {
     }
   ];
 }
-interface IIndexesProps {
-  route: any;
-  children: ReactNode;
+interface IRouteParams {
+  token: string;
 }
 
-export function Indexes({ route }: IIndexesProps) {
-  const { token } = route.params;
-
+export function Indexes() {
   const navigation = useNavigation();
+
+  const route = useRoute();
+
+  const { token } = route.params as IRouteParams;
 
   function handleHome() {
     navigation.navigate("Home", { token });
@@ -77,9 +79,9 @@ export function Indexes({ route }: IIndexesProps) {
       <Header token={token}/>
 
       <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Calculadora </Text>
+        <Text style={styles.title}>Índices </Text>
         <ModalPattern
-          text={"Aqui você consegue calcular enquanto tempo vai se aposentar!"}
+          text={"Aqui você pode ver os maiores índices do mercado"}
         />
       </SafeAreaView>
 

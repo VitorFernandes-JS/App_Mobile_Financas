@@ -8,16 +8,13 @@ export const styles = StyleSheet.create({
     flexDirection: "column",
   },
   title: {
-    fontFamily: theme.fonts.title700,
-    fontSize: 40,
-    textAlign: "center",
-    marginBottom: 15,
-    marginTop: 8,
+    fontFamily: theme.fonts.font7_bold,
+    fontSize: 38,
+    top: 35,
+    color: theme.colors.color4,
   },
-  iconInterrogation: {
-    left: 87,
-    top: -48.5,
-    color: theme.colors.heading,
+  viewMenuModal: {
+    flexDirection: 'row',
   },
   viewModalInterrogation: {
     alignItems: "center",

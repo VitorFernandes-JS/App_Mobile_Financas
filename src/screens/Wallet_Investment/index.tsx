@@ -1,6 +1,7 @@
 import React from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
+import { useRoute } from "@react-navigation/native";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
 
@@ -9,12 +10,16 @@ import { Baseboard } from "../../components/baseboard";
 import { BoxExtract } from "../../components/boxExtract";
 import { Trash } from "../../components/trash";
 import { Add } from "../../components/add";
-
-interface IWalletProps {
+interface IRouteParams {
   token: string;
 }
 
-export function WalletInvestment({ token }: IWalletProps) {
+export function WalletInvestment() {
+
+  const route = useRoute();
+  
+  const { token } = route.params as IRouteParams;
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
