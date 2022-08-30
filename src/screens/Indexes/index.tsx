@@ -9,6 +9,7 @@ import { Baseboard } from "../../components/baseboard";
 
 import { Modal1 } from "../../components/Modal1";
 import AppLoading from "expo-app-loading";
+import { ModalPattern } from "../../components/modalPattern";
 interface ISelicRate {
   data: String;
   valor: String;
@@ -55,6 +56,7 @@ export function Indexes({ route }: IIndexesProps) {
       )
       .then((response) => setSelicRate(response.data));
   }, []);
+
   //API IPCA
   axios
     .get<IAxiosGet[]>(
@@ -73,6 +75,13 @@ export function Indexes({ route }: IIndexesProps) {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token}/>
+
+      <SafeAreaView style={styles.viewMenuModal}>
+        <Text style={styles.title}>Calculadora </Text>
+        <ModalPattern
+          text={"Aqui você consegue calcular enquanto tempo vai se aposentar!"}
+        />
+      </SafeAreaView>
 
       <SafeAreaView style={styles.viewSelicAndIpca}>
      
