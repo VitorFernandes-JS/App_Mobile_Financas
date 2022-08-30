@@ -40,8 +40,6 @@ export function Indexes() {
   const [ipcaRate, setIpcaRate] = useState("");
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
 
-  const [modalInterrogation, setModalInterrogation] = useState(false);
-
   //API SELIC
   useEffect(() => {
     axios
