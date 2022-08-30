@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
   rectButtoncloseModalIcon: {
-    top: 65,
+    top: 55,
     left: "45%",
   },
 });

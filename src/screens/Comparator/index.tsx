@@ -3,7 +3,7 @@ import {
   SafeAreaView,
   Text,
   TextInput,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 import axios from "axios";
 import { styles } from "./styles";
@@ -11,8 +11,8 @@ import { useNavigation } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
+import { ModalPattern } from "../../components/modalPattern";
 
-import SelectDropdown from "react-native-select-dropdown";
 import { calcComparator } from "../../controls/comparatorController";
 interface ISelicRate {
   data: String;
@@ -88,8 +88,105 @@ export function Comparator({ route }: IComparatorProps) {
   return (
       <SafeAreaView style={styles.container}>
        <Header token={token}/>
+
+       <SafeAreaView style={styles.viewMenuModal}>
+        <Text style={styles.title}>Comparador </Text>
+        <ModalPattern
+          text={"Aqui você consegue comparar investimentos de renda fixa, para saber qual é a melhor escolha!"}
+        />
+      </SafeAreaView>
+
+      <SafeAreaView style={styles.bodyValueMonth}>
+        <SafeAreaView style={styles.viewValueMonth}>
+          <Text style={styles.initialValueMonth}>Valor Mensal</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewValueMonth1}>
+          <Text style={styles.valueMonth1}>R$</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.inputValueMonth}>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+              setValueMonth(Number(text));
+            }}
+            style={styles.textInputValueMonth}
+            placeholder="R$00,00"
+            placeholderTextColor={"#808080"}
+            maxLength={20}
+          />
+        </SafeAreaView>
+      </SafeAreaView>
+
+      <SafeAreaView style={styles.bodyValueMonth}>
+        <SafeAreaView style={styles.viewValueMonth}>
+          <Text style={styles.initialValueMonth}>Tempo</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewValueMonth1}>
+          <Text style={styles.valueMonth1}>T</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.inputValueMonth}>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+              setTimeInput(Number(text));
+            }}
+            style={styles.textInputValueMonth}
+            placeholder="10"
+            placeholderTextColor={"#808080"}
+            maxLength={3}
+          />
+        </SafeAreaView>
+      </SafeAreaView>
+    
+
+      <SafeAreaView style={styles.bodyValueMonth2}>
+        <SafeAreaView style={styles.viewValueMonth}>
+          <Text style={styles.initialValueMonth}>Juros</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewValueMonth1}>
+          <Text style={styles.valueMonth1}>%</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.inputValueMonth}>
+          <TextInput
+            keyboardType={"numbers-and-punctuation"}
+            onChangeText={(text) => {
+              setFeesInput(Number(text));
+            }}
+            style={styles.textInputValueMonth}
+            placeholder="10"
+            placeholderTextColor={"#808080"}
+            maxLength={4}
+          />
+        </SafeAreaView>
+      </SafeAreaView>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          calcComparator({
+            ipcaRate,
+            selicRate: +latestSelicRate.valor,
+            timeInput,
+            valueMonth,
+            yearsOrMounthTime,
+            setValueTotalCdi,
+            setValueTotalIpca,
+            setValueTotalSavings,
+            setValueTotalSelic,
+            setModal,
+          })
+        }}
+      >
+        <Text style={styles.textButton}>COMPARAR</Text>
+      </TouchableOpacity>
             
-        <SafeAreaView style={styles.viewInitialValue}>
+        {/* <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.InitialValue}>
             VALOR{"\n"}
             MENSAL
@@ -173,7 +270,7 @@ export function Comparator({ route }: IComparatorProps) {
           }
         >
           <Text style={styles.textCalculate}>CALCULAR</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <SafeAreaView>
           
