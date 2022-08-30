@@ -80,10 +80,6 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font4_regular_inter,
     marginLeft: 15
   },
-  dropDownPicker1: {
-    width: 30,
-    marginLeft: 300
-  },
   bodyValueMonth: {
     alignItems: "center",
     flexDirection: "column",

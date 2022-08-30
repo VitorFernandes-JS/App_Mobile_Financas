@@ -8,6 +8,7 @@ import {
 import React, { ReactNode, useCallback, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
+import { theme } from "../../global/styles/theme";
 
 import { Calcular } from "../../controls/calculatorController";
 import { useRoute } from "@react-navigation/native";
@@ -17,7 +18,6 @@ import { ModalPattern } from "../../components/modalPattern";
 
 import { AntDesign } from "@expo/vector-icons";
 import DropDownPicker from "react-native-dropdown-picker";
-import { theme } from "../../global/styles/theme";
 
 interface IRouteParams {
   token: string;

@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     height: 106,
     top: 670,
     backgroundColor: theme.colors.color5,
-    borderRadius: 20,
+    borderRadius: 30,
     shadowOpacity: 0.4,
     shadowOffset: { width: 1, height: 1 },
   },
