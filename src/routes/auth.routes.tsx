@@ -15,6 +15,13 @@ import { Financing } from "../screens/Financing";
 import { Videos } from "../screens/Videos";
 import { Loan } from "../screens/Loan";
 import { Favorite } from "../screens/Favorite";
+import { FixedIncome } from "../screens/FixedIncome_Videos";
+import { Actions } from "../screens/Actions_Videos";
+import { FIIS } from "../screens/FIIS_Videos";
+import { MobileApp } from "../screens/MobileApp_Videos";
+import { Cripto } from "../screens/Cripto_Videos";
+import { Economy } from "../screens/Economy_Videos";
+
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -41,6 +48,12 @@ export function AuthRoutes() {
       <Screen name="Financing" component={Financing} />
       <Screen name="Loan" component={Loan} />
       <Screen name="Favorite" component={Favorite} />
+      <Screen name="FixedIncome" component={FixedIncome} />
+      <Screen name="Actions" component={Actions} />
+      <Screen name="FIIS" component={FIIS} />
+      <Screen name="MobileApp" component={MobileApp} />
+      <Screen name="Cripto" component={Cripto} />
+      <Screen name="Economy" component={Economy} />
     </Navigator>
   );
 }

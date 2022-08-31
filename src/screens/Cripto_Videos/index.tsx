@@ -11,7 +11,7 @@ interface IVideosProps {
   token: string;
 }
 
-export function Videos({ token }: IVideosProps) {
+export function Cripto({ token }: IVideosProps) {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />

@@ -23,7 +23,7 @@ export function BoxVideos() {
   const { token } = route.params as IRouteParams;
 
   function handleCalculator() {
-    navigation.navigate("Calculator", { token });
+    navigation.navigate("", { token });
   }
 
   function handleComparator() {
