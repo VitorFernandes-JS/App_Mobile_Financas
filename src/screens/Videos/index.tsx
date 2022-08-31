@@ -4,21 +4,28 @@ import { SafeAreaView, Text } from "react-native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
+import { ModalPattern } from "../../components/modalPattern";
+import { BoxVideos } from "../../components/boxVideos";
 
 interface IVideosProps {
-    token: string;
-  }
+  token: string;
+}
 
-export function Videos({token}: IVideosProps) {
+export function Videos({ token }: IVideosProps) {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Header token={token} />
 
-    return(
-        <SafeAreaView style={styles.container}>
-            <Header token={token}/>
-            <Text>
-                Vídeos
-            </Text>
-            <Baseboard token={token}/>
-        </SafeAreaView>
-    )
+      <SafeAreaView style={styles.viewMenuModal}>
+        <Text style={styles.title}>Vídeos </Text>
+        <ModalPattern
+          text={"Aqui você consegue ver vídeos sobre o que você está procurando!"}
+        />
+      </SafeAreaView>
+      <BoxVideos/>
+      
 
+      <Baseboard token={token} />
+    </SafeAreaView>
+  );
 }
