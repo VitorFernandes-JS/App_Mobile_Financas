@@ -22,34 +22,34 @@ export function BoxVideos() {
 
   const { token } = route.params as IRouteParams;
 
-  function handleCalculator() {
-    navigation.navigate("", { token });
+  function handleFixedIncome() {
+    navigation.navigate("FixedIncome", { token });
   }
 
-  function handleComparator() {
-    navigation.navigate("Comparator", { token });
+  function handleActions() {
+    navigation.navigate("Actions", { token });
   }
 
-  function handleIndexes() {
-    navigation.navigate("Indexes", { token });
+  function handleFIIS() {
+    navigation.navigate("FIIS", { token });
   }
 
-  function handleVideos() {
-    navigation.navigate("Videos", { token });
+  function handleMobileApp() {
+    navigation.navigate("MobileApp", { token });
   }
 
-  function handleFinancing() {
-    navigation.navigate("Financing", { token });
+  function handleCripto() {
+    navigation.navigate("Cripto", { token });
   }
 
-  function handleLoan() {
-    navigation.navigate("Loan", { token })
+  function handleEconomy() {
+    navigation.navigate("Economy", { token })
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <RectButton
-        onPress={handleCalculator}
+        onPress={handleFixedIncome}
         style={viewButtonStyles({ left: 130, top: -150 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
@@ -59,7 +59,7 @@ export function BoxVideos() {
       </RectButton>
 
       <RectButton
-        onPress={handleIndexes}
+        onPress={handleActions}
         style={viewButtonStyles({ left: 150, top: -150 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
@@ -69,7 +69,7 @@ export function BoxVideos() {
       </RectButton>
 
       <RectButton
-        onPress={handleFinancing}
+        onPress={handleFIIS}
         style={viewButtonStyles({ left: 170, top: -150 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
@@ -79,7 +79,7 @@ export function BoxVideos() {
       </RectButton>
 
       <RectButton
-        onPress={handleComparator}
+        onPress={handleMobileApp}
         style={viewButtonStyles({ left: -170, top: -30 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
@@ -89,7 +89,7 @@ export function BoxVideos() {
       </RectButton>
 
       <RectButton
-        onPress={handleVideos}
+        onPress={handleCripto}
         style={viewButtonStyles({ left: -150, top: -30 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
@@ -99,7 +99,7 @@ export function BoxVideos() {
       </RectButton>
 
       <RectButton
-        onPress={handleLoan}
+        onPress={handleEconomy}
         style={viewButtonStyles({ left: -130, top: -30 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
