@@ -184,7 +184,7 @@ export function Comparator({ route }: IComparatorProps) {
             editable={false}
             keyboardType={"numbers-and-punctuation"}
             style={styles.textInputValueMonth}
-            placeholder="10"
+            placeholder="Selic"
             placeholderTextColor={"#808080"}
             maxLength={4}
           />
