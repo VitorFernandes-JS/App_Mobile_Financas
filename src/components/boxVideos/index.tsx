@@ -54,7 +54,7 @@ export function BoxVideos() {
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={FixedIncomeImg} style={styles.iconCalculator} />
-          <Text style={styles.textCalculator}>CALCULADORA</Text>
+          <Text style={styles.textCalculator}>RENDA FIXA</Text>
         </SafeAreaView>
       </RectButton>
 
@@ -64,7 +64,7 @@ export function BoxVideos() {
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={ActionsImg} style={styles.iconCalculator} />
-          <Text style={styles.textCalculator}>ÍNDICES</Text>
+          <Text style={styles.textCalculator}>AÇÕES</Text>
         </SafeAreaView>
       </RectButton>
 
@@ -74,7 +74,7 @@ export function BoxVideos() {
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={CondominiumImg} style={styles.iconCalculator} />
-          <Text style={styles.textCalculator}>FINANCIAR</Text>
+          <Text style={styles.textCalculator}>FIIS</Text>
         </SafeAreaView>
       </RectButton>
 
@@ -84,7 +84,7 @@ export function BoxVideos() {
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={MobileAppImg} style={styles.iconCalculator} />
-          <Text style={styles.textCalculator}>COMPARADOR</Text>
+          <Text style={styles.textCalculator}>APLICATIVO</Text>
         </SafeAreaView>
       </RectButton>
 
@@ -94,7 +94,7 @@ export function BoxVideos() {
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={CriptoImg} style={styles.iconCalculator} />
-          <Text style={styles.textCalculator}>VÍDEOS</Text>
+          <Text style={styles.textCalculator}>CRIPTOS</Text>
         </SafeAreaView>
       </RectButton>
 
@@ -104,7 +104,7 @@ export function BoxVideos() {
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={MoneyChartImg} style={styles.iconCalculator} />
-          <Text style={styles.textCalculator}>EMPRÉSTIMO</Text>
+          <Text style={styles.textCalculator}>ECONOMIA</Text>
         </SafeAreaView>
       </RectButton>
     </SafeAreaView>

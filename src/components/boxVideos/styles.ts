@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     margin: 11.5,
   },
   textCalculator: {
-    fontSize: 10,
+    fontSize: 12,
     fontFamily: theme.fonts.font7_bold,
   },
 });
