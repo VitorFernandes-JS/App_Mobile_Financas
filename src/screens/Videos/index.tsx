@@ -24,6 +24,11 @@ export function Videos({ token }: IVideosProps) {
       </SafeAreaView>
       <BoxVideos/>
       
+      <SafeAreaView style={styles.boxVideo}>
+        <SafeAreaView style={styles.boxStart}>
+          <Text style={styles.start}>COMECE AQUI! </Text>
+        </SafeAreaView>
+      </SafeAreaView>
 
       <Baseboard token={token} />
     </SafeAreaView>
