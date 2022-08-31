@@ -10,11 +10,9 @@ export const styles = StyleSheet.create({
   container: {
     width: 265,
     height: 400,
-    backgroundColor: theme.colors.color2,
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column",
-    borderRadius: 15,
+    flexDirection: "row",
     top: 64,
     shadowOpacity: 0.3,
     shadowOffset: { width: 1.5, height: 1.5 },

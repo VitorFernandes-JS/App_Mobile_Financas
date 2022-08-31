@@ -4,12 +4,12 @@ import { RectButton } from "react-native-gesture-handler";
 import { styles, viewButtonStyles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-import CalculatorImg from "../../assets/icon_calculadora.png";
-import ComparatorImg from "../../assets/icon_comparar.png";
-import IndecesImg from "../../assets/icon_indeces.png";
-import VideosImg from "../../assets/icon_videos.png";
-import FinanceImg from "../../assets/icon_financiar.png";
-import LoanImg from "../../assets/icon_emprestimo.png";
+import FixedIncomeImg from "../../assets/renda_fixa.png";
+import ActionsImg from "../../assets/ações.png";
+import CondominiumImg from "../../assets/condominio.png";
+import MobileAppImg from "../../assets/aplicativo_movel.png";
+import CriptoImg from "../../assets/cripto.png";
+import MoneyChartImg from "../../assets/grafico_dinheiro.png";
 
 interface IRouteParams {
   token: string;
@@ -50,60 +50,60 @@ export function BoxVideos() {
     <SafeAreaView style={styles.container}>
       <RectButton
         onPress={handleCalculator}
-        style={viewButtonStyles({ left: -60, top: 130 }).button}
+        style={viewButtonStyles({ left: 130, top: -150 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
-          <Image source={CalculatorImg} style={styles.iconCalculator} />
+          <Image source={FixedIncomeImg} style={styles.iconCalculator} />
           <Text style={styles.textCalculator}>CALCULADORA</Text>
         </SafeAreaView>
       </RectButton>
 
       <RectButton
         onPress={handleIndexes}
-        style={viewButtonStyles({ left: -60, top: 150 }).button}
+        style={viewButtonStyles({ left: 150, top: -150 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
-          <Image source={IndecesImg} style={styles.iconCalculator} />
+          <Image source={ActionsImg} style={styles.iconCalculator} />
           <Text style={styles.textCalculator}>ÍNDICES</Text>
         </SafeAreaView>
       </RectButton>
 
       <RectButton
         onPress={handleFinancing}
-        style={viewButtonStyles({ left: -60, top: 170 }).button}
+        style={viewButtonStyles({ left: 170, top: -150 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
-          <Image source={FinanceImg} style={styles.iconCalculator} />
+          <Image source={CondominiumImg} style={styles.iconCalculator} />
           <Text style={styles.textCalculator}>FINANCIAR</Text>
         </SafeAreaView>
       </RectButton>
 
       <RectButton
         onPress={handleComparator}
-        style={viewButtonStyles({ left: 60, top: -170 }).button}
+        style={viewButtonStyles({ left: -170, top: -30 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
-          <Image source={ComparatorImg} style={styles.iconCalculator} />
+          <Image source={MobileAppImg} style={styles.iconCalculator} />
           <Text style={styles.textCalculator}>COMPARADOR</Text>
         </SafeAreaView>
       </RectButton>
 
       <RectButton
         onPress={handleVideos}
-        style={viewButtonStyles({ left: 60, top: -150 }).button}
+        style={viewButtonStyles({ left: -150, top: -30 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
-          <Image source={VideosImg} style={styles.iconCalculator} />
+          <Image source={CriptoImg} style={styles.iconCalculator} />
           <Text style={styles.textCalculator}>VÍDEOS</Text>
         </SafeAreaView>
       </RectButton>
 
       <RectButton
         onPress={handleLoan}
-        style={viewButtonStyles({ left: 60, top: -130 }).button}
+        style={viewButtonStyles({ left: -130, top: -30 }).button}
       >
         <SafeAreaView style={styles.viewCalculator}>
-          <Image source={LoanImg} style={styles.iconCalculator} />
+          <Image source={MoneyChartImg} style={styles.iconCalculator} />
           <Text style={styles.textCalculator}>EMPRÉSTIMO</Text>
         </SafeAreaView>
       </RectButton>
