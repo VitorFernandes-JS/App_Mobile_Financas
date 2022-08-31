@@ -17,9 +17,9 @@ export function FIIS({ token }: IVideosProps) {
       <Header token={token} />
 
       <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Vídeos </Text>
+        <Text style={styles.title}>FIIS </Text>
         <ModalPattern
-          text={"Aqui você consegue ver vídeos sobre o que você está procurando!"}
+          text={"Aqui você pode ver os vídeos sobre FIIS!"}
         />
       </SafeAreaView>
       <BoxVideos/>

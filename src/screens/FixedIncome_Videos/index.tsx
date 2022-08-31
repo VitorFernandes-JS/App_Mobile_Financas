@@ -17,9 +17,9 @@ export function FixedIncome({ token }: IVideosProps) {
       <Header token={token} />
 
       <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Vídeos </Text>
+        <Text style={styles.title}>Renda Fixa </Text>
         <ModalPattern
-          text={"Aqui você consegue ver vídeos sobre o que você está procurando!"}
+          text={"Aqui você encontra vídeos sobre renda fixa!"}
         />
       </SafeAreaView>
       <BoxVideos/>

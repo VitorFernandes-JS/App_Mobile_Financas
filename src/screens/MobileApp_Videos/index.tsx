@@ -17,9 +17,9 @@ export function MobileApp({ token }: IVideosProps) {
       <Header token={token} />
 
       <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Vídeos </Text>
+        <Text style={styles.title}>Aplicativo </Text>
         <ModalPattern
-          text={"Aqui você consegue ver vídeos sobre o que você está procurando!"}
+          text={"Aqui você consegue ver vídeos sobre o aplicativo!"}
         />
       </SafeAreaView>
       <BoxVideos/>

@@ -15,11 +15,11 @@ export function Actions({ token }: IVideosProps) {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
-
+      
       <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Vídeos </Text>
+        <Text style={styles.title}>Ações </Text>
         <ModalPattern
-          text={"Aqui você consegue ver vídeos sobre o que você está procurando!"}
+          text={"Aqui você encontra vídeos sobre ações!"}
         />
       </SafeAreaView>
       <BoxVideos/>
