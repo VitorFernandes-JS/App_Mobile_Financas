@@ -15,7 +15,7 @@ export function Goals() {
 
     const route = useRoute();
 
-  const { token } = route.params as IRouteParams;
+    const { token } = route.params as IRouteParams;
 
     return(
         <SafeAreaView style={styles.container}>
@@ -25,5 +25,4 @@ export function Goals() {
             <Baseboard token={token}/>
         </SafeAreaView>
     )
-
 }
