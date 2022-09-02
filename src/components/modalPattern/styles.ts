@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
     left: "26%",
     shadowOpacity: 0.7,
     shadowOffset: { width: 2, height: 2 },
+    zIndex: 1,
   },
   interrogation1: {
     width: 20,

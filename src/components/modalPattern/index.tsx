@@ -35,7 +35,8 @@ export function ModalPattern({ text }: IModalPattern) {
       <RectButton
         style={viewButtonStyles({ top: 51.5 }).interrogation}
         onPress={() => {
-          setVisible(true);
+          setVisible(true) 
+          console.warn("teste");
         }}
       >
         <Image source={InterrogationImg} style={styles.interrogation1} />
