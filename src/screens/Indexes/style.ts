@@ -10,11 +10,12 @@ export const styles = StyleSheet.create({
   title: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 38,
-    top: 35,
     color: theme.colors.color4,
+    top: 33
   },
   viewMenuModal: {
     flexDirection: "row",
+    top: -85
   },
   viewSelicAndIpcaAndCdi: {
     flexDirection: "row",
@@ -25,7 +26,7 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     right: 15,
     backgroundColor: theme.colors.color5,
-    top: 100,
+    top: 120,
     shadowOpacity: 0.2,
     shadowOffset: { width: 0.5, height: 3 },
   },
@@ -56,7 +57,7 @@ export const styles = StyleSheet.create({
     height: 100,
     borderRadius: 20,
     backgroundColor: theme.colors.color5,
-    top: 100,
+    top: 120,
     shadowOpacity: 0.2,
     shadowOffset: { width: 0.5, height: 3 },
   },
@@ -88,7 +89,7 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     left: 15,
     backgroundColor: theme.colors.color5,
-    top: 100,
+    top: 120,
     shadowOpacity: 0.2,
     shadowOffset: { width: 0.5, height: 3 },
   },

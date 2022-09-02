@@ -18,9 +18,7 @@ interface Profile {
 
 export function Home() {
   const route = useRoute();
-
   const { token } = route.params as IRouteParams;
-
   const [profile, setProfile] = useState({} as Profile);
 
   async function loadProfile() {

@@ -35,9 +35,7 @@ interface IRouteParams {
 
 export function Indexes() {
   const route = useRoute();
-
   const { token } = route.params as IRouteParams;
-
   const [ipcaRate, setIpcaRate] = useState("");
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
 
@@ -68,13 +66,6 @@ export function Indexes() {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
-
-      <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Índices </Text>
-        <ModalPattern
-          text={"Aqui você pode ver os maiores índices do mercado"}
-        />
-      </SafeAreaView>
 
       <SafeAreaView style={styles.viewSelicAndIpcaAndCdi}>
         <SafeAreaView style={styles.showSelic}>
@@ -128,6 +119,14 @@ export function Indexes() {
           </Text>
         </SafeAreaView>
       </SafeAreaView>
+
+      <SafeAreaView style={styles.viewMenuModal}>
+        <Text style={styles.title}>Índices </Text>
+        <ModalPattern
+          text={"Aqui você pode ver os maiores índices do mercado"}
+        />
+      </SafeAreaView>
+      
       <Baseboard token={token} />
     </SafeAreaView>
   );
