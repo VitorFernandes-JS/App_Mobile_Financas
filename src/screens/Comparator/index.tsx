@@ -119,7 +119,7 @@ export function Comparator({ route }: IComparatorProps) {
         <Text style={styles.title}>Comparador </Text>
         <ModalPattern
           text={
-            "Aqui você consegue comparar investimentos de renda fixa, para saber qual é a melhor escolha!"
+            "Aqui você consegue comparar investimentos de renda fixa, para saber qual é a melhor escolha! Para isso, preencha os campos abaixo e clique em 'Comparar'"
           }
         />
       </SafeAreaView>

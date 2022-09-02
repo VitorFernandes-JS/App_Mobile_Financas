@@ -75,7 +75,7 @@ export function Calculator() {
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Calculadora </Text>
         <ModalPattern
-          text={"Aqui você consegue calcular enquanto tempo vai se aposentar!"}
+          text={"Aqui você consegue calcular enquanto tempo vai se aposentar! Para isso, preencha os campos abaixo e clique em 'Calcular'"}
         />
       </SafeAreaView>
 

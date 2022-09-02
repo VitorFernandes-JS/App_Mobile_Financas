@@ -33,7 +33,7 @@ export function ModalPattern({ text }: IModalPattern) {
       </Modal>
 
       <RectButton
-        style={viewButtonStyles({ top: 50 }).interrogation}
+        style={viewButtonStyles({ top: 51.5 }).interrogation}
         onPress={() => {
           setVisible(true);
         }}

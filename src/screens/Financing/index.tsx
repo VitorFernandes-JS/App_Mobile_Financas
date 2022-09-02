@@ -5,6 +5,7 @@ import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
+import { ModalPattern } from "../../components/modalPattern";
 
 interface IRouteParams {
   token: string;
@@ -18,7 +19,16 @@ export function Financing() {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
-      <Text>Financiar</Text>
+
+      <SafeAreaView style={styles.viewMenuModal}>
+        <Text style={styles.title}>Financiamento </Text>
+        <ModalPattern
+          text={
+            "Aqui você consegue simular um financiamento! Para isso, preencha os campos abaixo e clique em 'Simular'"
+          }
+        />
+      </SafeAreaView>
+
       <Baseboard token={token} />
     </SafeAreaView>
   );
