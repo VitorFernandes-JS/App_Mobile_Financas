@@ -57,7 +57,11 @@ export const styles = StyleSheet.create({
     height: 345,
     top: -50
   },
-  contactUs: {
+  buttonContact: {
+    width: 90,
     top: 100,
+  },
+  contactUs: {
+    fontFamily: theme.fonts.font4_regular,
   }
 });

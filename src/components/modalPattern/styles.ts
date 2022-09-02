@@ -51,6 +51,7 @@ export const viewButtonStyles = ({ top }: IViewButtonProps) =>
     interrogation: {
       width: 20,
       height: 20,
+      borderRadius: 7,
       top,
     },
   });

@@ -5,6 +5,7 @@ import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
+import { ModalPattern } from "../../components/modalPattern";
 
 interface IRouteParams {
   token: string;
@@ -18,7 +19,16 @@ export function Favorite() {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
-      <Text>Favoritos</Text>
+      
+      <SafeAreaView style={styles.viewMenuModal}>
+        <Text style={styles.title}>Favoritos </Text>
+        <ModalPattern
+          text={
+            "Aqui você encontra todos os seus vídeos marcados como favoritos"
+          }
+        />
+      </SafeAreaView>
+
       <Baseboard token={token} />
     </SafeAreaView>
   );

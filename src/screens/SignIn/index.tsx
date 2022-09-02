@@ -6,6 +6,7 @@ import * as AuthSession from "expo-auth-session";
 import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
 import IllustrationImg from "../../assets/illustration.png";
 import { styles } from "./styles";
+import { RectButton } from "react-native-gesture-handler";
 
 type AuthResponse = {
   type: string;
@@ -48,9 +49,9 @@ export function SignIn() {
         </Text>
         <ButtonIcon title="Entrar com Google" onPress={handleSignIn} />
       </SafeAreaView>
-      <TouchableOpacity>
+      <RectButton style={styles.buttonContact}>
       <Text style={styles.contactUs}>Fale Conosco</Text>
-      </TouchableOpacity>
+      </RectButton>
     </SafeAreaView>
   );
 }
