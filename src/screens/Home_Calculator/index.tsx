@@ -3,7 +3,7 @@ import { styles } from "./styles";
 import { SafeAreaView, Text, Image } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 
@@ -17,6 +17,11 @@ interface IRouteParams {
 export function Home_Calculator() {
     const route = useRoute();
     const { token } = route.params as IRouteParams;
+    const navigation = useNavigation();
+
+    function handleCalculator() {
+        navigation.navigate("Calculator", { token });
+    }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -31,7 +36,7 @@ export function Home_Calculator() {
             </Text>
         </RectButton>
 
-        <RectButton style={styles.iconCalculator2}>
+        <RectButton style={styles.iconCalculator2} onPress={handleCalculator}>
             <Image source={CalculatorImg2} style={styles.icon}/>
             <Text style={styles.textCalculator}>
                 Calculadora {`\n`}
