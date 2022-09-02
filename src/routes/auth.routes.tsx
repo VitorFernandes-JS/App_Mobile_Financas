@@ -21,6 +21,7 @@ import { FIIS } from "../screens/FIIS_Videos";
 import { MobileApp } from "../screens/MobileApp_Videos";
 import { Cripto } from "../screens/Cripto_Videos";
 import { Economy } from "../screens/Economy_Videos";
+import { Home_Calculator } from "../screens/Home_Calculator";
 
 
 const { Navigator, Screen } = createStackNavigator();
@@ -54,6 +55,7 @@ export function AuthRoutes() {
       <Screen name="MobileApp" component={MobileApp} />
       <Screen name="Cripto" component={Cripto} />
       <Screen name="Economy" component={Economy} />
+      <Screen name="Home_Calculator" component={Home_Calculator} />
     </Navigator>
   );
 }

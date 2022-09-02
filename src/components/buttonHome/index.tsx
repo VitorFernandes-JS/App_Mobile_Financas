@@ -18,8 +18,8 @@ interface IButtonHomeProps {
 export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   const navigation = useNavigation();
 
-  function handleCalculator() {
-    navigation.navigate("Calculator", { token });
+  function handleHome_Calculator() {
+    navigation.navigate("Home_Calculator", { token });
   }
 
   function handleComparator() {
@@ -45,7 +45,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   return (
     <SafeAreaView style={styles.container}>
       <RectButton
-        onPress={handleCalculator}
+        onPress={handleHome_Calculator}
         style={viewButtonStyles({ left: -60, top: 130 }).button}
         {...rest}
       >
