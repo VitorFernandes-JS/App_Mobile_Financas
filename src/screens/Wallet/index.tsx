@@ -30,12 +30,14 @@ export function Wallet({ token }: IWalletProps) {
 
   return (
     <SafeAreaView style={styles.container}>
+
       <HeaderWallet
         text="Carteira "
         value="100.000,00"
         token={token}
         img={WalletImg}
       />
+
       <SafeAreaView style={styles.box}>
         <Text style={styles.textEnter}>Entrada:</Text>
         <Text style={styles.valueOpen}>R$ 4.000,00</Text>
@@ -49,13 +51,15 @@ export function Wallet({ token }: IWalletProps) {
       <SafeAreaView style={styles.viewAdd}>
         <Add setTransactionsWallets={setTransactionsWallets} />
       </SafeAreaView>
-      <ScrollView showsVerticalScrollIndicator={true} style={styles.viewScroll}>
-      <SafeAreaView style={styles.body}>
+
+      <ScrollView showsVerticalScrollIndicator={true} style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
+        <SafeAreaView>
           {transactionsWallets.map((transactionWallet) => (
             <BoxExtract transactionWallet={transactionWallet} />
           ))}
-      </SafeAreaView>
-        </ScrollView>
+        </SafeAreaView>
+      </ScrollView>
+
       <Baseboard token={token} />
     </SafeAreaView>
   );
