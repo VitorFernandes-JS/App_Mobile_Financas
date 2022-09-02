@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Image, SafeAreaView } from "react-native";
 import { styles } from "./styles";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { RectButton } from "react-native-gesture-handler";
 
 type Params = {
   token: string;
@@ -14,6 +15,11 @@ type Profile = {
 export function Avatar() {
   const [profile, setProfile] = useState({} as Profile);
   const route = useRoute();
+  const navigation = useNavigation();
+
+  function handleProfile() {
+    navigation.navigate("Profile", { token });
+  }
 
   const { token } = route.params as Params;
 
@@ -31,7 +37,9 @@ export function Avatar() {
 
   return (
     <SafeAreaView>
+      <RectButton style={styles.buttonAvatar} onPress={handleProfile}>
       <Image source={{ uri: profile.picture }} style={[ styles.avatar ]} />
+      </RectButton>
     </SafeAreaView>
   );
 }

@@ -9,13 +9,13 @@ export const styles = StyleSheet.create({
     top: 670,
     backgroundColor: theme.colors.color5,
     borderRadius: 30,
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.5,
     shadowOffset: { width: 1, height: 1 },
   },
   iconHome: {
     width: 55,
     height: 55,
-    opacity: 0.6,
+    opacity: 0.5,
     top: 6,
     marginLeft: 30,
     color: theme.colors.color1,
@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
     top: -48,
     marginLeft: 110,
     color: theme.colors.color1,
-    opacity: 0.6,
+    opacity: 0.5,
   },
   textWallet: {
     top: -1,
@@ -75,7 +75,7 @@ export const styles = StyleSheet.create({
     color: theme.colors.color1,
     fontSize: 12,
     fontFamily: theme.fonts.font4_regular,
-    opacity: 0.6,
+    opacity: 0.5,
   },
   iconFavorite: {
     width: 55,
@@ -83,7 +83,7 @@ export const styles = StyleSheet.create({
     top: -250,
     marginLeft: 270,
     color: theme.colors.color1,
-    opacity: 0.6,
+    opacity: 0.5,
   },
   textFavorite: {
     marginLeft: -6,
@@ -97,7 +97,7 @@ export const styles = StyleSheet.create({
     top: -305,
     marginLeft: 350,
     color: theme.colors.color1,
-    opacity: 0.6,
+    opacity: 0.5,
   },
   textProfile: {
     marginLeft: 3,
