@@ -16,6 +16,6 @@ export const styles = StyleSheet.create({
     top: -36,
     left: 317,
     marginRight: 22,
-    backgroundColor: theme.colors.color2,
+    backgroundColor: theme.colors.color5,
   }
 });
