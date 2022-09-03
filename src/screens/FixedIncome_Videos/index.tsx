@@ -5,7 +5,7 @@ import { SafeAreaView, Text } from "react-native";
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
-import { BoxVideos } from "../../components/boxVideos";
+import { BoxCategoryVideos } from "../../components/boxCategoryVideos";
 
 interface IVideosProps {
   token: string;
@@ -22,13 +22,8 @@ export function FixedIncome({ token }: IVideosProps) {
           text={"Aqui você encontra vídeos sobre renda fixa!"}
         />
       </SafeAreaView>
-      <BoxVideos/>
       
-      <SafeAreaView style={styles.boxVideo}>
-        <SafeAreaView style={styles.boxStart}>
-          <Text style={styles.start}>COMECE AQUI! </Text>
-        </SafeAreaView>
-      </SafeAreaView>
+      <BoxCategoryVideos text="teste"/>
 
       <Baseboard token={token} />
     </SafeAreaView>
