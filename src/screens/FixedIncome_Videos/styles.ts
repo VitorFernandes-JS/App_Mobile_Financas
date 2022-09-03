@@ -38,5 +38,12 @@ export const styles = StyleSheet.create({
     color: theme.colors.color6,
     textAlign: "center",
     fontSize: 16,
-  }
+  },
+  viewBoxCategoryVideos: {
+    flexDirection: "row",
+    width: 380,
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    top: 65,
+  },
 });

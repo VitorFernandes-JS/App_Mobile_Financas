@@ -7,13 +7,31 @@ export const styles = StyleSheet.create({
         alignItems: "center",
       },
     body: {
-        width: 200,
-        height: 230,
+        width: 180,
+        height: 200,
         backgroundColor: theme.colors.color5,
-        borderRadius: 10,
+        borderRadius: 15,
         shadowOpacity: 0.5,
         shadowOffset: { width: 1, height: 1 },
         top: 65,
-        
+        marginBottom: 20,
+    },
+    boxText: {
+        width: 160,
+        height: 40,
+        borderRadius: 15,
+        justifyContent: "center",
+        alignItems: "center",
+        left: 10,
+        top: 150,
+        backgroundColor: theme.colors.color6,
+        shadowOpacity: 0.5,
+        shadowOffset: { width: 1, height: 1 },
+    },
+    text: {
+        fontFamily: theme.fonts.font4_regular_inter,
+        color: theme.colors.color1,
+        fontSize: 12,
+        margin: 5
     }
 });
