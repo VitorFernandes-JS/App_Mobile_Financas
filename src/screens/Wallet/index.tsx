@@ -48,7 +48,7 @@ export function Wallet({ token }: IWalletProps) {
       <SafeAreaView style={styles.viewTrash}>
         <Trash />
       </SafeAreaView>
-      <SafeAreaView style={styles.viewAdd}>
+      <SafeAreaView style={styles.viewAdd} >
         <Add setTransactionsWallets={setTransactionsWallets} />
       </SafeAreaView>
 

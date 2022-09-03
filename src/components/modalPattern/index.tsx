@@ -36,7 +36,6 @@ export function ModalPattern({ text }: IModalPattern) {
         style={viewButtonStyles({ top: 51.5 }).interrogation}
         onPress={() => {
           setVisible(true) 
-          console.warn("teste");
         }}
       >
         <Image source={InterrogationImg} style={styles.interrogation1} />

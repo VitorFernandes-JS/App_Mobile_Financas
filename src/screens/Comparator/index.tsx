@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { styles } from "./styles";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { theme } from "../../global/styles/theme";
 
@@ -23,9 +23,8 @@ interface ISelicRate {
   data: String;
   valor: String;
 }
-interface IComparatorProps {
-  route: any;
-  children: ReactNode;
+interface IRouteParams {
+  token: string;
 }
 interface IAxiosGet {
   id: string;
@@ -42,8 +41,10 @@ interface IAxiosGet {
   ];
 }
 
-export function Comparator({ route }: IComparatorProps) {
-  const { token } = route.params;
+export function Comparator() {
+  const route = useRoute();
+
+  const { token } = route.params as IRouteParams;
 
   const navigation = useNavigation();
 
