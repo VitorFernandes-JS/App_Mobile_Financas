@@ -33,5 +33,9 @@ export const styles = StyleSheet.create({
         color: theme.colors.color1,
         fontSize: 12,
         margin: 5
+    },
+    webView: {
+        width: "100%",
+        height: "100%",
     }
 });
