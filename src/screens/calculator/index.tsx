@@ -26,15 +26,12 @@ interface IRouteParams {
 interface ICalculatorProps {
   route: any;
   children: ReactNode;
-  token: string;
 }
 
 export function Calculator() {
   const route = useRoute();
 
   const { token } = route.params as IRouteParams;
-
-  const navigation = useNavigation();
 
   const [initialValue, setInitialValue] = useState(0);
   const [valueMonth, setValueMonth] = useState(0);
