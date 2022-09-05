@@ -3,11 +3,14 @@ import {
   Text,
   TextInput,
   Modal,
-  TouchableOpacity,
 } from "react-native";
 import React, { ReactNode, useCallback, useState } from "react";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
+import {
+  validateFieldNumericWithCommaAndPeriod,
+  validateFieldNumeric,
+} from "../../utils/regex";
 
 import { Calcular } from "../../utils/calculatorController";
 import { useRoute } from "@react-navigation/native";
@@ -15,6 +18,7 @@ import { Baseboard } from "../../components/baseboard";
 import { Header } from "../../components/header";
 import { ModalPattern } from "../../components/modalPattern";
 
+import { RectButton } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
 import DropDownPicker from "react-native-dropdown-picker";
 
@@ -36,6 +40,47 @@ export function Calculator() {
   const [valueMonth, setValueMonth] = useState(0);
   const [timeInput, setTimeInput] = useState(0);
   const [feesInput, setFeesInput] = useState(0);
+
+  // Estados de erro para os campos
+  const [initialValueError, setInitialValueError] = useState(false);
+  const [valueMonthError, setValueMonthError] = useState(false);
+  const [timeInputError, setTimeInputError] = useState(false);
+  const [feesInputError, setFeesInputError] = useState(false);
+
+  const validate = () => {
+    if (!validateFieldNumericWithCommaAndPeriod.test(String(initialValue))) {
+      setInitialValueError(true);
+      console.warn("Valor inicial válido");
+    } else {
+      setInitialValueError(false);
+      console.warn("Valor inicial inválido");
+    }
+
+    if (!validateFieldNumericWithCommaAndPeriod.test(String(valueMonth))) {
+      setValueMonthError(true);
+      console.warn("Valor inicial válido");
+    } else {
+      setValueMonthError(false);
+      console.warn("Valor inicial inválido");
+    }
+
+    if (!validateFieldNumeric.test(String(timeInput))) {
+      setTimeInputError(true);
+      console.warn("Valor inicial válido");
+    } else {
+      setTimeInputError(false);
+      console.warn("Valor inicial inválido");
+    }
+
+    if (!validateFieldNumeric.test(String(feesInput))) {
+      setFeesInputError(true);
+      console.warn("Valor inicial válido");
+    } else {
+      setFeesInputError(false);
+      console.warn("Valor inicial inválido");
+    }
+  };
+
   const [totalValue, setTotalValue] = useState(0);
   const [totalFees, setTotalFees] = useState(0);
   const [totalValueInvested, setTotalValueInvested] = useState(0);
@@ -45,12 +90,12 @@ export function Calculator() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("Meses");
   const [items1, setItems1] = useState([
-    {label: 'Meses', value: 'meses'},
-    {label: 'Anos', value: 'anos'}
+    { label: "Meses", value: "meses" },
+    { label: "Anos", value: "anos" },
   ]);
   const [items2, setItems2] = useState([
-    {label: 'Mensal', value: 'mensal'},
-    {label: 'Anual', value: 'anual'}
+    { label: "Mensal", value: "mensal" },
+    { label: "Anual", value: "anual" },
   ]);
   const [items1Open, setItems1Open] = useState(false);
   const [items2Open, setItems2Open] = useState(false);
@@ -63,7 +108,6 @@ export function Calculator() {
     setItems1Open(false);
   }, []);
 
-
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
@@ -71,7 +115,9 @@ export function Calculator() {
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Calculadora </Text>
         <ModalPattern
-          text={"Aqui você consegue calcular enquanto tempo vai se aposentar! Para isso, preencha os campos abaixo e clique em 'Calcular'"}
+          text={
+            "Aqui você consegue calcular enquanto tempo vai se aposentar! Para isso, preencha os campos abaixo e clique em 'Calcular'"
+          }
         />
       </SafeAreaView>
 
@@ -143,7 +189,6 @@ export function Calculator() {
           />
         </SafeAreaView>
       </SafeAreaView>
-    
 
       <SafeAreaView style={styles.bodyValueMonth2}>
         <SafeAreaView style={styles.viewValueMonth}>
@@ -168,115 +213,117 @@ export function Calculator() {
         </SafeAreaView>
       </SafeAreaView>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          Calcular({
-            feesInput,
-            initialValue,
-            timeInput,
-            valueMonth,
-            yearsOrMounthFees,
-            yearsOrMounthTime,
-            setTotalFees,
-            setTotalValue,
-            setTotalValueInvested,
-            setModal,
-          });
-        }}
-      >
-        <Text style={styles.textButton}>CALCULAR</Text>
-      </TouchableOpacity>
-      <DropDownPicker
-          style={{
-            borderColor: theme.colors.color5,
-            width: 110,
-            marginLeft: 230,
-            backgroundColor: theme.colors.color5,
-            borderRadius: 20,
-            top: -132,
+        <RectButton
+          style={styles.button}
+          onPress={() => {
+            Calcular({
+              feesInput,
+              initialValue,
+              timeInput,
+              valueMonth,
+              yearsOrMounthFees,
+              yearsOrMounthTime,
+              setTotalFees,
+              setTotalValue,
+              setTotalValueInvested,
+              setModal,
+            });
           }}
-          translation={{
-            PLACEHOLDER: "Selecione"
-          }}
-          tickIconStyle={{
-            width: 10,
-            height: 10
-          }}
-          dropDownContainerStyle={{
-            backgroundColor: theme.colors.color6,
-            width: 100,
-            height: 80,
-            borderRadius: 10,
-            marginLeft: 230,
-            borderColor: theme.colors.color5,
-            top: 100,
-          }}
-          textStyle={{
-            fontSize: 10,
-            fontFamily: theme.fonts.font4_regular
-          }}
-          arrowIconStyle={{
-            width: 10,
-            height: 10
-          }}
-          closeIconStyle={{
-            width: 15,
-            height: 15
-          }}
-          open={items1Open}
-          onOpen={onItems1Open}
-          value={value}
-          items={items1}
-          setOpen={setOpen}
-          setValue={setValue}
-          setItems={setItems1}
-        />
+          
+        ><Text style={styles.textButton}>CALCULAR</Text>
+        </RectButton>
+
 
       <DropDownPicker
-          style={{
-            borderColor: theme.colors.color5,
-            width: 110,
-            marginLeft: 230,
-            backgroundColor: theme.colors.color5,
-            borderRadius: 20,
-            top: -83,
-          }}
-          translation={{
-            PLACEHOLDER: "Selecione"
-          }}
-          tickIconStyle={{
-            width: 10,
-            height: 10
-          }}
-          dropDownContainerStyle={{
-            backgroundColor: theme.colors.color6,
-            width: 100,
-            height: 80,
-            borderRadius: 10,
-            marginLeft: 230,
-            borderColor: theme.colors.color5,
-          }}
-          textStyle={{
-            fontSize: 10,
-            fontFamily: theme.fonts.font4_regular
-          }}
-          arrowIconStyle={{
-            width: 10,
-            height: 10
-          }}
-          closeIconStyle={{
-            width: 15,
-            height: 15
-          }}
-          open={open}
-          onOpen={onItems2Open}
-          value={value}
-          items={items2}
-          setOpen={setOpen}
-          setValue={setValue}
-          setItems={setItems2}
-        />
+        style={{
+          borderColor: theme.colors.color5,
+          width: 110,
+          marginLeft: 230,
+          backgroundColor: theme.colors.color5,
+          borderRadius: 20,
+          top: -130,
+        }}
+        translation={{
+          PLACEHOLDER: "Selecione",
+        }}
+        tickIconStyle={{
+          width: 10,
+          height: 10,
+        }}
+        dropDownContainerStyle={{
+          backgroundColor: theme.colors.color6,
+          width: 100,
+          height: 80,
+          borderRadius: 10,
+          marginLeft: 230,
+          borderColor: theme.colors.color5,
+          top: 100,
+        }}
+        textStyle={{
+          fontSize: 10,
+          fontFamily: theme.fonts.font4_regular,
+        }}
+        arrowIconStyle={{
+          width: 10,
+          height: 10,
+        }}
+        closeIconStyle={{
+          width: 15,
+          height: 15,
+        }}
+        open={items1Open}
+        onOpen={onItems1Open}
+        value={value}
+        items={items1}
+        setOpen={setOpen}
+        setValue={setValue}
+        setItems={setItems1}
+      />
+
+      <DropDownPicker
+        style={{
+          borderColor: theme.colors.color5,
+          width: 110,
+          marginLeft: 230,
+          backgroundColor: theme.colors.color5,
+          borderRadius: 20,
+          top: -85,
+        }}
+        translation={{
+          PLACEHOLDER: "Selecione",
+        }}
+        tickIconStyle={{
+          width: 10,
+          height: 10,
+        }}
+        dropDownContainerStyle={{
+          backgroundColor: theme.colors.color6,
+          width: 100,
+          height: 80,
+          borderRadius: 10,
+          marginLeft: 230,
+          borderColor: theme.colors.color5,
+        }}
+        textStyle={{
+          fontSize: 10,
+          fontFamily: theme.fonts.font4_regular,
+        }}
+        arrowIconStyle={{
+          width: 10,
+          height: 10,
+        }}
+        closeIconStyle={{
+          width: 15,
+          height: 15,
+        }}
+        open={open}
+        onOpen={onItems2Open}
+        value={value}
+        items={items2}
+        setOpen={setOpen}
+        setValue={setValue}
+        setItems={setItems2}
+      />
 
       <SafeAreaView>
         <Modal animationType="slide" transparent={true} visible={modal}>
@@ -300,7 +347,7 @@ export function Calculator() {
                 Valor Total: R${Number(totalValue).toFixed(2)}
               </Text>
             </SafeAreaView>
-            <TouchableOpacity
+            <RectButton
               onPress={() => {
                 setModal(false);
               }}
@@ -312,7 +359,7 @@ export function Calculator() {
                 size={25}
                 style={styles.closeModalIcon}
               />
-            </TouchableOpacity>
+            </RectButton>
           </SafeAreaView>
         </Modal>
       </SafeAreaView>
