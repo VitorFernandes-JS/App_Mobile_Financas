@@ -18,7 +18,7 @@ import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 
-import { calcComparator } from "../../controls/comparatorController";
+import { calcComparator } from "../../utils/comparatorController";
 interface ISelicRate {
   data: String;
   valor: String;

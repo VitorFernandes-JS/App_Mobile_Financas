@@ -6,11 +6,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { ReactNode, useCallback, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
 
-import { Calcular } from "../../controls/calculatorController";
+import { Calcular } from "../../utils/calculatorController";
 import { useRoute } from "@react-navigation/native";
 import { Baseboard } from "../../components/baseboard";
 import { Header } from "../../components/header";
