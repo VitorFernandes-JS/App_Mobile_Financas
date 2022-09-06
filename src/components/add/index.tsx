@@ -2,6 +2,9 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import { SafeAreaView, Modal, Text } from "react-native";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
+import { theme } from "../../global/styles/theme";
+
+import DropDownPicker from "react-native-dropdown-picker";
 
 import { TextField } from "../textField";
 import { ModalWallet } from "../../components/modalWallet";
@@ -28,6 +31,19 @@ export function Add({ setTransactionsWallets }: IAddProps) {
   const [category, setCategory] = useState('')
   const [description, setDescription] = useState('')
 
+  const [open, setOpen] = useState(false);
+  const [value1, setValue1] = useState("Salário");
+  const [items1, setItems1] = useState([
+    { label: "Salário", value: "salario" },
+    { label: "Bonificação", value: "bonificacao" },
+    { label: "Restaurante", value: "restaurante" },
+    { label: "Viagem", value: "Viagem" },
+    { label: "Passeio", value: "Passeio" },
+    { label: "Farmácia", value: "farmacia" },
+    { label: "Mercado", value: "mercado" },
+    { label: "Outros", value: "outros" },
+  ]);
+
   return (
     <SafeAreaView style={styles.container}>
       <Modal animationType="slide" transparent={true} visible={visible}>
@@ -37,6 +53,52 @@ export function Add({ setTransactionsWallets }: IAddProps) {
             setCategory={setCategory} 
             setDescription={setDescription} 
           />
+
+          <DropDownPicker
+              style={{
+                borderColor: theme.colors.color5,
+                width: 30,
+                marginLeft: 200,
+                backgroundColor: theme.colors.color5,
+                borderRadius: 20,
+                top: -60,
+              }}
+              translation={{
+                PLACEHOLDER: "Selecione",
+              }}
+              tickIconStyle={{
+                width: 10,
+                height: 10,
+              }}
+              dropDownContainerStyle={{
+                backgroundColor: theme.colors.color6,
+                width: 80,
+                height: 400,
+                marginLeft: 200,
+                borderColor: theme.colors.color5,
+                top: -21,
+              }}
+              textStyle={{
+                fontSize: 10,
+                fontFamily: theme.fonts.font4_regular,
+              }}
+              arrowIconStyle={{
+                width: 10,
+                height: 10,
+                marginLeft: -10,
+              }}
+              closeIconStyle={{
+                width: 15,
+                height: 15,
+              }}
+              open={open}
+              value={value1}
+              items={items1}
+              setOpen={setOpen}
+              setValue={setValue1}
+              setItems={setItems1}
+            />
+
           <SafeAreaView style={styles.line}></SafeAreaView>
           <RectButton
             onPress={() => {

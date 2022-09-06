@@ -21,29 +21,18 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 10,
   },
-  modalText: {
-    fontSize: 20,
-    textAlign: "center",
-    top: -3.2,
-  },
   line: {
     width: 250,
     height: 0.5,
     backgroundColor: theme.colors.color4,
-    top: 20,
-  },
-  modalSubtitle: {
-    fontSize: 13,
-    textAlign: "center",
-    top: 8.5,
   },
   closeModalIcon: {
     left: 210,
-    top: 28,
+    top: 5,
   },
   viewButtonAdd: {
     alignItems: "center",
-    top: 5,
+    top: -18,
   },
   buttonAdd: {
     width: 100,
@@ -58,7 +47,7 @@ export const styles = StyleSheet.create({
     top: 2,
   },
   viewInterrogation: {
-    top: -83,
+    top: -107,
     left: 15,
   },
   body: {
