@@ -22,7 +22,7 @@ import { MobileApp } from "../screens/MobileApp_Videos";
 import { Cripto } from "../screens/Cripto_Videos";
 import { Economy } from "../screens/Economy_Videos";
 import { Home_Calculator } from "../screens/Home_Calculator";
-import { Home_Loan } from "../screens/Home_Loan";
+import { Home_Finance } from "../screens/Home_Finance";
 
 
 const { Navigator, Screen } = createStackNavigator();
@@ -57,7 +57,7 @@ export function AuthRoutes() {
       <Screen name="Cripto" component={Cripto} />
       <Screen name="Economy" component={Economy} />
       <Screen name="Home_Calculator" component={Home_Calculator} />
-      <Screen name="Home_Loan" component={Home_Loan} />
+      <Screen name="Home_Finance" component={Home_Finance} />
     </Navigator>
   );
 }

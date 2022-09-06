@@ -14,13 +14,13 @@ interface IRouteParams {
     token: string;
   }
 
-export function Home_Loan() {
+export function Home_Finance() {
     const route = useRoute();
     const { token } = route.params as IRouteParams;
     const navigation = useNavigation();
 
-    function handleLoan() {
-        navigation.navigate("Loan", { token });
+    function handleFinancing() {
+        navigation.navigate("Financing", { token });
     }
 
   return (
@@ -36,7 +36,7 @@ export function Home_Loan() {
             </Text>
         </RectButton>
 
-        <RectButton style={styles.iconCalculator2} onPress={handleLoan}>
+        <RectButton style={styles.iconCalculator2} onPress={handleFinancing}>
             <Image source={CarImg} style={styles.icon}/>
             <Text style={styles.textCalculator}>
                 Financiamento {`\n`}

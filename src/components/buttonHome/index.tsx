@@ -34,12 +34,12 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
     navigation.navigate("Videos", { token });
   }
 
-  function handleFinancing() {
-    navigation.navigate("Financing", { token });
+  function handleLoan() {
+    navigation.navigate("Loan", { token });
   }
 
-  function handleHome_Loan() {
-    navigation.navigate("Home_Loan", { token })
+  function handleHome_Finance() {
+    navigation.navigate("Home_Finance", { token })
   }
 
   return (
@@ -67,7 +67,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
-        onPress={handleFinancing}
+        onPress={handleHome_Finance}
         style={viewButtonStyles({ left: -60, top: 170 }).button}
         {...rest}
       >
@@ -100,7 +100,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
-        onPress={handleHome_Loan}
+        onPress={handleLoan}
         style={viewButtonStyles({ left: 60, top: -130 }).button}
         {...rest}
       >
