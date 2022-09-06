@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, Text, TextInput } from "react-native";
 import { styles } from "./styles";
+import { theme } from "../../global/styles/theme";
+
+import DropDownPicker from "react-native-dropdown-picker";
 
 interface ITextFieldProps {
   setValue: (arg1: any) => void;
@@ -9,6 +12,20 @@ interface ITextFieldProps {
 }
 
 export function TextField({ setValue, setCategory, setDescription }: ITextFieldProps) {
+
+  const [open, setOpen] = useState(false);
+  const [value1, setValue1] = useState("Salário");
+  const [items1, setItems1] = useState([
+    { label: "Salário", value: "salario" },
+    { label: "Bonificação", value: "bonificacao" },
+    { label: "Restaurante", value: "restaurante" },
+    { label: "Viagem", value: "Viagem" },
+    { label: "Passeio", value: "Passeio" },
+    { label: "Farmácia", value: "farmacia" },
+    { label: "Mercado", value: "mercado" },
+    { label: "Outros", value: "outros" },
+  ]);
+
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.viewValue}>
@@ -51,6 +68,55 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
             onChangeText={(text) => { setDescription(text) }}
           ></TextInput>
         </SafeAreaView>
+
+        <SafeAreaView style={styles.viewDropDownPicker}>
+        <DropDownPicker
+              style={{
+                borderColor: theme.colors.color5,
+                width: 30,
+                marginLeft: 280,
+                backgroundColor: theme.colors.color5,
+                borderRadius: 20,
+                top: 120,
+              }}
+              translation={{
+                PLACEHOLDER: "Selecione",
+              }}
+              tickIconStyle={{
+                width: 10,
+                height: 10,
+                marginLeft: 10,
+              }}
+              dropDownContainerStyle={{
+                backgroundColor: theme.colors.color6,
+                width: 80,
+                height: 400,
+                marginLeft: 310,
+                borderColor: theme.colors.color5,
+                top: 130,
+              }}
+              textStyle={{
+                fontSize: 10,
+                fontFamily: theme.fonts.font4_regular,
+              }}
+              arrowIconStyle={{
+                width: 10,
+                height: 10,
+                marginLeft: -10,
+              }}
+              closeIconStyle={{
+                width: 15,
+                height: 15,
+              }}
+              open={open}
+              value={value1}
+              items={items1}
+              setOpen={setOpen}
+              setValue={setValue1}
+              setItems={setItems1}
+            />
+            </SafeAreaView>
+
       </SafeAreaView>
     </SafeAreaView>
   );

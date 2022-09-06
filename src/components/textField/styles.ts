@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   viewValue: {
-    top: 30,
+    top: 35,
   },
   boxGreen: {
     width: 50,
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font5_medium_inter,
   },
   viewValue1: {
-    top: 30,
+    top: 35,
   },
   boxGreen1: {
     width: 75,
@@ -76,7 +76,8 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font5_medium_inter,
   },
   viewValue2: {
-    top: 30,
+    top: 35,
+    marginLeft: 10,
   },
   boxGreen2: {
     width: 75,
@@ -109,4 +110,8 @@ export const styles = StyleSheet.create({
     fontSize: 13.5,
     fontFamily: theme.fonts.font5_medium_inter,
   },
+  viewDropDownPicker: {
+    top: -208,
+    marginLeft: -100,
+  }
 });

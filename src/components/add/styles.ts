@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
   },
   viewButtonAdd: {
     alignItems: "center",
-    top: -18,
+    top: -17,
   },
   buttonAdd: {
     width: 100,
