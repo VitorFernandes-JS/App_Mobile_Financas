@@ -7,8 +7,8 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 
-import  HomeImg  from "../../assets/casa.png";
-import  CarImg  from "../../assets/carro.png";
+import HomeImg from "../../assets/casa.png";
+import CarImg from "../../assets/carro.png";
 
 interface IRouteParams {
     token: string;
