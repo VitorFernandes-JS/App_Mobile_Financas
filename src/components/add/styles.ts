@@ -23,8 +23,9 @@ export const styles = StyleSheet.create({
   },
   line: {
     width: 250,
-    height: 0.5,
-    backgroundColor: theme.colors.color4,
+    height: 1,
+    backgroundColor: theme.colors.color6,
+    top: -3,
   },
   closeModalIcon: {
     left: 210,

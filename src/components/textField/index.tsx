@@ -48,6 +48,7 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
         </SafeAreaView>
         <SafeAreaView style={styles.boxWhite1}>
           <TextInput
+            editable={false}
             style={styles.textInputValue1}
             placeholder="Salário"
             placeholderTextColor={"#808080"}
@@ -89,7 +90,7 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
               }}
               dropDownContainerStyle={{
                 backgroundColor: theme.colors.color6,
-                width: 80,
+                width: 108,
                 height: 400,
                 marginLeft: 310,
                 borderColor: theme.colors.color5,
