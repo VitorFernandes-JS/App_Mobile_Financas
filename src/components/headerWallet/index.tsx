@@ -27,7 +27,7 @@ export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
       <SafeAreaView style={styles.body}>
         <SafeAreaView style={styles.viewTitle_Modal}>
           <Text style={styles.title}>{text}</Text>
-          <ModalWallet text="teste" />
+          <ModalWallet text="Aqui você tem um controle total da sua carteira, basta adicionar um gasto/ganho e começar a simular!" />
         </SafeAreaView>
         <Text style={styles.value}>R$ {value}</Text>
         <Text style={styles.data}>{date.toLocaleDateString()}</Text>

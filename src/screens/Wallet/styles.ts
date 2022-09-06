@@ -27,20 +27,28 @@ export const styles = StyleSheet.create({
     marginLeft: 25,
     color: theme.colors.color4,
     top: 45,
-    right: 85
+    right: 100
+  },
+  viewModal1: {
+    top: -37,
+    right: 10,
   },
   line: {
     width: 1,
     height: 100,
     backgroundColor: theme.colors.color5,
-    right: 42
+    right: 70
   },
   textLeft: {
     margin: 13,
     fontSize: 16,
     color: "#FF0000",
     fontFamily: theme.fonts.font5_medium,
-    right: 42,
+    right: 60,
+  },
+  viewModal2: {
+    top: -37,
+    right: 70,
   },
   valueLeft: {
     width: 100,
@@ -49,7 +57,7 @@ export const styles = StyleSheet.create({
     marginLeft: 25,
     color: theme.colors.color4,
     top: 45,
-    right: 112
+    right: 150
   },
   viewTrash: {
     top: -110,

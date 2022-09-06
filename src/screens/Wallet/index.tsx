@@ -9,6 +9,7 @@ import { Baseboard } from "../../components/baseboard";
 import { BoxExtract } from "../../components/boxExtract";
 import { Trash } from "../../components/trash";
 import { Add } from "../../components/add";
+import { ModalPattern } from "../../components/modalPattern";
 
 interface IWalletProps {
   token: string;
@@ -40,9 +41,15 @@ export function Wallet({ token }: IWalletProps) {
 
       <SafeAreaView style={styles.box}>
         <Text style={styles.textEnter}>Entrada:</Text>
+        <SafeAreaView style={styles.viewModal1}>
+          <ModalPattern text="Essa é a ENTRADA de todos os valores no MÊS atual (Esse valor é 'reiniciado' ao fim de todos os meses)."/>
+        </SafeAreaView>
         <Text style={styles.valueOpen}>R$ 4.000,00</Text>
         <SafeAreaView style={styles.line} />
         <Text style={styles.textLeft}>Saída:</Text>
+        <SafeAreaView style={styles.viewModal2}>
+          <ModalPattern text="Essa é a SAÍDA de todos os valores no MÊS atual (Esse valor é 'reiniciado' ao fim de todos os meses)."/>
+        </SafeAreaView>
         <Text style={styles.valueLeft}>R$ 10.000,00</Text>
       </SafeAreaView>
       <SafeAreaView style={styles.viewTrash}>
