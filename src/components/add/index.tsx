@@ -2,9 +2,6 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import { SafeAreaView, Modal, Text } from "react-native";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
-import { theme } from "../../global/styles/theme";
-
-import DropDownPicker from "react-native-dropdown-picker";
 
 import { TextField } from "../textField";
 import { ModalWallet } from "../../components/modalWallet";
@@ -71,7 +68,7 @@ export function Add({ setTransactionsWallets }: IAddProps) {
           </RectButton>
 
           <SafeAreaView style={styles.viewInterrogation}>
-            <ModalWallet text="[escrever aqui]" />
+            <ModalWallet text="Digite as informações para adicionar um gasto ou um ganho em sua carteira!" />
           </SafeAreaView>
         </SafeAreaView>
         

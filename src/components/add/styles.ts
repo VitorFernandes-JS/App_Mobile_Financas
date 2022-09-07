@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
   },
   viewButtonAdd: {
     alignItems: "center",
-    top: -17,
+    top: -19,
   },
   buttonAdd: {
     width: 100,
