@@ -15,20 +15,22 @@ export const styles = StyleSheet.create({
   },
   viewMenuModal: {
     flexDirection: "row",
-    top: -85
+    top: -105
   },
   viewSelicAndIpcaAndCdi: {
     flexDirection: "row",
   },
   showSelic: {
-    width: 115,
+    width: 110,
     height: 100,
-    borderRadius: 20,
-    right: 15,
+    borderRadius: 10,
+    left: 55,
     backgroundColor: theme.colors.color5,
-    top: 120,
+    top: 133,
     shadowOpacity: 0.2,
     shadowOffset: { width: 0.5, height: 3 },
+    zIndex: 1,
+    marginLeft: 250,
   },
   titleSelic: {
     fontFamily: theme.fonts.font6_semiBold,
@@ -53,13 +55,15 @@ export const styles = StyleSheet.create({
     top: 8,
   },
   showIpca: {
-    width: 115,
+    width: 110,
     height: 100,
-    borderRadius: 20,
+    borderRadius: 10,
     backgroundColor: theme.colors.color5,
-    top: 120,
+    top: 133,
     shadowOpacity: 0.2,
     shadowOffset: { width: 0.5, height: 3 },
+    zIndex: 1,
+    left: 65,
   },
   titleIpca: {
     fontFamily: theme.fonts.font6_semiBold,
@@ -84,14 +88,15 @@ export const styles = StyleSheet.create({
     top: 8,
   },
   showCdi: {
-    width: 115,
+    width: 110,
     height: 100,
-    borderRadius: 20,
-    left: 15,
+    borderRadius: 10,
+    left: 75,
     backgroundColor: theme.colors.color5,
-    top: 120,
+    top: 133,
     shadowOpacity: 0.2,
     shadowOffset: { width: 0.5, height: 3 },
+    zIndex: 1,
   },
   titleCdi: {
     fontFamily: theme.fonts.font6_semiBold,
@@ -114,6 +119,16 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font4_regular,
     textAlign: "center",
     top: 8,
+  },
+  box: {
+    width: 380,
+    height: 125,
+    borderRadius: 20,
+    backgroundColor: theme.colors.color6,
+    top: 120,
+    right: 290,
+    shadowOpacity: 0.4,
+    shadowOffset: { width: 0.5, height: 3 },
   },
   pointBlue1: {
     width: 16,
