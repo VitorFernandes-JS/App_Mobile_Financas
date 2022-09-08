@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, Image } from "react-native";
+import { SafeAreaView, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { useRoute } from "@react-navigation/native";
 
@@ -8,6 +8,7 @@ import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 
 import TristeImg  from "../../assets/triste.png";
+import AddImg from "../../assets/close.png";
 
 interface IRouteParams {
   token: string;
@@ -39,10 +40,11 @@ export function Goals() {
             />
           </SafeAreaView>
 
-          <SafeAreaView style={styles.add}>
-
-          </SafeAreaView>
-
+          <TouchableOpacity>
+          <SafeAreaView style={styles.add}/>
+          <Image source={AddImg} style={styles.addImg}/>
+          </TouchableOpacity>
+          
       <Baseboard token={token} />
     </SafeAreaView>
   );
