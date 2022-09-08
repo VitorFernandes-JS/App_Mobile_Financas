@@ -29,7 +29,7 @@ export function FixedIncome({ token }: IVideosProps) {
       <BoxCategoryVideos text="Video 2"/>
       <BoxCategoryVideos text="Video 3"/>
       <BoxCategoryVideos text="Video 4"/>
-      <BoxCategoryVideos text="Video 4"/>
+      <BoxCategoryVideos text="Video 5"/>
       </SafeAreaView>
 
       <Baseboard token={token} />
