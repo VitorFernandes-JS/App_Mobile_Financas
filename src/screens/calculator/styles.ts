@@ -180,7 +180,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     width: 280,
     height: 250,
-    backgroundColor: "white",
+    backgroundColor: theme.colors.color6,
     borderRadius: 20,
     left: 66.5,
     top: 250,
