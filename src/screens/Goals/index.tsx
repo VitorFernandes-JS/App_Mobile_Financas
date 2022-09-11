@@ -7,7 +7,7 @@ import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 
-import TristeImg  from "../../assets/triste.png";
+import TristeImg from "../../assets/triste.png";
 import AddImg from "../../assets/close.png";
 
 interface IRouteParams {
@@ -31,20 +31,19 @@ export function Goals() {
         />
       </SafeAreaView>
 
-          <SafeAreaView style={styles.body}>
-            <Text style={styles.textInBody}>Você ainda não {`\n`}
-                tem metas!</Text>
-            <Image
-            style={styles.image}
-            source={TristeImg}
-            />
-          </SafeAreaView>
+      <SafeAreaView style={styles.body}>
+        <Text style={styles.textInBody}>
+          Você ainda não {`\n`}
+          tem metas!
+        </Text>
+        <Image style={styles.image} source={TristeImg} />
+      </SafeAreaView>
 
-          <TouchableOpacity>
-          <SafeAreaView style={styles.add}/>
-          <Image source={AddImg} style={styles.addImg}/>
-          </TouchableOpacity>
-          
+      <TouchableOpacity>
+        <SafeAreaView style={styles.add} />
+        <Image source={AddImg} style={styles.addImg} />
+      </TouchableOpacity>
+
       <Baseboard token={token} />
     </SafeAreaView>
   );
