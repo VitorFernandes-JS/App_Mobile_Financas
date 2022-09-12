@@ -101,7 +101,7 @@ export function Goals() {
               <Image source={ArrowImg} style={styles.arrowImgRight} />
             </RectButton>
           </SafeAreaView>
-              <Image source={TargetImg} style={styles.targetImg} />
+          <Image source={TargetImg} style={styles.targetImg} />
         </SafeAreaView>
       </Modal>
 
@@ -137,12 +137,17 @@ export function Goals() {
             </RectButton>
           </SafeAreaView>
 
-          <RectButton>
-            <SafeAreaView style={styles.buttonRight2}>
+          <SafeAreaView style={styles.buttonRight2}>
+            <RectButton
+              onPress={() => {
+                setModalSecondary(false);
+              }}
+            >
               <Image source={ArrowImg} style={styles.arrowImgRight} />
-            </SafeAreaView>
-          </RectButton>
-              <Image source={MoneyImg} style={styles.moneyImg} />
+            </RectButton>
+          </SafeAreaView>
+
+          <Image source={MoneyImg} style={styles.moneyImg} />
         </SafeAreaView>
       </Modal>
       <Baseboard token={token} />

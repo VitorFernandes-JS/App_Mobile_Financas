@@ -143,8 +143,8 @@ export const styles = StyleSheet.create({
     height: 30,
     backgroundColor: theme.colors.color2,
     borderRadius: 5,
-    top: 20,
-    left: 10,
+    top: 125,
+    left: 150,
     shadowOpacity: 0.15,
     position: "absolute"
   },
