@@ -23,6 +23,7 @@ import { Cripto } from "../screens/Cripto_Videos";
 import { Economy } from "../screens/Economy_Videos";
 import { Home_Calculator } from "../screens/Home_Calculator";
 import { Home_Finance } from "../screens/Home_Finance";
+import { InformationsGoals } from "../screens/Goals/InformationsGoals";
 
 
 const { Navigator, Screen } = createStackNavigator();
@@ -58,6 +59,7 @@ export function AuthRoutes() {
       <Screen name="Economy" component={Economy} />
       <Screen name="Home_Calculator" component={Home_Calculator} />
       <Screen name="Home_Finance" component={Home_Finance} />
+      <Screen name="InformationsGoals" component={InformationsGoals} />
     </Navigator>
   );
 }

@@ -42,44 +42,44 @@ export function Calculator() {
   const [feesInput, setFeesInput] = useState(0);
 
   // Estados de erro para os campos
-  const [initialValueError, setInitialValueError] = useState(false);
-  const [valueMonthError, setValueMonthError] = useState(false);
-  const [timeInputError, setTimeInputError] = useState(false);
-  const [feesInputError, setFeesInputError] = useState(false);
+  // const [initialValueError, setInitialValueError] = useState(false);
+  // const [valueMonthError, setValueMonthError] = useState(false);
+  // const [timeInputError, setTimeInputError] = useState(false);
+  // const [feesInputError, setFeesInputError] = useState(false);
 
-  const validate = () => {
-    if (!validateFieldNumericWithCommaAndPeriod.test(String(initialValue))) {
-      setInitialValueError(true);
-      console.warn("Valor inicial válido");
-    } else {
-      setInitialValueError(false);
-      console.warn("Valor inicial inválido");
-    }
+  // const validate = () => {
+  //   if (!validateFieldNumericWithCommaAndPeriod.test(String(initialValue))) {
+  //     setInitialValueError(true);
+  //     console.warn("Valor inicial válido");
+  //   } else {
+  //     setInitialValueError(false);
+  //     console.warn("Valor inicial inválido");
+  //   }
 
-    if (!validateFieldNumericWithCommaAndPeriod.test(String(valueMonth))) {
-      setValueMonthError(true);
-      console.warn("Valor inicial válido");
-    } else {
-      setValueMonthError(false);
-      console.warn("Valor inicial inválido");
-    }
+  //   if (!validateFieldNumericWithCommaAndPeriod.test(String(valueMonth))) {
+  //     setValueMonthError(true);
+  //     console.warn("Valor inicial válido");
+  //   } else {
+  //     setValueMonthError(false);
+  //     console.warn("Valor inicial inválido");
+  //   }
 
-    if (!validateFieldNumeric.test(String(timeInput))) {
-      setTimeInputError(true);
-      console.warn("Valor inicial válido");
-    } else {
-      setTimeInputError(false);
-      console.warn("Valor inicial inválido");
-    }
+  //   if (!validateFieldNumeric.test(String(timeInput))) {
+  //     setTimeInputError(true);
+  //     console.warn("Valor inicial válido");
+  //   } else {
+  //     setTimeInputError(false);
+  //     console.warn("Valor inicial inválido");
+  //   }
 
-    if (!validateFieldNumeric.test(String(feesInput))) {
-      setFeesInputError(true);
-      console.warn("Valor inicial válido");
-    } else {
-      setFeesInputError(false);
-      console.warn("Valor inicial inválido");
-    }
-  };
+  //   if (!validateFieldNumeric.test(String(feesInput))) {
+  //     setFeesInputError(true);
+  //     console.warn("Valor inicial válido");
+  //   } else {
+  //     setFeesInputError(false);
+  //     console.warn("Valor inicial inválido");
+  //   }
+  // };
 
   const [totalValue, setTotalValue] = useState(0);
   const [totalFees, setTotalFees] = useState(0);

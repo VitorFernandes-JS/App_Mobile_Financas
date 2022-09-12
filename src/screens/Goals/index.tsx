@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text, Image, Modal } from "react-native";
 import { styles } from "./styles";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { theme } from "../../global/styles/theme";
 import { RectButton, TextInput } from "react-native-gesture-handler";
 
@@ -21,8 +21,12 @@ interface IRouteParams {
 
 export function Goals() {
   const route = useRoute();
-
+  const navigation = useNavigation();
   const { token } = route.params as IRouteParams;
+
+  function handleInformationsGoals() {
+    navigation.navigate("InformationsGoals", { token });
+  }
 
   const [modalPrimary, setModalPrimary] = useState(false);
   const [modalSecondary, setModalSecondary] = useState(false);
@@ -141,6 +145,7 @@ export function Goals() {
             <RectButton
               onPress={() => {
                 setModalSecondary(false);
+                handleInformationsGoals();
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />
