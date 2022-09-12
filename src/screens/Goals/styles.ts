@@ -106,7 +106,7 @@ export const styles = StyleSheet.create({
   modalPatternView: {
     top: 80,
     right: 240,
-    position: "absolute"
+    position: "absolute",
   },
   buttonLeft1: {
     width: 30,
@@ -116,7 +116,7 @@ export const styles = StyleSheet.create({
     top: 125,
     left: 100,
     shadowOpacity: 0.15,
-    position: "absolute"
+    position: "absolute",
   },
   buttonRight1: {
     width: 30,
@@ -126,7 +126,7 @@ export const styles = StyleSheet.create({
     top: 125,
     left: 150,
     shadowOpacity: 0.15,
-    position: "absolute"
+    position: "absolute",
   },
   buttonLeft2: {
     width: 30,
@@ -136,7 +136,7 @@ export const styles = StyleSheet.create({
     top: 125,
     left: 100,
     shadowOpacity: 0.15,
-    position: "absolute"
+    position: "absolute",
   },
   buttonRight2: {
     width: 30,
@@ -146,7 +146,7 @@ export const styles = StyleSheet.create({
     top: 125,
     left: 150,
     shadowOpacity: 0.15,
-    position: "absolute"
+    position: "absolute",
   },
   arrowImgLeft: {
     transform: [{ rotate: "90deg" }],
@@ -176,7 +176,7 @@ export const styles = StyleSheet.create({
     top: 140,
     left: 250,
     transform: [{ rotate: "310deg" }],
-    position: "absolute"
+    position: "absolute",
   },
   valueField: {
     width: 40,
@@ -191,5 +191,5 @@ export const styles = StyleSheet.create({
     color: theme.colors.color1,
     textAlign: "center",
     top: 7,
-  }
+  },
 });
