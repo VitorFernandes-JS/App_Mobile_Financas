@@ -86,7 +86,18 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     color: theme.colors.color1,
     paddingLeft: 10,
-    top: 10,
+    position: "absolute",
+    left: -125,
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 1 },
+  },
+  textInput2: {
+    width: 250,
+    height: 40,
+    backgroundColor: theme.colors.color5,
+    borderRadius: 10,
+    color: theme.colors.color1,
+    paddingLeft: 50,
     position: "absolute",
     left: -125,
     shadowOpacity: 0.25,
@@ -97,23 +108,45 @@ export const styles = StyleSheet.create({
     right: 240,
     position: "absolute"
   },
-  buttonLeft: {
+  buttonLeft1: {
     width: 30,
     height: 30,
     backgroundColor: theme.colors.color2,
     borderRadius: 5,
-    top: 70,
-    left: -20,
+    top: 125,
+    left: 100,
     shadowOpacity: 0.15,
+    position: "absolute"
   },
-  buttonRight: {
+  buttonRight1: {
     width: 30,
     height: 30,
     backgroundColor: theme.colors.color2,
     borderRadius: 5,
-    top: 40,
-    left: 25,
+    top: 125,
+    left: 150,
     shadowOpacity: 0.15,
+    position: "absolute"
+  },
+  buttonLeft2: {
+    width: 30,
+    height: 30,
+    backgroundColor: theme.colors.color2,
+    borderRadius: 5,
+    top: 125,
+    left: 100,
+    shadowOpacity: 0.15,
+    position: "absolute"
+  },
+  buttonRight2: {
+    width: 30,
+    height: 30,
+    backgroundColor: theme.colors.color2,
+    borderRadius: 5,
+    top: 20,
+    left: 10,
+    shadowOpacity: 0.15,
+    position: "absolute"
   },
   arrowImgLeft: {
     transform: [{ rotate: "90deg" }],
@@ -131,9 +164,32 @@ export const styles = StyleSheet.create({
     top: 4,
     left: 5,
   },
-  closeModalIcon: {
-    top: 117,
-    position: "absolute",
-    left: 230,
+  targetImg: {
+    width: 35,
+    height: 35,
+    top: 70,
+    left: 130,
   },
+  moneyImg: {
+    width: 35,
+    height: 35,
+    top: 140,
+    left: 250,
+    transform: [{ rotate: "310deg" }],
+    position: "absolute"
+  },
+  valueField: {
+    width: 40,
+    height: 40,
+    backgroundColor: theme.colors.color2,
+    borderRadius: 10,
+    right: 105,
+  },
+  textValueField: {
+    fontFamily: theme.fonts.font4_regular,
+    fontSize: 20,
+    color: theme.colors.color1,
+    textAlign: "center",
+    top: 7,
+  }
 });
