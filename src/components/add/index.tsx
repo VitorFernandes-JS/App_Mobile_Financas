@@ -1,5 +1,5 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
-import { SafeAreaView, Modal, Text } from "react-native";
+import { SafeAreaView, Modal, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 
@@ -52,10 +52,15 @@ export function Add({ setTransactionsWallets }: IAddProps) {
             />
           </RectButton>
 
-          <RectButton
+          <TouchableOpacity
             onPress={() => {
+              console.warn("Cheguei aqui")
               setTransactionsWallets((prevState) => {
-                return [...prevState, {id: `'${new Date(), (Math.random() * 100)}'`, value: Number(value), category, description}] 
+                console.warn(prevState)
+                return [
+                  ...prevState,
+                  {id: `'${new Date(), (Math.random() * 100)}'`, value: Number(value), category, description}
+                ] 
               })
               setVisible(false);
             }}
@@ -65,7 +70,7 @@ export function Add({ setTransactionsWallets }: IAddProps) {
                 <Text style={styles.textAdd}>Adicionar</Text>
               </SafeAreaView>
             </SafeAreaView>
-          </RectButton>
+          </TouchableOpacity>
 
           <SafeAreaView style={styles.viewInterrogation}>
             <ModalWallet text="Digite as informações para adicionar um gasto ou um ganho em sua carteira!" />

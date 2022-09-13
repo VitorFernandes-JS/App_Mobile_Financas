@@ -25,9 +25,7 @@ interface ITransactionsWallets {
 }
 
 export function Wallet({ token }: IWalletProps) {
-  const [transactionsWallets, setTransactionsWallets] = useState<
-    ITransactionsWallets[]
-  >([]);
+  const [transactionsWallets, setTransactionsWallets] = useState<ITransactionsWallets[]>([]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -62,7 +60,7 @@ export function Wallet({ token }: IWalletProps) {
       <ScrollView showsVerticalScrollIndicator={true} style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
         <SafeAreaView>
           {transactionsWallets.map((transactionWallet) => (
-            <BoxExtract transactionWallet={transactionWallet} />
+            <BoxExtract key={transactionWallet.id} transactionWallet={transactionWallet} />
           ))}
         </SafeAreaView>
       </ScrollView>
