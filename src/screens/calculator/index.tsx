@@ -87,7 +87,8 @@ export function Calculator() {
   const [modal, setModal] = useState(false);
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Meses");
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
-  const [open, setOpen] = useState(false);
+  const [selectTime, setSelectTime] = useState(false);
+  const [selectFees, setSelectFees] = useState(false);
   const [value, setValue] = useState("Meses");
   const [items1, setItems1] = useState([
     { label: "Meses", value: "meses" },
@@ -97,15 +98,13 @@ export function Calculator() {
     { label: "Mensal", value: "mensal" },
     { label: "Anual", value: "anual" },
   ]);
-  const [items1Open, setItems1Open] = useState(false);
-  const [items2Open, setItems2Open] = useState(false);
 
-  const onItems1Open = useCallback(() => {
-    setItems2Open(false);
+  const onSelectTimeOpen = useCallback(() => {
+    setSelectFees(false);
   }, []);
 
-  const onItems2Open = useCallback(() => {
-    setItems1Open(false);
+  const onSelectFeesOpen = useCallback(() => {
+    setSelectTime(false);
   }, []);
 
   return (
@@ -271,11 +270,11 @@ export function Calculator() {
           width: 15,
           height: 15,
         }}
-        open={items1Open}
-        onOpen={onItems1Open}
+        open={selectTime}
+        onOpen={onSelectTimeOpen}
         value={value}
         items={items1}
-        setOpen={setOpen}
+        setOpen={setSelectTime}
         setValue={setValue}
         setItems={setItems1}
       />
@@ -316,11 +315,11 @@ export function Calculator() {
           width: 15,
           height: 15,
         }}
-        open={open}
-        onOpen={onItems2Open}
+        open={selectFees}
+        onOpen={onSelectFeesOpen}
         value={value}
         items={items2}
-        setOpen={setOpen}
+        setOpen={setSelectFees}
         setValue={setValue}
         setItems={setItems2}
       />
