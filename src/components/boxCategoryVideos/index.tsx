@@ -13,9 +13,10 @@ interface IBoxCategoryVideos {
 export function BoxCategoryVideos({ text, source }: IBoxCategoryVideos) {
   return (
     <SafeAreaView style={styles.body}>
-      <RectButton>
+      {/* <RectButton>
         <Image source={{ uri: require(`${source}`) }} />
-      </RectButton>
+      </RectButton> */}
+      
       {/* {/* <WebView
         source={{ uri: "https://www.youtube.com/embed/t-yMB8LuzVs" }}
         style={{ marginTop: 20 }}
