@@ -121,6 +121,10 @@ export function Indexes() {
         <SafeAreaView style={styles.box}></SafeAreaView>
       </SafeAreaView>
 
+      <SafeAreaView style={styles.boxGraphics}>
+
+      </SafeAreaView>
+
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Índices </Text>
         <ModalPattern

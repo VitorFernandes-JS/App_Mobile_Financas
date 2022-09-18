@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   viewMenuModal: {
     flexDirection: "row",
-    top: -105
+    top: -380
   },
   viewSelicAndIpcaAndCdi: {
     flexDirection: "row",
@@ -145,5 +145,14 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     left: -69.5,
     marginVertical: -4.4,
+  },
+  boxGraphics: {
+    width: 380,
+    height: 280,
+    borderRadius: 20,
+    backgroundColor: theme.colors.color6,
+    top: 135,
+    shadowOpacity: 0.4,
+    shadowOffset: { width: 0.5, height: 3 },
   },
 });
