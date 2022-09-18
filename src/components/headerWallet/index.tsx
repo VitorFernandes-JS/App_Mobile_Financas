@@ -12,9 +12,10 @@ interface IHeaderWallet {
   value: string;
   token: string;
   img: any;
+  textModal: string;
 }
 
-export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
+export function HeaderWallet({ text, value, token, img, textModal }: IHeaderWallet) {
   const navigation = useNavigation();
 
   function handleWalletInvestment() {
@@ -27,7 +28,7 @@ export function HeaderWallet({ text, value, token, img }: IHeaderWallet) {
       <SafeAreaView style={styles.body}>
         <SafeAreaView style={styles.viewTitle_Modal}>
           <Text style={styles.title}>{text}</Text>
-          <ModalWallet text="Aqui você tem um controle total da sua carteira, basta adicionar um gasto/ganho e começar a simular!" />
+          <ModalWallet text={textModal} />
         </SafeAreaView>
         <Text style={styles.value}>R$ {value}</Text>
         <Text style={styles.data}>{date.toLocaleDateString()}</Text>

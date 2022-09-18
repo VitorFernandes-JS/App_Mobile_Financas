@@ -35,6 +35,7 @@ export function Wallet({ token }: IWalletProps) {
         value="100.000,00"
         token={token}
         img={WalletImg}
+        textModal="Aqui você tem um controle total da sua carteira, basta adicionar um gasto/ganho e começar a simular!"
       />
 
       <SafeAreaView style={styles.box}>

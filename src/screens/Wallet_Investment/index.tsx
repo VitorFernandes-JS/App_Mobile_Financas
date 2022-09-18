@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 import { useRoute } from "@react-navigation/native";
@@ -14,7 +14,17 @@ interface IRouteParams {
   token: string;
 }
 
+interface ITransactionsWallets {
+  id: string;
+  value: number;
+  category: string;
+  description: string;
+  created_at?: Date;
+  updated_at?: Date;
+}
+
 export function WalletInvestment() {
+  const [transactionsWallets, setTransactionsWallets] = useState<ITransactionsWallets[]>([]);
 
   const route = useRoute();
   
@@ -27,23 +37,8 @@ export function WalletInvestment() {
         value="50.000,00"
         token={token}
         img={WalletInvestmentImg}
+        textModal="Aqui você pode adicionar um investimento em cada meta, e acompanhar o seu progresso!"
       />
-      <SafeAreaView style={styles.box}>
-        <Text style={styles.textEnter}>Entrada:</Text>
-        <Text style={styles.valueOpen}>R$ 4.000,00</Text>
-        <SafeAreaView style={styles.line} />
-        <Text style={styles.textLeft}>Saída:</Text>
-        <Text style={styles.valueLeft}>R$ 10.000,00</Text>
-      </SafeAreaView>
-      <SafeAreaView style={styles.viewTrash}>
-        <Trash />
-      </SafeAreaView>
-      <SafeAreaView style={styles.viewAdd}>
-        <Add />
-      </SafeAreaView>
-      <SafeAreaView style={styles.body}>
-        <BoxExtract />
-      </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>
   );
