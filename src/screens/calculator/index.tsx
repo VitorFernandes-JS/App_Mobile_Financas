@@ -1,9 +1,4 @@
-import {
-  SafeAreaView,
-  Text,
-  TextInput,
-  Modal,
-} from "react-native";
+import { SafeAreaView, Text, TextInput, Modal } from "react-native";
 import React, { ReactNode, useCallback, useState } from "react";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
@@ -120,7 +115,98 @@ export function Calculator() {
         />
       </SafeAreaView>
 
-      <SafeAreaView style={styles.bodyInitialValue}>
+      <DropDownPicker
+        style={{
+          borderColor: theme.colors.color5,
+          width: 110,
+          marginLeft: 230,
+          backgroundColor: theme.colors.color5,
+          borderRadius: 20,
+          top: 285,
+        }}
+        translation={{
+          PLACEHOLDER: "Selecione",
+        }}
+        tickIconStyle={{
+          width: 10,
+          height: 10,
+        }}
+        dropDownContainerStyle={{
+          backgroundColor: theme.colors.color6,
+          width: 100,
+          height: 80,
+          marginLeft: 230,
+          borderColor: theme.colors.color5,
+          top: 210,
+        }}
+        textStyle={{
+          fontSize: 10,
+          fontFamily: theme.fonts.font4_regular,
+        }}
+        arrowIconStyle={{
+          width: 10,
+          height: 10,
+        }}
+        closeIconStyle={{
+          width: 15,
+          height: 15,
+        }}
+        open={selectTime}
+        onOpen={onSelectTimeOpen}
+        value={value}
+        items={items1}
+        setOpen={setSelectTime}
+        setValue={setValue}
+        setItems={setItems1}
+      />
+
+      <DropDownPicker
+        style={{
+          borderColor: theme.colors.color5,
+          width: 110,
+          marginLeft: 230,
+          backgroundColor: theme.colors.color5,
+          borderRadius: 20,
+          top: 340,
+        }}
+        translation={{
+          PLACEHOLDER: "Selecione",
+        }}
+        tickIconStyle={{
+          width: 10,
+          height: 10,
+        }}
+        dropDownContainerStyle={{
+          backgroundColor: theme.colors.color6,
+          width: 100,
+          height: 80,
+          borderRadius: 10,
+          marginLeft: 230,
+          borderColor: theme.colors.color5,
+          top: 265,
+        }}
+        textStyle={{
+          fontSize: 10,
+          fontFamily: theme.fonts.font4_regular,
+        }}
+        arrowIconStyle={{
+          width: 10,
+          height: 10,
+        }}
+        closeIconStyle={{
+          width: 15,
+          height: 15,
+        }}
+        open={selectFees}
+        onOpen={onSelectFeesOpen}
+        value={value}
+        items={items2}
+        setOpen={setSelectFees}
+        setValue={setValue}
+        setItems={setItems2}
+      />
+
+<SafeAreaView style={styles.bodyInitialValue}>
         <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.initialValue}>Valor Inicial</Text>
         </SafeAreaView>
@@ -166,7 +252,7 @@ export function Calculator() {
         </SafeAreaView>
       </SafeAreaView>
 
-      <SafeAreaView style={styles.bodyValueMonth}>
+      <SafeAreaView style={styles.bodyValueTime}>
         <SafeAreaView style={styles.viewValueMonth}>
           <Text style={styles.initialValueMonth}>Tempo</Text>
         </SafeAreaView>
@@ -189,7 +275,7 @@ export function Calculator() {
         </SafeAreaView>
       </SafeAreaView>
 
-      <SafeAreaView style={styles.bodyValueMonth2}>
+      <SafeAreaView style={styles.bodyValueFees}>
         <SafeAreaView style={styles.viewValueMonth}>
           <Text style={styles.initialValueMonth}>Juros</Text>
         </SafeAreaView>
@@ -212,117 +298,25 @@ export function Calculator() {
         </SafeAreaView>
       </SafeAreaView>
 
-        <RectButton
-          style={styles.button}
-          onPress={() => {
-            Calcular({
-              feesInput,
-              initialValue,
-              timeInput,
-              valueMonth,
-              yearsOrMounthFees,
-              yearsOrMounthTime,
-              setTotalFees,
-              setTotalValue,
-              setTotalValueInvested,
-              setModal,
-            });
-          }}
-          
-        ><Text style={styles.textButton}>CALCULAR</Text>
-        </RectButton>
-
-
-      <DropDownPicker
-        style={{
-          borderColor: theme.colors.color5,
-          width: 110,
-          marginLeft: 230,
-          backgroundColor: theme.colors.color5,
-          borderRadius: 20,
-          top: -130,
+      <RectButton
+        style={styles.button}
+        onPress={() => {
+          Calcular({
+            feesInput,
+            initialValue,
+            timeInput,
+            valueMonth,
+            yearsOrMounthFees,
+            yearsOrMounthTime,
+            setTotalFees,
+            setTotalValue,
+            setTotalValueInvested,
+            setModal,
+          });
         }}
-        translation={{
-          PLACEHOLDER: "Selecione",
-        }}
-        tickIconStyle={{
-          width: 10,
-          height: 10,
-        }}
-        dropDownContainerStyle={{
-          backgroundColor: theme.colors.color6,
-          width: 100,
-          height: 80,
-          borderRadius: 10,
-          marginLeft: 230,
-          borderColor: theme.colors.color5,
-          top: 100,
-        }}
-        textStyle={{
-          fontSize: 10,
-          fontFamily: theme.fonts.font4_regular,
-        }}
-        arrowIconStyle={{
-          width: 10,
-          height: 10,
-        }}
-        closeIconStyle={{
-          width: 15,
-          height: 15,
-        }}
-        open={selectTime}
-        onOpen={onSelectTimeOpen}
-        value={value}
-        items={items1}
-        setOpen={setSelectTime}
-        setValue={setValue}
-        setItems={setItems1}
-      />
-
-      <DropDownPicker
-        style={{
-          borderColor: theme.colors.color5,
-          width: 110,
-          marginLeft: 230,
-          backgroundColor: theme.colors.color5,
-          borderRadius: 20,
-          top: -85,
-        }}
-        translation={{
-          PLACEHOLDER: "Selecione",
-        }}
-        tickIconStyle={{
-          width: 10,
-          height: 10,
-        }}
-        dropDownContainerStyle={{
-          backgroundColor: theme.colors.color6,
-          width: 100,
-          height: 80,
-          borderRadius: 10,
-          marginLeft: 230,
-          borderColor: theme.colors.color5,
-        }}
-        textStyle={{
-          fontSize: 10,
-          fontFamily: theme.fonts.font4_regular,
-        }}
-        arrowIconStyle={{
-          width: 10,
-          height: 10,
-        }}
-        closeIconStyle={{
-          width: 15,
-          height: 15,
-        }}
-        open={selectFees}
-        onOpen={onSelectFeesOpen}
-        value={value}
-        items={items2}
-        setOpen={setSelectFees}
-        setValue={setValue}
-        setItems={setItems2}
-      />
+      >
+        <Text style={styles.textButton}>CALCULAR</Text>
+      </RectButton>
 
       <SafeAreaView>
         <Modal animationType="slide" transparent={true} visible={modal}>

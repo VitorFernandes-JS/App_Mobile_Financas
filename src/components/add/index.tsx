@@ -54,9 +54,7 @@ export function Add({ setTransactionsWallets }: IAddProps) {
 
           <TouchableOpacity
             onPress={() => {
-              console.warn("Cheguei aqui")
               setTransactionsWallets((prevState) => {
-                console.warn(prevState)
                 return [
                   ...prevState,
                   {id: `'${new Date(), (Math.random() * 100)}'`, value: Number(value), category, description}

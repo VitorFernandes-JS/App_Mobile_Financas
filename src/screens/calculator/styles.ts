@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     zIndex: 0,
     shadowOpacity: 0.5,
     shadowOffset: { width: 1.5, height: 1.5 },
-    top: 60,
+    top: -40,
     borderRadius: 12
   },
   viewInitialValue: {
@@ -72,7 +72,6 @@ export const styles = StyleSheet.create({
     top: -22,
     marginLeft: 30,
     zIndex: 1,
-
   },
   textInputInitialValue: {
     margin: 9,
@@ -89,7 +88,7 @@ export const styles = StyleSheet.create({
     zIndex: 0,
     shadowOpacity: 0.5,
     shadowOffset: { width: 1.5, height: 1.5 },
-    top: 60,
+    top: -40,
     borderRadius: 12,
     marginTop: 15
   },
@@ -150,7 +149,6 @@ export const styles = StyleSheet.create({
     height: 50,
     backgroundColor: theme.colors.color2,
     borderRadius: 10,
-    top: 87,
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
@@ -228,6 +226,30 @@ export const styles = StyleSheet.create({
   },
   closeModalIcon: {
     top: -7,
+  },
+  bodyValueTime: {
+    alignItems: "center",
+    flexDirection: "column",
+    width: 300,
+    height: 85,
+    backgroundColor: theme.colors.color5,
+    zIndex: 0,
+    shadowOpacity: 0.5,
+    shadowOffset: { width: 1.5, height: 1.5 },
+    top: -25,
+    borderRadius: 12,
+  },
+  bodyValueFees: {
+    alignItems: "center",
+    flexDirection: "column",
+    width: 300,
+    height: 85,
+    backgroundColor: theme.colors.color5,
+    zIndex: 0,
+    shadowOpacity: 0.5,
+    shadowOffset: { width: 1.5, height: 1.5 },
+    top: -10,
+    borderRadius: 12,
   },
 
 
