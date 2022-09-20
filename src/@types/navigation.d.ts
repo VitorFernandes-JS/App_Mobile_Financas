@@ -24,6 +24,6 @@ export declare global {
             Home_Calculator: any;
             Home_Finance: any;
             InformationsGoals: any;
-            }
+        }
     }
 }
