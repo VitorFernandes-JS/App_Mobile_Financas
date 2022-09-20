@@ -6,8 +6,7 @@ import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 import { BoxCategoryVideos } from "../../components/boxCategoryVideos";
-
-import Capa1 from "../../assets/capas_renda_fixa/capa1.png";
+import { Cover_Fixed_Income } from "../../utils/cover";
 
 interface IVideosProps {
   token: string;
@@ -26,7 +25,7 @@ export function FixedIncome({ token }: IVideosProps) {
       </SafeAreaView>
 
       <SafeAreaView style={styles.viewBoxCategoryVideos}>
-      <BoxCategoryVideos text="Video 1" source={Capa1}/>
+      <BoxCategoryVideos text="Video 1" source={Cover_Fixed_Income[0]}/>
       </SafeAreaView>
 
       <Baseboard token={token} />

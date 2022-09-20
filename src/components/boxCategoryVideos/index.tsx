@@ -7,15 +7,15 @@ import { styles } from "./styles";
 
 interface IBoxCategoryVideos {
   text: string;
-  source: string;
+  source: any;
 }
 
 export function BoxCategoryVideos({ text, source }: IBoxCategoryVideos) {
   return (
     <SafeAreaView style={styles.body}>
-      {/* <RectButton>
-        <Image source={{ uri: require(`${source}`) }} />
-      </RectButton> */}
+      <RectButton>
+        <Image source={source} />
+      </RectButton>
       
       {/* {/* <WebView
         source={{ uri: "https://www.youtube.com/embed/t-yMB8LuzVs" }}
