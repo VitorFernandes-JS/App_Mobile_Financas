@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView, Text, Image, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, Image } from "react-native";
 import * as AuthSession from "expo-auth-session";
 
 import { ButtonIcon } from "../../components/SignIn/ButtonIcon";

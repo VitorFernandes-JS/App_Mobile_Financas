@@ -9,8 +9,6 @@ import { BoxCategoryVideos } from "../../components/boxCategoryVideos";
 
 import Capa1 from "../../assets/capas_renda_fixa/capa1.png";
 
-
-
 interface IVideosProps {
   token: string;
 }
