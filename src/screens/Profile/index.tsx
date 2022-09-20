@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./style";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { RectButton } from "react-native-gesture-handler";
 
 import { Baseboard } from "../../components/baseboard";
 
@@ -41,6 +42,10 @@ export function Profile() {
     loadProfile();
   }, []);
 
+  function handleSignIn() {
+    navigation.navigate("SignIn");
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.header}>
@@ -54,26 +59,21 @@ export function Profile() {
       <Text style={styles.textGivenName}>{profile.given_name}</Text>
       <Text style={styles.textFamilyName}>{profile.email}</Text>
 
-      <TouchableOpacity>
-        <SafeAreaView style={styles.box1}>
+      <RectButton style={styles.box1}>
           <Text style={styles.textContactUs}>Fale Conosco : </Text>
           <Feather name="phone-call" style={styles.iconPhone} size={18} />
-        </SafeAreaView>
-      </TouchableOpacity>
+      </RectButton>
 
-      <TouchableOpacity>
-        <SafeAreaView style={styles.box2}>
+      <RectButton style={styles.box2} onPress={handleSignIn}>
           <Text style={styles.textContactUs}>Sair do Perfil: </Text>
           <Entypo name="export" style={styles.iconPhone} size={18} />
-        </SafeAreaView>
-      </TouchableOpacity>
+      </RectButton>
 
-      <TouchableOpacity>
-        <SafeAreaView style={styles.box3}>
+      <RectButton style={styles.box3}>
           <Text style={styles.textContactUs}>Excluir Conta: </Text>
           <Ionicons name="trash-outline" style={styles.iconPhone} size={20} />
-        </SafeAreaView>
-      </TouchableOpacity>
+      </RectButton>
+
       <Text style={styles.developedBy}>
         Desenvolvido por: Vitor Fernandes Moraes
       </Text>
