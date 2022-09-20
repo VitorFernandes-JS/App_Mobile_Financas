@@ -19,9 +19,9 @@ export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.box}>
-        <Text>{transactionWallet.category}</Text>
-        <Text>{transactionWallet.description}</Text>
-        <Text>{transactionWallet.value}</Text>
+        <Text style={styles.category}>{transactionWallet.category}</Text>
+        <Text style={styles.description}>{transactionWallet.description}</Text>
+        <Text style={styles.value}>{transactionWallet.value}</Text>
         <SafeAreaView style={styles.line}/>
       </SafeAreaView>
     </SafeAreaView>

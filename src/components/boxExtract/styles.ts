@@ -20,11 +20,16 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 10,
     top: -120,
+    justifyContent: "center",
+    alignItems: "center",
   },
   line: {
     width: 1,
     height: 100,
     backgroundColor: theme.colors.color5,
-    marginLeft: 55,
+    right: 90,
+  },
+  category: {
+    color: theme.colors.color4,
   }
 });
