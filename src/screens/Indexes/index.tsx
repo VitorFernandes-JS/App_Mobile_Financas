@@ -6,6 +6,7 @@ import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
+import { Loading } from "../../components/Loading";
 
 import AppLoading from "expo-app-loading";
 import { ModalPattern } from "../../components/modalPattern";
@@ -60,7 +61,7 @@ export function Indexes() {
   const latestSelicRate = selicRate[selicRate.length - 1];
 
   if (selicRate.length <= 0) {
-    return <AppLoading />;
+    return <Loading />;
   }
 
   return (
