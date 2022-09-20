@@ -1,6 +1,3 @@
-export interface PropsNavigation {
-    token: string;
-}
 
 export declare global {
     namespace ReactNavigation {
