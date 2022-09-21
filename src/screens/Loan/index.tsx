@@ -94,9 +94,7 @@ export function Loan() {
         </SafeAreaView>
       </SafeAreaView>
 
-      <TouchableOpacity
-        style={styles.button}
-      >
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.textButton}>SIMULAR</Text>
       </TouchableOpacity>
 
