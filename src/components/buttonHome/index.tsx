@@ -39,7 +39,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   }
 
   function handleHome_Finance() {
-    navigation.navigate("Home_Finance", { token })
+    navigation.navigate("Home_Finance", { token });
   }
 
   return (
