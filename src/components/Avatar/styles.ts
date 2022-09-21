@@ -17,5 +17,5 @@ export const styles = StyleSheet.create({
     left: 317,
     marginRight: 22,
     backgroundColor: theme.colors.color5,
-  }
+  },
 });
