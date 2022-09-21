@@ -30,16 +30,18 @@ export function SignIn() {
       authUrl,
     })) as AuthResponse;
 
-
     if (type === "success") {
       navigation.navigate("Home", { token: params.access_token });
     }
-   }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.viewTitle}>
-      <Text style={styles.title1}>B</Text><Text style={styles.title2}>est</Text><Text style={styles.title3}>F</Text><Text style={styles.title4}>inance</Text>
+        <Text style={styles.title1}>B</Text>
+        <Text style={styles.title2}>est</Text>
+        <Text style={styles.title3}>F</Text>
+        <Text style={styles.title4}>inance</Text>
       </SafeAreaView>
       <Image source={IllustrationImg} style={styles.image} />
       <SafeAreaView style={styles.content}>
@@ -50,7 +52,7 @@ export function SignIn() {
         <ButtonIcon title="Entrar com Google" onPress={handleSignIn} />
       </SafeAreaView>
       <RectButton style={styles.buttonContact}>
-      <Text style={styles.contactUs}>Fale Conosco</Text>
+        <Text style={styles.contactUs}>Fale Conosco</Text>
       </RectButton>
     </SafeAreaView>
   );

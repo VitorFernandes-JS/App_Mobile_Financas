@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  viewTitle:{
+  viewTitle: {
     flexDirection: "row",
   },
   title1: {
@@ -17,26 +17,26 @@ export const styles = StyleSheet.create({
     fontSize: 60,
     color: theme.colors.color2,
     shadowOpacity: 0.1,
-    top: -60
+    top: -60,
   },
   title2: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 45,
     shadowOpacity: 0.2,
-    top: -45
+    top: -45,
   },
   title3: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 60,
     color: theme.colors.color2,
     shadowOpacity: 0.1,
-    top: -60
+    top: -60,
   },
   title4: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 45,
     shadowOpacity: 0.2,
-    top: -45
+    top: -45,
   },
   content: {
     marginTop: -77,
@@ -50,12 +50,12 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font7_bold,
     lineHeight: 30,
     marginTop: 20,
-    top: 6
+    top: 6,
   },
   image: {
     width: 345,
     height: 345,
-    top: -50
+    top: -50,
   },
   buttonContact: {
     width: 90,
@@ -63,5 +63,5 @@ export const styles = StyleSheet.create({
   },
   contactUs: {
     fontFamily: theme.fonts.font4_regular,
-  }
+  },
 });

@@ -24,10 +24,12 @@ interface ITransactionsWallets {
 }
 
 export function WalletInvestment() {
-  const [transactionsWallets, setTransactionsWallets] = useState<ITransactionsWallets[]>([]);
+  const [transactionsWallets, setTransactionsWallets] = useState<
+    ITransactionsWallets[]
+  >([]);
 
   const route = useRoute();
-  
+
   const { token } = route.params as IRouteParams;
 
   return (

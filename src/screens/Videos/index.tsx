@@ -19,11 +19,13 @@ export function Videos({ token }: IVideosProps) {
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Vídeos </Text>
         <ModalPattern
-          text={"Aqui você consegue ver vídeos sobre o que você está procurando!"}
+          text={
+            "Aqui você consegue ver vídeos sobre o que você está procurando!"
+          }
         />
       </SafeAreaView>
-      <BoxVideos/>
-      
+      <BoxVideos />
+
       <SafeAreaView style={styles.boxVideo}>
         <SafeAreaView style={styles.boxStart}>
           <Text style={styles.start}>COMECE AQUI! </Text>

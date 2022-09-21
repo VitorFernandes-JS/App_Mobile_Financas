@@ -60,18 +60,18 @@ export function Profile() {
       <Text style={styles.textFamilyName}>{profile.email}</Text>
 
       <RectButton style={styles.box1}>
-          <Text style={styles.textContactUs}>Fale Conosco : </Text>
-          <Feather name="phone-call" style={styles.iconPhone} size={18} />
+        <Text style={styles.textContactUs}>Fale Conosco : </Text>
+        <Feather name="phone-call" style={styles.iconPhone} size={18} />
       </RectButton>
 
       <RectButton style={styles.box2} onPress={handleSignIn}>
-          <Text style={styles.textContactUs}>Sair do Perfil: </Text>
-          <Entypo name="export" style={styles.iconPhone} size={18} />
+        <Text style={styles.textContactUs}>Sair do Perfil: </Text>
+        <Entypo name="export" style={styles.iconPhone} size={18} />
       </RectButton>
 
       <RectButton style={styles.box3}>
-          <Text style={styles.textContactUs}>Excluir Conta: </Text>
-          <Ionicons name="trash-outline" style={styles.iconPhone} size={20} />
+        <Text style={styles.textContactUs}>Excluir Conta: </Text>
+        <Ionicons name="trash-outline" style={styles.iconPhone} size={20} />
       </RectButton>
 
       <Text style={styles.developedBy}>

@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     top: -90,
     shadowOpacity: 0.3,
     shadowOffset: { width: 1, height: 3 },
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   textEnter: {
     margin: 13,
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     marginLeft: 25,
     color: theme.colors.color4,
     top: 45,
-    right: 100
+    right: 100,
   },
   viewModal1: {
     top: -37,
@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     width: 1,
     height: 100,
     backgroundColor: theme.colors.color5,
-    right: 70
+    right: 70,
   },
   textLeft: {
     margin: 13,
@@ -57,15 +57,15 @@ export const styles = StyleSheet.create({
     marginLeft: 25,
     color: theme.colors.color4,
     top: 45,
-    right: 150
+    right: 150,
   },
   viewTrash: {
     top: -110,
-    left: 140
+    left: 140,
   },
   viewAdd: {
     top: -135,
-    left: -140
+    left: -140,
   },
   scrollView: {
     top: -90,
@@ -73,5 +73,5 @@ export const styles = StyleSheet.create({
   contentContainer: {
     top: 115,
     flex: 1,
-  }
+  },
 });

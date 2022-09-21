@@ -14,27 +14,27 @@ export const styles = StyleSheet.create({
     top: -90,
     shadowOpacity: 0.3,
     shadowOffset: { width: 1, height: 3 },
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   textEnter: {
     margin: 13,
     fontSize: 15,
     color: "#26B602",
     fontFamily: theme.fonts.font5_medium,
-    textDecorationLine: 'underline'
+    textDecorationLine: "underline",
   },
   valueOpen: {
     fontFamily: theme.fonts.font4_regular_inter,
     marginLeft: 25,
     color: theme.colors.color4,
     top: 45,
-    right: 85
+    right: 85,
   },
   line: {
     width: 1,
     height: 100,
     backgroundColor: theme.colors.color5,
-    right: 42
+    right: 42,
   },
   textLeft: {
     margin: 13,
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
     color: "#FF0000",
     fontFamily: theme.fonts.font5_medium,
     right: 42,
-    textDecorationLine: 'underline'
+    textDecorationLine: "underline",
   },
   valueLeft: {
     width: 100,
@@ -51,17 +51,17 @@ export const styles = StyleSheet.create({
     marginLeft: 25,
     color: theme.colors.color4,
     top: 45,
-    right: 112
+    right: 112,
   },
   body: {
-    width: '100%',
+    width: "100%",
   },
   viewTrash: {
     top: -110,
-    left: 140
+    left: 140,
   },
   viewAdd: {
     top: -137,
-    left: -140
-  }
+    left: -140,
+  },
 });
