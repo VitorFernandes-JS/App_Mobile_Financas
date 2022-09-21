@@ -13,9 +13,7 @@
       "platforms": [
         "ios",
         "android"
-      ] 
-
-      
+      ]
     },
     "updates": {
       "fallbackToCacheTimeout": 0
