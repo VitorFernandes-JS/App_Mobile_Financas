@@ -25,7 +25,6 @@ import { Home_Calculator } from "../screens/Home_Calculator";
 import { Home_Finance } from "../screens/Home_Finance";
 import { InformationsGoals } from "../screens/Goals/InformationsGoals";
 
-
 const { Navigator, Screen } = createStackNavigator();
 
 export function AuthRoutes() {
