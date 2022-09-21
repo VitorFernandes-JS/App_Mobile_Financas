@@ -12,7 +12,7 @@ export function BoxCategoryVideos({ text, source }: IBoxCategoryVideos) {
   return (
     <SafeAreaView style={styles.body}>
       <RectButton>
-        <Image  style={styles.img} source={source.cover} />
+        <Image style={styles.img} source={source.cover} />
       </RectButton>
       <SafeAreaView style={styles.boxText}>
         <Text style={styles.text}>{text}</Text>
