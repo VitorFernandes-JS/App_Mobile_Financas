@@ -22,8 +22,8 @@ export function Cripto({ token }: IVideosProps) {
           text={"Aqui você consegue ver vídeos sobre criptomoedas!"}
         />
       </SafeAreaView>
-      <BoxVideos/>
-      
+      <BoxVideos />
+
       <SafeAreaView style={styles.boxVideo}>
         <SafeAreaView style={styles.boxStart}>
           <Text style={styles.start}>COMECE AQUI! </Text>

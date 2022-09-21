@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     color: theme.colors.color4,
   },
   viewMenuModal: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   boxVideo: {
     width: 335,
@@ -38,5 +38,5 @@ export const styles = StyleSheet.create({
     color: theme.colors.color6,
     textAlign: "center",
     fontSize: 16,
-  }
+  },
 });

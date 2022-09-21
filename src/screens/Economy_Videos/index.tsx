@@ -22,8 +22,8 @@ export function Economy({ token }: IVideosProps) {
           text={"Aqui você consegue ver vídeos sobre a economia!"}
         />
       </SafeAreaView>
-      <BoxVideos/>
-      
+      <BoxVideos />
+
       <SafeAreaView style={styles.boxVideo}>
         <SafeAreaView style={styles.boxStart}>
           <Text style={styles.start}>COMECE AQUI! </Text>
