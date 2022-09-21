@@ -35,6 +35,7 @@ export function Add({ setTransactionsWallets }: IAddProps) {
           <TextField 
             setValue={setValue} 
             setCategory={setCategory} 
+            category={category}
             setDescription={setDescription} 
           />
 

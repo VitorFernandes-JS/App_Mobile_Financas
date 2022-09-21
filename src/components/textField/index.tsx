@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text, TextInput } from "react-native";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
@@ -8,10 +8,14 @@ import DropDownPicker from "react-native-dropdown-picker";
 interface ITextFieldProps {
   setValue: (arg1: any) => void;
   setCategory: (arg2: any) => void;
+  category: string;
   setDescription: (arg3: any) => void;
 }
 
-export function TextField({ setValue, setCategory, setDescription }: ITextFieldProps) {
+export function TextField({ 
+  setValue, 
+  setCategory,
+  setDescription }: ITextFieldProps) {
 
   const [open, setOpen] = useState(false);
   const [value1, setValue1] = useState("Salário");
@@ -25,6 +29,8 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
     { label: "Mercado", value: "mercado" },
     { label: "Outros", value: "outros" },
   ]);
+  
+  useEffect(() => { setCategory(value1) }, [value1])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -50,9 +56,8 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
           <TextInput
             editable={false}
             style={styles.textInputValue1}
-            placeholder="Salário"
+            placeholder={value1}
             placeholderTextColor={"#808080"}
-            onChangeText={(text) => { setCategory(text) }}
           ></TextInput>
         </SafeAreaView>
       </SafeAreaView>
@@ -110,10 +115,10 @@ export function TextField({ setValue, setCategory, setDescription }: ITextFieldP
                 height: 15,
               }}
               open={open}
-              value={value1}
-              items={items1}
               setOpen={setOpen}
+              value={value1}
               setValue={setValue1}
+              items={items1}
               setItems={setItems1}
             />
             </SafeAreaView>

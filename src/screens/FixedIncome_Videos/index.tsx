@@ -5,7 +5,6 @@ import { SafeAreaView, Text } from "react-native";
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
-import { Loading } from "../../components/Loading";
 import { BoxCategoryVideos } from "../../components/boxCategoryVideos";
 import { Cover_Fixed_Income } from "../../utils/cover";
 interface IVideosProps {
