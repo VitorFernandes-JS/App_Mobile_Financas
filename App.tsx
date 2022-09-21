@@ -56,10 +56,7 @@ export default function App() {
 
   return (
     <Background>
-      <StatusBar
-        hidden
-        translucent={true}
-      />
+      <StatusBar hidden translucent={true} />
       <Routes />
     </Background>
   );
