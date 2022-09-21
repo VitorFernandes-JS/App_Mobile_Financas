@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     color: theme.colors.color4,
   },
   viewMenuModal: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   bodyInitialValue: {
     alignItems: "center",
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowOffset: { width: 1.5, height: 1.5 },
     top: -40,
-    borderRadius: 12
+    borderRadius: 12,
   },
   viewInitialValue: {
     width: 120,
@@ -35,14 +35,14 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     marginLeft: -120,
     zIndex: 3,
-    top: 13
+    top: 13,
   },
   initialValue: {
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular,
     color: theme.colors.color1,
-    textAlign: 'center',
-    justifyContent: 'center',
+    textAlign: "center",
+    justifyContent: "center",
     margin: 2,
   },
   viewInitialValue1: {
@@ -54,14 +54,14 @@ export const styles = StyleSheet.create({
     zIndex: 2,
     shadowOpacity: 0.3,
     shadowOffset: { width: 1.5, height: 1.5 },
-    top: 10
+    top: 10,
   },
   initialValue1: {
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular,
     color: theme.colors.color1,
-    textAlign: 'center',
-    justifyContent: 'center',
+    textAlign: "center",
+    justifyContent: "center",
     margin: 2,
   },
   inputInitialValue: {
@@ -77,7 +77,7 @@ export const styles = StyleSheet.create({
     margin: 9,
     color: theme.colors.color1,
     fontFamily: theme.fonts.font4_regular_inter,
-    marginLeft: 15
+    marginLeft: 15,
   },
   bodyValueMonth: {
     alignItems: "center",
@@ -90,7 +90,7 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 1.5, height: 1.5 },
     top: -40,
     borderRadius: 12,
-    marginTop: 15
+    marginTop: 15,
   },
   viewValueMonth: {
     width: 133,
@@ -99,14 +99,14 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     marginLeft: -107,
     zIndex: 3,
-    top: 13
+    top: 13,
   },
   initialValueMonth: {
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular,
     color: theme.colors.color1,
-    textAlign: 'center',
-    justifyContent: 'center',
+    textAlign: "center",
+    justifyContent: "center",
     margin: 2,
   },
   viewValueMonth1: {
@@ -118,14 +118,14 @@ export const styles = StyleSheet.create({
     zIndex: 2,
     shadowOpacity: 0.3,
     shadowOffset: { width: 1.5, height: 1.5 },
-    top: 10
+    top: 10,
   },
   valueMonth1: {
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular,
     color: theme.colors.color1,
-    textAlign: 'center',
-    justifyContent: 'center',
+    textAlign: "center",
+    justifyContent: "center",
     margin: 2,
   },
   inputValueMonth: {
@@ -136,13 +136,12 @@ export const styles = StyleSheet.create({
     top: -22,
     marginLeft: 30,
     zIndex: 1,
-   
   },
   textInputValueMonth: {
     margin: 9,
     color: theme.colors.color1,
     fontFamily: theme.fonts.font4_regular_inter,
-    marginLeft: 15
+    marginLeft: 15,
   },
   button: {
     width: 300,
@@ -154,7 +153,7 @@ export const styles = StyleSheet.create({
   },
   textButton: {
     fontSize: 30,
-    textAlign: 'center',
+    textAlign: "center",
     fontFamily: theme.fonts.font6_semiBold,
     color: theme.colors.color6,
     marginTop: 7,
@@ -251,7 +250,6 @@ export const styles = StyleSheet.create({
     top: -10,
     borderRadius: 12,
   },
-
 
   // timeText: {
   //   flex: 1,
