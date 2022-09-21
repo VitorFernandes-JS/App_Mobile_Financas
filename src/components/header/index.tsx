@@ -6,7 +6,7 @@ import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./styles";
 import { Avatar } from "../Avatar";
 
-import { BackButton } from "../BackButton"
+import { BackButton } from "../BackButton";
 
 interface IHeaderProps {
   token: string;
@@ -22,7 +22,7 @@ export function Header({ token }: IHeaderProps) {
   function handleHome() {
     navigation.navigate("Home", { token });
   }
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.viewBackButton}>

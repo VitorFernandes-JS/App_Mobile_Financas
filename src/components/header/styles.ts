@@ -12,10 +12,10 @@ export const styles = StyleSheet.create({
     margin: -10,
   },
   viewAvatar: {
-    top: 60
+    top: 60,
   },
   viewBackButton: {
     top: 87,
-    marginLeft: 170
-  }
+    marginLeft: 170,
+  },
 });
