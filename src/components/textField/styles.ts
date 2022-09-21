@@ -113,5 +113,5 @@ export const styles = StyleSheet.create({
   viewDropDownPicker: {
     top: -208,
     marginLeft: -100,
-  }
+  },
 });
