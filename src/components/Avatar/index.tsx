@@ -38,7 +38,7 @@ export function Avatar() {
   return (
     <SafeAreaView>
       <RectButton style={styles.buttonAvatar} onPress={handleProfile}>
-      <Image source={{ uri: profile.picture }} style={[ styles.avatar ]} />
+        <Image source={{ uri: profile.picture }} style={[styles.avatar]} />
       </RectButton>
     </SafeAreaView>
   );
