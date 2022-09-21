@@ -27,7 +27,6 @@ export function ModalWallet({ text }: IModalPattern) {
               setVisible(false);
             }}
           >
-            
             <AntDesign name="closecircleo" color="red" size={25} />
           </RectButton>
         </SafeAreaView>
