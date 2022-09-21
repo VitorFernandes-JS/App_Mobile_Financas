@@ -18,12 +18,10 @@ export function FIIS({ token }: IVideosProps) {
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>FIIS </Text>
-        <ModalPattern
-          text={"Aqui você pode ver os vídeos sobre FIIS!"}
-        />
+        <ModalPattern text={"Aqui você pode ver os vídeos sobre FIIS!"} />
       </SafeAreaView>
-      <BoxVideos/>
-      
+      <BoxVideos />
+
       <SafeAreaView style={styles.boxVideo}>
         <SafeAreaView style={styles.boxStart}>
           <Text style={styles.start}>COMECE AQUI! </Text>
