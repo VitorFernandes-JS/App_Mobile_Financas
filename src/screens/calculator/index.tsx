@@ -206,7 +206,7 @@ export function Calculator() {
         setItems={setItems2}
       />
 
-<SafeAreaView style={styles.bodyInitialValue}>
+      <SafeAreaView style={styles.bodyInitialValue}>
         <SafeAreaView style={styles.viewInitialValue}>
           <Text style={styles.initialValue}>Valor Inicial</Text>
         </SafeAreaView>
