@@ -43,7 +43,7 @@ export function BoxVideos() {
   }
 
   function handleEconomy() {
-    navigation.navigate("Economy", { token })
+    navigation.navigate("Economy", { token });
   }
 
   return (
