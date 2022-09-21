@@ -37,5 +37,12 @@ export const styles = StyleSheet.create({
     webView: {
         width: "100%",
         height: "100%",
+    },
+    img: {
+        width: 160,
+        height: 160,
+        resizeMode: 'contain',
+        borderRadius: 15,
+        
     }
 });
