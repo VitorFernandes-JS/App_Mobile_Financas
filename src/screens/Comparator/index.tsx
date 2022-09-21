@@ -220,7 +220,7 @@ export function Comparator() {
           marginLeft: 230,
           backgroundColor: theme.colors.color5,
           borderRadius: 20,
-          top: -132
+          top: -132,
         }}
         translation={{
           PLACEHOLDER: "Selecione",
@@ -267,7 +267,7 @@ export function Comparator() {
           marginLeft: 230,
           backgroundColor: theme.colors.color5,
           borderRadius: 20,
-          top: -82
+          top: -82,
         }}
         translation={{
           PLACEHOLDER: "Selecione",
