@@ -12,7 +12,7 @@ interface ITransactionWallet {
 }
 
 interface IBoxExtractProps {
-  transactionWallet: ITransactionWallet
+  transactionWallet: ITransactionWallet;
 }
 
 export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
@@ -22,7 +22,7 @@ export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
         <Text style={styles.category}>{transactionWallet.category}</Text>
         <Text style={styles.description}>{transactionWallet.description}</Text>
         <Text style={styles.value}>{transactionWallet.value}</Text>
-        <SafeAreaView style={styles.line}/>
+        <SafeAreaView style={styles.line} />
       </SafeAreaView>
     </SafeAreaView>
   );
