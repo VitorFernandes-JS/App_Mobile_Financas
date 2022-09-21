@@ -67,7 +67,7 @@ export function Indexes() {
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
-    
+
       <SafeAreaView style={styles.viewSelicAndIpcaAndCdi}>
         <SafeAreaView style={styles.showSelic}>
           <Text style={styles.titleSelic}>TAXA SELIC</Text>
@@ -122,9 +122,7 @@ export function Indexes() {
         <SafeAreaView style={styles.box}></SafeAreaView>
       </SafeAreaView>
 
-      <SafeAreaView style={styles.boxGraphics}>
-
-      </SafeAreaView>
+      <SafeAreaView style={styles.boxGraphics}></SafeAreaView>
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Índices </Text>
@@ -132,7 +130,7 @@ export function Indexes() {
           text={"Aqui você pode ver os principais índices do mercado"}
         />
       </SafeAreaView>
-      
+
       <Baseboard token={token} />
     </SafeAreaView>
   );

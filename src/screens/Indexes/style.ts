@@ -11,11 +11,11 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font7_bold,
     fontSize: 38,
     color: theme.colors.color4,
-    top: 33
+    top: 33,
   },
   viewMenuModal: {
     flexDirection: "row",
-    top: -380
+    top: -380,
   },
   viewSelicAndIpcaAndCdi: {
     flexDirection: "row",
