@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
     height: 37,
     borderRadius: 30,
     top: -240,
-    marginLeft: 187
+    marginLeft: 187,
   },
   imgStar: {
     width: 37,
