@@ -31,5 +31,5 @@ export const styles = StyleSheet.create({
   },
   category: {
     color: theme.colors.color4,
-  }
+  },
 });
