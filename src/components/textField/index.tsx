@@ -8,8 +8,8 @@ import DropDownPicker from "react-native-dropdown-picker";
 interface ITextFieldProps {
   setValue: (arg1: any) => void;
   setCategory: (arg2: any) => void;
-  category: string;
   setDescription: (arg3: any) => void;
+  category: string;
 }
 
 export function TextField({ 
