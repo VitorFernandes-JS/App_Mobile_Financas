@@ -49,9 +49,7 @@ export function InformationsGoals() {
         </SafeAreaView>
       </SafeAreaView>
 
-      <SafeAreaView style={styles.bodyGrafic}>
-
-      </SafeAreaView>
+      <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>
 
       <Baseboard token={token} />
     </SafeAreaView>
