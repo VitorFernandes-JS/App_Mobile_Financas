@@ -22,8 +22,8 @@ export function MobileApp({ token }: IVideosProps) {
           text={"Aqui você consegue ver vídeos sobre o aplicativo!"}
         />
       </SafeAreaView>
-      <BoxVideos/>
-      
+      <BoxVideos />
+
       <SafeAreaView style={styles.boxVideo}>
         <SafeAreaView style={styles.boxStart}>
           <Text style={styles.start}>COMECE AQUI! </Text>
