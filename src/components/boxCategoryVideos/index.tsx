@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, Image } from "react-native";
+import { SafeAreaView, Text, Image, TouchableOpacity } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 
@@ -11,9 +11,9 @@ interface IBoxCategoryVideos {
 export function BoxCategoryVideos({ text, source }: IBoxCategoryVideos) {
   return (
     <SafeAreaView style={styles.body}>
-      <RectButton>
-        <Image style={styles.img} source={source.cover} />
-      </RectButton>
+      <TouchableOpacity>
+        <Image resizeMode="contain" style={styles.img} source={source.cover} />
+      </TouchableOpacity>
       <SafeAreaView style={styles.boxText}>
         <Text style={styles.text}>{text}</Text>
       </SafeAreaView>

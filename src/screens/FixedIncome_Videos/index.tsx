@@ -22,8 +22,8 @@ export function FixedIncome({ token }: IVideosProps) {
       </SafeAreaView>
 
       <SafeAreaView style={styles.viewBoxCategoryVideos}>
-        <BoxCategoryVideos text="Video 1" source={Cover_Fixed_Income[0]} />
-        <BoxCategoryVideos text="Video 2" source={Cover_Fixed_Income[1]} />
+        <BoxCategoryVideos text="Como fazer renda extra na Internet" source={Cover_Fixed_Income[0]} />
+        <BoxCategoryVideos text="Video" source={Cover_Fixed_Income[1]} />
         <BoxCategoryVideos text="Video 3" source={Cover_Fixed_Income[2]} />
         <BoxCategoryVideos text="Video 4" source={Cover_Fixed_Income[3]} />
         <BoxCategoryVideos text="Video 5" source={Cover_Fixed_Income[4]} />

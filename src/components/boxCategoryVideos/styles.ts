@@ -16,6 +16,14 @@ export const styles = StyleSheet.create({
     top: 65,
     marginBottom: 20,
   },
+  img: {
+    width: 165,
+    height: 130,
+    left: 7,
+    borderRadius: 10,
+    position: "absolute",
+    top: 10,
+  },
   boxText: {
     width: 160,
     height: 40,
@@ -24,6 +32,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     left: 10,
     top: 150,
+    position: "absolute",
     backgroundColor: theme.colors.color6,
     shadowOpacity: 0.5,
     shadowOffset: { width: 1, height: 1 },
@@ -33,15 +42,10 @@ export const styles = StyleSheet.create({
     color: theme.colors.color1,
     fontSize: 12,
     margin: 5,
+    textAlign: "center",
   },
   webView: {
     width: "100%",
     height: "100%",
-  },
-  img: {
-    width: 160,
-    height: 160,
-    resizeMode: "contain",
-    borderRadius: 15,
   },
 });
