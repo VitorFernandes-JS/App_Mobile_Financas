@@ -23,18 +23,30 @@ export function Actions({ token }: IVideosProps) {
       </SafeAreaView>
 
       <SafeAreaView style={styles.viewBoxCategoryVideos}>
-          <ScrollView contentContainerStyle={styles.contentScollView}>
+        <ScrollView contentContainerStyle={styles.contentScollView}>
           <BoxCategoryVideos
-            text="Como fazer renda extra na Internet"
+            text="O que fazer com 1000 reais?"
             source={Cover_Actions[0]}
           />
-          <BoxCategoryVideos text="3 formas de ganhar dinheiro EXTRA!" source={Cover_Actions[1]} />
-          <BoxCategoryVideos text="Faça uma renda extra com o jogo Axie Infinity!" source={Cover_Actions[2]} />
-          <BoxCategoryVideos text="Qual é o melhor banco digital da atualidade?" source={Cover_Actions[3]} />
-          <BoxCategoryVideos text="Aplicativos que te dão dinheiro para fazer tarefas!" source={Cover_Actions[4]} />
-          </ScrollView>
-        </SafeAreaView>
-      
+          <BoxCategoryVideos
+            text="5 hábitos dos milionários"
+            source={Cover_Actions[1]}
+          />
+          <BoxCategoryVideos
+            text="Como começar a investir?"
+            source={Cover_Actions[2]}
+          />
+          <BoxCategoryVideos
+            text="5 erros que te deixam mais pobre!"
+            source={Cover_Actions[3]}
+          />
+          <BoxCategoryVideos
+            text="Investindo em ações na prática!"
+            source={Cover_Actions[4]}
+          />
+        </ScrollView>
+      </SafeAreaView>
+
       <Baseboard token={token} />
     </SafeAreaView>
   );
