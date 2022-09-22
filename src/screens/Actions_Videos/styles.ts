@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   boxVideo: {
     width: 335,
-    height: 200,
+    height: 205,
     top: -95,
     backgroundColor: theme.colors.color5,
     borderRadius: 15,
@@ -38,5 +38,19 @@ export const styles = StyleSheet.create({
     color: theme.colors.color6,
     textAlign: "center",
     fontSize: 16,
+  },
+  contentScollView: {
+    flexDirection: "row",
+    width: 380,
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    top: 5
+  },
+  viewBoxCategoryVideos: {
+    flexDirection: "row",
+    width: 380,
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    top: 65,
   },
 });

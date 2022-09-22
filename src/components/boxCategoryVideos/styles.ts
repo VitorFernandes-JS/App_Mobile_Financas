@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   body: {
-    width: 180,
+    width: 185,
     height: 200,
     backgroundColor: theme.colors.color5,
     borderRadius: 15,
@@ -19,10 +19,10 @@ export const styles = StyleSheet.create({
   img: {
     width: 165,
     height: 130,
-    left: 7,
-    borderRadius: 10,
+    left: 9,
     position: "absolute",
     top: 10,
+    overflow: 'hidden',
   },
   boxText: {
     width: 160,
@@ -38,14 +38,10 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 1 },
   },
   text: {
-    fontFamily: theme.fonts.font4_regular_inter,
+    fontFamily: theme.fonts.font5_medium_inter,
     color: theme.colors.color1,
     fontSize: 12,
     margin: 5,
     textAlign: "center",
-  },
-  webView: {
-    width: "100%",
-    height: "100%",
   },
 });

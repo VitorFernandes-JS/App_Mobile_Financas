@@ -39,6 +39,13 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
   },
+  contentScollView: {
+    flexDirection: "row",
+    width: 380,
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    top: 5
+  },
   viewBoxCategoryVideos: {
     flexDirection: "row",
     width: 380,
