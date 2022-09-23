@@ -10,15 +10,19 @@ import { Cover_Actions } from "../../utils/cover";
 
 interface IVideosProps {
   token: string;
+  route: any;
+  category: string;
 }
 
-export function Actions({ token }: IVideosProps) {
+export function CategoryVideos({ token, route }: IVideosProps) {
+  const { navigation, category } = route.params
+  console.warn(navigation, category)
   return (
     <SafeAreaView style={styles.container}>
       <Header token={token} />
 
       <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Ações </Text>
+        <Text style={styles.title}>{category}</Text>
         <ModalPattern text={"Aqui você encontra vídeos sobre ações!"} />
       </SafeAreaView>
 

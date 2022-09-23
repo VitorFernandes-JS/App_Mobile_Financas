@@ -16,7 +16,7 @@ import { Videos } from "../screens/Videos";
 import { Loan } from "../screens/Loan";
 import { Favorite } from "../screens/Favorite";
 import { FixedIncome } from "../screens/FixedIncome_Videos";
-import { Actions } from "../screens/Actions_Videos";
+import { CategoryVideos } from "../screens/Category_Videos";
 import { FIIS } from "../screens/FIIS_Videos";
 import { MobileApp } from "../screens/MobileApp_Videos";
 import { Cripto } from "../screens/Cripto_Videos";
@@ -51,7 +51,7 @@ export function AuthRoutes() {
       <Screen name="Loan" component={Loan} />
       <Screen name="Favorite" component={Favorite} />
       <Screen name="FixedIncome" component={FixedIncome} />
-      <Screen name="Actions" component={Actions} />
+      <Screen name="CategoryVideos" component={CategoryVideos} />
       <Screen name="FIIS" component={FIIS} />
       <Screen name="MobileApp" component={MobileApp} />
       <Screen name="Cripto" component={Cripto} />

@@ -15,7 +15,7 @@ export declare global {
       Loan: any;
       Favorite: any;
       FixedIncome: any;
-      Actions: any;
+      CategoryVideos: any;
       FIIS: any;
       MobileApp: any;
       Cripto: any;
