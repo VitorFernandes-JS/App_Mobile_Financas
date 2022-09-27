@@ -1,11 +1,7 @@
 import { SafeAreaView, Text, TextInput, Modal } from "react-native";
-import React, { ReactNode, useCallback, useState } from "react";
+import React,  { useCallback, useState } from "react";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
-import {
-  validateFieldNumericWithCommaAndPeriod,
-  validateFieldNumeric,
-} from "../../utils/regex";
 
 import { Calcular } from "../../utils/calculatorController";
 import { useRoute } from "@react-navigation/native";
@@ -21,11 +17,6 @@ interface IRouteParams {
   token: string;
 }
 
-interface ICalculatorProps {
-  route: any;
-  children: ReactNode;
-}
-
 export function Calculator() {
   const route = useRoute();
 
@@ -36,46 +27,6 @@ export function Calculator() {
   const [timeInput, setTimeInput] = useState(0);
   const [feesInput, setFeesInput] = useState(0);
 
-  // Estados de erro para os campos
-  // const [initialValueError, setInitialValueError] = useState(false);
-  // const [valueMonthError, setValueMonthError] = useState(false);
-  // const [timeInputError, setTimeInputError] = useState(false);
-  // const [feesInputError, setFeesInputError] = useState(false);
-
-  // const validate = () => {
-  //   if (!validateFieldNumericWithCommaAndPeriod.test(String(initialValue))) {
-  //     setInitialValueError(true);
-  //     console.warn("Valor inicial válido");
-  //   } else {
-  //     setInitialValueError(false);
-  //     console.warn("Valor inicial inválido");
-  //   }
-
-  //   if (!validateFieldNumericWithCommaAndPeriod.test(String(valueMonth))) {
-  //     setValueMonthError(true);
-  //     console.warn("Valor inicial válido");
-  //   } else {
-  //     setValueMonthError(false);
-  //     console.warn("Valor inicial inválido");
-  //   }
-
-  //   if (!validateFieldNumeric.test(String(timeInput))) {
-  //     setTimeInputError(true);
-  //     console.warn("Valor inicial válido");
-  //   } else {
-  //     setTimeInputError(false);
-  //     console.warn("Valor inicial inválido");
-  //   }
-
-  //   if (!validateFieldNumeric.test(String(feesInput))) {
-  //     setFeesInputError(true);
-  //     console.warn("Valor inicial válido");
-  //   } else {
-  //     setFeesInputError(false);
-  //     console.warn("Valor inicial inválido");
-  //   }
-  // };
-
   const [totalValue, setTotalValue] = useState(0);
   const [totalFees, setTotalFees] = useState(0);
   const [totalValueInvested, setTotalValueInvested] = useState(0);
@@ -84,7 +35,8 @@ export function Calculator() {
   const [yearsOrMounthFees, setYearsOrMounthFees] = useState("Mensal");
   const [selectTime, setSelectTime] = useState(false);
   const [selectFees, setSelectFees] = useState(false);
-  const [value, setValue] = useState("Meses");
+  const [value1, setValue1] = useState("Meses");
+  const [value2, setValue2] = useState("Mensal");
   const [items1, setItems1] = useState([
     { label: "Meses", value: "meses" },
     { label: "Anos", value: "anos" },
@@ -104,7 +56,7 @@ export function Calculator() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Calculadora </Text>
@@ -153,10 +105,10 @@ export function Calculator() {
         }}
         open={selectTime}
         onOpen={onSelectTimeOpen}
-        value={value}
+        value={value1}
         items={items1}
         setOpen={setSelectTime}
-        setValue={setValue}
+        setValue={setValue1}
         setItems={setItems1}
       />
 
@@ -199,10 +151,10 @@ export function Calculator() {
         }}
         open={selectFees}
         onOpen={onSelectFeesOpen}
-        value={value}
+        value={value2}
         items={items2}
         setOpen={setSelectFees}
-        setValue={setValue}
+        setValue={setValue2}
         setItems={setItems2}
       />
 

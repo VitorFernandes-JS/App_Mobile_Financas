@@ -46,47 +46,41 @@ export function Comparator() {
 
   const { token } = route.params as IRouteParams;
 
-  const navigation = useNavigation();
-
   const [timeInput, setTimeInput] = useState(0);
   const [ipcaRate, setIpcaRate] = useState(0);
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
 
   const [valueMonth, setValueMonth] = useState("");
-  // const [typeSelect, setTypeSelect] = useState("Selic");
   const [yearsOrMounthTime, setYearsOrMounthTime] = useState("Anos");
-
+  
   const [valueTotalIpca, setValueTotalIpca] = useState(0);
   const [valueTotalSelic, setValueTotalSelic] = useState(0);
   const [valueTotalSavings, setValueTotalSavings] = useState(0);
   const [valueTotalCdi, setValueTotalCdi] = useState(0);
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("Meses");
   const [modal, setModal] = useState(false);
+
+  const [selectTime, setSelectTime] = useState(false);
+  const [selectType, setSelectType] = useState(false);
+  
+  const [value1, setValue1] = useState("Meses");
+  const [value2, setValue2] = useState("Mensal");
   const [items1, setItems1] = useState([
     { label: "Meses", value: "meses" },
     { label: "Anos", value: "anos" },
   ]);
   const [items2, setItems2] = useState([
-    { label: "Ipca", value: "ipca" },
+    { label: "IPCA", value: "ipca" },
     { label: "Selic", value: "selic" },
     { label: "CDI", value: "cdi" },
-    { label: "Poupança", value: "savings" },
+    { label: "Poupança", value: "poupanca" },
   ]);
-  const [items1Open, setItems1Open] = useState(false);
-  const [items2Open, setItems2Open] = useState(false);
-
-  const onItems1Open = useCallback(() => {
-    setItems2Open(false);
+  const onSelectTimeOpen = useCallback(() => {
+    setSelectType(false);
   }, []);
-
-  const onItems2Open = useCallback(() => {
-    setItems1Open(false);
+  
+  const onSelectTypeOpen = useCallback(() => {
+    setSelectTime(false);
   }, []);
-
-  function handleHome() {
-    navigation.navigate("Home", { token });
-  }
 
   useEffect(() => {
     //API SELIC
@@ -108,13 +102,9 @@ export function Comparator() {
 
   const latestSelicRate = selicRate[selicRate.length - 1];
 
-  // Opções dos select
-  const time = ["Meses", "Anos"];
-  const type = ["Selic", "IPCA", "CDI", "Poupança"];
-
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Comparador </Text>
@@ -236,7 +226,7 @@ export function Comparator() {
           borderRadius: 10,
           marginLeft: 230,
           borderColor: theme.colors.color5,
-          top: 100,
+          top: -210,
         }}
         textStyle={{
           fontSize: 10,
@@ -250,12 +240,12 @@ export function Comparator() {
           width: 15,
           height: 15,
         }}
-        open={items1Open}
-        onOpen={onItems1Open}
-        value={value}
+        open={selectTime}
+        onOpen={onSelectTimeOpen}
+        value={value1}
         items={items1}
-        setOpen={setOpen}
-        setValue={setValue}
+        setOpen={setSelectTime}
+        setValue={setValue1}
         setItems={setItems1}
       />
 
@@ -279,11 +269,11 @@ export function Comparator() {
         dropDownContainerStyle={{
           backgroundColor: theme.colors.color6,
           width: 100,
-          height: 80,
+          height: 140,
           borderRadius: 10,
           marginLeft: 230,
           borderColor: theme.colors.color5,
-          top: 100,
+          top: -40,
         }}
         textStyle={{
           fontSize: 10,
@@ -297,13 +287,13 @@ export function Comparator() {
           width: 15,
           height: 15,
         }}
-        open={items1Open}
-        onOpen={onItems1Open}
-        value={value}
-        items={items1}
-        setOpen={setOpen}
-        setValue={setValue}
-        setItems={setItems1}
+        open={selectType}
+        onOpen={onSelectTypeOpen}
+        value={value2}
+        items={items2}
+        setOpen={setSelectType}
+        setValue={setValue2}
+        setItems={setItems2}
       />
 
       <SafeAreaView>

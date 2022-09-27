@@ -19,7 +19,7 @@ export function CategoryVideos({ token, route }: IVideosProps) {
   console.warn(navigation, category)
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>{category}</Text>
