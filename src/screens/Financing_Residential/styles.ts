@@ -5,18 +5,18 @@ export const styles = StyleSheet.create({
   container: {
     width: "100%",
     alignItems: "center",
-    flexDirection: "column",
   },
   title: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 38,
     top: 35,
     color: theme.colors.color4,
+    marginBottom: 100,
   },
   viewMenuModal: {
     flexDirection: "row",
   },
-  bodyInitialValue: {
+  bodyResidentialValue: {
     alignItems: "center",
     flexDirection: "column",
     width: 300,
@@ -28,16 +28,16 @@ export const styles = StyleSheet.create({
     top: -40,
     borderRadius: 12,
   },
-  viewInitialValue: {
-    width: 120,
+  viewResidentialValue: {
+    width: 200,
     height: 30,
     backgroundColor: theme.colors.color3,
     borderRadius: 10,
-    marginLeft: -120,
+    marginLeft: -40,
     zIndex: 3,
     top: 13,
   },
-  initialValue: {
+  residentialValue: {
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular,
     color: theme.colors.color1,
@@ -45,7 +45,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     margin: 2,
   },
-  viewInitialValue1: {
+  viewResidentialValue1: {
     width: 40,
     height: 30,
     backgroundColor: theme.colors.color2,
@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 1.5, height: 1.5 },
     top: 10,
   },
-  initialValue1: {
+  residentialValue1: {
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular,
     color: theme.colors.color1,
@@ -142,89 +142,6 @@ export const styles = StyleSheet.create({
     color: theme.colors.color1,
     fontFamily: theme.fonts.font4_regular_inter,
     marginLeft: 15,
-  },
-  button: {
-    width: 300,
-    height: 50,
-    backgroundColor: theme.colors.color2,
-    borderRadius: 10,
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-  },
-  textButton: {
-    fontSize: 30,
-    textAlign: "center",
-    fontFamily: theme.fonts.font6_semiBold,
-    color: theme.colors.color6,
-    marginTop: 7,
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-  },
-  bodyValueMonth2: {
-    alignItems: "center",
-    flexDirection: "column",
-    width: 300,
-    height: 85,
-    backgroundColor: theme.colors.color5,
-    zIndex: 0,
-    shadowOpacity: 0.5,
-    shadowOffset: { width: 1.5, height: 1.5 },
-    top: 75,
-    borderRadius: 12,
-  },
-  viewModal: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: 280,
-    height: 250,
-    backgroundColor: theme.colors.color6,
-    borderRadius: 20,
-    left: 66.5,
-    top: 250,
-    shadowColor: "#1a1a1a",
-    shadowOpacity: 0.7,
-    shadowRadius: 14,
-  },
-  total: {
-    fontFamily: theme.fonts.font7_bold,
-    fontSize: 30,
-    textAlign: "center",
-    marginBottom: 10,
-    top: 1.5,
-  },
-  line: {
-    width: 280,
-    height: 1.5,
-    backgroundColor: theme.colors.color3,
-    top: -9.5,
-  },
-  box1: {
-    height: 35,
-    width: 240,
-    backgroundColor: theme.colors.color2,
-    borderRadius: 8,
-    margin: 7,
-  },
-  box2: {
-    height: 35,
-    width: 240,
-    backgroundColor: theme.colors.color3,
-    borderRadius: 8,
-    margin: 7,
-  },
-  box3: {
-    height: 35,
-    width: 240,
-    backgroundColor: theme.colors.color4,
-    borderRadius: 8,
-    margin: 7,
-  },
-  textBox: {
-    padding: 8.5,
-    color: "#000",
-  },
-  closeModalIcon: {
-    top: -7,
   },
   bodyValueTime: {
     alignItems: "center",

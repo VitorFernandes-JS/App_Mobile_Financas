@@ -10,7 +10,8 @@ export declare global {
       Wallet: any;
       WalletInvestment: any;
       Goals: any;
-      Financing: any;
+      Financing_Vechule: any;
+      Financing_Residential: any;
       Videos: any;
       Loan: any;
       Favorite: any;

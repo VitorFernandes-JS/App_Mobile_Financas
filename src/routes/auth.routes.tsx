@@ -11,7 +11,8 @@ import { Profile } from "../screens/Profile";
 import { Wallet } from "../screens/Wallet";
 import { WalletInvestment } from "../screens/Wallet_Investment";
 import { Goals } from "../screens/Goals";
-import { Financing } from "../screens/Financing";
+import { Financing_Vechule } from "../screens/Financing_Vechule";
+import { Financing_Residential } from "../screens/Financing_Residential";
 import { Videos } from "../screens/Videos";
 import { Loan } from "../screens/Loan";
 import { Favorite } from "../screens/Favorite";
@@ -47,7 +48,8 @@ export function AuthRoutes() {
       <Screen name="WalletInvestment" component={WalletInvestment} />
       <Screen name="Goals" component={Goals} />
       <Screen name="Videos" component={Videos} />
-      <Screen name="Financing" component={Financing} />
+      <Screen name="Financing_Vechule" component={Financing_Vechule} />
+      <Screen name="Financing_Residential" component={Financing_Residential} />
       <Screen name="Loan" component={Loan} />
       <Screen name="Favorite" component={Favorite} />
       <Screen name="FixedIncome" component={FixedIncome} />

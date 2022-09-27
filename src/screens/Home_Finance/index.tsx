@@ -19,16 +19,20 @@ export function Home_Finance() {
   const { token } = route.params as IRouteParams;
   const navigation = useNavigation();
 
-  function handleFinancing() {
-    navigation.navigate("Financing", { token });
+  function handleFinancing_Residential() {
+    navigation.navigate("Financing_Residential", { token });
+  }
+
+  function handleFinancing_Vechule() {
+    navigation.navigate("Financing_Vechule", { token });
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
       <Text style={styles.title}>Escolha: </Text>
 
-      <RectButton style={styles.iconCalculator1}>
+      <RectButton style={styles.iconCalculator1} onPress={handleFinancing_Residential}>
         <Image source={HomeImg} style={styles.icon} />
         <Text style={styles.textCalculator}>
           Financiamento {`\n`}
@@ -36,7 +40,7 @@ export function Home_Finance() {
         </Text>
       </RectButton>
 
-      <RectButton style={styles.iconCalculator2} onPress={handleFinancing}>
+      <RectButton style={styles.iconCalculator2} onPress={handleFinancing_Vechule}>
         <Image source={CarImg} style={styles.icon} />
         <Text style={styles.textCalculator}>
           Financiamento {`\n`}

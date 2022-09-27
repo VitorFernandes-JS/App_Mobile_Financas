@@ -11,14 +11,14 @@ interface IRouteParams {
   token: string;
 }
 
-export function Financing() {
+export function Financing_Vechule() {
   const route = useRoute();
 
   const { token } = route.params as IRouteParams;
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Financiamento </Text>
