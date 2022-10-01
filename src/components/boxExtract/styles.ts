@@ -27,9 +27,17 @@ export const styles = StyleSheet.create({
     width: 1,
     height: 100,
     backgroundColor: theme.colors.color5,
-    right: 90,
+    right: 130,
   },
   category: {
     color: theme.colors.color4,
+    left: 15
   },
+  description: {
+    color: theme.colors.color4,
+    left: 15
+  },
+  value: {
+    left: 55
+  }
 });

@@ -20,14 +20,14 @@ export function TextField({
   const [open, setOpen] = useState(false);
   const [value1, setValue1] = useState("Salário");
   const [items1, setItems1] = useState([
-    { label: "Salário", value: "salario" },
-    { label: "Bonificação", value: "bonificacao" },
-    { label: "Restaurante", value: "restaurante" },
+    { label: "Salário", value: "Salario" },
+    { label: "Bonificação", value: "Bonificacao" },
+    { label: "Restaurante", value: "Restaurante" },
     { label: "Viagem", value: "Viagem" },
     { label: "Passeio", value: "Passeio" },
-    { label: "Farmácia", value: "farmacia" },
-    { label: "Mercado", value: "mercado" },
-    { label: "Outros", value: "outros" },
+    { label: "Farmácia", value: "Farmacia" },
+    { label: "Mercado", value: "Mercado" },
+    { label: "Outros", value: "Outros" },
   ]);
 
   useEffect(() => {
