@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, Image } from "react-native";
+import { SafeAreaView, Text} from "react-native";
 import { styles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -17,7 +17,7 @@ export function InformationsGoals() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       {/* Campo 1*/}
       <SafeAreaView style={styles.bodyOne}>

@@ -24,6 +24,7 @@ export function Goals() {
   const navigation = useNavigation();
   const { token } = route.params as IRouteParams;
 
+
   function handleInformationsGoals() {
     navigation.navigate("InformationsGoals", { token });
   }
@@ -34,9 +35,10 @@ export function Goals() {
   const [goal, setGoal] = useState("");
   const [value, setValue] = useState(0);
 
+
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Metas </Text>
         <ModalPattern
@@ -78,6 +80,7 @@ export function Goals() {
               style={styles.textInput1}
               placeholder="Digite o nome da meta:"
               placeholderTextColor={theme.colors.color4}
+              onChangeText={(text) => setGoal(text)}
             ></TextInput>
           </SafeAreaView>
 
@@ -119,6 +122,7 @@ export function Goals() {
               style={styles.textInput2}
               placeholder="Digite um valor:"
               placeholderTextColor={theme.colors.color4}
+              onChangeText={(text) => setValue(Number(text))}
             ></TextInput>
           </SafeAreaView>
 

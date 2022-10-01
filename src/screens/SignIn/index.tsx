@@ -8,12 +8,15 @@ import IllustrationImg from "../../assets/illustration.png";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
 
+
 type AuthResponse = {
   type: string;
   params: {
     access_token: string;
   };
 };
+
+const { IS_PRODUCTION } = process.env;
 
 export function SignIn() {
   const navigation = useNavigation();
@@ -30,10 +33,17 @@ export function SignIn() {
       authUrl,
     })) as AuthResponse;
 
+    const urlLogin = IS_PRODUCTION === "true" ? "https://bestfinance.herokuapp.com" : "http://localhost:3335";
+
+    
+
     if (type === "success") {
       navigation.navigate("Home", { token: params.access_token });
     }
   }
+
+  console.warn(IS_PRODUCTION);
+
 
   return (
     <SafeAreaView style={styles.container}>
