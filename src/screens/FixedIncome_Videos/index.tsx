@@ -14,7 +14,7 @@ interface IVideosProps {
 export function FixedIncome({ token }: IVideosProps) {
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Renda Fixa </Text>

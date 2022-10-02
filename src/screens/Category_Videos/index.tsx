@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styles } from "./styles";
 import { SafeAreaView, ScrollView, Text } from "react-native";
 
@@ -6,7 +6,8 @@ import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 import { BoxCategoryVideos } from "../../components/boxCategoryVideos";
-import { Cover_Actions } from "../../utils/cover";
+import { allCovers, Cover_Actions } from "../../utils/cover";
+import { apiFinances } from "../../services";
 
 interface IVideosProps {
   token: string;
@@ -14,9 +15,42 @@ interface IVideosProps {
   category: string;
 }
 
+interface IVideo {
+  id: string;
+  category: string;
+  url: string;  
+  images: any
+}
+
+type IVideoKey = {
+  [key: string]: any[] | undefined;
+};
+
 export function CategoryVideos({ token, route }: IVideosProps) {
   const { navigation, category } = route.params
-  console.warn(navigation, category)
+  const [videos, setVideos] = useState<IVideo[]>([]);
+
+  useEffect(() => {
+    async function getVideos() {
+      await apiFinances.get('/videos')
+        .then(response => { 
+          console.log("")
+          const filteredVideos = response.data.filter((video: any) => video.category === category)
+          const images = (allCovers as any)[category][0]
+          const videosWithImages = filteredVideos.map((video: Omit<IVideo, 'images'>, index: number) => {
+            return {
+              ...video,
+              images: images[index]
+            }
+          })
+          setVideos(videosWithImages)
+         })
+        .catch((error) => { console.log("METHOD GET VIDEOS ERROR: ", error) })
+    }
+    getVideos();
+  }, []);
+
+  
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -28,26 +62,13 @@ export function CategoryVideos({ token, route }: IVideosProps) {
 
       <SafeAreaView style={styles.viewBoxCategoryVideos}>
         <ScrollView contentContainerStyle={styles.contentScollView}>
-          <BoxCategoryVideos
-            text="O que fazer com 1000 reais?"
-            source={Cover_Actions[0]}
-          />
-          <BoxCategoryVideos
-            text="5 hábitos dos milionários"
-            source={Cover_Actions[1]}
-          />
-          <BoxCategoryVideos
-            text="Como começar a investir?"
-            source={Cover_Actions[2]}
-          />
-          <BoxCategoryVideos
-            text="5 erros que te deixam mais pobre!"
-            source={Cover_Actions[3]}
-          />
-          <BoxCategoryVideos
-            text="Investindo em ações na prática!"
-            source={Cover_Actions[4]}
-          />
+          {videos.map((video: IVideo) => (
+            <BoxCategoryVideos
+              key={video.id}
+              text="O que fazer com 1000 reais?"
+              source={video.images}
+            />
+          ))}
         </ScrollView>
       </SafeAreaView>
 
