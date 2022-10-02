@@ -16,6 +16,8 @@ export const Cover_Fixed_Income = [
   },
 ];
 
+
+
 export const Cover_Actions = [
   {
     cover: require("../assets/capas_acoes/capa1.jpg"),
@@ -102,3 +104,12 @@ export const Cover_Economy = [
     cover: require("../assets/capas_economia/capa8.jpg"),
   },
 ];
+
+export const allCovers = {
+  'Ações': [Cover_Actions],
+  'Renda Fixa': [Cover_Fixed_Income],
+  'FIIS': [Cover_FIIS],
+  'Criptomoeda': [Cover_Criptos],
+  'Economia': [Cover_Economy],
+  // TODO: falta colocar de aplicativos
+}

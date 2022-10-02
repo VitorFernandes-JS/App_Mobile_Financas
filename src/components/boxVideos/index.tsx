@@ -23,27 +23,27 @@ export function BoxVideos() {
   const { token } = route.params as IRouteParams;
 
   function handleFixedIncome() {
-    navigation.navigate("CategoryVideos", { token, navigation: 'FixedIncome', category: 'Renda Fixa ' });
+    navigation.navigate("CategoryVideos", { token, navigation: 'FixedIncome', category: 'Renda Fixa' });
   }
 
   function handleActions() {
-    navigation.navigate("CategoryVideos", { token, navigation: 'Actions', category: 'Ações ' });
+    navigation.navigate("CategoryVideos", { token, navigation: 'Actions', category: 'Ações' });
   }
 
   function handleFIIS() {
-    navigation.navigate("CategoryVideos", { token, navigation: 'FIIS', category: 'FIIS ' });
+    navigation.navigate("CategoryVideos", { token, navigation: 'FIIS', category: 'FIIS' });
   }
 
   function handleMobileApp() {
-    navigation.navigate("CategoryVideos", { token, navigation: 'MobileApp', category: 'Aplicativo ' });
+    navigation.navigate("CategoryVideos", { token, navigation: 'MobileApp', category: 'Aplicativo' });
   }
 
   function handleCripto() {
-    navigation.navigate("CategoryVideos", { token, navigation: 'Cripto', category: 'Criptomoeda ' });
+    navigation.navigate("CategoryVideos", { token, navigation: 'Cripto', category: 'Criptomoeda' });
   }
 
   function handleEconomy() {
-    navigation.navigate("CategoryVideos", { token, navigation: 'Economy', category: 'Economia ' });
+    navigation.navigate("CategoryVideos", { token, navigation: 'Economy', category: 'Economia' });
   }
 
   return (

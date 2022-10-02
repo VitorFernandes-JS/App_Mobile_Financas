@@ -7,7 +7,7 @@ import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
 import IllustrationImg from "../../assets/illustration.png";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
-
+import { apiFinances } from "../../services";
 
 type AuthResponse = {
   type: string;
@@ -15,8 +15,6 @@ type AuthResponse = {
     access_token: string;
   };
 };
-
-const { IS_PRODUCTION } = process.env;
 
 export function SignIn() {
   const navigation = useNavigation();
@@ -33,16 +31,25 @@ export function SignIn() {
       authUrl,
     })) as AuthResponse;
 
-    const urlLogin = IS_PRODUCTION === "true" ? "https://bestfinance.herokuapp.com" : "http://localhost:3335";
-
     
+    const response = await fetch(
+      `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${params.access_token}`
+    );
+
+    const userInfo = await response.json();
+
+    await apiFinances.post('/users', { email: userInfo.email, name: userInfo.name })
+      .catch((error) => { console.log("METHOD POST USERS ERROR: ", error) })
+    
+    const authToken = await apiFinances.post<string>('/users/authenticate', { body: {email: userInfo.email} })
+      .catch((error) => { console.log("METHOD POST AUTHENTICATE ERROR: ", error) })
+    
+    apiFinances.defaults.headers.common['Authorization'] = 'Bearer ' + authToken?.data || 'no token';
 
     if (type === "success") {
       navigation.navigate("Home", { token: params.access_token });
     }
   }
-
-  console.warn(IS_PRODUCTION);
 
 
   return (
