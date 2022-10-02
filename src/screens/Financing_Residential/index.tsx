@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styles } from "./styles";
 import { SafeAreaView, Text, TextInput } from "react-native";
 import { useRoute } from "@react-navigation/native";
@@ -6,6 +6,7 @@ import { useRoute } from "@react-navigation/native";
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
+import { RectButton } from "react-native-gesture-handler";
 
 interface IRouteParams {
   token: string;
@@ -15,6 +16,7 @@ export function Financing_Residential() {
   const route = useRoute();
 
   const { token } = route.params as IRouteParams;
+  const [modal, setModal] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -108,6 +110,17 @@ export function Financing_Residential() {
           />
         </SafeAreaView>
       </SafeAreaView>
+
+      <RectButton
+        style={styles.button}
+      // onPress={() => {
+      //   Financing_Residential({
+      //     setModal,
+      //   });
+      // }}
+      >
+        <Text style={styles.textButton}>CALCULAR</Text>
+      </RectButton>
 
       <Baseboard token={token} />
     </SafeAreaView>

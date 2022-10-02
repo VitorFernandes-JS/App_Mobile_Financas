@@ -167,4 +167,21 @@ export const styles = StyleSheet.create({
     top: -10,
     borderRadius: 12,
   },
+  button: {
+    width: 300,
+    height: 50,
+    backgroundColor: theme.colors.color2,
+    borderRadius: 10,
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
+  textButton: {
+    fontSize: 30,
+    textAlign: "center",
+    fontFamily: theme.fonts.font6_semiBold,
+    color: theme.colors.color6,
+    marginTop: 7,
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+  },
 });
