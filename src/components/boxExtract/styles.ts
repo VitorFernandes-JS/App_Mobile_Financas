@@ -1,5 +1,12 @@
 import { StyleSheet } from "react-native";
+import styled from "styled-components/native";
+import { RFValue } from "react-native-responsive-fontsize";
+import { Feather } from "@expo/vector-icons";
 import { theme } from "../../global/styles/theme";
+
+export const Icon = styled(Feather)`
+  font-size: ${RFValue(20)}px;
+`;
 
 export const styles = StyleSheet.create({
   container: {

@@ -1,5 +1,7 @@
 import React from "react";
 import { StatusBar } from "react-native";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./src/global/styles/theme";
 import { useFonts } from "expo-font";
 import {
   Raleway_100Thin,
@@ -55,9 +57,11 @@ export default function App() {
   }
 
   return (
-    <Background>
-      <StatusBar hidden translucent={true} />
-      <Routes />
-    </Background>
+    <ThemeProvider theme={theme}>
+      <Background>
+        <StatusBar hidden translucent={true} />
+        <Routes />
+      </Background>
+    </ThemeProvider>
   );
 }

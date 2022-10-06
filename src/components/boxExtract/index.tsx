@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, Text } from "react-native";
-import { styles } from "./styles";
+import { styles, Icon } from "./styles";
 interface ITransactionWallet {
   id: string;
   value: number;
@@ -10,15 +10,30 @@ interface ITransactionWallet {
   updated_at?: Date;
 }
 
-interface IBoxExtractProps {
+
+export interface IBoxExtractProps {
   transactionWallet: ITransactionWallet;
 }
+
+// const icons = {
+//   Salario = "dollar-sign",
+//   Bonificacao = "dollar-sign",
+//   Restaurante = "coffee",
+//   Viagem = "airplane",
+//   Passeio = "map-pin",
+//   Farmacia = "shopping-bag",
+//   Mercado = "shopping-cart",
+//   Outros = "dollar-sign",
+// }
 
 export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.box}>
         <SafeAreaView>
+          <SafeAreaView>
+            <Icon/>
+          </SafeAreaView>
           <Text style={styles.category}>{transactionWallet.category}</Text>
           <Text style={styles.description}>{transactionWallet.description}</Text>
         </SafeAreaView>
