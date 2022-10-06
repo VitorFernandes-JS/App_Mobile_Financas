@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, TextInput, Modal } from "react-native";
+import { SafeAreaView, Text, TextInput, Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import React,  { useCallback, useState } from "react";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
@@ -55,6 +55,7 @@ export function Calculator() {
   }, []);
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView style={styles.container}>
       <Header />
 
@@ -310,5 +311,6 @@ export function Calculator() {
       </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
