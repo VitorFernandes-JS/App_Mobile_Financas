@@ -1,14 +1,16 @@
-import React, { ReactNode, useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Modal,
   SafeAreaView,
   Text,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback, 
+  Keyboard
 } from "react-native";
 import axios from "axios";
 import { styles } from "./styles";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { theme } from "../../global/styles/theme";
 
@@ -69,10 +71,10 @@ export function Comparator() {
     { label: "Anos", value: "anos" },
   ]);
   const [items2, setItems2] = useState([
-    { label: "IPCA", value: "ipca" },
-    { label: "Selic", value: "selic" },
-    { label: "CDI", value: "cdi" },
-    { label: "Poupança", value: "poupanca" },
+    { label: "IPCA", value: "IPCA" },
+    { label: "Selic", value: "Selic" },
+    { label: "CDI", value: "CDI" },
+    { label: "Poupança", value: "Poupanca" },
   ]);
   const onSelectTimeOpen = useCallback(() => {
     setSelectType(false);
@@ -103,6 +105,7 @@ export function Comparator() {
   const latestSelicRate = selicRate[selicRate.length - 1];
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView style={styles.container}>
       <Header />
 
@@ -175,32 +178,12 @@ export function Comparator() {
             editable={false}
             keyboardType={"numbers-and-punctuation"}
             style={styles.textInputValueMonth}
-            placeholder="Selic"
+            placeholder={value2}
             placeholderTextColor={"#808080"}
             maxLength={4}
           />
         </SafeAreaView>
       </SafeAreaView>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => {
-          calcComparator({
-            ipcaRate,
-            selicRate: +latestSelicRate.valor,
-            timeInput,
-            valueMonth,
-            yearsOrMounthTime,
-            setValueTotalCdi,
-            setValueTotalIpca,
-            setValueTotalSavings,
-            setValueTotalSelic,
-            setModal,
-          });
-        }}
-      >
-        <Text style={styles.textButton}>COMPARAR</Text>
-      </TouchableOpacity>
 
       {/* Select do Tempo */}
       <DropDownPicker
@@ -210,7 +193,7 @@ export function Comparator() {
           marginLeft: 230,
           backgroundColor: theme.colors.color5,
           borderRadius: 20,
-          top: -132,
+          top: -83,
         }}
         translation={{
           PLACEHOLDER: "Selecione",
@@ -257,7 +240,7 @@ export function Comparator() {
           marginLeft: 230,
           backgroundColor: theme.colors.color5,
           borderRadius: 20,
-          top: -82,
+          top: -32,
         }}
         translation={{
           PLACEHOLDER: "Selecione",
@@ -428,8 +411,28 @@ export function Comparator() {
           <Text style={styles.textCalculate}>CALCULAR</Text>
         </TouchableOpacity> */}
 
-      <SafeAreaView></SafeAreaView>
+<TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          calcComparator({
+            ipcaRate,
+            selicRate: +latestSelicRate.valor,
+            timeInput,
+            valueMonth,
+            yearsOrMounthTime,
+            setValueTotalCdi,
+            setValueTotalIpca,
+            setValueTotalSavings,
+            setValueTotalSelic,
+            setModal,
+          });
+        }}
+      >
+        <Text style={styles.textButton}>COMPARAR</Text>
+      </TouchableOpacity>
+
       <Baseboard token={token} />
     </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }

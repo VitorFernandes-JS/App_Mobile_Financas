@@ -1,14 +1,15 @@
-import { SafeAreaView, Text, TextInput, Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
+// importações nativas
+import { SafeAreaView, Text, TextInput, Modal, TouchableWithoutFeedback, Keyboard } from "react-native";
 import React,  { useCallback, useState } from "react";
 import { styles } from "./styles";
 import { theme } from "../../global/styles/theme";
-
+// componentes
 import { Calcular } from "../../utils/calculatorController";
-import { useRoute } from "@react-navigation/native";
 import { Baseboard } from "../../components/baseboard";
 import { Header } from "../../components/header";
 import { ModalPattern } from "../../components/modalPattern";
-
+// libs
+import { useRoute } from "@react-navigation/native";
 import { RectButton } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
 import DropDownPicker from "react-native-dropdown-picker";
@@ -170,7 +171,7 @@ export function Calculator() {
 
         <SafeAreaView style={styles.inputInitialValue}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             onChangeText={(text) => {
               setInitialValue(Number(text));
             }}
@@ -193,7 +194,7 @@ export function Calculator() {
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             onChangeText={(text) => {
               setValueMonth(Number(text));
             }}
@@ -216,12 +217,12 @@ export function Calculator() {
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             onChangeText={(text) => {
               setTimeInput(Number(text));
             }}
             style={styles.textInputValueMonth}
-            placeholder="10"
+            placeholder="5"
             placeholderTextColor={"#808080"}
             maxLength={3}
           />
@@ -239,7 +240,7 @@ export function Calculator() {
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             onChangeText={(text) => {
               setFeesInput(Number(text));
             }}
@@ -274,7 +275,7 @@ export function Calculator() {
       <SafeAreaView>
         <Modal animationType="slide" transparent={true} visible={modal}>
           <SafeAreaView style={styles.viewModal}>
-            <Text style={styles.total}>TOTAL:</Text>
+            <Text style={styles.total}>Valores:</Text>
             <SafeAreaView style={styles.line}></SafeAreaView>
             <SafeAreaView style={styles.box1}>
               <Text style={styles.textBox}>
