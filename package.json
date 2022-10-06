@@ -13,6 +13,7 @@
     "@expo-google-fonts/inter": "^0.2.2",
     "@expo-google-fonts/rajdhani": "^0.2.2",
     "@expo-google-fonts/raleway": "^0.2.2",
+    "@hookform/resolvers": "^2.9.8",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/google-signin": "^5.0.0",
@@ -38,6 +39,7 @@
     "native-base": "^3.4.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-hook-form": "^7.36.1",
     "react-native": "0.64.3",
     "react-native-dropdown-picker": "^5.4.2",
     "react-native-gesture-handler": "^2.6.0",
@@ -52,7 +54,8 @@
     "react-native-web": "0.17.1",
     "react-native-webview": "^11.23.0",
     "react-navigation": "^4.4.4",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
