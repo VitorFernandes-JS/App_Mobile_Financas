@@ -57,7 +57,7 @@ export function CategoryVideos({ token, route }: IVideosProps) {
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>{category} </Text>
-        <ModalPattern text={"Aqui você encontra vídeos sobre ações!"} />
+        <ModalPattern text={`Aqui você encontra vídeos sobre ${category}!`} />
       </SafeAreaView>
 
       <SafeAreaView style={styles.viewBoxCategoryVideos}>

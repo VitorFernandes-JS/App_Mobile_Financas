@@ -34,6 +34,7 @@ export function TextField({
     setCategory(value1);
   }, [value1]);
 
+
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.viewValue}>

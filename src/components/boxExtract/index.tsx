@@ -15,24 +15,25 @@ export interface IBoxExtractProps {
   transactionWallet: ITransactionWallet;
 }
 
-// const icons = {
-//   Salario = "dollar-sign",
-//   Bonificacao = "dollar-sign",
-//   Restaurante = "coffee",
-//   Viagem = "airplane",
-//   Passeio = "map-pin",
-//   Farmacia = "shopping-bag",
-//   Mercado = "shopping-cart",
-//   Outros = "dollar-sign",
-// }
+const icons = {
+  Salario: "dollar-sign",
+  Bonificacao: "dollar-sign",
+  Restaurante: "coffee",
+  Viagem: "airplane",
+  Passeio: "map-pin",
+  Farmacia: "shopping-bag",
+  Mercado: "shopping-cart",
+  Outros: "dollar-sign",
+}
 
 export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
+  console.warn("transactionWallet category", transactionWallet.category);
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.box}>
         <SafeAreaView>
           <SafeAreaView>
-            <Icon/>
+            <Icon name={(icons as any)[transactionWallet.category]}/>
           </SafeAreaView>
           <Text style={styles.category}>{transactionWallet.category}</Text>
           <Text style={styles.description}>{transactionWallet.description}</Text>
