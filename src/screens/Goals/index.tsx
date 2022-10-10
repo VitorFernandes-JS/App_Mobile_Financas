@@ -30,7 +30,8 @@ const schema = Yup.object().shape({
   name: Yup.string().required("Nome é obrigatório!"),
   amount: Yup.number()
     .transform((_value, originalValue) =>
-      Number(originalValue.replace(/,/, "."))) //converte a virgula em ponto
+      Number(originalValue.replace(/,/, "."))
+    ) //converte a virgula em ponto
     .typeError("Informe um valor numérico!")
     .positive("O valor não pode ser negativo!")
     .required("O valor é obrigatório!"),
@@ -52,8 +53,9 @@ export function Goals() {
   });
 
   function handleInformationsGoals() {
-    navigation.navigate("InformationsGoals", { token }); // navega para a tela de InformationsGoals
+    navigation.navigate("InformationsGoals", { token }); 
   }
+
   async function handleRegister(form: FormData) {
     const newGoal = {
       name: form.name,
@@ -61,16 +63,16 @@ export function Goals() {
     };
 
     try {
-      const dataKey = "@mobile:transactions";
+      const dataKey = "@mobile:goals";
       const data = await AsyncStorage.getItem(dataKey); //pega os dados do storage
       const currentData = data ? JSON.parse(data) : []; // se tiver dados, converte para objeto, se não, retorna um array vazio
 
       const dataFormatted = [...currentData, newGoal]; // concatena o novo objeto com o array de objetos
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted)); // salva os dados no storage
+      console.warn(dataFormatted)
 
       reset(); // limpa os campos do formulário
-
     } catch (error) {
       console.log(error);
       Alert.alert("Não foi possível cadastrar a meta!");
@@ -84,7 +86,7 @@ export function Goals() {
         <Text style={styles.title}>Metas </Text>
         <ModalPattern
           text={
-            "Aqui você encontra as principais funcionalidades do BestFinance."
+            "Aqui você pode cadastrar suas metas, para que possamos te ajudar a alcançá-las!"
           }
         />
       </SafeAreaView>
@@ -117,7 +119,8 @@ export function Goals() {
           <Text style={styles.titleModal}>Qual é sua meta?</Text>
 
           <InputForm
-            placeholder="Nome da meta"
+            placeholderTextColor="#7a7a80"
+            placeholder="Nome da meta:"
             name="name"
             control={control}
             autoCapitalize="sentences"
@@ -142,9 +145,9 @@ export function Goals() {
           <SafeAreaView style={styles.buttonRight1}>
             <RectButton
               onPress={() => {
+                handleSubmit(handleRegister);
                 setModalSecondary(true);
                 setModalPrimary(false);
-                handleSubmit(handleRegister);
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />
@@ -159,14 +162,15 @@ export function Goals() {
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.titleModal}>Quanto irá custar?</Text>
 
-          <SafeAreaView style={styles.viewInputForm}>   
-          <InputForm
-            placeholder="Preço"
-            name="amount"
-            control={control}
-            keyboardType="numeric"
-            error={errors.amount && errors.amount.message}
-          />
+          <SafeAreaView style={styles.viewInputForm}>
+            <InputForm
+              placeholderTextColor="#7a7a80"
+              placeholder="Valor da Meta:"
+              name="amount"
+              control={control}
+              keyboardType="numeric"
+              error={errors.amount && errors.amount.message}
+            />
           </SafeAreaView>
 
           <SafeAreaView style={styles.modalPatternView}>
@@ -188,7 +192,7 @@ export function Goals() {
             <RectButton
               onPress={() => {
                 setModalSecondary(false);
-                handleInformationsGoals()
+                handleInformationsGoals();
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />
