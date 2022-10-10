@@ -1,40 +1,84 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, Image, Modal } from "react-native";
+import { SafeAreaView, Text, Image, Modal, Alert } from "react-native";
 import { styles } from "./styles";
-import { useNavigation, useRoute } from "@react-navigation/native";
 import { theme } from "../../global/styles/theme";
-import { RectButton, TextInput } from "react-native-gesture-handler";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
-
 import TristeImg from "../../assets/triste.png";
 import AddImg from "../../assets/close.png";
 import ArrowImg from "../../assets/arrow.png";
 import TargetImg from "../../assets/emoji.png";
 import MoneyImg from "../../assets/contas.png";
+import { InputForm } from "../../components/Form/InputForm";
+
+import { RectButton, TextInput } from "react-native-gesture-handler";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+interface FormData {
+  name: string;
+  amount: string;
+}
 
 interface IRouteParams {
   token: string;
 }
 
+const schema = Yup.object().shape({
+  name: Yup.string().required("Nome é obrigatório!"),
+  amount: Yup.number()
+    .transform((_value, originalValue) =>
+      Number(originalValue.replace(/,/, "."))
+    ) //converte a virgula em ponto
+    .typeError("Informe um valor numérico!")
+    .positive("O valor não pode ser negativo!")
+    .required("O valor é obrigatório!"),
+});
+
 export function Goals() {
   const route = useRoute();
   const navigation = useNavigation();
   const { token } = route.params as IRouteParams;
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
+  async function handleRegister(form: FormData) {
+    const newGoal = {
+      name: form.name,
+      amount: form.amount,
+      date: new Date(),
+    };
 
-  function handleInformationsGoals() {
-    navigation.navigate("InformationsGoals", { token });
+    try {
+      const dataKey = "@gofinances:transactions";
+      const data = await AsyncStorage.getItem(dataKey); //pega os dados do storage
+      const currentData = data ? JSON.parse(data) : []; // se tiver dados, converte para objeto, se não, retorna um array vazio
+
+      const dataFormatted = [...currentData, newGoal]; // concatena o novo objeto com o array de objetos
+
+      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted)); // salva os dados no storage
+
+      reset(); // limpa os campos do formulário
+
+      navigation.navigate("InformationsGoals", { token }); // navega para a tela de InformationsGoals
+    } catch (error) {
+      console.log(error);
+      Alert.alert("Não foi possível cadastrar a meta!");
+    }
   }
 
   const [modalPrimary, setModalPrimary] = useState(false);
   const [modalSecondary, setModalSecondary] = useState(false);
-
-  const [goal, setGoal] = useState("");
-  const [value, setValue] = useState(0);
-
 
   return (
     <SafeAreaView style={styles.container}>
@@ -75,14 +119,14 @@ export function Goals() {
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.titleModal}>Qual é sua meta?</Text>
 
-          <SafeAreaView>
-            <TextInput
-              style={styles.textInput1}
-              placeholder="Digite o nome da meta:"
-              placeholderTextColor={theme.colors.color4}
-              onChangeText={(text) => setGoal(text)}
-            ></TextInput>
-          </SafeAreaView>
+          <InputForm
+            placeholder="Nome da meta"
+            name="name"
+            control={control}
+            autoCapitalize="sentences"
+            autoCorrect={false}
+            error={errors.name && errors.name.message}
+          />
 
           <SafeAreaView style={styles.modalPatternView}>
             <ModalPattern text="Digite o nome da sua meta, para descrever ela de forma simples." />
@@ -103,6 +147,7 @@ export function Goals() {
               onPress={() => {
                 setModalSecondary(true);
                 setModalPrimary(false);
+                handleSubmit(handleRegister);
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />
@@ -122,7 +167,7 @@ export function Goals() {
               style={styles.textInput2}
               placeholder="Digite um valor:"
               placeholderTextColor={theme.colors.color4}
-              onChangeText={(text) => setValue(Number(text))}
+              // onChangeText={(text) => setValue(Number(text))}
             ></TextInput>
           </SafeAreaView>
 
@@ -149,7 +194,7 @@ export function Goals() {
             <RectButton
               onPress={() => {
                 setModalSecondary(false);
-                handleInformationsGoals();
+                // handleInformationsGoals();
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />

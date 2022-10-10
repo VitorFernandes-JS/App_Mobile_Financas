@@ -79,18 +79,6 @@ export const styles = StyleSheet.create({
     color: theme.colors.color3,
     position: "absolute",
   },
-  textInput1: {
-    width: 250,
-    height: 40,
-    backgroundColor: theme.colors.color5,
-    borderRadius: 10,
-    color: theme.colors.color1,
-    paddingLeft: 10,
-    position: "absolute",
-    left: -125,
-    shadowOpacity: 0.25,
-    shadowOffset: { width: 0, height: 1 },
-  },
   textInput2: {
     width: 250,
     height: 40,
