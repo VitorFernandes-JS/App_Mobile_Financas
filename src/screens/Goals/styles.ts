@@ -79,6 +79,9 @@ export const styles = StyleSheet.create({
     color: theme.colors.color3,
     position: "absolute",
   },
+  viewInputForm: {
+    top: -17,
+  },
   textInput2: {
     width: 250,
     height: 40,

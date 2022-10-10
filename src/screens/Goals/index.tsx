@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text, Image, Modal, Alert } from "react-native";
 import { styles } from "./styles";
-import { theme } from "../../global/styles/theme";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
@@ -13,7 +12,7 @@ import TargetImg from "../../assets/emoji.png";
 import MoneyImg from "../../assets/contas.png";
 import { InputForm } from "../../components/Form/InputForm";
 
-import { RectButton, TextInput } from "react-native-gesture-handler";
+import { RectButton } from "react-native-gesture-handler";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
@@ -23,7 +22,6 @@ interface FormData {
   name: string;
   amount: string;
 }
-
 interface IRouteParams {
   token: string;
 }
@@ -32,8 +30,7 @@ const schema = Yup.object().shape({
   name: Yup.string().required("Nome é obrigatório!"),
   amount: Yup.number()
     .transform((_value, originalValue) =>
-      Number(originalValue.replace(/,/, "."))
-    ) //converte a virgula em ponto
+      Number(originalValue.replace(/,/, "."))) //converte a virgula em ponto
     .typeError("Informe um valor numérico!")
     .positive("O valor não pode ser negativo!")
     .required("O valor é obrigatório!"),
@@ -42,6 +39,8 @@ const schema = Yup.object().shape({
 export function Goals() {
   const route = useRoute();
   const navigation = useNavigation();
+  const [modalPrimary, setModalPrimary] = useState(false);
+  const [modalSecondary, setModalSecondary] = useState(false);
   const { token } = route.params as IRouteParams;
   const {
     control,
@@ -52,15 +51,17 @@ export function Goals() {
     resolver: yupResolver(schema),
   });
 
+  function handleInformationsGoals() {
+    navigation.navigate("InformationsGoals", { token }); // navega para a tela de InformationsGoals
+  }
   async function handleRegister(form: FormData) {
     const newGoal = {
       name: form.name,
       amount: form.amount,
-      date: new Date(),
     };
 
     try {
-      const dataKey = "@gofinances:transactions";
+      const dataKey = "@mobile:transactions";
       const data = await AsyncStorage.getItem(dataKey); //pega os dados do storage
       const currentData = data ? JSON.parse(data) : []; // se tiver dados, converte para objeto, se não, retorna um array vazio
 
@@ -70,15 +71,11 @@ export function Goals() {
 
       reset(); // limpa os campos do formulário
 
-      navigation.navigate("InformationsGoals", { token }); // navega para a tela de InformationsGoals
     } catch (error) {
       console.log(error);
       Alert.alert("Não foi possível cadastrar a meta!");
     }
   }
-
-  const [modalPrimary, setModalPrimary] = useState(false);
-  const [modalSecondary, setModalSecondary] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -162,17 +159,14 @@ export function Goals() {
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.titleModal}>Quanto irá custar?</Text>
 
-          <SafeAreaView>
-            <TextInput
-              style={styles.textInput2}
-              placeholder="Digite um valor:"
-              placeholderTextColor={theme.colors.color4}
-              // onChangeText={(text) => setValue(Number(text))}
-            ></TextInput>
-          </SafeAreaView>
-
-          <SafeAreaView style={styles.valueField}>
-            <Text style={styles.textValueField}>R$</Text>
+          <SafeAreaView style={styles.viewInputForm}>   
+          <InputForm
+            placeholder="Preço"
+            name="amount"
+            control={control}
+            keyboardType="numeric"
+            error={errors.amount && errors.amount.message}
+          />
           </SafeAreaView>
 
           <SafeAreaView style={styles.modalPatternView}>
@@ -194,7 +188,7 @@ export function Goals() {
             <RectButton
               onPress={() => {
                 setModalSecondary(false);
-                // handleInformationsGoals();
+                handleInformationsGoals()
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />

@@ -10,7 +10,7 @@ interface Props extends TextInputProps {
   error: any;
 }
 
-export function InputForm({ control, name, error }: Props) {
+export function InputForm({ control, name, error, ...rest }: Props) {
   return (
     <SafeAreaView>
       <Controller
@@ -20,9 +20,10 @@ export function InputForm({ control, name, error }: Props) {
             onChangeText={onChange}
             value={value}
             style={styles.textInput1}
+            {...rest}
           />
         )}
-        name="name"
+        name={name}
       />
       {error && <Error>{error}</Error>}
     </SafeAreaView>
