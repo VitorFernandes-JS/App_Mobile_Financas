@@ -27,19 +27,25 @@ const icons = {
 }
 
 export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
-  console.warn("transactionWallet category", transactionWallet.category);
+  // console.warn("transactionWallet category", transactionWallet.category);
   return (
     <SafeAreaView style={styles.container}>
+
       <SafeAreaView style={styles.box}>
-        <SafeAreaView>
+
           <SafeAreaView>
-            <Icon name={(icons as any)[transactionWallet.category]}/>
+            <Icon name={(icons as any)[transactionWallet.category]} style={styles.icon}/>
           </SafeAreaView>
+          
+          <SafeAreaView style={styles.boxText}>
           <Text style={styles.category}>{transactionWallet.category}</Text>
           <Text style={styles.description}>{transactionWallet.description}</Text>
-        </SafeAreaView>
+          </SafeAreaView>
+
         <Text style={styles.value}>R$ {transactionWallet.value}</Text>
+
         <SafeAreaView style={styles.line} />
+        
       </SafeAreaView>
     </SafeAreaView>
   );

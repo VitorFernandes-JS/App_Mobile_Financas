@@ -30,21 +30,33 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  icon: {
+    color: theme.colors.color4,
+    right: 60,
+    top: 10,
+    position: "absolute",
+  },
   line: {
     width: 1,
     height: 100,
     backgroundColor: theme.colors.color5,
-    right: 130,
+    position: "absolute",
+    right: 220,
   },
   category: {
+    fontSize: 14,
     color: theme.colors.color4,
-    left: 15
+    left: 15,
+    position: "absolute",
   },
   description: {
+    fontSize: 12,
     color: theme.colors.color4,
-    left: 15
+    left: 15,
+    position: "absolute",
   },
   value: {
-    left: 55
+    left: 230,
+    position: "absolute",
   }
 });
