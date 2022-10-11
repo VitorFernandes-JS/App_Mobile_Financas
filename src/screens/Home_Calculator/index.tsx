@@ -25,6 +25,7 @@ export function Home_Calculator() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header />
       <Text style={styles.title}>Escolha: </Text>
 
       <RectButton style={styles.iconCalculator1}>

@@ -1,13 +1,14 @@
 import React from "react";
 import { SafeAreaView, Text, Image } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
-import { useNavigation } from "@react-navigation/native";
-
-import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
 
 import star from "../../assets/star.png";
+import { theme } from "../../global/styles/theme";
+
+import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { RectButton, BorderlessButton} from "react-native-gesture-handler";
 
 type Params = {
   token: string;
@@ -38,32 +39,32 @@ export function Baseboard({ token }: Params) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <RectButton onPress={handleHome} style={styles.iconHome}>
-        <AntDesign name="home" size={35} />
+      <BorderlessButton onPress={handleHome} style={styles.iconHome}>
+        <AntDesign name="home" color={theme.colors.color4} size={35} />
         <Text style={styles.textHome}>Menu</Text>
-      </RectButton>
+      </BorderlessButton>
 
-      <RectButton onPress={handleWallet} style={styles.iconWallet}>
-        <Ionicons name="wallet-outline" size={35} />
+      <BorderlessButton onPress={handleWallet} style={styles.iconWallet}>
+        <Ionicons name="wallet-outline" color={theme.colors.color4} size={35} />
         <Text style={styles.textWallet}>Carteira</Text>
-      </RectButton>
+      </BorderlessButton>
 
       <SafeAreaView style={styles.borderStar} />
       <SafeAreaView style={styles.borderStar1} />
-      <RectButton onPress={handleGoals} style={styles.iconStar}>
+      <BorderlessButton onPress={handleGoals} style={styles.iconStar}>
         <Image source={star} style={styles.imgStar} />
         <Text style={styles.textGoal}>Metas</Text>
-      </RectButton>
+      </BorderlessButton>
 
-      <RectButton onPress={handleFavorite} style={styles.iconFavorite}>
-        <AntDesign name="hearto" size={35} />
+      <BorderlessButton onPress={handleFavorite} style={styles.iconFavorite}>
+        <AntDesign name="hearto" color={theme.colors.color4} size={35} />
         <Text style={styles.textFavorite}>Favoritos</Text>
-      </RectButton>
+      </BorderlessButton>
 
-      <RectButton onPress={handleProfile} style={styles.iconProfile}>
-        <AntDesign name="user" size={35} />
+      <BorderlessButton onPress={handleProfile} style={styles.iconProfile}>
+        <AntDesign name="user" color={theme.colors.color4} size={35} />
         <Text style={styles.textProfile}>Perfil</Text>
-      </RectButton>
+      </BorderlessButton>
     </SafeAreaView>
   );
 }
