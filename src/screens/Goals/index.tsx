@@ -19,8 +19,8 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 interface FormData {
-  name: string;
-  amount: string;
+  [name: string]: any;
+  [amount: number]: any;
 }
 interface IRouteParams {
   token: string;
@@ -52,9 +52,9 @@ export function Goals() {
     resolver: yupResolver(schema),
   });
 
-  function handleInformationsGoals() {
-    navigation.navigate("InformationsGoals", { token }); 
-  }
+  // function handleInformationsGoals() {
+  //   navigation.navigate("InformationsGoals", { token }); 
+  // }
 
   async function handleRegister(form: FormData) {
     const newGoal = {
@@ -64,20 +64,23 @@ export function Goals() {
 
     try {
       const dataKey = "@mobile:goals";
+      console.log(dataKey);
       const data = await AsyncStorage.getItem(dataKey); //pega os dados do storage
+      console.log(data);
       const currentData = data ? JSON.parse(data) : []; // se tiver dados, converte para objeto, se não, retorna um array vazio
-
+      console.log(currentData);
       const dataFormatted = [...currentData, newGoal]; // concatena o novo objeto com o array de objetos
+      console.log(dataFormatted);
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted)); // salva os dados no storage
-      console.warn(dataFormatted)
+      console.log(dataKey);
 
       reset(); // limpa os campos do formulário
     } catch (error) {
       console.log(error);
       Alert.alert("Não foi possível cadastrar a meta!");
     }
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -192,7 +195,7 @@ export function Goals() {
             <RectButton
               onPress={() => {
                 setModalSecondary(false);
-                handleInformationsGoals();
+                // handleInformationsGoals();
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />
