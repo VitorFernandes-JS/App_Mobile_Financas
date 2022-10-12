@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   viewValue: {
-    top: 35,
+    top: -10,
   },
   boxGreen: {
     width: 50,
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font5_medium_inter,
   },
   viewValue1: {
-    top: 35,
+    top: -10,
   },
   boxGreen1: {
     width: 75,
@@ -76,7 +76,7 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font5_medium_inter,
   },
   viewValue2: {
-    top: 35,
+    top: -10,
     marginLeft: 10,
   },
   boxGreen2: {

@@ -1,13 +1,14 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { SafeAreaView, Modal, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
-import { RectButton } from "react-native-gesture-handler";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 
 import { TextField } from "../textField";
 import { ModalWallet } from "../../components/modalWallet";
 
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { TransactionTypeButton } from "../TransactionTypeButton";
 
 interface ITransactionsWallets {
   id: string;
@@ -24,9 +25,13 @@ interface IAddProps {
 
 export function Add({ setTransactionsWallets }: IAddProps) {
   const [visible, setVisible] = useState(false);
+  const [transactionType, setTransactionType] = useState("");
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+  function handleTransactionTypeSelect(type: "up" | "down") {
+    setTransactionType(type);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -38,9 +43,15 @@ export function Add({ setTransactionsWallets }: IAddProps) {
             category={category}
             setDescription={setDescription}
           />
+          
+          <SafeAreaView style={styles.viewTransactionTypeButtons}>
+          <TransactionTypeButton onPress={() => handleTransactionTypeSelect("down")} title={"Saída"} type={"down"} isActive={transactionType === "down"} />
+          <TransactionTypeButton onPress={() => handleTransactionTypeSelect("up")} title={"Entrada"} type={"up"}  isActive={transactionType === "up"}/>
+          </SafeAreaView>
 
           <SafeAreaView style={styles.line}></SafeAreaView>
-          <RectButton
+          <BorderlessButton
+            style={styles.closeModalIcon}
             onPress={() => {
               setVisible(false);
             }}
@@ -49,9 +60,8 @@ export function Add({ setTransactionsWallets }: IAddProps) {
               name="closecircle"
               color="red"
               size={22}
-              style={styles.closeModalIcon}
             />
-          </RectButton>
+          </BorderlessButton>
 
           <TouchableOpacity
             onPress={() => {

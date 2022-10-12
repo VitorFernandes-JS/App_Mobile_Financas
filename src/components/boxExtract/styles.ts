@@ -32,8 +32,8 @@ export const styles = StyleSheet.create({
   },
   icon: {
     color: theme.colors.color4,
-    right: 60,
-    top: 10,
+    left: -63.5,
+    top: -11.5,
     position: "absolute",
   },
   line: {
@@ -46,14 +46,16 @@ export const styles = StyleSheet.create({
   category: {
     fontSize: 14,
     color: theme.colors.color4,
-    left: 15,
     position: "absolute",
+    top: 35,
+    left: 115
   },
   description: {
     fontSize: 12,
     color: theme.colors.color4,
-    left: 15,
     position: "absolute",
+    top: 50,
+    left: 115
   },
   value: {
     left: 230,

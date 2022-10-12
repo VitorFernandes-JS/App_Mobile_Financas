@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   viewModal: {
     width: 250,
-    height: 200,
+    height: 250,
     backgroundColor: theme.colors.color5,
     justifyContent: "center",
     textAlign: "center",
@@ -21,25 +21,34 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 10,
   },
+  viewTransactionTypeButtons: {
+    top: -45,
+    flexDirection: "row",
+    justifyContent: "center",
+  },
   line: {
     width: 250,
     height: 1,
     backgroundColor: theme.colors.color6,
-    top: -3,
+    top: 210,
+    position: "absolute"
   },
   closeModalIcon: {
     left: 210,
-    top: 5,
+    top: 220,
+    position: "absolute"
   },
   viewButtonAdd: {
     alignItems: "center",
     top: -19,
   },
   buttonAdd: {
+    top: -5,
     width: 100,
     height: 25,
     backgroundColor: "#26B602",
     borderRadius: 5,
+    position: "absolute"
   },
   textAdd: {
     fontSize: 16,
@@ -48,8 +57,9 @@ export const styles = StyleSheet.create({
     top: 2,
   },
   viewInterrogation: {
-    top: -107,
     left: 15,
+    top: 155,
+    position: "absolute"
   },
   body: {
     width: 25,

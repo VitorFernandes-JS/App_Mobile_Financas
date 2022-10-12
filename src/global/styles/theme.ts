@@ -6,6 +6,8 @@ export const theme = {
     color4: "#717f7f",
     color5: "#f1f5f4",
     color6: "#ffffff",
+    success_light: 'rgba(18, 164, 84, 0.5)',
+    attention_light: 'rgba(232, 63, 91, 0.5)',
   },
 
   fonts: {

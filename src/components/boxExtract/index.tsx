@@ -19,7 +19,7 @@ const icons = {
   Salario: "dollar-sign",
   Bonificacao: "dollar-sign",
   Restaurante: "coffee",
-  Viagem: "airplane",
+  Viagem: "sun",
   Passeio: "map-pin",
   Farmacia: "shopping-bag",
   Mercado: "shopping-cart",
@@ -37,10 +37,8 @@ export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
             <Icon name={(icons as any)[transactionWallet.category]} style={styles.icon}/>
           </SafeAreaView>
           
-          <SafeAreaView style={styles.boxText}>
           <Text style={styles.category}>{transactionWallet.category}</Text>
           <Text style={styles.description}>{transactionWallet.description}</Text>
-          </SafeAreaView>
 
         <Text style={styles.value}>R$ {transactionWallet.value}</Text>
 
