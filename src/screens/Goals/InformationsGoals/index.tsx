@@ -27,7 +27,6 @@ export function InformationsGoals() {
     const response = await AsyncStorage.getItem(dataKey);
     const goals = response ? JSON.parse(response) : [];
 
-
     const goalsFormatted: DataListProps[] = goals
     .map((item: DataListProps) => {
       
@@ -50,7 +49,6 @@ export function InformationsGoals() {
   }
 
   useEffect(() => {
-    
     loadGoals();
   }, []);
 
