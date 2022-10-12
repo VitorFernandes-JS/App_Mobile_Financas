@@ -27,7 +27,6 @@ export function InformationsGoals() {
     const response = await AsyncStorage.getItem(dataKey);
     const goals = response ? JSON.parse(response) : [];
 
-    setData(goals);
 
     const goalsFormatted: DataListProps[] = goals
     .map((item: DataListProps) => {
@@ -40,7 +39,7 @@ export function InformationsGoals() {
       console.log(amount);
 
       return {
-        id: item.id,
+        id: Math.random().toString(),
         name: item.name,
         amount: amount,
       };
@@ -51,6 +50,7 @@ export function InformationsGoals() {
   }
 
   useEffect(() => {
+    
     loadGoals();
   }, []);
 
@@ -59,7 +59,9 @@ export function InformationsGoals() {
       <Header />
 
       <SafeAreaView style={styles.body}>
-      <GoalsCard number={0} name={""} amount={""}  />
+      
+      {data.map((item, index) => <GoalsCard key={item.id} number={index} name={item.name} amount={item.amount}  />)}
+      
       </SafeAreaView>
 
       <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>

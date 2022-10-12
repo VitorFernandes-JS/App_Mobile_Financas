@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./styles";
-import { RectButton } from "react-native-gesture-handler";
+import { BorderlessButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
 import TrocaImg from "../../assets/troca.png";
@@ -33,9 +33,9 @@ export function HeaderWallet({ text, value, token, img, textModal }: IHeaderWall
         <Text style={styles.value}>R$ {value}</Text>
         <Text style={styles.data}>{date.toLocaleDateString()}</Text>
         <Image source={img} style={styles.walletImg}></Image>
-        <RectButton onPress={handleWalletInvestment} style={styles.trocaImg1}>
+        <BorderlessButton onPress={handleWalletInvestment} style={styles.trocaImg1}>
           <Image source={TrocaImg} style={styles.trocaImg}></Image>
-        </RectButton>
+        </BorderlessButton>
       </SafeAreaView>
     </SafeAreaView>
   );

@@ -32,18 +32,18 @@ export function SignIn() {
     })) as AuthResponse;
 
     
-    // const userInfo = await fetch(
-    //   `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${params.access_token}`
-    // ).then(res => res.json())
+    const userInfo = await fetch(
+      `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${params.access_token}`
+    ).then(res => res.json())
 
 
-    // await apiFinances.post('/users', { email: userInfo.email, name: userInfo.name })
-    //   .catch((error) => { console.log("METHOD POST USERS ERROR: ", error) })
+    await apiFinances.post('/users', { email: userInfo.email, name: userInfo.name })
+      .catch((error) => { console.log("METHOD POST USERS ERROR: ", error) })
     
-    // const authToken = await apiFinances.post<string>('/users/authenticate', { body: {email: userInfo.email} })
-    //   .catch((error) => { console.log("METHOD POST AUTHENTICATE ERROR: ", error) })
+    const authToken = await apiFinances.post<string>('/users/authenticate', { body: {email: userInfo.email} })
+      .catch((error) => { console.log("METHOD POST AUTHENTICATE ERROR: ", error) })
     
-    // apiFinances.defaults.headers.common['Authorization'] = 'Bearer ' + authToken?.data || 'no token';
+    apiFinances.defaults.headers.common['Authorization'] = 'Bearer ' + authToken?.data || 'no token';
 
     if (type === "success") {
       navigation.navigate("Home", { token: params.access_token });

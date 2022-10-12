@@ -52,9 +52,9 @@ export function Goals() {
     resolver: yupResolver(schema),
   });
 
-  // function handleInformationsGoals() {
-  //   navigation.navigate("InformationsGoals", { token }); 
-  // }
+  function handleInformationsGoals() {
+    navigation.navigate("InformationsGoals", { token }); 
+  }
 
   async function handleRegister(form: FormData) {
     const newGoal = {
@@ -70,11 +70,10 @@ export function Goals() {
       const currentData = data ? JSON.parse(data) : []; // se tiver dados, converte para objeto, se não, retorna um array vazio
       console.log(currentData);
       const dataFormatted = [...currentData, newGoal]; // concatena o novo objeto com o array de objetos
-      console.log(dataFormatted);
+      console.log("dataFormated: ", dataFormatted);
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted)); // salva os dados no storage
-      console.log(dataKey);
-
+      // AsyncStorage.removeItem('@mobile:goals');
       reset(); // limpa os campos do formulário
     } catch (error) {
       console.log(error);
@@ -148,7 +147,6 @@ export function Goals() {
           <SafeAreaView style={styles.buttonRight1}>
             <RectButton
               onPress={() => {
-                handleSubmit(handleRegister);
                 setModalSecondary(true);
                 setModalPrimary(false);
               }}
@@ -194,8 +192,9 @@ export function Goals() {
           <SafeAreaView style={styles.buttonRight2}>
             <RectButton
               onPress={() => {
+                handleSubmit(async (data) => await handleRegister(data))();
                 setModalSecondary(false);
-                // handleInformationsGoals();
+                handleInformationsGoals();
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />

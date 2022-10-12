@@ -7,7 +7,6 @@ body: {
     height: 80,
     backgroundColor: theme.colors.color2,
     borderRadius: 20,
-    position: "absolute",
     top: 120,
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
