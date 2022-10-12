@@ -64,13 +64,9 @@ export function Goals() {
 
     try {
       const dataKey = "@mobile:goals";
-      console.log(dataKey);
       const data = await AsyncStorage.getItem(dataKey); //pega os dados do storage
-      console.log(data);
       const currentData = data ? JSON.parse(data) : []; // se tiver dados, converte para objeto, se não, retorna um array vazio
-      console.log(currentData);
       const dataFormatted = [...currentData, newGoal]; // concatena o novo objeto com o array de objetos
-      console.log("dataFormated: ", dataFormatted);
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted)); // salva os dados no storage
       // AsyncStorage.removeItem('@mobile:goals');

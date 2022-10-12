@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   body: {
-    width: 350,
+    top: -100
   },
   bodyGrafic: {
     width: 350,

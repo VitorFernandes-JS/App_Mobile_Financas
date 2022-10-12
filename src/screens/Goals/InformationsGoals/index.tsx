@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, Text} from "react-native";
+import { SafeAreaView } from "react-native";
 import { styles } from "./styles";
 
 import { Header } from "../../../components/header";
@@ -27,15 +27,11 @@ export function InformationsGoals() {
     const response = await AsyncStorage.getItem(dataKey);
     const goals = response ? JSON.parse(response) : [];
 
-    const goalsFormatted: DataListProps[] = goals
-    .map((item: DataListProps) => {
-      
+    const goalsFormatted: DataListProps[] = goals.map((item: DataListProps) => {
       const amount = Number(item.amount).toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
       });
-
-      console.log(amount);
 
       return {
         id: Math.random().toString(),
@@ -57,9 +53,14 @@ export function InformationsGoals() {
       <Header />
 
       <SafeAreaView style={styles.body}>
-      
-      {data.map((item, index) => <GoalsCard key={item.id} number={index} name={item.name} amount={item.amount}  />)}
-      
+        {data.map((item, index) => (
+          <GoalsCard
+            key={item.id}
+            number={index + 1}
+            name={item.name}
+            amount={item.amount}
+          />
+        ))}
       </SafeAreaView>
 
       <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>
