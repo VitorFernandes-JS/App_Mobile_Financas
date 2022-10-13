@@ -1,8 +1,7 @@
 import React from "react";
-import { SafeAreaView, Text, Image } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 
-import star from "../../assets/star.png";
 import { theme } from "../../global/styles/theme";
 
 import { useNavigation } from "@react-navigation/native";
@@ -30,7 +29,6 @@ export function Baseboard({ token }: Params) {
     const dataKey = "@mobile:goals";
     const response = await AsyncStorage.getItem(dataKey);
     response ? navigation.navigate("InformationsGoals", { token }) : navigation.navigate("Goals", { token });
-    navigation.navigate("Goals", { token });
   }
 
   function handleProfile() {
@@ -56,7 +54,7 @@ export function Baseboard({ token }: Params) {
       <SafeAreaView style={styles.borderStar} />
       <SafeAreaView style={styles.borderStar1} />
       <BorderlessButton onPress={handleGoals} style={styles.iconStar}>
-        <Image source={star} style={styles.imgStar} />
+        <AntDesign name="star" color="#ffc107" size={40} />
         <Text style={styles.textGoal}>Metas</Text>
       </BorderlessButton>
 

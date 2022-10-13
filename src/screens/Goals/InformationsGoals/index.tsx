@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { SafeAreaView } from "react-native";
+import React, { useCallback, useState } from "react";
+import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 
 import { Header } from "../../../components/header";
@@ -48,7 +48,7 @@ export function InformationsGoals() {
 
   useFocusEffect(
     useCallback(() => {
-      // AsyncStorage.removeItem('@mobile:goals'); 
+      // AsyncStorage.removeItem('@mobile:goals');
       loadGoals();
     }, [])
   );
@@ -57,18 +57,32 @@ export function InformationsGoals() {
     <SafeAreaView style={styles.container}>
       <Header />
 
-      <SafeAreaView style={styles.body}>
-        {data.map((item, index) => (
-          <GoalsCard
-            key={item.id}
-            number={index + 1}
-            name={item.name}
-            amount={item.amount}
-          />
-        ))}
+      <SafeAreaView style={styles.box}>
+        <SafeAreaView style={styles.number}>
+          <Text style={styles.numberText}>2</Text>
+        </SafeAreaView>
+
       </SafeAreaView>
 
-      <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>
+      <SafeAreaView style={styles.box1}>
+        <SafeAreaView style={styles.number}>
+          <Text style={styles.numberText}>3</Text>
+        </SafeAreaView>
+      </SafeAreaView>
+
+      <SafeAreaView style={styles.body}>
+
+        {data.map((item, index) => (
+          <GoalsCard
+          key={item.id}
+          number={index + 1}
+          name={item.name}
+          amount={item.amount}
+          />
+          ))}
+      </SafeAreaView>
+
+      {/* <SafeAreaView style={styles.bodyGrafic}></SafeAreaView> */}
 
       <Baseboard token={token} />
     </SafeAreaView>
