@@ -5,6 +5,8 @@ import { styles } from "./styles";
 import { Header } from "../../../components/header";
 import { Baseboard } from "../../../components/baseboard";
 import { GoalsCard, GoalsCardProps } from "../../../components/GoalsCard";
+import { theme } from "../../../global/styles/theme";
+import { ModalAddGoal } from "../../../components/ModalAddGoal";
 
 import { useFocusEffect } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
@@ -12,8 +14,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AntDesign } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Octicons } from "@expo/vector-icons";
-import { theme } from "../../../global/styles/theme";
-
 export interface DataListProps extends GoalsCardProps {
   id: string;
 }
@@ -25,7 +25,9 @@ interface IRouteParams {
 export function InformationsGoals() {
   const route = useRoute();
   const { token } = route.params as IRouteParams;
-
+  function handleModal() {
+    <ModalAddGoal />;
+  }
   const [data, setData] = useState<DataListProps[]>([]);
 
   async function loadGoals() {
@@ -75,7 +77,7 @@ export function InformationsGoals() {
           <Text style={styles.textAddNewGoal}>Crie mais uma meta:</Text>
           <BorderlessButton
             style={styles.iconAdd}
-            onPress={() => console.warn("clicou")}
+            onPress={() => {handleModal}}
           >
             <Octicons name="diff-added" size={34} color={theme.colors.color3} />
           </BorderlessButton>

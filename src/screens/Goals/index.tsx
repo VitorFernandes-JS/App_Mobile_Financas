@@ -110,7 +110,6 @@ export function Goals() {
         <Image source={AddImg} style={styles.addImg} />
       </RectButton>
 
-      {/* Primeiro Modal */}
       <Modal animationType="fade" transparent={true} visible={modalPrimary}>
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.titleModal1}>Qual é sua meta?</Text>

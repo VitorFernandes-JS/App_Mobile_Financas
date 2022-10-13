@@ -75,7 +75,6 @@ export const styles = StyleSheet.create({
     color: theme.colors.color1,
     fontSize: 12,
     fontFamily: theme.fonts.font4_regular,
-    opacity: 0.5,
   },
   iconFavorite: {
     width: 55,
