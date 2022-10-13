@@ -46,14 +46,9 @@ export function InformationsGoals() {
     console.log(goalsFormatted);
   }
 
-  // useEffect(() => {
-  //   AsyncStorage.removeItem('@mobile:goals');
-  //   loadGoals();
-  // }, []);
-
-
   useFocusEffect(
     useCallback(() => {
+      // AsyncStorage.removeItem('@mobile:goals'); 
       loadGoals();
     }, [])
   );
