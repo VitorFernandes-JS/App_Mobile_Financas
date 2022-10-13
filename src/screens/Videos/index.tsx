@@ -30,6 +30,7 @@ export function Videos({ token }: IVideosProps) {
 
       <SafeAreaView style={styles.boxVideo}>
         <SafeAreaView style={styles.boxStart}>
+          
           <Text style={styles.start}>COMECE AQUI! </Text>
         </SafeAreaView>
       </SafeAreaView>

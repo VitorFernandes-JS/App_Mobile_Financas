@@ -8,7 +8,7 @@ import { theme } from "../../global/styles/theme";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import { BorderlessButton} from "react-native-gesture-handler";
+import { BorderlessButton } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type Params = {

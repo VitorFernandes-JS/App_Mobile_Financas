@@ -41,7 +41,6 @@ export function Goals() {
   const route = useRoute();
   const navigation = useNavigation();
   const [modalPrimary, setModalPrimary] = useState(false);
-  const [modalSecondary, setModalSecondary] = useState(false);
   const { token } = route.params as IRouteParams;
   const {
     control,
