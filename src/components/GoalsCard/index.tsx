@@ -1,8 +1,9 @@
 import React from 'react';
 import { SafeAreaView, Text } from 'react-native';
-
 import { styles } from './styles';
 
+import { RectButton } from 'react-native-gesture-handler';
+import { useNavigation, useRoute } from '@react-navigation/native';
 export interface GoalsCardProps {
     number: any;
     name: string;
@@ -13,9 +14,21 @@ export interface Props {
     data: GoalsCardProps;
 }
 
+interface IRouteParams {
+  token: string;
+}
+
 export function GoalsCard({ number, name, amount }: GoalsCardProps) {
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { token } = route.params as IRouteParams;
+
+  function handleWalletInvestment() {
+    navigation.navigate("WalletInvestment", { token });
+  }
+
   return (
-        <SafeAreaView style={styles.body}>
+        <RectButton style={styles.body} onPress={handleWalletInvestment}>
         <SafeAreaView style={styles.number}>
           <Text style={styles.numberText}>{number}</Text>
         </SafeAreaView>
@@ -25,6 +38,6 @@ export function GoalsCard({ number, name, amount }: GoalsCardProps) {
         <SafeAreaView style={styles.fieldValue}>
           <Text style={styles.fieldValueText}>{amount}</Text>
         </SafeAreaView>
-      </SafeAreaView>
+      </RectButton>
   );
 }

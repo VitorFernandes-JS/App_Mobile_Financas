@@ -59,6 +59,29 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: theme.fonts.font4_regular_inter,
   },
+  viewAddNewGoal: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  iconStar: {
+    transform: [{ rotate: "90deg" }],
+    position: "absolute",
+    top: 20,
+    left: 40
+  },
+  textAddNewGoal: {
+    color: theme.colors.color1,
+    fontSize: 20,
+    fontFamily: theme.fonts.font4_regular,
+    position: "absolute",
+    top: 26.5,
+    left: 90
+  },
+  iconAdd: {
+    top: 23,
+    left: 125
+  },
   viewTitle: {
     marginLeft: 35,
     marginTop: 10,
