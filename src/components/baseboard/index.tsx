@@ -27,9 +27,9 @@ export function Baseboard({ token }: Params) {
   }
 
   async function handleGoals() {
-    // const dataKey = "@mobile:goals";
-    // const response = await AsyncStorage.getItem(dataKey);
-    // response ? navigation.navigate("InformationsGoals", { token }) : navigation.navigate("Goals", { token });
+    const dataKey = "@mobile:goals";
+    const response = await AsyncStorage.getItem(dataKey);
+    response ? navigation.navigate("InformationsGoals", { token }) : navigation.navigate("Goals", { token });
     navigation.navigate("Goals", { token });
   }
 
