@@ -12,7 +12,7 @@ interface Props extends TextInputProps {
 
 export function InputForm({ control, name, error, ...rest }: Props) {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Controller
         control={control}
         render={({ field: { onChange, value } }) => (

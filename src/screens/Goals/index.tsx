@@ -114,8 +114,9 @@ export function Goals() {
       {/* Primeiro Modal */}
       <Modal animationType="fade" transparent={true} visible={modalPrimary}>
         <SafeAreaView style={styles.viewModal}>
-          <Text style={styles.titleModal}>Qual é sua meta?</Text>
+          <Text style={styles.titleModal1}>Qual é sua meta?</Text>
 
+          <SafeAreaView style={styles.inputName}>
           <InputForm
             placeholderTextColor="#7a7a80"
             placeholder="Nome da meta:"
@@ -125,9 +126,19 @@ export function Goals() {
             autoCorrect={false}
             error={errors.name && errors.name.message}
           />
+          </SafeAreaView>
 
-          <SafeAreaView style={styles.modalPatternView}>
-            <ModalPattern text="Digite o nome da sua meta, para descrever ela de forma simples." />
+          <Text style={styles.titleModal2}>Quanto irá custar?</Text>
+
+          <SafeAreaView style={styles.inputAmount}>
+            <InputForm
+              placeholderTextColor="#7a7a80"
+              placeholder="Valor da Meta:"
+              name="amount"
+              control={control}
+              keyboardType="numeric"
+              error={errors.amount && errors.amount.message}
+            />
           </SafeAreaView>
 
           <SafeAreaView style={styles.buttonLeft1}>
@@ -143,63 +154,22 @@ export function Goals() {
           <SafeAreaView style={styles.buttonRight1}>
             <RectButton
               onPress={() => {
-                setModalSecondary(true);
+                handleSubmit(async (data) => await handleRegister(data))();
+                handleInformationsGoals();
                 setModalPrimary(false);
               }}
             >
               <Image source={ArrowImg} style={styles.arrowImgRight} />
             </RectButton>
           </SafeAreaView>
-          <Image source={TargetImg} style={styles.targetImg} />
-        </SafeAreaView>
-      </Modal>
-
-      {/* Segundo Modal */}
-      <Modal animationType="fade" transparent={true} visible={modalSecondary}>
-        <SafeAreaView style={styles.viewModal}>
-          <Text style={styles.titleModal}>Quanto irá custar?</Text>
-
-          <SafeAreaView style={styles.viewInputForm}>
-            <InputForm
-              placeholderTextColor="#7a7a80"
-              placeholder="Valor da Meta:"
-              name="amount"
-              control={control}
-              keyboardType="numeric"
-              error={errors.amount && errors.amount.message}
-            />
-          </SafeAreaView>
 
           <SafeAreaView style={styles.modalPatternView}>
-            <ModalPattern text="Digite uma estimativa de quanto sua meta vai custar." />
+            <ModalPattern text="Digite o nome da sua meta e o valor total da mesma." />
           </SafeAreaView>
 
-          <SafeAreaView style={styles.buttonLeft2}>
-            <RectButton
-              onPress={() => {
-                setModalSecondary(false);
-                setModalPrimary(true);
-              }}
-            >
-              <Image source={ArrowImg} style={styles.arrowImgLeft} />
-            </RectButton>
-          </SafeAreaView>
-
-          <SafeAreaView style={styles.buttonRight2}>
-            <RectButton
-              onPress={() => {
-                handleSubmit(async (data) => await handleRegister(data))();
-                setModalSecondary(false);
-                handleInformationsGoals();
-              }}
-            >
-              <Image source={ArrowImg} style={styles.arrowImgRight} />
-            </RectButton>
-          </SafeAreaView>
-
-          <Image source={MoneyImg} style={styles.moneyImg} />
         </SafeAreaView>
       </Modal>
+
       <Baseboard token={token} />
     </SafeAreaView>
   );

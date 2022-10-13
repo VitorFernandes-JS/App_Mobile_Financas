@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
 import { styles } from "./styles";
 
@@ -6,6 +6,7 @@ import { Header } from "../../../components/header";
 import { Baseboard } from "../../../components/baseboard";
 import { GoalsCard, GoalsCardProps } from "../../../components/GoalsCard";
 
+import { useFocusEffect } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -18,9 +19,10 @@ interface IRouteParams {
 }
 
 export function InformationsGoals() {
-  const [data, setData] = useState<DataListProps[]>([]);
   const route = useRoute();
   const { token } = route.params as IRouteParams;
+
+  const [data, setData] = useState<DataListProps[]>([]);
 
   async function loadGoals() {
     const dataKey = "@mobile:goals";
@@ -44,9 +46,17 @@ export function InformationsGoals() {
     console.log(goalsFormatted);
   }
 
-  useEffect(() => {
-    loadGoals();
-  }, []);
+  // useEffect(() => {
+  //   // AsyncStorage.removeItem('@mobile:goals');
+  //   loadGoals();
+  // }, []);
+
+
+  useFocusEffect(
+    useCallback(() => {
+      loadGoals();
+    }, [0])
+  );
 
   return (
     <SafeAreaView style={styles.container}>

@@ -6,12 +6,17 @@ import { RFValue } from "react-native-responsive-fontsize";
 
 export const Error = styled.Text`
   font-size: ${RFValue(14)}px;
-  color: ${theme.colors.color2};
+  color: ${theme.colors.attention_light};
   font-family: ${theme.fonts.font4_regular};
-  margin: 4px;
+  top: 42px;
+  right: 120px;
 `;
 
 export const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    position: "absolute",
+  },
 textInput1: {
     width: 250,
     height: 40,

@@ -4,7 +4,7 @@ import { SafeAreaView, Text } from 'react-native';
 import { styles } from './styles';
 
 export interface GoalsCardProps {
-    number: number;
+    number: any;
     name: string;
     amount: string;
 }
