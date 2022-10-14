@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
-import { useRoute } from "@react-navigation/native";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
 
 import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
-import { BoxExtract } from "../../components/boxExtract";
-import { Trash } from "../../components/trash";
-import { Add } from "../../components/add";
+import { BoxWalletInvestment } from "../../components/BoxWalletInvestment";
+
+import { useRoute } from "@react-navigation/native";
 interface IRouteParams {
   token: string;
 }
@@ -41,6 +40,12 @@ export function WalletInvestment() {
         img={WalletInvestmentImg}
         textModal="Aqui você pode adicionar um investimento em cada meta, e acompanhar o seu progresso!"
       />
+      <SafeAreaView style={styles.boxsWallet}>
+        <BoxWalletInvestment title={"Meta 1"} />
+        <BoxWalletInvestment title={"Meta 2"} />
+        <BoxWalletInvestment title={"Meta 3"} />
+      </SafeAreaView>
+      
       <Baseboard token={token} />
     </SafeAreaView>
   );
