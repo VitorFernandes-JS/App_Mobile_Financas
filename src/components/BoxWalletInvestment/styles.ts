@@ -14,4 +14,9 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         marginHorizontal: 5,
       },
+      title: {
+        color: theme.colors.color1,
+        fontSize: 14,
+        fontFamily: theme.fonts.font4_regular,
+      }
 });

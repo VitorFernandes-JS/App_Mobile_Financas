@@ -41,11 +41,10 @@ export function WalletInvestment() {
         textModal="Aqui você pode adicionar um investimento em cada meta, e acompanhar o seu progresso!"
       />
       <SafeAreaView style={styles.boxsWallet}>
-        <BoxWalletInvestment title={"Meta 1"} />
-        <BoxWalletInvestment title={"Meta 2"} />
-        <BoxWalletInvestment title={"Meta 3"} />
+        <BoxWalletInvestment title={"Meta 1"} onPress={() => {}} />
+        <BoxWalletInvestment title={"Meta 2"} onPress={() => {}} />
+        <BoxWalletInvestment title={"Meta 3"} onPress={() => {}} />
       </SafeAreaView>
-      
       <Baseboard token={token} />
     </SafeAreaView>
   );
