@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { styles } from "./styles";
 import { SafeAreaView, Text } from "react-native";
 
@@ -6,7 +6,6 @@ import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 import { BoxVideos } from "../../components/boxVideos";
-import { apiFinances } from "../../services";
 
 interface IVideosProps {
   token: string;
@@ -30,7 +29,6 @@ export function Videos({ token }: IVideosProps) {
 
       <SafeAreaView style={styles.boxVideo}>
         <SafeAreaView style={styles.boxStart}>
-          
           <Text style={styles.start}>COMECE AQUI! </Text>
         </SafeAreaView>
       </SafeAreaView>
