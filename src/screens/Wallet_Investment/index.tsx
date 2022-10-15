@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Alert } from "react-native";
 import { styles } from "./styles";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
@@ -22,11 +22,13 @@ interface ITransactionsWallets {
   updated_at?: Date;
 }
 
+
 export function WalletInvestment() {
   const [transactionsWallets, setTransactionsWallets] = useState<
-    ITransactionsWallets[]
+  ITransactionsWallets[]
   >([]);
-
+  
+  const goals = [];
   const route = useRoute();
 
   const { token } = route.params as IRouteParams;
@@ -41,7 +43,10 @@ export function WalletInvestment() {
         textModal="Aqui você pode adicionar um investimento em cada meta, e acompanhar o seu progresso!"
       />
       <SafeAreaView style={styles.boxsWallet}>
-        <BoxWalletInvestment title={"Meta 1"} onPress={() => {}} />
+        <BoxWalletInvestment
+          title={"Meta 1"}
+          onPress={() => {console.warn("teste")}}
+        />
         <BoxWalletInvestment title={"Meta 2"} onPress={() => {}} />
         <BoxWalletInvestment title={"Meta 3"} onPress={() => {}} />
       </SafeAreaView>

@@ -1,12 +1,11 @@
 import React from "react";
 import { SafeAreaView, Text } from "react-native";
-import { BorderlessButton } from "react-native-gesture-handler";
+import { BorderlessButton, BorderlessButtonProps } from "react-native-gesture-handler";
 
 import { styles } from "./styles";
 
-interface IBoxWalletInvestmentProps {
+interface IBoxWalletInvestmentProps extends BorderlessButtonProps  {
   title: string;
-  onPress: () => void;
 }
 
 export function BoxWalletInvestment({ title }: IBoxWalletInvestmentProps) {
