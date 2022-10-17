@@ -184,4 +184,11 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
+  image: {
+    width: 52,
+    height: 52,
+    right: 200,
+    top: -150,
+    transform: [{ rotate: "90deg" }],
+  }
 });

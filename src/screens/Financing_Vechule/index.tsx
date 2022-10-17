@@ -1,13 +1,14 @@
 import React from "react";
 import { styles } from "./styles";
-import { SafeAreaView, Text, TextInput } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { SafeAreaView, Text, TextInput, Image } from "react-native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
-import { RectButton } from "react-native-gesture-handler";
+import carro from "../../assets/carro.png";
 
+import { useRoute } from "@react-navigation/native";
+import { RectButton } from "react-native-gesture-handler";
 interface IRouteParams {
   token: string;
 }
@@ -120,7 +121,7 @@ export function Financing_Vechule() {
       >
         <Text style={styles.textButton}>CALCULAR</Text>
       </RectButton>
-
+      <Image source={carro} style={styles.image} />
       <Baseboard token={token} />
     </SafeAreaView>
   );

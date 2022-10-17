@@ -29,7 +29,7 @@ const schema = Yup.object().shape({
 });
 
 export function ModalAddGoal() {
-  const [modalPrimary, setModalPrimary] = useState(false);
+  const [visible, setVisible] = useState(false);
   const {
     control,
     handleSubmit,
@@ -59,7 +59,7 @@ export function ModalAddGoal() {
     }
   }
   return (
-    <Modal animationType="fade" transparent={true} visible={modalPrimary}>
+    <Modal animationType="fade" transparent={true} visible={visible}>
       <SafeAreaView style={styles.viewModal}>
         <Text style={styles.titleModal1}>Qual é sua meta?</Text>
 
@@ -91,7 +91,7 @@ export function ModalAddGoal() {
         <SafeAreaView style={styles.buttonLeft1}>
           <RectButton
             onPress={() => {
-              setModalPrimary(false);
+              setVisible(false);
             }}
           >
             <Image source={ArrowImg} style={styles.arrowImgLeft} />
@@ -102,7 +102,7 @@ export function ModalAddGoal() {
           <RectButton
             onPress={() => {
               handleSubmit(async (data) => await handleRegister(data))();
-              setModalPrimary(false);
+              setVisible(false);
             }}
           >
             <Image source={ArrowImg} style={styles.arrowImgRight} />
