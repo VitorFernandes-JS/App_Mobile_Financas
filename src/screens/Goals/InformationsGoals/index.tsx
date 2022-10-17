@@ -8,8 +8,7 @@ import { GoalsCard, GoalsCardProps } from "../../../components/GoalsCard";
 import { theme } from "../../../global/styles/theme";
 import { ModalAddGoal } from "../../../components/ModalAddGoal";
 
-import { useFocusEffect } from "@react-navigation/native";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useFocusEffect } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AntDesign } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";

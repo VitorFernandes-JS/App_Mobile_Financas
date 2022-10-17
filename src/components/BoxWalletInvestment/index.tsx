@@ -6,12 +6,13 @@ import { styles } from "./styles";
 
 interface IBoxWalletInvestmentProps extends BorderlessButtonProps  {
   title: string;
+  onPress: () => void;
 }
 
-export function BoxWalletInvestment({ title }: IBoxWalletInvestmentProps) {
+export function BoxWalletInvestment({ title, ...rest }: IBoxWalletInvestmentProps) {
   return (
     <SafeAreaView>
-      <BorderlessButton style={styles.box}>
+      <BorderlessButton style={styles.box} {...rest}>
         <Text style={styles.title}>{title}</Text>
       </BorderlessButton>
     </SafeAreaView>

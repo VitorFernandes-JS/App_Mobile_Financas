@@ -16,12 +16,7 @@ import { Financing_Residential } from "../screens/Financing_Residential";
 import { Videos } from "../screens/Videos";
 import { Loan } from "../screens/Loan";
 import { Favorite } from "../screens/Favorite";
-import { FixedIncome } from "../screens/FixedIncome_Videos";
 import { CategoryVideos } from "../screens/Category_Videos";
-import { FIIS } from "../screens/FIIS_Videos";
-import { MobileApp } from "../screens/MobileApp_Videos";
-import { Cripto } from "../screens/Cripto_Videos";
-import { Economy } from "../screens/Economy_Videos";
 import { Home_Calculator } from "../screens/Home_Calculator";
 import { Home_Finance } from "../screens/Home_Finance";
 import { InformationsGoals } from "../screens/Goals/InformationsGoals";
@@ -52,12 +47,7 @@ export function AuthRoutes() {
       <Screen name="Financing_Residential" component={Financing_Residential} />
       <Screen name="Loan" component={Loan} />
       <Screen name="Favorite" component={Favorite} />
-      <Screen name="FixedIncome" component={FixedIncome} />
       <Screen name="CategoryVideos" component={CategoryVideos} />
-      <Screen name="FIIS" component={FIIS} />
-      <Screen name="MobileApp" component={MobileApp} />
-      <Screen name="Cripto" component={Cripto} />
-      <Screen name="Economy" component={Economy} />
       <Screen name="Home_Calculator" component={Home_Calculator} />
       <Screen name="Home_Finance" component={Home_Finance} />
       <Screen name="InformationsGoals" component={InformationsGoals} />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Alert } from "react-native";
+import { SafeAreaView } from "react-native";
 import { styles } from "./styles";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
@@ -7,6 +7,7 @@ import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
 import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
 import { BoxWalletInvestment } from "../../components/BoxWalletInvestment";
+import { ModalPattern } from "../../components/modalPattern";
 
 import { useRoute } from "@react-navigation/native";
 interface IRouteParams {
@@ -20,6 +21,9 @@ interface ITransactionsWallets {
   description: string;
   created_at?: Date;
   updated_at?: Date;
+}
+
+function handleModal() {
 }
 
 
@@ -45,7 +49,7 @@ export function WalletInvestment() {
       <SafeAreaView style={styles.boxsWallet}>
         <BoxWalletInvestment
           title={"Meta 1"}
-          onPress={() => {console.warn("teste")}}
+          onPress={() => {}}
         />
         <BoxWalletInvestment title={"Meta 2"} onPress={() => {}} />
         <BoxWalletInvestment title={"Meta 3"} onPress={() => {}} />
