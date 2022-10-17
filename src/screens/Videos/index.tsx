@@ -6,7 +6,7 @@ import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 import { BoxVideos } from "../../components/boxVideos";
-
+import { WebView } from 'react-native-webview';
 interface IVideosProps {
   token: string;
 }
@@ -30,7 +30,11 @@ export function Videos({ token }: IVideosProps) {
       <SafeAreaView style={styles.boxVideo}>
         <SafeAreaView style={styles.boxStart}>
           <Text style={styles.start}>COMECE AQUI! </Text>
-        </SafeAreaView>
+          </SafeAreaView>
+           <WebView
+              source={{ uri: "https://www.youtube.com/embed/t-yMB8LuzVs" }}
+              style={styles.video}
+            /> 
       </SafeAreaView>
 
       <Baseboard token={token} />

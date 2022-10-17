@@ -32,6 +32,14 @@ export const styles = StyleSheet.create({
     right: 10,
     backgroundColor: theme.colors.color2,
     borderRadius: 5,
+    zIndex: 1,
+  },
+  video: {
+    width: 265,
+    borderRadius: 8,
+    left: 35,
+    top: -10,
+    zIndex: 2,
   },
   start: {
     fontFamily: theme.fonts.font7_bold,
