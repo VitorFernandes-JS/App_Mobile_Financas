@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     borderRadius: 20,
-    top: 280,
+    top: 260,
     left: 62,
     margin: 20,
     shadowColor: "#1a1a1a",
