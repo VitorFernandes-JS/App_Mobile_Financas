@@ -91,5 +91,9 @@ export const styles = StyleSheet.create({
     color: theme.colors.color6,
     fontSize: 16,
     fontFamily: theme.fonts.font6_semiBold,
-  }
+  },
+  viewDropDownPicker: {
+    top: -208,
+    marginLeft: -100,
+  },
 });

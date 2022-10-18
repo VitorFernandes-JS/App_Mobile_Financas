@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   },
 textInput1: {
     width: 250,
-    height: 40,
+    height: 50,
     backgroundColor: theme.colors.color5,
     borderRadius: 10,
     color: theme.colors.color1,
