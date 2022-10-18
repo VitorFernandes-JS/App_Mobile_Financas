@@ -28,11 +28,7 @@ export function WalletInvestment() {
   >([]);
 
   const goals = [
-    {
-      id: "1",
-      name: "Casa",
-      amount: "R$ 1.000,00",
-    },
+   
   ];
   const route = useRoute();
 
@@ -51,13 +47,23 @@ export function WalletInvestment() {
         <BoxWalletInvestment
           title={"Meta 1"}
           onPress={() => {
-            if (goals.length === 1) {
-              console.warn("Não há metas cadastradas");
+            if (goals.length === 0) {
+              Alert.alert("Você não possui metas cadastradas!");
+            } else {
+              
             }
           }}
         />
-        <BoxWalletInvestment title={"Meta 2"} onPress={() => {}} />
-        <BoxWalletInvestment title={"Meta 3"} onPress={() => {}} />
+        <BoxWalletInvestment title={"Meta 2"} onPress={() => {
+            if (goals.length === 0) {
+              Alert.alert("Você não possui metas cadastradas!");
+            }
+          }} />
+        <BoxWalletInvestment title={"Meta 3"} onPress={() => {
+            if (goals.length === 0) {
+              Alert.alert("Você não possui metas cadastradas!");
+            }
+          }} />
       </SafeAreaView>
       <Baseboard token={token} />
     </SafeAreaView>

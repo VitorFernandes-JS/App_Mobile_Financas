@@ -51,18 +51,14 @@ export function InformationsGoals() {
     console.log(goalsFormatted)
   }
 
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     (async () => {
-  //       await loadGoals();
-  //     })()
-  //     // AsyncStorage.removeItem('@mobile:goals');
-  //   }, [])
-  // );
-
-  // useFocusEffect(() => {
-  //   loadGoals();
-  // });
+  useFocusEffect(
+    useCallback(() => {
+      (async () => {
+        await loadGoals();
+      })()
+      // AsyncStorage.removeItem('@mobile:goals');
+    }, [])
+  );
 
   return (
     <SafeAreaView style={styles.container}>
