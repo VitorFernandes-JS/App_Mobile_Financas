@@ -23,7 +23,10 @@ import DropDownPicker from "react-native-dropdown-picker";
 interface FormData {
   [day: string]: any;
   [amount: number]: any;
-  priority: string;
+}
+
+interface FormData2 {
+    [priority: string]: any;
 }
 
 const schema = Yup.object().shape({
@@ -55,7 +58,7 @@ export function Wallet_InvestmentModal({
   } = useForm({
     resolver: yupResolver(schema),
   });
-  async function handleRegister(form: FormData) {
+  async function handleRegister(form: FormData | FormData2) {
     const newGoal = {
       day: form.day,
       amount: form.amount,
