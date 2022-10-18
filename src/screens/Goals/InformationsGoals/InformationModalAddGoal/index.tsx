@@ -92,16 +92,15 @@ export function InformationModalAddGoal({ isVisible, setIsVisible }: Information
           />
         </SafeAreaView>
 
-        <SafeAreaView style={styles.buttonRight1}>
           <RectButton
+            style={styles.button}
             onPress={() => {
               handleSubmit(async (data) => await handleRegister(data))();
               setIsVisible(false);
             }}
           >
-            <Image source={ArrowImg} style={styles.arrowImgRight} />
+            <Text style={styles.textButton}>Enviar</Text>
           </RectButton>
-        </SafeAreaView>
 
         <SafeAreaView style={styles.modalPatternView}>
           <ModalPattern text="Digite o nome da sua meta e o valor total da mesma." />
