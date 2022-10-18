@@ -37,20 +37,7 @@ export function WalletInvestment() {
       valueCurrent: 0,
       percentage: 0,
     },
-    {
-      id: "1",
-      name: "Casa",
-      value: 100000,
-      valueCurrent: 0,
-      percentage: 0,
-    },
-    {
-      id: "1",
-      name: "Casa",
-      value: 100000,
-      valueCurrent: 0,
-      percentage: 0,
-    },
+   
   ];
   const route = useRoute();
 

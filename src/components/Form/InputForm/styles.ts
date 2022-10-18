@@ -8,7 +8,7 @@ export const Error = styled.Text`
   font-size: ${RFValue(14)}px;
   color: ${theme.colors.attention_light};
   font-family: ${theme.fonts.font4_regular};
-  top: 42px;
+  top: 50px;
   right: 120px;
 `;
 
