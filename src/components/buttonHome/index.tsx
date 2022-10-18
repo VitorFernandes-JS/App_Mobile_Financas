@@ -34,6 +34,10 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
     navigation.navigate("Videos", { token });
   }
 
+  function handleWatchVideo() {
+    navigation.navigate("WatchingVideo", { token });
+  }
+
   function handleLoan() {
     navigation.navigate("Loan", { token });
   }
@@ -89,7 +93,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
-        onPress={handleVideos}
+        onPress={handleWatchVideo}
         style={viewButtonStyles({ left: 60, top: -150 }).button}
         {...rest}
       >

@@ -3,7 +3,6 @@ import { useNavigation } from "@react-navigation/native";
 
 import { SafeAreaView } from "react-native";
 import { styles } from "./styles";
-import { Avatar } from "../Avatar";
 
 import { BackButton } from "../BackButton";
 

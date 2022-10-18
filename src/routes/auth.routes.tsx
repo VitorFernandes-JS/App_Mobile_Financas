@@ -14,6 +14,7 @@ import { Goals } from "../screens/Goals";
 import { Financing_Vechule } from "../screens/Financing_Vechule";
 import { Financing_Residential } from "../screens/Financing_Residential";
 import { Videos } from "../screens/Videos";
+import { WatchingVideo } from "../screens/Videos/WatchingVideo";
 import { Loan } from "../screens/Loan";
 import { Favorite } from "../screens/Favorite";
 import { CategoryVideos } from "../screens/Category_Videos";
@@ -43,6 +44,7 @@ export function AuthRoutes() {
       <Screen name="WalletInvestment" component={WalletInvestment} />
       <Screen name="Goals" component={Goals} />
       <Screen name="Videos" component={Videos} />
+      <Screen name="WatchingVideo" component={WatchingVideo} />
       <Screen name="Financing_Vechule" component={Financing_Vechule} />
       <Screen name="Financing_Residential" component={Financing_Residential} />
       <Screen name="Loan" component={Loan} />

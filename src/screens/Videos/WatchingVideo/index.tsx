@@ -15,7 +15,9 @@ export function WatchingVideo({ token }: IVideosProps) {
   return (
     <SafeAreaView style={styles.container}>
         <Header />
-
+        <SafeAreaView>
+            
+        </SafeAreaView>
         <Baseboard token={token}/>
     </SafeAreaView>
   );

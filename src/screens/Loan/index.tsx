@@ -21,7 +21,7 @@ export function Loan() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Empréstimo </Text>

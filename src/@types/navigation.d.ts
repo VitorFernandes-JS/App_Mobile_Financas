@@ -13,6 +13,7 @@ export declare global {
       Financing_Vechule: any;
       Financing_Residential: any;
       Videos: any;
+      WatchingVideo: any;
       Loan: any;
       Favorite: any;
       FixedIncome: any;
