@@ -70,7 +70,7 @@ export function WalletInvestment() {
           title={"Meta 1"}
           onPress={() => {
             if (goals.length >= 1) {
-             setVisible(true)
+              setVisible(true);
             } else {
               Alert.alert("Você não possui metas cadastradas!");
             }
@@ -80,7 +80,7 @@ export function WalletInvestment() {
           title={"Meta 2"}
           onPress={() => {
             if (goals.length >= 2) {
-              setVisible(true)
+              setVisible(true);
             } else {
               Alert.alert("Você não possui metas cadastradas!");
             }
@@ -90,7 +90,7 @@ export function WalletInvestment() {
           title={"Meta 3"}
           onPress={() => {
             if (goals.length === 3) {
-              setVisible(true)
+              setVisible(true);
             } else {
               Alert.alert("Você não possui metas cadastradas!");
             }

@@ -26,7 +26,7 @@ interface FormData {
 }
 
 interface FormData2 {
-    [priority: string]: any;
+  [priority: string]: any;
 }
 
 const schema = Yup.object().shape({
@@ -194,7 +194,7 @@ export function Wallet_InvestmentModal({
         </SafeAreaView>
       </TouchableWithoutFeedback>
 
-            {/* Select do dia */}
+      {/* Select do dia */}
       <SafeAreaView style={styles.viewDropDownPicker}>
         <DropDownPicker
           style={{
@@ -244,7 +244,7 @@ export function Wallet_InvestmentModal({
         />
       </SafeAreaView>
 
-          {/* Select da prioridade */}
+      {/* Select da prioridade */}
       <SafeAreaView style={styles.viewDropDownPicker}>
         <DropDownPicker
           style={{
@@ -293,7 +293,6 @@ export function Wallet_InvestmentModal({
           setItems={setItems2}
         />
       </SafeAreaView>
-
     </Modal>
   );
 }
