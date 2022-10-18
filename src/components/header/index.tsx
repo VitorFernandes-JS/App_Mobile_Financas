@@ -19,9 +19,6 @@ export function Header() {
       <SafeAreaView style={styles.viewBackButton}>
         <BackButton onPress={handleHome} />
       </SafeAreaView>
-      <SafeAreaView style={styles.viewAvatar}>
-        <Avatar />
-      </SafeAreaView>
     </SafeAreaView>
   );
 }
