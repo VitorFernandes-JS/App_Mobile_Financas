@@ -7,6 +7,7 @@ import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
 import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
 import { BoxWalletInvestment } from "../../components/BoxWalletInvestment";
+import { Wallet_InvestmentModal } from "./Wallet_InvestmentModal";
 
 import { useRoute } from "@react-navigation/native";
 interface IRouteParams {
@@ -23,12 +24,33 @@ interface ITransactionsWallets {
 }
 
 export function WalletInvestment() {
+  const [visible, setVisible] = useState(false);
   const [transactionsWallets, setTransactionsWallets] = useState<
     ITransactionsWallets[]
   >([]);
 
   const goals = [
-   
+    {
+      id: "1",
+      name: "Casa",
+      value: 100000,
+      valueCurrent: 0,
+      percentage: 0,
+    },
+    {
+      id: "1",
+      name: "Casa",
+      value: 100000,
+      valueCurrent: 0,
+      percentage: 0,
+    },
+    {
+      id: "1",
+      name: "Casa",
+      value: 100000,
+      valueCurrent: 0,
+      percentage: 0,
+    },
   ];
   const route = useRoute();
 
@@ -47,25 +69,36 @@ export function WalletInvestment() {
         <BoxWalletInvestment
           title={"Meta 1"}
           onPress={() => {
-            if (goals.length === 0) {
-              Alert.alert("Você não possui metas cadastradas!");
+            if (goals.length >= 1) {
+             setVisible(true)
             } else {
-              
+              Alert.alert("Você não possui metas cadastradas!");
             }
           }}
         />
-        <BoxWalletInvestment title={"Meta 2"} onPress={() => {
-            if (goals.length === 0) {
+        <BoxWalletInvestment
+          title={"Meta 2"}
+          onPress={() => {
+            if (goals.length >= 2) {
+              setVisible(true)
+            } else {
               Alert.alert("Você não possui metas cadastradas!");
             }
-          }} />
-        <BoxWalletInvestment title={"Meta 3"} onPress={() => {
-            if (goals.length === 0) {
+          }}
+        />
+        <BoxWalletInvestment
+          title={"Meta 3"}
+          onPress={() => {
+            if (goals.length === 3) {
+              setVisible(true)
+            } else {
               Alert.alert("Você não possui metas cadastradas!");
             }
-          }} />
+          }}
+        />
       </SafeAreaView>
       <Baseboard token={token} />
+      <Wallet_InvestmentModal isVisible={visible} setIsVisible={setVisible} />
     </SafeAreaView>
   );
 }
