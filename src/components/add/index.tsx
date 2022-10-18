@@ -29,6 +29,7 @@ export function Add({ setTransactionsWallets }: IAddProps) {
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+  
   function handleTransactionTypeSelect(type: "up" | "down") {
     setTransactionType(type);
   };

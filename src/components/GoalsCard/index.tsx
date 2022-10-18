@@ -28,7 +28,7 @@ export function GoalsCard({ number, name, amount }: GoalsCardProps) {
   }
 
   return (
-        <RectButton style={styles.body} onPress={handleWalletInvestment}>
+      <RectButton style={styles.body} onPress={handleWalletInvestment}>
         <SafeAreaView style={styles.number}>
           <Text style={styles.numberText}>{number}</Text>
         </SafeAreaView>

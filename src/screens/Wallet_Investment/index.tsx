@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView } from "react-native";
+import { Alert, SafeAreaView } from "react-native";
 import { styles } from "./styles";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
@@ -7,7 +7,6 @@ import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
 import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
 import { BoxWalletInvestment } from "../../components/BoxWalletInvestment";
-import { ModalPattern } from "../../components/modalPattern";
 
 import { useRoute } from "@react-navigation/native";
 interface IRouteParams {
@@ -23,16 +22,18 @@ interface ITransactionsWallets {
   updated_at?: Date;
 }
 
-function handleModal() {
-}
-
-
 export function WalletInvestment() {
   const [transactionsWallets, setTransactionsWallets] = useState<
-  ITransactionsWallets[]
+    ITransactionsWallets[]
   >([]);
-  
-  const goals = [];
+
+  const goals = [
+    {
+      id: "1",
+      name: "Casa",
+      amount: "R$ 1.000,00",
+    },
+  ];
   const route = useRoute();
 
   const { token } = route.params as IRouteParams;
@@ -49,7 +50,11 @@ export function WalletInvestment() {
       <SafeAreaView style={styles.boxsWallet}>
         <BoxWalletInvestment
           title={"Meta 1"}
-          onPress={() => {}}
+          onPress={() => {
+            if (goals.length === 1) {
+              console.warn("Não há metas cadastradas");
+            }
+          }}
         />
         <BoxWalletInvestment title={"Meta 2"} onPress={() => {}} />
         <BoxWalletInvestment title={"Meta 3"} onPress={() => {}} />

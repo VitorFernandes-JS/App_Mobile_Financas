@@ -6,13 +6,13 @@ import { Header } from "../../../components/header";
 import { Baseboard } from "../../../components/baseboard";
 import { GoalsCard, GoalsCardProps } from "../../../components/GoalsCard";
 import { theme } from "../../../global/styles/theme";
-import { ModalAddGoal } from "../../../components/ModalAddGoal";
 
 import { useRoute, useFocusEffect } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AntDesign } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Octicons } from "@expo/vector-icons";
+import { InformationModalAddGoal } from "./InformationModalAddGoal";
 export interface DataListProps extends GoalsCardProps {
   id: string;
 }
@@ -22,11 +22,11 @@ interface IRouteParams {
 }
 
 export function InformationsGoals() {
+  const [visible, setVisible] = useState(false);
+
   const route = useRoute();
   const { token } = route.params as IRouteParams;
-  function handleModal() {
-    <ModalAddGoal />;
-  }
+ 
   const [data, setData] = useState<DataListProps[]>([]);
 
   async function loadGoals() {
@@ -48,15 +48,21 @@ export function InformationsGoals() {
     });
 
     setData(goalsFormatted);
-    console.log(goalsFormatted);
+    console.log(goalsFormatted)
   }
 
-  useFocusEffect(
-    useCallback(() => {
-      // AsyncStorage.removeItem('@mobile:goals');
-      loadGoals();
-    }, [])
-  );
+  // useFocusEffect(
+  //   useCallback(() => {
+  //     (async () => {
+  //       await loadGoals();
+  //     })()
+  //     // AsyncStorage.removeItem('@mobile:goals');
+  //   }, [])
+  // );
+
+  // useFocusEffect(() => {
+  //   loadGoals();
+  // });
 
   return (
     <SafeAreaView style={styles.container}>
@@ -76,7 +82,7 @@ export function InformationsGoals() {
           <Text style={styles.textAddNewGoal}>Crie mais uma meta:</Text>
           <BorderlessButton
             style={styles.iconAdd}
-            onPress={() => {handleModal}}
+            onPress={() => setVisible(true)}
           >
             <Octicons name="diff-added" size={34} color={theme.colors.color3} />
           </BorderlessButton>
@@ -97,7 +103,7 @@ export function InformationsGoals() {
           <Text style={styles.textAddNewGoal}>Crie mais uma meta:</Text>
           <BorderlessButton
             style={styles.iconAdd}
-            onPress={() => console.warn("clicou")}
+            onPress={() => setVisible(true)}
           >
             <Octicons name="diff-added" size={34} color={theme.colors.color3} />
           </BorderlessButton>
@@ -116,8 +122,9 @@ export function InformationsGoals() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>
-
+      
       <Baseboard token={token} />
+      <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible}/>
     </SafeAreaView>
   );
 }
