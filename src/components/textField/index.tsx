@@ -46,7 +46,8 @@ export function TextField({
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
             onChangeText={(text) => {
-              setValue(text);
+              const formatedText = Number(text.replace(/,/, '.'))
+              setValue(formatedText)
             }}
           ></TextInput>
         </SafeAreaView>
