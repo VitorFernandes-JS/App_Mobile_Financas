@@ -1,18 +1,22 @@
 import React from "react";
 import { SafeAreaView } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
+import { BorderlessButton, BorderlessButtonProps } from "react-native-gesture-handler";
 import { styles } from "./styles";
 
 import { EvilIcons } from "@expo/vector-icons";
 
-export function Trash() {
+interface ITrashProps extends BorderlessButtonProps {
+  onPress: () => void;
+}
+
+export function Trash({ onPress, ...rest }: ITrashProps) {
   return (
     <SafeAreaView style={styles.container}>
-      <RectButton onPress={() => console.log("teste1")}>
+      <BorderlessButton {...rest}>
         <SafeAreaView style={styles.body}>
           <EvilIcons name="trash" size={22} style={styles.iconTrash} />
         </SafeAreaView>
-      </RectButton>
+      </BorderlessButton>
     </SafeAreaView>
   );
 }

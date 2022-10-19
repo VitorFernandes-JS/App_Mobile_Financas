@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, SafeAreaView, Text } from "react-native";
+import { Alert, SafeAreaView, ScrollView, Text } from "react-native";
 import { styles } from "./styles";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
@@ -8,12 +8,14 @@ import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
 import { BoxWalletInvestment } from "../../components/BoxWalletInvestment";
 import { Wallet_InvestmentModal } from "./Wallet_InvestmentModal";
+import { AddWalletInvestment } from "../../components/AddWalletInvestment";
+import { theme } from "../../global/styles/theme";
+import { BoxExtractWalletInvestment } from "../../components/BoxExtractWalletInvestment";
+import { Trash } from "../../components/trash";
 
 import { useRoute } from "@react-navigation/native";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
-import { theme } from "../../global/styles/theme";
-import { Add } from "../../components/add";
 interface IRouteParams {
   token: string;
 }
@@ -100,6 +102,7 @@ export function WalletInvestment() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.boxGrafic}>
+
         <BorderlessButton style={styles.buttonInformation}>
           <Ionicons
             name="information-circle-outline"
@@ -113,6 +116,32 @@ export function WalletInvestment() {
           <Text style={styles.textTargetPercentage}>% meta do mês</Text>
         </SafeAreaView>
 
+        <SafeAreaView style={styles.viewAddAndTrash}>
+          <SafeAreaView style={styles.add}>
+            <AddWalletInvestment
+              setTransactionsWallets={setTransactionsWallets}
+            />
+          </SafeAreaView>
+
+          <SafeAreaView style={styles.trash}>
+            <Trash onPress={() => {}} />
+          </SafeAreaView>
+        </SafeAreaView>
+
+        <ScrollView
+        showsVerticalScrollIndicator={true}
+        style={styles.scrollView}
+        contentContainerStyle={styles.contentContainer}
+      >
+        <SafeAreaView>
+          {transactionsWallets.map((transactionWallet) => (
+            <BoxExtractWalletInvestment
+              key={transactionWallet.id}
+              transactionWallet={transactionWallet}
+            />
+          ))}
+        </SafeAreaView>
+      </ScrollView>
 
       </SafeAreaView>
 

@@ -53,7 +53,7 @@ export function Wallet({ token }: IWalletProps) {
         <Text style={styles.valueLeft}>R$ 10.000,00</Text>
       </SafeAreaView>
       <SafeAreaView style={styles.viewTrash}>
-        <Trash />
+        <Trash onPress={() => {}}/>
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
         <Add setTransactionsWallets={setTransactionsWallets} />

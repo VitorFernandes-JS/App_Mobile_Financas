@@ -3,17 +3,15 @@ import { SafeAreaView, Modal, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 
-import { TextField } from "../textField";
 import { ModalWallet } from "../modalWallet";
+import { TextFieldWalletInvestment } from "../TextFieldWalletInvestment";
 
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import { TransactionTypeButton } from "../TransactionTypeButton";
 
 interface ITransactionsWallets {
   id: string;
   value: number;
-  category: string;
   description: string;
   created_at?: Date;
   updated_at?: Date;
@@ -23,32 +21,19 @@ interface IAddProps {
   setTransactionsWallets: Dispatch<SetStateAction<ITransactionsWallets[]>>;
 }
 
-export function Add({ setTransactionsWallets }: IAddProps) {
+export function AddWalletInvestment({ setTransactionsWallets }: IAddProps) {
   const [visible, setVisible] = useState(false);
-  const [transactionType, setTransactionType] = useState("");
   const [value, setValue] = useState("");
-  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  
-  function handleTransactionTypeSelect(type: "up" | "down") {
-    setTransactionType(type);
-  };
 
   return (
     <SafeAreaView style={styles.container}>
       <Modal animationType="slide" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
-          <TextField
+          <TextFieldWalletInvestment
             setValue={setValue}
-            setCategory={setCategory}
-            category={category}
             setDescription={setDescription}
           />
-          
-          <SafeAreaView style={styles.viewTransactionTypeButtons}>
-          <TransactionTypeButton onPress={() => handleTransactionTypeSelect("down")} title={"Saída"} type={"down"} isActive={transactionType === "down"} />
-          <TransactionTypeButton onPress={() => handleTransactionTypeSelect("up")} title={"Entrada"} type={"up"}  isActive={transactionType === "up"}/>
-          </SafeAreaView>
 
           <SafeAreaView style={styles.line}></SafeAreaView>
           <BorderlessButton
@@ -72,7 +57,6 @@ export function Add({ setTransactionsWallets }: IAddProps) {
                   {
                     id: `'${(new Date(), Math.random() * 100)}'`,
                     value: Number(value),
-                    category,
                     description,
                   },
                 ];
@@ -88,7 +72,7 @@ export function Add({ setTransactionsWallets }: IAddProps) {
           </TouchableOpacity>
 
           <SafeAreaView style={styles.viewInterrogation}>
-            <ModalWallet text="Digite as informações para adicionar um gasto ou um ganho em sua carteira!" />
+            <ModalWallet text="Digite as informações para um investimento na sua meta!" />
           </SafeAreaView>
         </SafeAreaView>
       </Modal>

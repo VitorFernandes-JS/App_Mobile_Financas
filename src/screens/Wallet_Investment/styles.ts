@@ -43,4 +43,14 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font4_regular,
     left: 15
   },
+  viewAddAndTrash: {
+    flexDirection: "row",
+    top: 120
+  },
+  add: {
+    left: 310
+  },
+  trash: {
+    left: 315
+  }
 });
