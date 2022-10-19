@@ -4,13 +4,13 @@ import { Container, Icon, Title, Button } from "./styles";
 
 interface Props extends RectButtonProps {
   title: string;
-  type: "up" | "down";
+  type: "deposit" | "withdraw";
   isActive: boolean;
 }
 
 const icon = {
-  up: "arrow-up-circle",
-  down: "arrow-down-circle",
+  deposit: "arrow-up-circle",
+  withdraw: "arrow-down-circle",
 };
 
 export function TransactionTypeButton({

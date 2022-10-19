@@ -57,8 +57,14 @@ export const styles = StyleSheet.create({
     top: 50,
     left: 115
   },
-  value: {
+  valueWitdraw: {
     left: 210,
     position: "absolute",
+    color: 'red',
+  },
+  valueDeposit: {
+    left: 210,
+    position: "absolute",
+    color: 'green'
   }
 });

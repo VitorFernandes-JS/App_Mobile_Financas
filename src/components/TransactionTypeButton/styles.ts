@@ -5,11 +5,11 @@ import { Feather } from "@expo/vector-icons";
 import { theme } from "../../global/styles/theme";
 
 interface IconProps {
-    type: "up" | "down";
+    type: "deposit" | "withdraw";
 };
 
 interface ContainerProps{
-    type: "up" | "down";
+    type: "deposit" | "withdraw";
     isActive: boolean;
 };
 
@@ -19,10 +19,10 @@ export const Container = styled.View<ContainerProps>`
     border-width: ${({ isActive }) => isActive ? 0 : 1.5}px; 
     border-color: ${theme.colors.color3};
     border-radius: 10px;
-    ${({ isActive, type }) => isActive && type === "up" && css`
+    ${({ isActive, type }) => isActive && type === "deposit" && css`
         background-color: ${theme.colors.success_light};
     `}
-    ${({ isActive, type }) => isActive && type === "down" && css`
+    ${({ isActive, type }) => isActive && type === "withdraw" && css`
         background-color: ${theme.colors.attention_light};
     `}
 `;
@@ -42,5 +42,5 @@ export const Button = styled(RectButton)`
 export const Icon = styled(Feather)<IconProps>`
     font-size: ${RFValue(24)}px;
     margin-right: 6px;
-    color: ${({ type }) => type === "up" ? "#12A454" : "#E83F5B"}
+    color: ${({ type }) => type === "deposit" ? "#12A454" : "#E83F5B"}
 `;

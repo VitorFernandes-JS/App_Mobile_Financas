@@ -18,6 +18,7 @@ interface IWalletProps {
 interface ITransactionsWallets {
   id: string;
   value: number;
+  type?: "deposit" | "withdraw";
   category: string;
   description: string;
   created_at?: Date;

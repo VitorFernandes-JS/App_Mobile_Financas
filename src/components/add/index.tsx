@@ -25,14 +25,14 @@ interface IAddProps {
 
 export function Add({ setTransactionsWallets }: IAddProps) {
   const [visible, setVisible] = useState(false);
-  const [transactionType, setTransactionType] = useState("");
+  const [transactionType, setTransactionType] = useState("deposit");
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  
-  function handleTransactionTypeSelect(type: "up" | "down") {
+
+  function handleTransactionTypeSelect(type: "deposit" | "withdraw") {
     setTransactionType(type);
-  };
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -44,10 +44,20 @@ export function Add({ setTransactionsWallets }: IAddProps) {
             category={category}
             setDescription={setDescription}
           />
-          
+
           <SafeAreaView style={styles.viewTransactionTypeButtons}>
-          <TransactionTypeButton onPress={() => handleTransactionTypeSelect("down")} title={"Saída"} type={"down"} isActive={transactionType === "down"} />
-          <TransactionTypeButton onPress={() => handleTransactionTypeSelect("up")} title={"Entrada"} type={"up"}  isActive={transactionType === "up"}/>
+            <TransactionTypeButton
+              onPress={() => handleTransactionTypeSelect("withdraw")}
+              title={"Saída"}
+              type={"withdraw"}
+              isActive={transactionType === "withdraw"}
+            />
+            <TransactionTypeButton
+              onPress={() => handleTransactionTypeSelect("deposit")}
+              title={"Entrada"}
+              type={"deposit"}
+              isActive={transactionType === "deposit"}
+            />
           </SafeAreaView>
 
           <SafeAreaView style={styles.line}></SafeAreaView>
@@ -57,11 +67,7 @@ export function Add({ setTransactionsWallets }: IAddProps) {
               setVisible(false);
             }}
           >
-            <AntDesign
-              name="closecircle"
-              color="red"
-              size={22}
-            />
+            <AntDesign name="closecircle" color="red" size={22} />
           </BorderlessButton>
 
           <TouchableOpacity
@@ -74,6 +80,7 @@ export function Add({ setTransactionsWallets }: IAddProps) {
                     value: Number(value),
                     category,
                     description,
+                    type: transactionType,
                   },
                 ];
               });
