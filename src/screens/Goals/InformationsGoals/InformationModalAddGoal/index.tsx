@@ -1,10 +1,9 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { Modal, SafeAreaView, Text, Image, Alert } from "react-native";
+import { Modal, SafeAreaView, Text, Alert } from "react-native";
 import { styles } from "./styles";
 
 import { InputForm } from "../../../../components/Form/InputForm";
 import { ModalPattern } from "../../../../components/modalPattern";
-import ArrowImg from "../../../../assets/arrow.png";
 
 import { RectButton } from "react-native-gesture-handler";
 import { useForm } from "react-hook-form";

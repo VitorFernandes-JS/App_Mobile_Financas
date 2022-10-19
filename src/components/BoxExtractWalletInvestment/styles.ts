@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
   },
   value: {
     color: "#26B602",
-    left: 230,
+    left: 210,
     position: "absolute",
   }
 });
