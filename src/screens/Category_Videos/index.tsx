@@ -65,6 +65,8 @@ export function CategoryVideos({ token, route }: IVideosProps) {
           {videos.map((video: IVideo) => (
             <BoxCategoryVideos
               key={video.id}
+              video={video}
+              token={token}
               text="O que fazer com 1000 reais?"
               source={video.images}
             />

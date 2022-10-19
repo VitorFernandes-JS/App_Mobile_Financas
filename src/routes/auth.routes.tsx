@@ -21,38 +21,41 @@ import { CategoryVideos } from "../screens/Category_Videos";
 import { Home_Calculator } from "../screens/Home_Calculator";
 import { Home_Finance } from "../screens/Home_Finance";
 import { InformationsGoals } from "../screens/Goals/InformationsGoals";
+import { NavigationContainer } from "@react-navigation/native";
 
 const { Navigator, Screen } = createStackNavigator();
 
 export function AuthRoutes() {
   return (
-    <Navigator
-      screenOptions={{
-        headerShown: false,
-        cardStyle: {
-          backgroundColor: theme.colors.color6,
-        },
-      }}
-    >
-      <Screen name="SignIn" component={SignIn} />
-      <Screen name="Profile" component={Profile} />
-      <Screen name="Home" component={Home} />
-      <Screen name="Calculator" component={Calculator} />
-      <Screen name="Comparator" component={Comparator} />
-      <Screen name="Indexes" component={Indexes} />
-      <Screen name="Wallet" component={Wallet} />
-      <Screen name="WalletInvestment" component={WalletInvestment} />
-      <Screen name="Goals" component={Goals} />
-      <Screen name="Videos" component={Videos} />
-      <Screen name="WatchingVideo" component={WatchingVideo} />
-      <Screen name="Financing_Vechule" component={Financing_Vechule} />
-      <Screen name="Financing_Residential" component={Financing_Residential} />
-      <Screen name="Loan" component={Loan} />
-      <Screen name="Favorite" component={Favorite} />
-      <Screen name="CategoryVideos" component={CategoryVideos} />
-      <Screen name="Home_Calculator" component={Home_Calculator} />
-      <Screen name="Home_Finance" component={Home_Finance} />
-      <Screen name="InformationsGoals" component={InformationsGoals} />
-    </Navigator>
+    <NavigationContainer independent={true}>
+      <Navigator
+        screenOptions={{
+          headerShown: false,
+          cardStyle: {
+            backgroundColor: theme.colors.color6,
+          },
+        }}
+      >
+        <Screen name="SignIn" component={SignIn} />
+        <Screen name="Profile" component={Profile} />
+        <Screen name="Home" component={Home} />
+        <Screen name="Calculator" component={Calculator} />
+        <Screen name="Comparator" component={Comparator} />
+        <Screen name="Indexes" component={Indexes} />
+        <Screen name="Wallet" component={Wallet} />
+        <Screen name="WalletInvestment" component={WalletInvestment} />
+        <Screen name="Goals" component={Goals} />
+        <Screen name="Videos" component={Videos} />
+        <Screen name="WatchingVideo" component={WatchingVideo} />
+        <Screen name="Financing_Vechule" component={Financing_Vechule} />
+        <Screen name="Financing_Residential" component={Financing_Residential} />
+        <Screen name="Loan" component={Loan} />
+        <Screen name="Favorite" component={Favorite} />
+        <Screen name="CategoryVideos" component={CategoryVideos} />
+        <Screen name="Home_Calculator" component={Home_Calculator} />
+        <Screen name="Home_Finance" component={Home_Finance} />
+        <Screen name="InformationsGoals" component={InformationsGoals} />
+      </Navigator>
+    </NavigationContainer>
   );
 }

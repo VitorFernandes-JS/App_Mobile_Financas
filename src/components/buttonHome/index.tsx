@@ -93,7 +93,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
-        onPress={handleWatchVideo}
+        onPress={handleVideos}
         style={viewButtonStyles({ left: 60, top: -150 }).button}
         {...rest}
       >

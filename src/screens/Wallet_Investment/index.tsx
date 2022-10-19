@@ -29,6 +29,8 @@ export function WalletInvestment() {
     ITransactionsWallets[]
   >([]);
 
+  const [whatIsMeta, setWhatIsMeta] = useState(0);
+
   const goals = [
     {
       id: "1",
@@ -37,8 +39,28 @@ export function WalletInvestment() {
       valueCurrent: 0,
       percentage: 0,
     },
-   
+    {
+      id: "1",
+      name: "Casa",
+      value: 100000,
+      valueCurrent: 0,
+      percentage: 0,
+    },
+    {
+      id: "1",
+      name: "Casa",
+      value: 100000,
+      valueCurrent: 0,
+      percentage: 0,
+    },
   ];
+
+  const investments = [
+    {id: '12', value: 321321, dayOfInvestment: new Date(), meta_id: '213123', priority: 'Alta'},
+  ]
+
+  // TODO: Criar um estado referente as transações do investimento, fazer as requisições baseado no id do investimento, sempre fazer uma nova requisição no onPress passando o id e setando o valor novamente do estado
+
   const route = useRoute();
 
   const { token } = route.params as IRouteParams;
