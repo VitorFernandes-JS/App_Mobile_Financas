@@ -9,12 +9,12 @@ export const styles = StyleSheet.create({
   },
   viewModal: {
     width: 250,
-    height: 250,
+    height: 165,
     backgroundColor: theme.colors.color5,
     justifyContent: "center",
     textAlign: "center",
     borderRadius: 20,
-    top: 260,
+    top: 280,
     left: 62,
     margin: 20,
     shadowColor: "#1a1a1a",
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   },
   closeModalIcon: {
     left: 210,
-    top: 220,
+    top: 130,
     position: "absolute"
   },
   viewButtonAdd: {
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
     top: -19,
   },
   buttonAdd: {
-    top: -5,
+    top: 15,
     width: 100,
     height: 25,
     backgroundColor: "#26B602",
@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
   },
   viewInterrogation: {
     left: 15,
-    top: 155,
+    top: 65,
     position: "absolute"
   },
   body: {

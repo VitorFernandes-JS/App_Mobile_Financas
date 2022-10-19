@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
     left: 115
   },
   value: {
-    left: 230,
+    left: 210,
     position: "absolute",
   }
 });

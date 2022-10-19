@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   viewValue: {
-    top: -10,
+    top: -25,
   },
   boxGreen: {
     width: 50,
@@ -41,42 +41,8 @@ export const styles = StyleSheet.create({
     fontSize: 13.5,
     fontFamily: theme.fonts.font5_medium_inter,
   },
-  viewValue1: {
-    top: -10,
-  },
-  boxGreen1: {
-    width: 75,
-    height: 20,
-    backgroundColor: theme.colors.color2,
-    borderRadius: 7,
-    top: 10,
-    zIndex: 1,
-    shadowColor: "#1a1a1a",
-    shadowOpacity: 0.1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  textTitleValue1: {
-    fontSize: 14,
-    fontFamily: theme.fonts.font5_medium,
-    color: theme.colors.color6,
-    shadowColor: "#1a1a1a",
-    shadowOpacity: 0.3,
-  },
-  boxWhite1: {
-    width: 200,
-    height: 30,
-    backgroundColor: theme.colors.color6,
-    borderRadius: 7,
-  },
-  textInputValue1: {
-    textAlign: "center",
-    top: 7,
-    fontSize: 13.5,
-    fontFamily: theme.fonts.font5_medium_inter,
-  },
   viewValue2: {
-    top: -10,
+    top: -20,
     marginLeft: 10,
   },
   boxGreen2: {
@@ -109,9 +75,5 @@ export const styles = StyleSheet.create({
     top: 7,
     fontSize: 13.5,
     fontFamily: theme.fonts.font5_medium_inter,
-  },
-  viewDropDownPicker: {
-    top: -208,
-    marginLeft: -100,
   },
 });

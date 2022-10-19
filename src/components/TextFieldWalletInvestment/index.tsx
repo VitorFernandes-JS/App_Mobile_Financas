@@ -20,6 +20,7 @@ export function TextFieldWalletInvestment({ setValue, setDescription }: ITextFie
             style={styles.textInputValue}
             placeholder="R$00,00"
             keyboardType="numeric"
+            maxLength={10}
             placeholderTextColor={"#808080"}
             onChangeText={(text) => {
               const formatedText = Number(text.replace(/,/, '.'))
@@ -37,6 +38,7 @@ export function TextFieldWalletInvestment({ setValue, setDescription }: ITextFie
           <TextInput
             style={styles.textInputValue2}
             placeholder="Investimento em FII"
+            maxLength={13}
             placeholderTextColor={"#808080"}
             onChangeText={(text) => {
               setDescription(text);
