@@ -19,6 +19,7 @@ export function TextFieldWalletInvestment({ setValue, setDescription }: ITextFie
           <TextInput
             style={styles.textInputValue}
             placeholder="R$00,00"
+            keyboardType="numeric"
             placeholderTextColor={"#808080"}
             onChangeText={(text) => {
               setValue(text);

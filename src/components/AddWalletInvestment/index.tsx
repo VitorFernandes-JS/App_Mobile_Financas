@@ -1,7 +1,7 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { SafeAreaView, Modal, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
-import { BorderlessButton, RectButton } from "react-native-gesture-handler";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 import { ModalWallet } from "../modalWallet";
 import { TextFieldWalletInvestment } from "../TextFieldWalletInvestment";
@@ -9,7 +9,7 @@ import { TextFieldWalletInvestment } from "../TextFieldWalletInvestment";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
-interface ITransactionsWallets {
+interface ITransactionsWalletsInvestment {
   id: string;
   value: number;
   description: string;
@@ -18,10 +18,10 @@ interface ITransactionsWallets {
 }
 
 interface IAddProps {
-  setTransactionsWallets: Dispatch<SetStateAction<ITransactionsWallets[]>>;
+  setTransactionsWalletsInvestment: Dispatch<SetStateAction<ITransactionsWalletsInvestment[]>>;
 }
 
-export function AddWalletInvestment({ setTransactionsWallets }: IAddProps) {
+export function AddWalletInvestment({ setTransactionsWalletsInvestment }: IAddProps) {
   const [visible, setVisible] = useState(false);
   const [value, setValue] = useState("");
   const [description, setDescription] = useState("");
@@ -51,7 +51,7 @@ export function AddWalletInvestment({ setTransactionsWallets }: IAddProps) {
 
           <TouchableOpacity
             onPress={() => {
-              setTransactionsWallets((prevState) => {
+              setTransactionsWalletsInvestment((prevState) => {
                 return [
                   ...prevState,
                   {
@@ -77,7 +77,7 @@ export function AddWalletInvestment({ setTransactionsWallets }: IAddProps) {
         </SafeAreaView>
       </Modal>
 
-      <RectButton
+      <BorderlessButton
         onPress={() => {
           setVisible(true);
         }}
@@ -85,7 +85,7 @@ export function AddWalletInvestment({ setTransactionsWallets }: IAddProps) {
         <SafeAreaView style={styles.body}>
           <Ionicons name="add" size={22} style={styles.iconTrash} />
         </SafeAreaView>
-      </RectButton>
+      </BorderlessButton>
     </SafeAreaView>
   );
 }

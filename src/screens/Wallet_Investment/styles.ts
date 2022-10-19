@@ -45,12 +45,21 @@ export const styles = StyleSheet.create({
   },
   viewAddAndTrash: {
     flexDirection: "row",
-    top: 120
+    top: -40
   },
   add: {
     left: 310
   },
   trash: {
     left: 315
-  }
+  },
+  viewScroll: {
+  },
+  scrollView: {
+    top: 130,
+    left: 25
+  },
+  contentContainer: {
+    top: 135,
+  },
 });

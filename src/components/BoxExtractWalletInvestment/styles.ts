@@ -58,6 +58,7 @@ export const styles = StyleSheet.create({
     left: 115
   },
   value: {
+    color: "#26B602",
     left: 230,
     position: "absolute",
   }

@@ -23,7 +23,6 @@ interface IRouteParams {
 interface ITransactionsWallets {
   id: string;
   value: number;
-  category: string;
   description: string;
   created_at?: Date;
   updated_at?: Date;
@@ -119,7 +118,7 @@ export function WalletInvestment() {
         <SafeAreaView style={styles.viewAddAndTrash}>
           <SafeAreaView style={styles.add}>
             <AddWalletInvestment
-              setTransactionsWallets={setTransactionsWallets}
+              setTransactionsWalletsInvestment={setTransactionsWallets}
             />
           </SafeAreaView>
 
@@ -128,6 +127,7 @@ export function WalletInvestment() {
           </SafeAreaView>
         </SafeAreaView>
 
+        <SafeAreaView style={styles.viewScroll}>
         <ScrollView
         showsVerticalScrollIndicator={true}
         style={styles.scrollView}
@@ -142,6 +142,7 @@ export function WalletInvestment() {
           ))}
         </SafeAreaView>
       </ScrollView>
+      </SafeAreaView>
 
       </SafeAreaView>
 
