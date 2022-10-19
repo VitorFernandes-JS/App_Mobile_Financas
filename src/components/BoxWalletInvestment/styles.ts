@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginHorizontal: 5,
+        position: "absolute"
       },
       title: {
         color: theme.colors.color1,

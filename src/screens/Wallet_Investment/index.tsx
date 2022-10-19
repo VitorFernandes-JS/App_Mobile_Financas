@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, SafeAreaView } from "react-native";
+import { Alert, SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
@@ -10,6 +10,10 @@ import { BoxWalletInvestment } from "../../components/BoxWalletInvestment";
 import { Wallet_InvestmentModal } from "./Wallet_InvestmentModal";
 
 import { useRoute } from "@react-navigation/native";
+import { BorderlessButton } from "react-native-gesture-handler";
+import { Ionicons } from "@expo/vector-icons";
+import { theme } from "../../global/styles/theme";
+import { Add } from "../../components/add";
 interface IRouteParams {
   token: string;
 }
@@ -31,33 +35,17 @@ export function WalletInvestment() {
 
   const [whatIsMeta, setWhatIsMeta] = useState(0);
 
-  const goals = [
-    {
-      id: "1",
-      name: "Casa",
-      value: 100000,
-      valueCurrent: 0,
-      percentage: 0,
-    },
-    {
-      id: "1",
-      name: "Casa",
-      value: 100000,
-      valueCurrent: 0,
-      percentage: 0,
-    },
-    {
-      id: "1",
-      name: "Casa",
-      value: 100000,
-      valueCurrent: 0,
-      percentage: 0,
-    },
-  ];
+  const goals = [];
 
   const investments = [
-    {id: '12', value: 321321, dayOfInvestment: new Date(), meta_id: '213123', priority: 'Alta'},
-  ]
+    {
+      id: "12",
+      value: 321321,
+      dayOfInvestment: new Date(),
+      meta_id: "213123",
+      priority: "Alta",
+    },
+  ];
 
   // TODO: Criar um estado referente as transações do investimento, fazer as requisições baseado no id do investimento, sempre fazer uma nova requisição no onPress passando o id e setando o valor novamente do estado
 
@@ -74,7 +62,7 @@ export function WalletInvestment() {
         img={WalletInvestmentImg}
         textModal="Aqui você pode adicionar um investimento em cada meta, e acompanhar o seu progresso!"
       />
-      <SafeAreaView style={styles.boxsWallet}>
+      <SafeAreaView style={styles.boxsWallet1}>
         <BoxWalletInvestment
           title={"Meta 1"}
           onPress={() => {
@@ -85,6 +73,8 @@ export function WalletInvestment() {
             }
           }}
         />
+      </SafeAreaView>
+      <SafeAreaView style={styles.boxsWallet2}>
         <BoxWalletInvestment
           title={"Meta 2"}
           onPress={() => {
@@ -95,6 +85,8 @@ export function WalletInvestment() {
             }
           }}
         />
+      </SafeAreaView>
+      <SafeAreaView style={styles.boxsWallet3}>
         <BoxWalletInvestment
           title={"Meta 3"}
           onPress={() => {
@@ -106,6 +98,24 @@ export function WalletInvestment() {
           }}
         />
       </SafeAreaView>
+
+      <SafeAreaView style={styles.boxGrafic}>
+        <BorderlessButton style={styles.buttonInformation}>
+          <Ionicons
+            name="information-circle-outline"
+            size={24}
+            color={theme.colors.color4}
+          />
+        </BorderlessButton>
+
+        <SafeAreaView style={styles.viewSquareAndText}>
+          <SafeAreaView style={styles.squareGoal} />
+          <Text style={styles.textTargetPercentage}>% meta do mês</Text>
+        </SafeAreaView>
+
+
+      </SafeAreaView>
+
       <Baseboard token={token} />
       <Wallet_InvestmentModal isVisible={visible} setIsVisible={setVisible} />
     </SafeAreaView>
