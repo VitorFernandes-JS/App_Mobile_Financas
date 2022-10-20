@@ -15,9 +15,38 @@ interface IRouteParams {
 
 export function Financing_Residential() {
   const route = useRoute();
-
   const { token } = route.params as IRouteParams;
-  const [modal, setModal] = useState(false);
+  
+  const [valueResidential, setValueResidential] = useState(0);
+  const [monthlyIncome, setMonthlyIncome] = useState(0);
+  const [time, setTime] = useState(0);
+  const [fees, setFees] = useState(0);
+  const [modal1, setModal1] = useState(false);
+  const [modal2, setModal2] = useState(false);
+  const [modal3, setModal3] = useState(false);
+
+  function CalculoDeParcela() {
+    let amount = valueResidential;
+    let income = monthlyIncome;
+    let rate = fees;
+    let months = time;
+    let interest = 0;
+    let total = 0;
+
+    interest = (amount * (rate * 0.01))/months;
+    total = ((amount/months) + interest);
+    console.log(total);
+
+    if( (income / total >= 0) && (income / total <= 3) ) {
+      console.log("teste 1");
+    } else if( (income / total >= 4) && (income / total <= 7) ) {
+      console.log("teste 2");
+    } else {
+      console.log("teste 3");
+    }
+
+
+  }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -49,6 +78,10 @@ export function Financing_Residential() {
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
             maxLength={20}
+            onChangeText={(text) => {
+              const formatedText = Number(text.replace(/,/, '.'))
+              setValueResidential(formatedText)
+            }}
           />
         </SafeAreaView>
       </SafeAreaView>
@@ -69,6 +102,10 @@ export function Financing_Residential() {
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
             maxLength={20}
+            onChangeText={(text) => {
+              const formatedText = Number(text.replace(/,/, '.'))
+              setMonthlyIncome(formatedText)
+            }}
           />
         </SafeAreaView>
       </SafeAreaView>
@@ -89,6 +126,10 @@ export function Financing_Residential() {
             placeholder="10"
             placeholderTextColor={"#808080"}
             maxLength={3}
+            onChangeText={(text) => {
+              const formatedText = Number(text.replace(/,/, '.'))
+              setTime(formatedText)
+            }}
           />
         </SafeAreaView>
       </SafeAreaView>
@@ -108,18 +149,20 @@ export function Financing_Residential() {
             style={styles.textInputValueMonth}
             placeholder="10"
             placeholderTextColor={"#808080"}
-            maxLength={4}
+            maxLength={3}
+            onChangeText={(text) => {
+              const formatedText = Number(text.replace(/,/, '.'))
+              setFees(formatedText)
+            }}
           />
         </SafeAreaView>
       </SafeAreaView>
 
       <RectButton
         style={styles.button}
-      // onPress={() => {
-      //   Financing_Residential({
-      //     setModal,
-      //   });
-      // }}
+        onPress={() => {
+          CalculoDeParcela();
+        }}
       >
         <Text style={styles.textButton}>CALCULAR</Text>
       </RectButton>
