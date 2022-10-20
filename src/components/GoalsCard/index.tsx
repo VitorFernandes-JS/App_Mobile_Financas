@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text } from 'react-native';
 import { styles } from './styles';
 
-import { BaseButton, BorderlessButton } from 'react-native-gesture-handler';
+import { BaseButton, BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
 export interface GoalsCardProps {
     number: any;
@@ -28,7 +28,7 @@ export function GoalsCard({ number, name, amount }: GoalsCardProps) {
   }
 
   return (
-      <BorderlessButton style={styles.body} onPress={handleWalletInvestment}>
+      <RectButton style={styles.body} onPress={handleWalletInvestment}>
         <SafeAreaView style={styles.number}>
           <Text style={styles.numberText}>{number}</Text>
         </SafeAreaView>
@@ -38,6 +38,6 @@ export function GoalsCard({ number, name, amount }: GoalsCardProps) {
         <SafeAreaView style={styles.fieldValue}>
           <Text style={styles.fieldValueText}>{amount}</Text>
         </SafeAreaView>
-      </BorderlessButton>
+      </RectButton>
   );
 }

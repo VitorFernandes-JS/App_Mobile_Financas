@@ -65,7 +65,7 @@ export function InformationsGoals() {
         await loadGoals();
       })()
     }, 2000)
-    AsyncStorage.removeItem('@mobile:goals');
+    // AsyncStorage.removeItem('@mobile:goals');
   }, [])
 
   
