@@ -52,6 +52,7 @@ export function Goals() {
   });
 
   function handleInformationsGoals() {
+    // navigation.navigate("InformationsGoals", { token }); 
     navigation.navigate("InformationsGoals", { token }); 
   }
 

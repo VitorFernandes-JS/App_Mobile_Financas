@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 
@@ -48,18 +48,27 @@ export function InformationsGoals() {
     });
 
     setData(goalsFormatted);
-    console.log(goalsFormatted)
   }
 
-  useFocusEffect(
-    useCallback(() => {
+  // useFocusEffect(
+  //   useCallback(() => {
+  //     (async () => {
+  //       await loadGoals();
+  //     })()
+  //     // AsyncStorage.removeItem('@mobile:goals');
+  //   }, [])
+  // );
+
+  useEffect(() => { 
+    setInterval(() => {
       (async () => {
         await loadGoals();
       })()
-      // AsyncStorage.removeItem('@mobile:goals');
-    }, [])
-  );
+    }, 2000)
+    AsyncStorage.removeItem('@mobile:goals');
+  }, [])
 
+  
   return (
     <SafeAreaView style={styles.container}>
       <Header />
