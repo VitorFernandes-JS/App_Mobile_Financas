@@ -1,6 +1,6 @@
 import React from "react";
 import { styles } from "./styles";
-import { SafeAreaView, Text, TextInput, Image } from "react-native";
+import { SafeAreaView, Text, TextInput, Image, TouchableWithoutFeedback, Keyboard } from "react-native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
@@ -19,6 +19,7 @@ export function Financing_Vechule() {
   const { token } = route.params as IRouteParams;
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView style={styles.container}>
       <Header />
 
@@ -124,5 +125,6 @@ export function Financing_Vechule() {
       <Image source={carro} style={styles.image} />
       <Baseboard token={token} />
     </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }

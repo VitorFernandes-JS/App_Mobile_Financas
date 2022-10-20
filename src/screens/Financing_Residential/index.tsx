@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { styles } from "./styles";
-import { SafeAreaView, Text, TextInput, Image } from "react-native";
+import { SafeAreaView, Text, TextInput, Image, TouchableWithoutFeedback, Keyboard } from "react-native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
@@ -20,6 +20,7 @@ export function Financing_Residential() {
   const [modal, setModal] = useState(false);
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView style={styles.container}>
       <Header />
 
@@ -43,7 +44,7 @@ export function Financing_Residential() {
 
         <SafeAreaView style={styles.inputInitialValue}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             style={styles.textInputInitialValue}
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
@@ -63,7 +64,7 @@ export function Financing_Residential() {
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             style={styles.textInputValueMonth}
             placeholder="R$00,00"
             placeholderTextColor={"#808080"}
@@ -83,7 +84,7 @@ export function Financing_Residential() {
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             style={styles.textInputValueMonth}
             placeholder="10"
             placeholderTextColor={"#808080"}
@@ -103,7 +104,7 @@ export function Financing_Residential() {
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             style={styles.textInputValueMonth}
             placeholder="10"
             placeholderTextColor={"#808080"}
@@ -125,5 +126,6 @@ export function Financing_Residential() {
           <Image source={casa} style={styles.image} />
       <Baseboard token={token} />
     </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
