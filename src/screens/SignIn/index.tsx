@@ -36,14 +36,16 @@ export function SignIn() {
       `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${params.access_token}`
     ).then(res => res.json())
 
-
     await apiFinances.post('/users', { email: userInfo.email, name: userInfo.name })
-      .catch((error) => { console.log("METHOD POST USERS ERROR: ", error) })
-    
-    const authToken = await apiFinances.post<string>('/users/authenticate', { body: {email: userInfo.email} })
-      .catch((error) => { console.log("METHOD POST AUTHENTICATE ERROR: ", error) })
-    
+      .catch((error) => { console.log(error.response.data.message) })
+
+    const authToken = await apiFinances.post<string>('/users/authenticate', { email: userInfo.email })
+      .catch((error) => { console.log(error.response.data.message) })
+
     apiFinances.defaults.headers.common['Authorization'] = 'Bearer ' + authToken?.data || 'no token';
+
+    await apiFinances.post('/wallets', { value: 0 })
+      .catch((error) => { console.log(error.response.data.message) })
 
     if (type === "success") {
       navigation.navigate("Home", { token: params.access_token });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text, ScrollView } from "react-native";
 import { styles } from "./styles";
 
@@ -10,31 +10,78 @@ import { BoxExtract } from "../../components/boxExtract";
 import { Trash } from "../../components/trash";
 import { Add } from "../../components/add";
 import { ModalPattern } from "../../components/modalPattern";
+import { apiFinances } from "../../services";
 
 interface IWalletProps {
   token: string;
 }
 
 interface ITransactionsWallets {
-  id: string;
+  id?: string;
   value: number;
-  type?: "deposit" | "withdraw";
+  type: "deposit" | "withdraw" | string;
   category: string;
   description: string;
   created_at?: Date;
   updated_at?: Date;
 }
 
+interface IWallet {
+  id: string,
+	value: number,
+}
+
 export function Wallet({ token }: IWalletProps) {
   const [transactionsWallets, setTransactionsWallets] = useState<
     ITransactionsWallets[]
   >([]);
+  const [wallet, setWallet] = useState<IWallet>({} as IWallet);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const responseWallet = 
+        await apiFinances
+          .get("/wallets")
+          .catch((err) => { console.log("wallet err: ", err.response.data.message) })
+        const responseTransactionsWallet = 
+          await apiFinances
+            .get("/transactions_wallets/wallet/" + responseWallet?.data?.id)
+
+        
+        console.warn("responseWallet: ", responseWallet?.data)
+        console.warn("responseTransactionsWallet: ", responseTransactionsWallet?.data)
+        
+        setWallet(responseWallet?.data)
+        setTransactionsWallets(responseTransactionsWallet?.data)
+      } catch (error) {
+        console.log("Error: ", error)
+      }
+    })()
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const responseWallet = 
+          await apiFinances
+            .get("/wallets")
+            .catch((err) => { console.log("wallet err: ", err.response.data.message) })
+        
+        setWallet(responseWallet?.data)
+      } catch (error) {
+        console.log("Error: ", error)
+      }
+    })()
+  }, [transactionsWallets]);
+
+  
 
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
         text="Carteira "
-        value="100.000,00"
+        value={wallet.value}
         token={token}
         img={WalletImg}
         textModal="Aqui você tem um controle total da sua carteira, basta adicionar um gasto/ganho e começar a simular!"
@@ -57,7 +104,7 @@ export function Wallet({ token }: IWalletProps) {
         <Trash onPress={() => {}}/>
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
-        <Add setTransactionsWallets={setTransactionsWallets} />
+        <Add setTransactionsWallets={setTransactionsWallets} walletId={wallet.id} />
       </SafeAreaView>
 
       <ScrollView
@@ -66,7 +113,7 @@ export function Wallet({ token }: IWalletProps) {
         contentContainerStyle={styles.contentContainer}
       >
         <SafeAreaView>
-          {transactionsWallets.map((transactionWallet) => (
+          {transactionsWallets?.map((transactionWallet) => (
             <BoxExtract
               key={transactionWallet.id}
               transactionWallet={transactionWallet}

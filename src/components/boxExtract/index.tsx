@@ -2,9 +2,9 @@ import React from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles, Icon } from "./styles";
 interface ITransactionWallet {
-  type?: "deposit" | "withdraw";
-  id: string;
+  id?: string;
   value: number;
+  type: "deposit" | "withdraw" | string;
   category: string;
   description: string;
   created_at?: Date;
@@ -28,6 +28,7 @@ const icons = {
 export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
   // console.warn("transactionWallet category", transactionWallet.category);
   const operation = transactionWallet.type === "deposit" ? "+" : "-";
+
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.box}>

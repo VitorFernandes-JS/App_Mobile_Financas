@@ -9,11 +9,12 @@ import { ModalWallet } from "../../components/modalWallet";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { TransactionTypeButton } from "../TransactionTypeButton";
+import { apiFinances } from "../../services";
 
 interface ITransactionsWallets {
-  id: string;
   value: number;
   category: string;
+  type: string;
   description: string;
   created_at?: Date;
   updated_at?: Date;
@@ -21,9 +22,10 @@ interface ITransactionsWallets {
 
 interface IAddProps {
   setTransactionsWallets: Dispatch<SetStateAction<ITransactionsWallets[]>>;
+  walletId: string
 }
 
-export function Add({ setTransactionsWallets }: IAddProps) {
+export function Add({ setTransactionsWallets, walletId }: IAddProps) {
   const [visible, setVisible] = useState(false);
   const [transactionType, setTransactionType] = useState("deposit");
   const [value, setValue] = useState("");
@@ -32,6 +34,24 @@ export function Add({ setTransactionsWallets }: IAddProps) {
 
   function handleTransactionTypeSelect(type: "deposit" | "withdraw") {
     setTransactionType(type);
+  }
+
+  async function handleCreateTransactionWallets({
+    value,
+    category,
+    description,
+    type
+  }: ITransactionsWallets) {
+    apiFinances
+      .post("/transactions_wallets/wallet/" + walletId, {
+        value,
+        category,
+        description,
+        type
+      })
+      .then((response) => {
+        setTransactionsWallets((prevState) => [...prevState, response.data]);
+      });
   }
 
   return (
@@ -71,18 +91,12 @@ export function Add({ setTransactionsWallets }: IAddProps) {
           </BorderlessButton>
 
           <TouchableOpacity
-            onPress={() => {
-              setTransactionsWallets((prevState) => {
-                return [
-                  ...prevState,
-                  {
-                    id: `'${(new Date(), Math.random() * 100)}'`,
-                    value: Number(value),
-                    category,
-                    description,
-                    type: transactionType,
-                  },
-                ];
+            onPress={async () => {
+              await handleCreateTransactionWallets({
+                value: Number(value),
+                category,
+                description,
+                type: transactionType,
               });
               setVisible(false);
             }}

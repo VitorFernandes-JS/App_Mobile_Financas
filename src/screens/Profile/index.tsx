@@ -9,6 +9,7 @@ import { Baseboard } from "../../components/baseboard";
 import { Feather } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { apiFinances } from "../../services";
 
 type IRouteParams = {
   token: string;
@@ -43,6 +44,7 @@ export function Profile() {
   }, []);
 
   function handleSignIn() {
+    apiFinances.defaults.headers.common['Authorization'] = '';
     navigation.navigate("SignIn");
   }
 
