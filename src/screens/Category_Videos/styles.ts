@@ -44,13 +44,14 @@ export const styles = StyleSheet.create({
     width: 380,
     justifyContent: "space-between",
     flexWrap: "wrap",
-    top: 5
+    top: 5,
+    height: 500,
   },
   viewBoxCategoryVideos: {
     flexDirection: "row",
     width: 380,
     justifyContent: "space-between",
     flexWrap: "wrap",
-    top: 65,
+    top: 20,
   },
 });
