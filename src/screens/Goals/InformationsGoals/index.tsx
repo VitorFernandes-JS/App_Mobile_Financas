@@ -23,11 +23,13 @@ interface IRouteParams {
 
 export function InformationsGoals() {
   const [visible, setVisible] = useState(false);
+  const [countReload, setCountReload] = useState(0);
 
   const route = useRoute();
   const { token } = route.params as IRouteParams;
  
   const [data, setData] = useState<DataListProps[]>([]);
+  
 
   async function loadGoals() {
     const dataKey = "@mobile:goals";
@@ -48,23 +50,26 @@ export function InformationsGoals() {
     });
 
     setData(goalsFormatted);
+    setCountReload((prevState) => prevState + 1);
   }
 
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     (async () => {
-  //       await loadGoals();
-  //     })()
-  //     // AsyncStorage.removeItem('@mobile:goals');
-  //   }, [])
-  // );
+
+  function interval(func: any,ti: number) {
+    /* your code */
+    loadGoals()
+    if (countReload > 5)
+      setTimeout(()=>{interval(func,ti); },ti);
+  }
 
   useEffect(() => { 
-    setInterval(() => {
-      (async () => {
-        await loadGoals();
-      })()
-    }, 2000)
+    
+    // setInterval(() => {
+    //   (async () => {
+    //     await loadGoals();
+    //   })()
+    // }, 2000)
+    interval(loadGoals, 2000)
+    
     // AsyncStorage.removeItem('@mobile:goals');
   }, [])
 

@@ -31,7 +31,6 @@ export function SignIn() {
       authUrl,
     })) as AuthResponse;
 
-    
     const userInfo = await fetch(
       `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${params.access_token}`
     ).then(res => res.json())
@@ -51,7 +50,6 @@ export function SignIn() {
       navigation.navigate("Home", { token: params.access_token });
     }
   }
-
 
   return (
     <SafeAreaView style={styles.container}>
