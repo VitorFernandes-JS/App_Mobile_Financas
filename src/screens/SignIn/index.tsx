@@ -36,10 +36,10 @@ export function SignIn() {
     ).then(res => res.json())
 
     await apiFinances.post('/users', { email: userInfo.email, name: userInfo.name })
-      .catch((error) => { console.log(error.response.data.message) })
-
+    .catch((error) => { console.log("users: ", error?.response?.data?.message, error) })
+    
     const authToken = await apiFinances.post<string>('/users/authenticate', { email: userInfo.email })
-      .catch((error) => { console.log(error.response.data.message) })
+      .catch((error) => { console.log(error?.response?.data?.message) })
 
     apiFinances.defaults.headers.common['Authorization'] = 'Bearer ' + authToken?.data || 'no token';
 
