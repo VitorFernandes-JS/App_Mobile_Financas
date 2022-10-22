@@ -45,7 +45,7 @@ export function TextField({
             style={styles.textInputValue}
             placeholder="R$00,00"
             keyboardType="numeric"
-            maxLength={10}
+            maxLength={6}
             placeholderTextColor={"#808080"}
             onChangeText={(text) => {
               const formatedText = Number(text.replace(/,/, '.'))
@@ -77,7 +77,7 @@ export function TextField({
           <TextInput
             style={styles.textInputValue2}
             placeholder="Empresa"
-            maxLength={20}
+            maxLength={13}
             placeholderTextColor={"#808080"}
             onChangeText={(text) => {
               setDescription(text);

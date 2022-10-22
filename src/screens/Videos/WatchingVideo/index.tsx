@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text, TextInput } from "react-native";
 import { styles } from "./styles";
 
@@ -10,12 +10,52 @@ import { AvatarComments } from "../../../components/AvatarComments";
 
 import { Ionicons } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
+import { useRoute } from "@react-navigation/native";
+import { apiFinances } from "../../../services";
 
+interface IVideo {
+  id: string;
+  category: string;
+  url: string;  
+  images: any
+}
 interface IVideosProps {
   token: string;
+  video: IVideo;
 }
 
-export function WatchingVideo({ token }: IVideosProps) {
+interface ICommentary {
+  id: string;
+  description: string;
+  video_id: string;
+  user_id: string;
+  created_at: Date;
+  updated_at: Date;
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    created_at: Date;
+    updated_at: Date;
+  }
+}
+
+export function WatchingVideo() {
+  const route = useRoute();
+  const { token, video } = route.params as IVideosProps;
+  const [commentary, setCommentary] = useState<ICommentary[]>([]);
+  const [text, setText] = useState<string>("");
+
+  useEffect(() => {
+    apiFinances.get('/commentarys/video/' + video.id).then(response => {
+      setCommentary(response.data)
+    })
+  }, [])
+
+  useEffect(() => {
+    console.warn("commentary", commentary)
+  }, [commentary])
+
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -47,17 +87,32 @@ export function WatchingVideo({ token }: IVideosProps) {
           <SafeAreaView style={styles.viewAvatar}>
           <AvatarComments />
           <TextInput
-          style={styles.input}
-          placeholder="Adicione um comentário..."
-          placeholderTextColor={theme.colors.color3}
+            style={styles.input}
+            placeholder="Adicione um comentário..."
+            value={text}
+            placeholderTextColor={theme.colors.color3}
+            onChangeText={(e) => setText(e)}
           >
           </TextInput>
-        </SafeAreaView>
 
         </SafeAreaView>
-
-        
-
+          <BorderlessButton style={styles.button} onPress={async () => {
+            const commentary = await apiFinances.post('/commentarys/video/' + video.id, {
+              description: text,
+            })
+            setText("")
+            setCommentary((prevState) => { return [...prevState, commentary.data]})
+          }}/>
+        </SafeAreaView>
+        {commentary?.map((commentary, index) => {
+          let top = index * 50
+          return (
+            <SafeAreaView style={{ top: 100 + top }}>
+              <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{commentary?.user?.name}</Text>
+              <Text>{commentary?.description}</Text>
+            </SafeAreaView>
+          )
+        })}
       </SafeAreaView>
 
       <Baseboard token={token} />

@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     color: theme.colors.color1,
   },
   value: {
-    width: 200,
+    width: 240,
     height: 200,
     fontSize: 27,
     fontFamily: theme.fonts.font6_semiBold_inter,

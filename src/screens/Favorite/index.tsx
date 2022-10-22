@@ -18,7 +18,7 @@ export function Favorite() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Favoritos </Text>

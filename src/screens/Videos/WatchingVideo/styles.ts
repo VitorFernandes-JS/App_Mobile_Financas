@@ -78,5 +78,10 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.color6,
     top: -75,
     left: 365,
+  },
+  button: {
+    width: 40,
+    height: 40,
+    backgroundColor: theme.colors.color2,
   }
 });

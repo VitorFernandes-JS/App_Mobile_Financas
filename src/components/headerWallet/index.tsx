@@ -30,7 +30,7 @@ export function HeaderWallet({ text, value, token, img, textModal }: IHeaderWall
           <Text style={styles.title}>{text}</Text>
           <ModalWallet text={textModal} />
         </SafeAreaView>
-        <Text style={styles.value}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)}</Text>
+        <Text style={styles.value}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(value)}</Text>
         <Text style={styles.data}>{date.toLocaleDateString()}</Text>
         <Image source={img} style={styles.walletImg}></Image>
         <BorderlessButton onPress={handleWalletInvestment} style={styles.trocaImg1}>
