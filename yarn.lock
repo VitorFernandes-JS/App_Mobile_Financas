@@ -4066,10 +4066,10 @@
   "resolved" "https://registry.npmjs.org/date-and-time/-/date-and-time-0.9.0.tgz"
   "version" "0.9.0"
 
-"dayjs@^1.8.15":
-  "integrity" "sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug=="
-  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.11.0.tgz"
-  "version" "1.11.0"
+"dayjs@^1.11.6", "dayjs@^1.8.15":
+  "integrity" "sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ=="
+  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.11.6.tgz"
+  "version" "1.11.6"
 
 "debug@^2.2.0", "debug@^2.3.3", "debug@2.6.9":
   "integrity" "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="

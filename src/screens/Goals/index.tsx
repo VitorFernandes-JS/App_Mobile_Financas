@@ -18,6 +18,7 @@ import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { apiFinances } from "../../services";
 interface FormData {
   [name: string]: any;
   [amount: number]: any;
@@ -69,6 +70,10 @@ export function Goals() {
       const dataFormatted = [...currentData, newGoal]; // concatena o novo objeto com o array de objetos
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted)); // salva os dados no storage
+      await apiFinances.post("/goals", {
+        name: newGoal.name,
+	      amount: newGoal.amount,
+      })
       // AsyncStorage.removeItem('@mobile:goals');
       reset(); // limpa os campos do formulário
     } catch (error) {

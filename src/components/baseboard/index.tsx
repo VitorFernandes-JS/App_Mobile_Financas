@@ -9,6 +9,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { apiFinances } from "../../services";
 
 type Params = {
   token: string;
@@ -26,9 +27,10 @@ export function Baseboard({ token }: Params) {
   }
 
   async function handleGoals() {
-    const dataKey = "@mobile:goals";
-    const response = await AsyncStorage.getItem(dataKey);
-    response ? navigation.navigate("InformationsGoals", { token }) : navigation.navigate("Goals", { token });
+    // const dataKey = "@mobile:goals";
+    // const response = await AsyncStorage.getItem(dataKey);
+    const response = await apiFinances.get('/goals')
+    response.data.length >= 1 ? navigation.navigate("InformationsGoals", { token }) : navigation.navigate("Goals", { token });
   }
 
   function handleProfile() {

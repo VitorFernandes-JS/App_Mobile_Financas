@@ -13,8 +13,18 @@ import { AntDesign } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Octicons } from "@expo/vector-icons";
 import { InformationModalAddGoal } from "./InformationModalAddGoal";
+import { apiFinances } from "../../../services";
 export interface DataListProps extends GoalsCardProps {
   id: string;
+}
+
+interface IGoals {
+  id: string;
+  name: string;
+  amount: string;
+  user_id: string;
+  created_at: string;
+  updated_at: string;
 }
 
 interface IRouteParams {
@@ -28,28 +38,32 @@ export function InformationsGoals() {
   const route = useRoute();
   const { token } = route.params as IRouteParams;
  
-  const [data, setData] = useState<DataListProps[]>([]);
+  // const [data, setData] = useState<DataListProps[]>([]);
+  const [data, setData] = useState<IGoals[]>([]);
   
 
   async function loadGoals() {
-    const dataKey = "@mobile:goals";
-    const response = await AsyncStorage.getItem(dataKey);
-    const goals = response ? JSON.parse(response) : [];
+    // const dataKey = "@mobile:goals";
+    // const response = await AsyncStorage.getItem(dataKey);
+    // const goals = response ? JSON.parse(response) : [];
+    const goals = await apiFinances.get("/goals")
 
-    const goalsFormatted: DataListProps[] = goals.map((item: DataListProps) => {
-      const amount = Number(item.amount).toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      });
+    // const goalsFormatted: DataListProps[] = goals?.data?.map((item: DataListProps) => {
+    //   const amount = Number(item.amount).toLocaleString("pt-BR", {
+    //     style: "currency",
+    //     currency: "BRL",
+    //   });
 
-      return {
-        id: Math.random().toString(),
-        name: item.name,
-        amount: amount,
-      };
-    });
+    //   return {
+    //     id: Math.random().toString(),
+    //     name: item.name,
+    //     amount: amount,
+    //   };
+    // });
 
-    setData(goalsFormatted);
+    console.warn(goals.data)
+
+    setData(goals.data);
     setCountReload((prevState) => prevState + 1);
   }
 
@@ -62,16 +76,27 @@ export function InformationsGoals() {
   }
 
   useEffect(() => { 
-    
-    // setInterval(() => {
-    //   (async () => {
-    //     await loadGoals();
-    //   })()
-    // }, 2000)
-    interval(loadGoals, 2000)
-    
+    // (async () => {
+    //   await loadGoals();
+    // })()
+    // console.warn("Chegou aqui")
+    apiFinances.get("/goals").then((response) => {
+      console.warn("response: ", response.data)
+      setData(response.data)
+    })
+
     // AsyncStorage.removeItem('@mobile:goals');
   }, [])
+
+  useEffect(() => {
+    if(countReload > 1) {
+      return;
+    }
+    apiFinances.get("/goals").then((response) => {
+      setCountReload((prevState) => prevState + 1);
+      setData(response.data)
+    })
+  }, [data, countReload])
 
   
   return (
@@ -134,7 +159,7 @@ export function InformationsGoals() {
       <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>
       
       <Baseboard token={token} />
-      <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible}/>
+      <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible} setCountReload={setCountReload}/>
     </SafeAreaView>
   );
 }

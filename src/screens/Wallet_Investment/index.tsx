@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Alert, SafeAreaView, ScrollView, Text } from "react-native";
 import { styles } from "./styles";
 
@@ -12,10 +12,11 @@ import { AddWalletInvestment } from "../../components/AddWalletInvestment";
 import { theme } from "../../global/styles/theme";
 import { BoxExtractWalletInvestment } from "../../components/BoxExtractWalletInvestment";
 import { Trash } from "../../components/trash";
-
+import dayjs from 'dayjs'
 import { useRoute } from "@react-navigation/native";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
+import { apiFinances } from "../../services";
 interface IRouteParams {
   token: string;
 }
@@ -28,6 +29,26 @@ interface ITransactionsWallets {
   updated_at?: Date;
 }
 
+interface IInvestments {
+  id: string;
+  value: number;
+  dayOfInvestment: Date;
+  goal_id: string;
+  priority: string;
+  created_at: Date;
+  updated_at: Date;
+}
+
+interface IGoals {
+  id: string;
+  name: string;
+  amount: string;
+  user_id: string;
+  created_at: string;
+  updated_at: string;
+  investment: IInvestments;
+}
+
 export function WalletInvestment() {
   const [visible, setVisible] = useState(false);
   const [transactionsWallets, setTransactionsWallets] = useState<
@@ -35,18 +56,45 @@ export function WalletInvestment() {
   >([]);
 
   const [whatIsMeta, setWhatIsMeta] = useState(0);
+  const [goals, setGoals] = useState<IGoals[]>([]);
+  const [investments, setInvestments] = useState<IInvestments[]>([]);
 
-  const goals = [];
+  async function handleCreateInvestment(index: number) {
+    console.warn(dayjs().add(1, "month").date(5))
+    const haveGoal = goals.length > index;
+    const haveInvestment = goals[index].investment !== null;
 
-  const investments = [
-    {
-      id: "12",
-      value: 321321,
-      dayOfInvestment: new Date(),
-      meta_id: "213123",
-      priority: "Alta",
-    },
-  ];
+    console.warn("haveGoal: ", haveGoal)
+    console.warn("haveInvestment: ", haveInvestment)
+
+    if(!haveGoal) {
+      return;
+    }
+
+    if(!haveInvestment) {
+      return;
+    }
+
+    setVisible(true);
+  }
+
+  // const goals = [
+  //   {
+  //     id: "1",
+  //     name: "Meta 1",
+  //     amount: "R$ 1.000,00",
+  //   },
+  // ];
+
+  // const investments = [
+  //   {
+  //     id: "12",
+  //     value: 321321,
+  //     dayOfInvestment: new Date(),
+  //     meta_id: "213123",
+  //     priority: "Alta",
+  //   },
+  // ];
 
   // TODO: Criar um estado referente as transações do investimento, fazer as requisições baseado no id do investimento, sempre fazer uma nova requisição no onPress passando o id e setando o valor novamente do estado
 
@@ -54,10 +102,21 @@ export function WalletInvestment() {
 
   const { token } = route.params as IRouteParams;
 
+  useEffect(() => {
+    apiFinances.get("/goals").then((response) => {
+      setGoals(response.data);
+    })
+
+  }, []);
+
+  useEffect(() => {
+    console.warn("goals: ", goals)
+  }, [goals]);
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
-        text="Carteira "
+        text="Investimento "
         value="50.000,00"
         token={token}
         img={WalletInvestmentImg}
@@ -67,11 +126,14 @@ export function WalletInvestment() {
         <BoxWalletInvestment
           title={"Meta 1"}
           onPress={() => {
-            if (goals.length >= 1) {
-              setVisible(true);
-            } else {
-              Alert.alert("Você não possui metas cadastradas!");
-            }
+            setWhatIsMeta(0);
+            handleCreateInvestment(whatIsMeta)
+            // setVisible(true);
+            // if (goals.length >= 1) {
+            //   setVisible(true);
+            // } else {
+            //   Alert.alert("Você não possui metas cadastradas!");
+            // }
           }}
         />
       </SafeAreaView>
