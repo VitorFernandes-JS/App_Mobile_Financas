@@ -27,9 +27,9 @@ export function InformationsGoals() {
 
   const route = useRoute();
   const { token } = route.params as IRouteParams;
- 
+
   const [data, setData] = useState<DataListProps[]>([]);
-  
+
 
   async function loadGoals() {
     const dataKey = "@mobile:goals";
@@ -54,26 +54,26 @@ export function InformationsGoals() {
   }
 
 
-  function interval(func: any,ti: number) {
+  function interval(func: any, ti: number) {
     /* your code */
     loadGoals()
     if (countReload > 5)
-      setTimeout(()=>{interval(func,ti); },ti);
+      setTimeout(() => { interval(func, ti); }, ti);
   }
 
-  useEffect(() => { 
-    
+  useEffect(() => {
+
     // setInterval(() => {
     //   (async () => {
     //     await loadGoals();
     //   })()
     // }, 2000)
     interval(loadGoals, 2000)
-    
+
     // AsyncStorage.removeItem('@mobile:goals');
   }, [])
 
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -132,9 +132,9 @@ export function InformationsGoals() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>
-      
+
       <Baseboard token={token} />
-      <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible}/>
+      <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible} />
     </SafeAreaView>
   );
 }

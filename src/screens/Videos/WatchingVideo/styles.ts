@@ -1,5 +1,5 @@
+import { theme } from './../../../global/styles/theme';
 import { StyleSheet } from "react-native";
-import { theme } from "../../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   container: {
@@ -61,27 +61,70 @@ export const styles = StyleSheet.create({
   },
   viewAmountOfComments: {
     position: "absolute",
-    top: 25,
-    left: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    top: 20,
   },
   textAmountOfComments: {
-    fontFamily: theme.fonts.font4_regular,
+    top: 70,
+    fontFamily: theme.fonts.font4_regular_inter,
     fontSize: 14,
+    left: 45
   },
   viewAvatar: {
     top: 50,
-    left: -320,
+    left: -270
   },
   input: {
-    width: 250,
+    width: 160,
     height: 40,
     backgroundColor: theme.colors.color6,
     top: -75,
     left: 365,
+    fontSize: 12,
   },
   button: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 20,
     backgroundColor: theme.colors.color2,
+    left: 250,
+    top: -55,
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  textButton: {
+    fontSize: 12,
+    color: theme.colors.color6
+  },
+  scroll: {
+    top: -20,
+    width: 300,
+    height: 300,
+    left: 20
+  },
+  iconUser: {
+    left: 50,
+    top: 20
+  },
+  viewDays: {
+    flexDirection: "row"
+  },
+  text1: {
+    fontFamily: theme.fonts.font6_semiBold,
+    fontSize: 16,
+    left: 80
+  },
+  textDays: {
+    fontFamily: theme.fonts.font4_regular,
+    top: 3,
+    fontSize: 12,
+    left: 85
+
+  },
+  text2: {
+    fontFamily: theme.fonts.font4_regular,
+    fontSize: 12,
+    left: 80
   }
 });
