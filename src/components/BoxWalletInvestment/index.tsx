@@ -4,15 +4,16 @@ import { BorderlessButton, BorderlessButtonProps } from "react-native-gesture-ha
 
 import { styles } from "./styles";
 
-interface IBoxWalletInvestmentProps extends BorderlessButtonProps  {
+interface IBoxWalletInvestmentProps extends BorderlessButtonProps {
   title: string;
+  isSelected: boolean;
   onPress: () => void;
 }
 
-export function BoxWalletInvestment({ title, ...rest }: IBoxWalletInvestmentProps) {
+export function BoxWalletInvestment({ title, isSelected, ...rest }: IBoxWalletInvestmentProps) {
   return (
     <SafeAreaView>
-      <BorderlessButton style={styles.box} {...rest}>
+      <BorderlessButton style={{ ...styles.box, ...(isSelected === true && styles.selected) }} {...rest}>
         <Text style={styles.title}>{title}</Text>
       </BorderlessButton>
     </SafeAreaView>

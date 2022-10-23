@@ -21,7 +21,7 @@ interface IRouteParams {
   token: string;
 }
 
-interface ITransactionsWallets {
+interface ITransactionsInvestmentWallets {
   id: string;
   value: number;
   description: string;
@@ -34,12 +34,23 @@ interface IInvestments {
   value: number;
   dayOfInvestment: Date;
   goal_id: string;
+  transaction_investment: ITransactionInvestment[];
   priority: string;
   created_at: Date;
   updated_at: Date;
 }
 
-interface IGoals {
+interface ITransactionInvestment {
+  id: string;
+  value: number;
+  description: string;
+  category: string;
+  investment_id: string;
+  type: string;
+  created_at: Date;
+  updated_at: Date;
+}
+export interface IGoals {
   id: string;
   name: string;
   amount: string;
@@ -51,113 +62,98 @@ interface IGoals {
 
 export function WalletInvestment() {
   const [visible, setVisible] = useState(false);
-  const [transactionsWallets, setTransactionsWallets] = useState<
-    ITransactionsWallets[]
+  const [transactionsWalletsInvestment, setTransactionsWalletsInvestment] = useState<
+    ITransactionsInvestmentWallets[]
   >([]);
 
-  const [whatIsMeta, setWhatIsMeta] = useState(0);
   const [goals, setGoals] = useState<IGoals[]>([]);
-  const [investments, setInvestments] = useState<IInvestments[]>([]);
+  const [goalId, setGoalId] = useState("");
+  // const [goal, setGoal] = useState<IGoals>({} as IGoals);
+  const [whatIsGoalIndex, setWhatIsGoalIndex] = useState(0)
+  const [investment, setInvestment] = useState<IInvestments>({} as IInvestments);
+
 
   async function handleCreateInvestment(index: number) {
-    console.warn(dayjs().add(1, "month").date(5))
     const haveGoal = goals.length > index;
-    const haveInvestment = goals[index].investment !== null;
+    const haveInvestment = goals?.[index]?.investment === null;
 
-    console.warn("haveGoal: ", haveGoal)
-    console.warn("haveInvestment: ", haveInvestment)
-
-    if(!haveGoal) {
+    if (!haveGoal) {
+      Alert.alert("Você não possui metas cadastradas!");
       return;
     }
 
-    if(!haveInvestment) {
+    if (!haveInvestment) {
+      setWhatIsGoalIndex(index)
+      setInvestment(goals?.[index]?.investment)
       return;
     }
 
+    setWhatIsGoalIndex(index)
+    setGoalId(goals?.[index]?.id || '')
     setVisible(true);
   }
-
-  // const goals = [
-  //   {
-  //     id: "1",
-  //     name: "Meta 1",
-  //     amount: "R$ 1.000,00",
-  //   },
-  // ];
-
-  // const investments = [
-  //   {
-  //     id: "12",
-  //     value: 321321,
-  //     dayOfInvestment: new Date(),
-  //     meta_id: "213123",
-  //     priority: "Alta",
-  //   },
-  // ];
 
   // TODO: Criar um estado referente as transações do investimento, fazer as requisições baseado no id do investimento, sempre fazer uma nova requisição no onPress passando o id e setando o valor novamente do estado
 
   const route = useRoute();
-
   const { token } = route.params as IRouteParams;
 
   useEffect(() => {
     apiFinances.get("/goals").then((response) => {
       setGoals(response.data);
     })
-
   }, []);
 
   useEffect(() => {
-    console.warn("goals: ", goals)
-  }, [goals]);
+    if (visible === true) {
+      return;
+    }
 
+    apiFinances.get("/goals").then((response) => {
+      setGoals(response.data);
+    })
+  }, [visible, transactionsWalletsInvestment]);
+
+  useEffect(() => {
+    setInvestment(goals?.[whatIsGoalIndex]?.investment)
+  }, [goals])
+
+  const investmentValue = goals?.[whatIsGoalIndex]?.investment?.transaction_investment?.reduce((acc, item) => {
+    return acc += item.value
+  }, 0)
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
         text="Investimento "
-        value="50.000,00"
+        value={investmentValue || 0}
         token={token}
         img={WalletInvestmentImg}
         textModal="Aqui você pode adicionar um investimento em cada meta, e acompanhar o seu progresso!"
       />
       <SafeAreaView style={styles.boxsWallet1}>
         <BoxWalletInvestment
-          title={"Meta 1"}
+          title={`Meta 1 ${goals?.[0]?.investment?.priority || ''}`}
+          isSelected={whatIsGoalIndex === 0 ? true : false}
           onPress={() => {
-            setWhatIsMeta(0);
-            handleCreateInvestment(whatIsMeta)
-            // setVisible(true);
-            // if (goals.length >= 1) {
-            //   setVisible(true);
-            // } else {
-            //   Alert.alert("Você não possui metas cadastradas!");
-            // }
+            handleCreateInvestment(0)
           }}
         />
       </SafeAreaView>
       <SafeAreaView style={styles.boxsWallet2}>
         <BoxWalletInvestment
-          title={"Meta 2"}
+          title={`Meta 2 ${goals?.[1]?.investment?.priority || ''}`}
+          isSelected={whatIsGoalIndex === 1 ? true : false}
           onPress={() => {
-            if (goals.length >= 2) {
-              setVisible(true);
-            } else {
-              Alert.alert("Você não possui metas cadastradas!");
-            }
+            handleCreateInvestment(1)
           }}
         />
       </SafeAreaView>
       <SafeAreaView style={styles.boxsWallet3}>
         <BoxWalletInvestment
-          title={"Meta 3"}
+          title={`Meta 3 ${goals?.[2]?.investment?.priority || ''}`}
+          isSelected={whatIsGoalIndex === 2 ? true : false}
           onPress={() => {
-            if (goals.length === 3) {
-              setVisible(true);
-            } else {
-              Alert.alert("Você não possui metas cadastradas!");
-            }
+            handleCreateInvestment(2)
           }}
         />
       </SafeAreaView>
@@ -180,36 +176,41 @@ export function WalletInvestment() {
         <SafeAreaView style={styles.viewAddAndTrash}>
           <SafeAreaView style={styles.add}>
             <AddWalletInvestment
-              setTransactionsWalletsInvestment={setTransactionsWallets}
+              setTransactionsWalletsInvestment={setTransactionsWalletsInvestment}
+              investmentId={goals?.[whatIsGoalIndex]?.investment?.id}
             />
           </SafeAreaView>
 
           <SafeAreaView style={styles.trash}>
-            <Trash onPress={() => {}} />
+            <Trash onPress={() => { }} />
           </SafeAreaView>
         </SafeAreaView>
 
         <SafeAreaView style={styles.viewScroll}>
-        <ScrollView
-        showsVerticalScrollIndicator={true}
-        style={styles.scrollView}
-        contentContainerStyle={styles.contentContainer}
-      >
-        <SafeAreaView>
-          {transactionsWallets.map((transactionWallet) => (
-            <BoxExtractWalletInvestment
-              key={transactionWallet.id}
-              transactionWallet={transactionWallet}
-            />
-          ))}
+          <ScrollView
+            showsVerticalScrollIndicator={true}
+            style={styles.scrollView}
+            contentContainerStyle={styles.contentContainer}
+          >
+            <SafeAreaView>
+              {goals?.[whatIsGoalIndex]?.investment?.transaction_investment?.map((transactionWallet) => (
+                <BoxExtractWalletInvestment
+                  key={transactionWallet.id}
+                  transactionWallet={transactionWallet}
+                />
+              ))}
+            </SafeAreaView>
+          </ScrollView>
         </SafeAreaView>
-      </ScrollView>
-      </SafeAreaView>
 
       </SafeAreaView>
 
       <Baseboard token={token} />
-      <Wallet_InvestmentModal isVisible={visible} setIsVisible={setVisible} />
+      <Wallet_InvestmentModal
+        isVisible={visible}
+        setIsVisible={setVisible}
+        goalId={goalId}
+      />
     </SafeAreaView>
   );
 }

@@ -19,6 +19,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import DropDownPicker from "react-native-dropdown-picker";
+import { apiFinances } from "../../../services";
+import dayjs from "dayjs";
+import { IGoals } from "..";
 
 interface FormData {
   [day: string]: any;
@@ -30,8 +33,8 @@ interface FormData2 {
 }
 
 const schema = Yup.object().shape({
-  day: Yup.string().required("Dia é obrigatório!"),
-  priority: Yup.string().required("Prioridade é obrigatória!"),
+  day: Yup.string(),
+  priority: Yup.string(),
   amount: Yup.number()
     .transform((_value, originalValue) =>
       Number(originalValue.replace(/,/, "."))
@@ -44,11 +47,13 @@ const schema = Yup.object().shape({
 interface IWallet_InvestmentModal {
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
+  goalId: string;
 }
 
 export function Wallet_InvestmentModal({
   isVisible,
   setIsVisible,
+  goalId
 }: IWallet_InvestmentModal) {
   const {
     control,
@@ -60,19 +65,25 @@ export function Wallet_InvestmentModal({
   });
   async function handleRegister(form: FormData | FormData2) {
     const newGoal = {
-      day: form.day,
-      amount: form.amount,
-      priority: form.priority,
+      value: form.amount,
+      day: dayjs().add(1, "month").date(Number(value1)),
+      priority: value2,
     };
 
     try {
-      const dataKey = "@mobile:goals";
-      const data = await AsyncStorage.getItem(dataKey); //pega os dados do storage
-      const currentData = data ? JSON.parse(data) : []; // se tiver dados, converte para objeto, se não, retorna um array vazio
-      const dataFormatted = [...currentData, newGoal]; // concatena o novo objeto com o array de objetos
-      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted)); // salva os dados no storage
-      // AsyncStorage.removeItem('@mobile:goals');
-      reset(); // limpa os campos do formulário
+      console.warn("goal: ", goalId)
+      apiFinances.post('/investments', {
+        value: newGoal.value,
+        dayOfInvestment: newGoal.day,
+        goal_id: goalId,
+        priority: newGoal.priority
+      }).then(() => {
+        setValue1("1")
+        setValue2("Média")
+        reset(); // limpa os campos do formulário
+        setIsVisible(false)
+      }).catch((err) => console.log("Err", err))
+
     } catch (error) {
       console.log(error);
       Alert.alert("Não foi possível cadastrar a meta!");
@@ -182,7 +193,7 @@ export function Wallet_InvestmentModal({
             style={styles.button}
             onPress={() => {
               handleSubmit(async (data) => await handleRegister(data))();
-              setIsVisible(false);
+              // setIsVisible(false);
             }}
           >
             <Text style={styles.textButton}>Enviar</Text>

@@ -1,5 +1,5 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
-import { SafeAreaView, Modal, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView, Modal, Text, TouchableOpacity, Alert } from "react-native";
 import { styles } from "./styles";
 import { BorderlessButton } from "react-native-gesture-handler";
 
@@ -8,6 +8,7 @@ import { TextFieldWalletInvestment } from "../TextFieldWalletInvestment";
 
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { apiFinances } from "../../services";
 
 interface ITransactionsWalletsInvestment {
   id: string;
@@ -19,12 +20,34 @@ interface ITransactionsWalletsInvestment {
 
 interface IAddProps {
   setTransactionsWalletsInvestment: Dispatch<SetStateAction<ITransactionsWalletsInvestment[]>>;
+  investmentId: string;
 }
 
-export function AddWalletInvestment({ setTransactionsWalletsInvestment }: IAddProps) {
+export function AddWalletInvestment({ setTransactionsWalletsInvestment, investmentId }: IAddProps) {
   const [visible, setVisible] = useState(false);
   const [value, setValue] = useState("");
   const [description, setDescription] = useState("");
+
+  async function handleCreateTransactionInvestment() {
+
+    await apiFinances.post('/transactions_investments/investment/' + investmentId, {
+      value: Number(value),
+      description: description,
+      category: "salário",
+      type: "deposit"
+    }).catch((err) => console.log(err.response))
+    setTransactionsWalletsInvestment((prevState) => {
+      return [
+        ...prevState,
+        {
+          id: `'${(new Date(), Math.random() * 100)}'`,
+          value: Number(value),
+          description,
+        },
+      ];
+    });
+    setVisible(false);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -50,18 +73,8 @@ export function AddWalletInvestment({ setTransactionsWalletsInvestment }: IAddPr
           </BorderlessButton>
 
           <TouchableOpacity
-            onPress={() => {
-              setTransactionsWalletsInvestment((prevState) => {
-                return [
-                  ...prevState,
-                  {
-                    id: `'${(new Date(), Math.random() * 100)}'`,
-                    value: Number(value),
-                    description,
-                  },
-                ];
-              });
-              setVisible(false);
+            onPress={async () => {
+              await handleCreateTransactionInvestment()
             }}
           >
             <SafeAreaView style={styles.viewButtonAdd}>
@@ -79,6 +92,11 @@ export function AddWalletInvestment({ setTransactionsWalletsInvestment }: IAddPr
 
       <BorderlessButton
         onPress={() => {
+          if (!investmentId) {
+            Alert.alert("Não possui investimento cadastrado!");
+            setVisible(false);
+            return;
+          }
           setVisible(true);
         }}
       >
