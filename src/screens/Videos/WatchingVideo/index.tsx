@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, Text, TextInput } from "react-native";
+import { SafeAreaView, Text, TextInput, ScrollView } from "react-native";
 import { styles } from "./styles";
 
 import { Header } from "../../../components/header";
@@ -7,16 +7,17 @@ import { Baseboard } from "../../../components/baseboard";
 import { ModalPattern } from "../../../components/modalPattern";
 import { theme } from "../../../global/styles/theme";
 import { AvatarComments } from "../../../components/AvatarComments";
+import { apiFinances } from "../../../services";
 
 import { Ionicons } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { useRoute } from "@react-navigation/native";
-import { apiFinances } from "../../../services";
+import { FontAwesome } from '@expo/vector-icons';
 
 interface IVideo {
   id: string;
   category: string;
-  url: string;  
+  url: string;
   images: any
 }
 interface IVideosProps {
@@ -52,10 +53,6 @@ export function WatchingVideo() {
     })
   }, [])
 
-  useEffect(() => {
-    console.warn("commentary", commentary)
-  }, [commentary])
-
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -80,11 +77,9 @@ export function WatchingVideo() {
       </BorderlessButton>
 
       <SafeAreaView style={styles.viewBoxComments}>
-        <SafeAreaView style={styles.viewAmountOfComments}>
-          <Text style={styles.textAmountOfComments}>10</Text>
-          <Text style={styles.textAmountOfComments}>Comentários</Text>
+        <Text style={styles.textAmountOfComments}>{commentary.length} Comentários</Text>
 
-          <SafeAreaView style={styles.viewAvatar}>
+        <SafeAreaView style={styles.viewAvatar}>
           <AvatarComments />
           <TextInput
             style={styles.input}
@@ -94,25 +89,39 @@ export function WatchingVideo() {
             onChangeText={(e) => setText(e)}
           >
           </TextInput>
+        </SafeAreaView>
 
-        </SafeAreaView>
-          <BorderlessButton style={styles.button} onPress={async () => {
-            const commentary = await apiFinances.post('/commentarys/video/' + video.id, {
-              description: text,
-            })
-            setText("")
-            setCommentary((prevState) => { return [...prevState, commentary.data]})
-          }}/>
-        </SafeAreaView>
-        {commentary?.map((commentary, index) => {
-          let top = index * 50
-          return (
-            <SafeAreaView style={{ top: 100 + top }}>
-              <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{commentary?.user?.name}</Text>
-              <Text>{commentary?.description}</Text>
-            </SafeAreaView>
-          )
-        })}
+        <BorderlessButton style={styles.button} onPress={async () => {
+          const commentary = await apiFinances.post('/commentarys/video/' + video.id, {
+            description: text,
+          })
+          setText("")
+          setCommentary((prevState) => { return [...prevState, commentary.data] })
+        }} >
+          <Text style={styles.textButton}>OK</Text>
+        </BorderlessButton>
+
+        <ScrollView style={styles.scroll}>
+          {commentary?.map((commentary) => {
+            return (
+              <SafeAreaView>
+
+                <SafeAreaView style={styles.iconUser}>
+                  <FontAwesome name="user-circle-o" size={24} color={theme.colors.color3} />
+                </SafeAreaView>
+
+                <SafeAreaView>
+                  <SafeAreaView style={styles.viewDays}>
+                    <Text style={styles.text1}>{commentary?.user?.name}</Text>
+                    <Text style={styles.textDays}>- Há 1 dia(s)</Text>
+                  </SafeAreaView>
+                  <Text style={styles.text2}>{commentary?.description}</Text>
+                </SafeAreaView>
+
+              </SafeAreaView>
+            )
+          })}
+        </ScrollView>
       </SafeAreaView>
 
       <Baseboard token={token} />

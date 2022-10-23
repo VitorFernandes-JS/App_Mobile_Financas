@@ -43,23 +43,8 @@ export function InformationsGoals() {
   
 
   async function loadGoals() {
-    // const dataKey = "@mobile:goals";
-    // const response = await AsyncStorage.getItem(dataKey);
-    // const goals = response ? JSON.parse(response) : [];
+   
     const goals = await apiFinances.get("/goals")
-
-    // const goalsFormatted: DataListProps[] = goals?.data?.map((item: DataListProps) => {
-    //   const amount = Number(item.amount).toLocaleString("pt-BR", {
-    //     style: "currency",
-    //     currency: "BRL",
-    //   });
-
-    //   return {
-    //     id: Math.random().toString(),
-    //     name: item.name,
-    //     amount: amount,
-    //   };
-    // });
 
     console.warn(goals.data)
 
@@ -68,11 +53,11 @@ export function InformationsGoals() {
   }
 
 
-  function interval(func: any,ti: number) {
+  function interval(func: any, ti: number) {
     /* your code */
     loadGoals()
     if (countReload > 5)
-      setTimeout(()=>{interval(func,ti); },ti);
+      setTimeout(() => { interval(func, ti); }, ti);
   }
 
   useEffect(() => { 
@@ -157,7 +142,7 @@ export function InformationsGoals() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>
-      
+
       <Baseboard token={token} />
       <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible} setCountReload={setCountReload}/>
     </SafeAreaView>
