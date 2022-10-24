@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text, Modal, Image } from "react-native";
 import { styles, viewButtonStyles } from "./styles";
-import { RectButton } from "react-native-gesture-handler";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 
 import { AntDesign } from "@expo/vector-icons";
 
@@ -32,14 +32,14 @@ export function ModalPattern({ text }: IModalPattern) {
         </SafeAreaView>
       </Modal>
 
-      <RectButton
+      <BorderlessButton
         style={viewButtonStyles({ top: 51.5 }).interrogation}
         onPress={() => {
           setVisible(true);
         }}
       >
         <Image source={InterrogationImg} style={styles.interrogation1} />
-      </RectButton>
+      </BorderlessButton>
     </SafeAreaView>
   );
 }

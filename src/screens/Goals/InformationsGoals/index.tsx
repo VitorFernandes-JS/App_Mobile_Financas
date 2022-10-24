@@ -20,7 +20,7 @@ export interface DataListProps extends GoalsCardProps {
 interface IGoals {
   id: string;
   name: string;
-  amount: string;
+  amount: number;
   user_id: string;
   created_at: string;
   updated_at: string;

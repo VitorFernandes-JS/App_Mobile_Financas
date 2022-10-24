@@ -12,16 +12,15 @@ import { styles } from "./styles";
 import { InputForm } from "../../../components/Form/InputForm";
 import { ModalPattern } from "../../../components/modalPattern";
 import { theme } from "../../../global/styles/theme";
+import { apiFinances } from "../../../services";
 
-import { RectButton } from "react-native-gesture-handler";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import DropDownPicker from "react-native-dropdown-picker";
-import { apiFinances } from "../../../services";
 import dayjs from "dayjs";
-import { IGoals } from "..";
+import { AntDesign } from "@expo/vector-icons";
 
 interface FormData {
   [day: string]: any;
@@ -53,7 +52,7 @@ interface IWallet_InvestmentModal {
 export function Wallet_InvestmentModal({
   isVisible,
   setIsVisible,
-  goalId
+  goalId,
 }: IWallet_InvestmentModal) {
   const {
     control,
@@ -71,18 +70,20 @@ export function Wallet_InvestmentModal({
     };
 
     try {
-      apiFinances.post('/investments', {
-        value: newGoal.value,
-        dayOfInvestment: newGoal.day,
-        goal_id: goalId,
-        priority: newGoal.priority
-      }).then(() => {
-        setValue1("1")
-        setValue2("Média")
-        reset(); // limpa os campos do formulário
-        setIsVisible(false)
-      }).catch((err) => console.log("Err", err))
-
+      apiFinances
+        .post("/investments", {
+          value: newGoal.value,
+          dayOfInvestment: newGoal.day,
+          goal_id: goalId,
+          priority: newGoal.priority,
+        })
+        .then(() => {
+          setValue1("1");
+          setValue2("Média");
+          reset(); // limpa os campos do formulário
+          setIsVisible(false);
+        })
+        .catch((err) => console.log("Err", err));
     } catch (error) {
       console.log(error);
       Alert.alert("Não foi possível cadastrar a meta!");
@@ -204,6 +205,15 @@ export function Wallet_InvestmentModal({
         </SafeAreaView>
       </TouchableWithoutFeedback>
 
+      <BorderlessButton
+        style={styles.closeModalIcon}
+        onPress={() => {
+          setIsVisible(false);
+        }}
+      >
+        <AntDesign name="closecircle" color="red" size={22} />
+      </BorderlessButton>
+
       {/* Select do dia */}
       <SafeAreaView style={styles.viewDropDownPicker}>
         <DropDownPicker
@@ -213,7 +223,7 @@ export function Wallet_InvestmentModal({
             marginLeft: 402,
             backgroundColor: theme.colors.color5,
             borderRadius: 20,
-            top: 282.5,
+            top: 262.5,
           }}
           translation={{
             PLACEHOLDER: "Selecione",
@@ -263,7 +273,7 @@ export function Wallet_InvestmentModal({
             marginLeft: 402,
             backgroundColor: theme.colors.color5,
             borderRadius: 20,
-            top: 318,
+            top: 298,
           }}
           translation={{
             PLACEHOLDER: "Selecione",

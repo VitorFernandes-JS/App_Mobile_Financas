@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.color6,
     borderRadius: 25,
     left: 66.5,
-    top: 270,
+    top: 250,
     shadowColor: "#1a1a1a",
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -75,6 +75,11 @@ export const styles = StyleSheet.create({
     top: 255,
     right: 240,
     position: "absolute",
+  },
+  closeModalIcon: {
+    left: 305,
+    top: 555,
+    position: "absolute"
   },
   button: {
     width: 100,
