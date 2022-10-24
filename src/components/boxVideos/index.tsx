@@ -5,7 +5,7 @@ import { styles, viewButtonStyles } from "./styles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import FixedIncomeImg from "../../assets/renda_fixa.png";
-import ActionsImg from "../../assets/ações.png";
+import ActionsImg from "../../assets/acoes.png";
 import CondominiumImg from "../../assets/condominio.png";
 import MobileAppImg from "../../assets/aplicativo_movel.png";
 import CriptoImg from "../../assets/cripto.png";
