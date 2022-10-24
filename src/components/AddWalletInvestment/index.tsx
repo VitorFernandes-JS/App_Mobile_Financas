@@ -93,7 +93,7 @@ export function AddWalletInvestment({ setTransactionsWalletsInvestment, investme
       <BorderlessButton
         onPress={() => {
           if (!investmentId) {
-            Alert.alert("Não possui investimento cadastrado!");
+            Alert.alert("Termine o cadastro da sua meta, para adicionar um investimento!");
             setVisible(false);
             return;
           }

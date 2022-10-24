@@ -78,7 +78,7 @@ export function WalletInvestment() {
     const haveInvestment = goals?.[index]?.investment === null;
 
     if (!haveGoal) {
-      Alert.alert("Você não possui metas cadastradas!");
+      Alert.alert("Você não cadastrou essa meta ainda!");
       return;
     }
 
