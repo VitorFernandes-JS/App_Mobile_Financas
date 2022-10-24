@@ -1,6 +1,9 @@
 import React from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles, Icon } from "./styles";
+
+import { AntDesign } from "@expo/vector-icons";
+import { BorderlessButton } from "react-native-gesture-handler";
 interface ITransactionWallet {
   id?: string;
   value: number;
@@ -12,6 +15,7 @@ interface ITransactionWallet {
 }
 export interface IBoxExtractProps {
   transactionWallet: ITransactionWallet;
+  isActiveButtonDelete: boolean;
 }
 
 const icons = {
@@ -25,13 +29,19 @@ const icons = {
   Outros: "dollar-sign",
 };
 
-export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
+export function BoxExtract({ transactionWallet, isActiveButtonDelete }: IBoxExtractProps) {
   // console.warn("transactionWallet category", transactionWallet.category);
   const operation = transactionWallet.type === "deposit" ? "+" : "-";
 
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.box}>
+        {isActiveButtonDelete && (
+          <BorderlessButton style={styles.closeModalIcon} onPress={() => {}}>
+            <AntDesign name="closecircle" color="red" size={22} />
+          </BorderlessButton>
+        )}
+
         <SafeAreaView>
           <Icon
             name={(icons as any)[transactionWallet.category]}
@@ -41,8 +51,12 @@ export function BoxExtract({ transactionWallet }: IBoxExtractProps) {
 
         <Text style={styles.category}>{transactionWallet.category}</Text>
         <Text style={styles.description}>{transactionWallet.description}</Text>
-        <Text 
-          style={transactionWallet.type === "deposit" ? styles.valueDeposit : styles.valueWitdraw}
+        <Text
+          style={
+            transactionWallet.type === "deposit"
+              ? styles.valueDeposit
+              : styles.valueWitdraw
+          }
         >
           {operation} R$ {transactionWallet.value}
         </Text>

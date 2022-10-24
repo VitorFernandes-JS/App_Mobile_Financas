@@ -30,6 +30,13 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  closeModalIcon: {
+    width: 24,
+    height: 24,
+    position: "absolute",
+    top: -5,
+    right: -10,
+  },
   icon: {
     color: theme.colors.color4,
     left: -63.5,

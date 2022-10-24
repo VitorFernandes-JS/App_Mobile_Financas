@@ -7,11 +7,10 @@ import WalletImg from "../../assets/wallet.png";
 import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
 import { BoxExtract } from "../../components/boxExtract";
-import { Trash } from "../../components/trash";
+import { Trash, ITrashProps } from "../../components/trash";
 import { Add } from "../../components/add";
 import { ModalPattern } from "../../components/modalPattern";
 import { apiFinances } from "../../services";
-
 interface IWalletProps {
   token: string;
 }
@@ -25,7 +24,6 @@ interface ITransactionsWallets {
   created_at?: Date;
   updated_at?: Date;
 }
-
 interface IWallet {
   id: string,
 	value: number,
@@ -71,8 +69,6 @@ export function Wallet({ token }: IWalletProps) {
     })()
   }, [transactionsWallets]);
 
-  
-
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
@@ -97,7 +93,7 @@ export function Wallet({ token }: IWalletProps) {
         <Text style={styles.valueLeft}>R$ 10.000,00</Text>
       </SafeAreaView>
       <SafeAreaView style={styles.viewTrash}>
-        <Trash onPress={() => {}}/>
+        <Trash onPress={() => { } } isActive={false}/>
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
         <Add setTransactionsWallets={setTransactionsWallets} walletId={wallet.id} />

@@ -5,7 +5,8 @@ import { styles } from "./styles";
 
 import { EvilIcons } from "@expo/vector-icons";
 
-interface ITrashProps extends BorderlessButtonProps {
+export interface ITrashProps extends BorderlessButtonProps {
+  isActive: boolean;
   onPress: () => void;
 }
 
