@@ -48,10 +48,6 @@ export function Wallet({ token }: IWalletProps) {
           await apiFinances
             .get("/transactions_wallets/wallet/" + responseWallet?.data?.id)
 
-        
-        console.warn("responseWallet: ", responseWallet?.data)
-        console.warn("responseTransactionsWallet: ", responseTransactionsWallet?.data)
-        
         setWallet(responseWallet?.data)
         setTransactionsWallets(responseTransactionsWallet?.data)
       } catch (error) {

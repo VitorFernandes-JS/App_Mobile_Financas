@@ -71,7 +71,6 @@ export function Wallet_InvestmentModal({
     };
 
     try {
-      console.warn("goal: ", goalId)
       apiFinances.post('/investments', {
         value: newGoal.value,
         dayOfInvestment: newGoal.day,

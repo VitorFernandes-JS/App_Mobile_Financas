@@ -45,8 +45,6 @@ export function InformationsGoals() {
    
     const goals = await apiFinances.get("/goals")
 
-    console.warn(goals.data)
-
     setData(goals.data);
     setCountReload((prevState) => prevState + 1);
   }
@@ -61,7 +59,6 @@ export function InformationsGoals() {
 
   useEffect(() => {
     apiFinances.get("/goals").then((response) => {
-      console.warn("response: ", response.data)
       setData(response.data)
     })
 

@@ -7,7 +7,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 export interface GoalsCardProps {
     number: any;
     name: string;
-    amount: string;
+    amount: number;
 }
 
 export interface Props {
@@ -36,7 +36,7 @@ export function GoalsCard({ number, name, amount }: GoalsCardProps) {
         <Text style={styles.title}>{name}</Text>
         </SafeAreaView>
         <SafeAreaView style={styles.fieldValue}>
-          <Text style={styles.fieldValueText}>{amount}</Text>
+          <Text style={styles.fieldValueText}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(amount)}</Text>
         </SafeAreaView>
       </RectButton>
   );

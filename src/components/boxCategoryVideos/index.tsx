@@ -25,7 +25,6 @@ export function BoxCategoryVideos({ text, token, video, source, ...rest }: IBoxC
     url: video.url.split("watch?v=").join('embed/'),
   }
 
-  console.warn(formatedVideo)
   function handleNavigate() {
     navigation.navigate("WatchingVideo", { token, video: formatedVideo });
   }
