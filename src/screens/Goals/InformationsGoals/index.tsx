@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 
@@ -7,8 +7,7 @@ import { Baseboard } from "../../../components/baseboard";
 import { GoalsCard, GoalsCardProps } from "../../../components/GoalsCard";
 import { theme } from "../../../global/styles/theme";
 
-import { useRoute, useFocusEffect } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Octicons } from "@expo/vector-icons";
@@ -60,11 +59,7 @@ export function InformationsGoals() {
       setTimeout(() => { interval(func, ti); }, ti);
   }
 
-  useEffect(() => { 
-    // (async () => {
-    //   await loadGoals();
-    // })()
-    // console.warn("Chegou aqui")
+  useEffect(() => {
     apiFinances.get("/goals").then((response) => {
       console.warn("response: ", response.data)
       setData(response.data)
