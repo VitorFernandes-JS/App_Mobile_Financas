@@ -33,14 +33,14 @@ export function Financing_Residential() {
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
   const [modal3, setModal3] = useState(false);
-
+  
   function CalculoDeParcela() {
     let valorDaCasa = Number(valueResidential);
     let rendaMensal = Number(monthlyIncome);
     let juros = Number(fees);
     let meses = Number(time);
-    let interest = 0;
-    let parcela = 0;
+    var parcela = 0;
+    var interest = 0;
 
     interest = (valorDaCasa * (juros * 0.01)) / meses;
     parcela = valorDaCasa / meses + interest;
@@ -185,7 +185,8 @@ export function Financing_Residential() {
         <SafeAreaView>
           <Modal animationType="slide" transparent={true} visible={modal1}>
             <SafeAreaView style={styles.viewModal1}>
-              <Text style={styles.modalSubtitle1}>modal 1</Text>
+              <AntDesign name={"checkcircle"} size={100} color={"#26B602"} style={{top: -40}}/>
+              <Text style={styles.modalSubtitle1}>Seu empréstimo será de 1% até 30% da sua renda,{`\n`} isto é muito seguro!</Text>
               <BorderlessButton
                 style={styles.rectButtoncloseModalIcon1}
                 onPress={() => {
@@ -202,7 +203,8 @@ export function Financing_Residential() {
         <SafeAreaView>
           <Modal animationType="slide" transparent={true} visible={modal2}>
             <SafeAreaView style={styles.viewModal2}>
-              <Text style={styles.modalSubtitle2}>modal 2</Text>
+            <AntDesign name={"checkcircle"} size={100} color={"#ffd900"} style={{top: -40}}/>
+              <Text style={styles.modalSubtitle2}>Seu empréstimo será de 31% até 60% da sua renda,{`\n`} isto NÃO é muito seguro!</Text>
               <BorderlessButton
                 style={styles.rectButtoncloseModalIcon2}
                 onPress={() => {
@@ -219,7 +221,9 @@ export function Financing_Residential() {
         <SafeAreaView>
           <Modal animationType="slide" transparent={true} visible={modal3}>
             <SafeAreaView style={styles.viewModal3}>
-              <Text style={styles.modalSubtitle3}>modal 3</Text>
+            <AntDesign name={"checkcircle"} size={100} color={"#ff0000"} style={{top: -40}}/>
+              <Text style={styles.modalSubtitle3}>Seu empréstimo é 
+              {`\n`}de ALTO RISCO!</Text>
               <BorderlessButton
                 style={styles.rectButtoncloseModalIcon3}
                 onPress={() => {
