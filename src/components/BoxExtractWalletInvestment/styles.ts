@@ -30,6 +30,13 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  closeModalIcon: {
+    width: 24,
+    height: 24,
+    position: "absolute",
+    top: -5,
+    right: -10,
+  },
   icon: {
     color: theme.colors.color4,
     left: -63.5,
@@ -61,5 +68,57 @@ export const styles = StyleSheet.create({
     color: "#26B602",
     left: 210,
     position: "absolute",
+  },
+  viewModal: {
+    width: 250,
+    height: 80,
+    backgroundColor: theme.colors.color6,
+    borderRadius: 15,
+    top: "50%",
+    left: "20%",
+    shadowOpacity: 0.7,
+    shadowOffset: { width: 2, height: 2 },
+    alignItems: "center",
+  },
+  modalSubtitle: {
+    top: 10,
+    fontFamily: theme.fonts.font4_regular,
+    fontSize: 16,
+  },
+  viewButtons: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "48%",
+  },
+  buttonToExclude: {
+    backgroundColor: "#FF0000",
+    top: 322,
+    right: -115,
+    padding: 5,
+    width: 80,
+    borderRadius: 7,
+    alignItems: "center",
+  },
+  buttonToCancel: {
+    backgroundColor: "#26B602",
+    top: 322,
+    left: 100,
+    padding: 5,
+    width: 80,
+    borderRadius: 7,
+    alignItems: "center",
+  },
+  textToExclude: {
+    color: theme.colors.color6,
+  },
+  textToCancel: {
+    color: theme.colors.color6,
+  },
+  textBaseboard: {
+    fontSize: 10,
+    color: theme.colors.color4,
+    position: "absolute",
+    top: 432,
+    left: 150,
   }
 });

@@ -1,5 +1,5 @@
-import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import React, { useState } from "react";
+import { Modal, SafeAreaView, Text } from "react-native";
 import { styles, Icon } from "./styles";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -29,18 +29,27 @@ const icons = {
   Outros: "dollar-sign",
 };
 
-export function BoxExtract({ transactionWallet, isActiveButtonDelete }: IBoxExtractProps) {
+export function BoxExtract({
+  transactionWallet,
+  isActiveButtonDelete,
+}: IBoxExtractProps) {
   // console.warn("transactionWallet category", transactionWallet.category);
   const operation = transactionWallet.type === "deposit" ? "+" : "-";
+  const [visible, setVisible] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.box}>
-        {isActiveButtonDelete && (
-          <BorderlessButton style={styles.closeModalIcon} onPress={() => {}}>
-            <AntDesign name="closecircle" color="red" size={22} />
-          </BorderlessButton>
-        )}
+        {/* {isActiveButtonDelete && ( */}
+        <BorderlessButton
+          style={styles.closeModalIcon}
+          onPress={() => {
+            setVisible(true);
+          }}
+        >
+          <AntDesign name="closecircle" color="red" size={22} />
+        </BorderlessButton>
+        {/* )} */}
 
         <SafeAreaView>
           <Icon
@@ -63,6 +72,23 @@ export function BoxExtract({ transactionWallet, isActiveButtonDelete }: IBoxExtr
 
         <SafeAreaView style={styles.line} />
       </SafeAreaView>
+
+      <Modal animationType="slide" transparent={true} visible={visible}>
+        <SafeAreaView style={styles.viewModal}>
+          <Text style={styles.modalSubtitle}>Tem certeza dessa exclusão?</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewButtons}>
+          <BorderlessButton style={styles.buttonToExclude} onPress={() => {setVisible(false)}}>
+            <Text style={styles.textToExclude}>Excluir</Text>
+          </BorderlessButton>
+
+          <BorderlessButton style={styles.buttonToCancel} onPress={() => {setVisible(false)}}>
+            <Text style={styles.textToCancel}>Cancelar</Text>
+          </BorderlessButton>
+        </SafeAreaView>
+        <Text style={styles.textBaseboard}>Obs: isto é permanente!</Text>
+      </Modal>
     </SafeAreaView>
   );
 }

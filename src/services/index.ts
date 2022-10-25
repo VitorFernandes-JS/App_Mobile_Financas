@@ -9,7 +9,7 @@ const ip_ifsp = "http://10.119.125.254:3335"
 
 // const url = IS_PRODUCTION === "true" ? "https://bestfinance.herokuapp.com" : ip_casa_rafa;
 
-const url = ip_ifsp
+const url = ip_casa_vitor
 
 const apiFinances = axios.create({
     baseURL: url,
