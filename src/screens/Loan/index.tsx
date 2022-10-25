@@ -1,6 +1,13 @@
 import React from "react";
 import { styles } from "./styles";
-import { SafeAreaView, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 
@@ -20,6 +27,7 @@ export function Loan() {
   const { token } = route.params as IRouteParams;
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView style={styles.container}>
       <Header />
 
@@ -100,5 +108,6 @@ export function Loan() {
 
       <Baseboard token={token} />
     </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
