@@ -10,8 +10,8 @@ interface ITransactionWallet {
   type: "deposit" | "withdraw" | string;
   category: string;
   description: string;
-  created_at?: Date;
-  updated_at?: Date;
+  updated_at: Date;
+  created_at: Date;
 }
 export interface IBoxExtractProps {
   transactionWallet: ITransactionWallet;
@@ -31,11 +31,19 @@ const icons = {
 
 export function BoxExtract({
   transactionWallet,
-  // isActiveButtonDelete,
-}: IBoxExtractProps) {
+}: // isActiveButtonDelete,
+IBoxExtractProps) {
   // console.warn("transactionWallet category", transactionWallet.category);
   const operation = transactionWallet.type === "deposit" ? "+" : "-";
   const [visible, setVisible] = useState(false);
+
+  function firstLetterUpperCase(string: any) {
+    const allLetters = string.split('')
+    const firstLetter = allLetters.shift().toUpperCase()
+    allLetters.unshift(firstLetter)
+    const newString = allLetters.join('') 
+    return newString
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -50,6 +58,18 @@ export function BoxExtract({
           <AntDesign name="closecircle" color="red" size={22} />
         </BorderlessButton>
         {/* )} */}
+
+        <SafeAreaView style={styles.date}>
+          <Text style={styles.textDate}>
+            {new Date(transactionWallet.created_at).getDate()}
+          </Text>
+          <Text style={styles.textDateMonth}>
+            {firstLetterUpperCase(new Date(transactionWallet.created_at).toLocaleDateString(
+              "pt-BR",
+              { month: "long" }
+            ))}
+          </Text>
+        </SafeAreaView>
 
         <SafeAreaView>
           <Icon
@@ -67,7 +87,12 @@ export function BoxExtract({
               : styles.valueWitdraw
           }
         >
-          {operation} {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(transactionWallet.value)}
+          {operation}{" "}
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+            maximumFractionDigits: 2,
+          }).format(transactionWallet.value)}
         </Text>
 
         <SafeAreaView style={styles.line} />
@@ -79,11 +104,21 @@ export function BoxExtract({
         </SafeAreaView>
 
         <SafeAreaView style={styles.viewButtons}>
-          <BorderlessButton style={styles.buttonToExclude} onPress={() => {setVisible(false)}}>
+          <BorderlessButton
+            style={styles.buttonToExclude}
+            onPress={() => {
+              setVisible(false);
+            }}
+          >
             <Text style={styles.textToExclude}>Excluir</Text>
           </BorderlessButton>
 
-          <BorderlessButton style={styles.buttonToCancel} onPress={() => {setVisible(false)}}>
+          <BorderlessButton
+            style={styles.buttonToCancel}
+            onPress={() => {
+              setVisible(false);
+            }}
+          >
             <Text style={styles.textToCancel}>Cancelar</Text>
           </BorderlessButton>
         </SafeAreaView>

@@ -37,6 +37,24 @@ export const styles = StyleSheet.create({
     top: -5,
     right: -10,
   },
+  date: {
+    width: 80,
+    height: 100,
+    left: -1,
+    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textDate: {
+    fontSize: 20,
+    color: theme.colors.color4,
+    fontFamily: theme.fonts.font7_bold_inter
+  },
+  textDateMonth: {
+    fontSize: 12,
+    color: theme.colors.color4,
+    fontFamily: theme.fonts.font5_medium
+  },
   icon: {
     color: theme.colors.color4,
     left: -63.5,
