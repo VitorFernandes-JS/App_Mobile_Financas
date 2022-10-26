@@ -67,7 +67,7 @@ export function BoxExtract({
               : styles.valueWitdraw
           }
         >
-          {operation} R$ {transactionWallet.value}
+          {operation} {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(transactionWallet.value)}
         </Text>
 
         <SafeAreaView style={styles.line} />
