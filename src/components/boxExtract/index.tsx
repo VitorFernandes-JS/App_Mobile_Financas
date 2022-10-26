@@ -15,7 +15,7 @@ interface ITransactionWallet {
 }
 export interface IBoxExtractProps {
   transactionWallet: ITransactionWallet;
-  isActiveButtonDelete: boolean;
+  // isActiveButtonDelete: boolean;
 }
 
 const icons = {
@@ -31,7 +31,7 @@ const icons = {
 
 export function BoxExtract({
   transactionWallet,
-  isActiveButtonDelete,
+  // isActiveButtonDelete,
 }: IBoxExtractProps) {
   // console.warn("transactionWallet category", transactionWallet.category);
   const operation = transactionWallet.type === "deposit" ? "+" : "-";
