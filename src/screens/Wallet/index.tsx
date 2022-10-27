@@ -7,7 +7,7 @@ import WalletImg from "../../assets/wallet.png";
 import { HeaderWallet } from "../../components/headerWallet";
 import { Baseboard } from "../../components/baseboard";
 import { BoxExtract } from "../../components/boxExtract";
-import { Trash, ITrashProps } from "../../components/trash";
+import { Trash } from "../../components/trash";
 import { Add } from "../../components/add";
 import { ModalPattern } from "../../components/modalPattern";
 import { apiFinances } from "../../services";
@@ -16,36 +16,50 @@ interface IWalletProps {
 }
 
 interface ITransactionsWallets {
-  id?: string;
+  id: string;
   value: number;
   type: "deposit" | "withdraw" | string;
   category: string;
   description: string;
-  created_at?: Date;
-  updated_at?: Date;
+  created_at: Date;
+  updated_at: Date;
 }
 interface IWallet {
   id: string,
-	value: number,
+  value: number,
 }
-
-let depositSum = 0;
-let withdrawSum = 0;
 
 export function Wallet({ token }: IWalletProps) {
   const [transactionsWallets, setTransactionsWallets] = useState<
     ITransactionsWallets[]
   >([]);
   const [wallet, setWallet] = useState<IWallet>({} as IWallet);
+  const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false)
+
+  const valueType = transactionsWallets.reduce((acc, transaction) => {
+    if (transaction.type === "deposit") {
+      acc.deposit = acc.deposit + transaction.value
+      return acc
+    }
+    if (transaction.type === "withdraw") {
+      acc.withdraw = acc.withdraw - transaction.value
+      return acc
+    }
+
+    return acc
+  }, {
+    deposit: 0,
+    withdraw: 0,
+  })
 
   useEffect(() => {
     (async () => {
       try {
-        const responseWallet = 
-        await apiFinances
-          .get("/wallets")
-          .catch((err) => { console.log("wallet err: ", err.response.data.message) })
-        const responseTransactionsWallet = 
+        const responseWallet =
+          await apiFinances
+            .get("/wallets")
+            .catch((err) => { console.log("wallet err: ", err.response.data.message) })
+        const responseTransactionsWallet =
           await apiFinances
             .get("/transactions_wallets/wallet/" + responseWallet?.data?.id)
 
@@ -60,18 +74,24 @@ export function Wallet({ token }: IWalletProps) {
   useEffect(() => {
     (async () => {
       try {
-        const responseWallet = 
+        const responseWallet =
           await apiFinances
             .get("/wallets")
             .catch((err) => { console.log("wallet err: ", err.response.data.message) })
-        
+
         setWallet(responseWallet?.data)
+
+        const responseTransactionsWallet =
+          await apiFinances
+            .get("/transactions_wallets/wallet/" + responseWallet?.data?.id)
+
+        setTransactionsWallets(responseTransactionsWallet?.data)
       } catch (error) {
         console.log("Error: ", error)
       }
     })()
   }, [transactionsWallets]);
- 
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
@@ -87,16 +107,16 @@ export function Wallet({ token }: IWalletProps) {
         <SafeAreaView style={styles.viewModal1}>
           <ModalPattern text="Essa é a ENTRADA de todos os valores no MÊS atual (Esse valor é 'reiniciado' ao fim de todos os meses)." />
         </SafeAreaView>
-        <Text style={styles.valueOpen}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(depositSum)}</Text>
+        <Text style={styles.valueOpen}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(valueType.deposit)}</Text>
         <SafeAreaView style={styles.line} />
         <Text style={styles.textLeft}>Saída:</Text>
         <SafeAreaView style={styles.viewModal2}>
           <ModalPattern text="Essa é a SAÍDA de todos os valores no MÊS atual (Esse valor é 'reiniciado' ao fim de todos os meses)." />
         </SafeAreaView>
-        <Text style={styles.valueLeft}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(withdrawSum)}</Text>
+        <Text style={styles.valueLeft}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(valueType.withdraw)}</Text>
       </SafeAreaView>
       <SafeAreaView style={styles.viewTrash}>
-        <Trash onPress={() => { } } isActive={false}/>
+        <Trash onPress={() => { setIsActiveButtonDelete((prevState) => !prevState) }} isActive={false} />
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
         <Add setTransactionsWallets={setTransactionsWallets} walletId={wallet.id} />
@@ -112,6 +132,8 @@ export function Wallet({ token }: IWalletProps) {
             <BoxExtract
               key={transactionWallet.id}
               transactionWallet={transactionWallet}
+              isActiveButtonDelete={isActiveButtonDelete}
+              setTransactionsWallets={setTransactionsWallets}
             />
           ))}
         </SafeAreaView>

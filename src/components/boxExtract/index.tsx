@@ -4,8 +4,9 @@ import { styles, Icon } from "./styles";
 
 import { AntDesign } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
+import { apiFinances } from "../../services";
 interface ITransactionWallet {
-  id?: string;
+  id: string;
   value: number;
   type: "deposit" | "withdraw" | string;
   category: string;
@@ -15,7 +16,8 @@ interface ITransactionWallet {
 }
 export interface IBoxExtractProps {
   transactionWallet: ITransactionWallet;
-  // isActiveButtonDelete: boolean;
+  isActiveButtonDelete: boolean;
+  setTransactionsWallets: (p: any) => any
 }
 
 const icons = {
@@ -31,8 +33,9 @@ const icons = {
 
 export function BoxExtract({
   transactionWallet,
-}: // isActiveButtonDelete,
-IBoxExtractProps) {
+  isActiveButtonDelete,
+  setTransactionsWallets
+}: IBoxExtractProps) {
   // console.warn("transactionWallet category", transactionWallet.category);
   const operation = transactionWallet.type === "deposit" ? "+" : "-";
   const [visible, setVisible] = useState(false);
@@ -41,23 +44,29 @@ IBoxExtractProps) {
     const allLetters = string.split('')
     const firstLetter = allLetters.shift().toUpperCase()
     allLetters.unshift(firstLetter)
-    const newString = allLetters.join('') 
+    const newString = allLetters.join('')
     return newString
+  }
+
+  async function handleDeleteBoxExtract(walletId: string) {
+    await apiFinances.delete('/transactions_wallets/' + walletId)
+    setVisible(false)
+    setTransactionsWallets((prevState: any) => [...prevState])
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.box}>
-        {/* {isActiveButtonDelete && ( */}
-        <BorderlessButton
-          style={styles.closeModalIcon}
-          onPress={() => {
-            setVisible(true);
-          }}
-        >
-          <AntDesign name="closecircle" color="red" size={22} />
-        </BorderlessButton>
-        {/* )} */}
+        {isActiveButtonDelete && (
+          <BorderlessButton
+            style={styles.closeModalIcon}
+            onPress={() => {
+              setVisible(true);
+            }}
+          >
+            <AntDesign name="closecircle" color="red" size={22} />
+          </BorderlessButton>
+        )}
 
         <SafeAreaView style={styles.date}>
           <Text style={styles.textDate}>
@@ -106,8 +115,8 @@ IBoxExtractProps) {
         <SafeAreaView style={styles.viewButtons}>
           <BorderlessButton
             style={styles.buttonToExclude}
-            onPress={() => {
-              setVisible(false);
+            onPress={async () => {
+              await handleDeleteBoxExtract(transactionWallet.id)
             }}
           >
             <Text style={styles.textToExclude}>Excluir</Text>

@@ -16,12 +16,10 @@ interface ITransactionsWallets {
   category: string;
   type: string;
   description: string;
-  created_at?: Date;
-  updated_at?: Date;
 }
 
 interface IAddProps {
-  setTransactionsWallets: Dispatch<SetStateAction<ITransactionsWallets[]>>;
+  setTransactionsWallets: (p: any) => any;
   walletId: string
 }
 
@@ -50,7 +48,7 @@ export function Add({ setTransactionsWallets, walletId }: IAddProps) {
         type
       })
       .then((response) => {
-        setTransactionsWallets((prevState) => [...prevState, response.data]);
+        setTransactionsWallets((prevState: any) => [...prevState, response.data]);
       });
   }
 

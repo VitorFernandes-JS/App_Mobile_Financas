@@ -5,8 +5,6 @@ import { styles } from "./styles";
 
 import { EvilIcons } from "@expo/vector-icons";
 
-
-
 export function Trash({ ...rest }) {
   return (
     <SafeAreaView style={styles.container}>
