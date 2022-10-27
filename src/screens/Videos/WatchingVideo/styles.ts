@@ -25,6 +25,11 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowOffset: { width: 1, height: 3 },
     zIndex: 2,
+    alignItems: "center",
+  },
+  video: {
+    width: 300,
+    borderRadius: 15,
   },
   viewTitleVideo: {
     width: 250,
@@ -44,7 +49,7 @@ export const styles = StyleSheet.create({
   viewIconHeart: {
     width: 45,
     height: 45,
-    left: -160,
+    left: -170,
     top: -7,
     transform: [{ rotate: "-15deg" }],
     zIndex: 2,
@@ -87,7 +92,7 @@ export const styles = StyleSheet.create({
     width: 30,
     height: 20,
     backgroundColor: theme.colors.color2,
-    left: 250,
+    left: 260,
     top: -55,
     borderRadius: 5,
     justifyContent: "center",
@@ -123,6 +128,7 @@ export const styles = StyleSheet.create({
 
   },
   text2: {
+    width: 200,
     fontFamily: theme.fonts.font4_regular,
     fontSize: 12,
     left: 80

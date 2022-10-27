@@ -37,18 +37,20 @@ export const styles = StyleSheet.create({
     width: 1,
     height: 100,
     backgroundColor: theme.colors.color5,
-    right: 70,
+    left: 140,
+    position: "absolute",
   },
   textLeft: {
     margin: 13,
     fontSize: 16,
     color: "#FF0000",
     fontFamily: theme.fonts.font5_medium,
-    right: 60,
+    right: 80,
+    position: "absolute",
   },
   viewModal2: {
     top: -37,
-    right: 70,
+    right: -25,
   },
   valueLeft: {
     width: 100,
@@ -57,7 +59,7 @@ export const styles = StyleSheet.create({
     marginLeft: 25,
     color: theme.colors.color4,
     top: 45,
-    right: 150,
+    left: -40
   },
   viewTrash: {
     top: -110,
