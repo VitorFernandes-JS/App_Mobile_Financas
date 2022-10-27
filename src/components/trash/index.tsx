@@ -5,12 +5,9 @@ import { styles } from "./styles";
 
 import { EvilIcons } from "@expo/vector-icons";
 
-export interface ITrashProps extends BorderlessButtonProps {
-  isActive: boolean;
-  onPress: () => void;
-}
 
-export function Trash({ onPress, ...rest }: ITrashProps) {
+
+export function Trash({ ...rest }) {
   return (
     <SafeAreaView style={styles.container}>
       <BorderlessButton {...rest}>

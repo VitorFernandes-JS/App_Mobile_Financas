@@ -67,11 +67,11 @@ export function WalletInvestment() {
   >([]);
 
   const [goals, setGoals] = useState<IGoals[]>([]);
+  const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false)
   const [goalId, setGoalId] = useState("");
   // const [goal, setGoal] = useState<IGoals>({} as IGoals);
   const [whatIsGoalIndex, setWhatIsGoalIndex] = useState(0)
   const [investment, setInvestment] = useState<IInvestments>({} as IInvestments);
-
 
   async function handleCreateInvestment(index: number) {
     const haveGoal = goals.length > index;
@@ -121,6 +121,7 @@ export function WalletInvestment() {
   const investmentValue = goals?.[whatIsGoalIndex]?.investment?.transaction_investment?.reduce((acc, item) => {
     return acc += item.value
   }, 0)
+
   return (
     <SafeAreaView style={styles.container}>
       <HeaderWallet
@@ -182,7 +183,7 @@ export function WalletInvestment() {
           </SafeAreaView>
 
           <SafeAreaView style={styles.trash}>
-            <Trash onPress={() => { }} />
+            <Trash onPress={() => { setIsActiveButtonDelete((prevState) => !prevState) }} />
           </SafeAreaView>
         </SafeAreaView>
 
@@ -197,6 +198,8 @@ export function WalletInvestment() {
                 <BoxExtractWalletInvestment
                   key={transactionWallet.id}
                   transactionWallet={transactionWallet}
+                  isActiveButtonDelete={isActiveButtonDelete}
+                  setVisibleModal={setVisible}
                 />
               ))}
             </SafeAreaView>
