@@ -9,7 +9,7 @@ const ip_ifsp = "https://391f-2804-14c-bf26-4441-b92e-240e-b736-921d.sa.ngrok.io
 
 // const url = IS_PRODUCTION === "true" ? "https://bestfinance.herokuapp.com" : ip_casa_rafa;
 
-const url = ip_casa_rafa_pc
+const url = ip_casa_vitor
 
 const apiFinances = axios.create({
     baseURL: url,

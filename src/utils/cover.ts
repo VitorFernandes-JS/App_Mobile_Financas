@@ -1,6 +1,7 @@
 export const Cover_Fixed_Income = [
   {
     cover: require("../assets/capas_renda_fixa/capa1.png"),
+    title: "Tesouro Selic",
   },
   {
     cover: require("../assets/capas_renda_fixa/capa2.jpg"),
