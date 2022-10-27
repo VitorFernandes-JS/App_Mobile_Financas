@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { useRoute } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
+import WebView from "react-native-webview";
 
 interface IVideo {
   id: string;
@@ -62,7 +63,12 @@ export function WatchingVideo() {
         <ModalPattern text={"Colocar algo aqui."} />
       </SafeAreaView>
 
-      <SafeAreaView style={styles.viewBoxVideo}></SafeAreaView>
+      <SafeAreaView style={styles.viewBoxVideo}>
+        <WebView
+          source={{ uri: video.url }}
+          style={styles}
+        />
+      </SafeAreaView>
 
       <SafeAreaView style={styles.viewTitleVideo}>
         <Text style={styles.titleVideo}>Título do vídeo</Text>

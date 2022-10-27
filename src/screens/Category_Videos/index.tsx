@@ -18,7 +18,7 @@ interface IVideosProps {
 interface IVideo {
   id: string;
   category: string;
-  url: string;  
+  url: string;
   images: any
 }
 
@@ -33,8 +33,7 @@ export function CategoryVideos({ token, route }: IVideosProps) {
   useEffect(() => {
     async function getVideos() {
       await apiFinances.get('/videos')
-        .then(response => { 
-          console.log("")
+        .then(response => {
           const filteredVideos = response.data.filter((video: any) => video.category === category)
           const images = (allCovers as any)[category][0]
           const videosWithImages = filteredVideos.map((video: Omit<IVideo, 'images'>, index: number) => {
@@ -44,13 +43,13 @@ export function CategoryVideos({ token, route }: IVideosProps) {
             }
           })
           setVideos(videosWithImages)
-         })
+        })
         .catch((error) => { console.log("METHOD GET VIDEOS ERROR: ", error) })
     }
     getVideos();
   }, []);
 
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <Header />
