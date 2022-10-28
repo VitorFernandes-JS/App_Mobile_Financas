@@ -88,13 +88,13 @@ export const styles = StyleSheet.create({
   },
   containerModal: {
     width: 415,
-    height: 500,
-    top: 250,
+    height: 650,
+    top: 150,
     backgroundColor: theme.colors.color6,
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 2, height: 3 },
+    shadowOpacity: 0.8,
+    shadowOffset: { width: 2, height: 1 },
   }
 });

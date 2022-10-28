@@ -14,6 +14,7 @@ import { apiFinances } from "../../services";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { HistoryCard } from "../../components/HistoryCard";
 
 interface IWalletProps {
   token: string;
@@ -28,12 +29,24 @@ interface ITransactionsWallets {
   created_at: Date;
   updated_at: Date;
 }
+
+interface CategoryData {
+  key: string;
+  name: string;
+  total: number;
+  // totalFormatted: string;
+  color: string;
+  // percent: string;
+}
 interface IWallet {
   id: string;
   value: number;
 }
 
 export function Wallet({ token }: IWalletProps) {
+  const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>(
+    []
+  );
   const [modalVisible, setModalVisible] = useState(false);
   const [transactionsWallets, setTransactionsWallets] = useState<
     ITransactionsWallets[]
@@ -181,7 +194,6 @@ export function Wallet({ token }: IWalletProps) {
 
       <Modal visible={modalVisible} animationType="slide" transparent={true}>
         <SafeAreaView style={styles.containerModal}>
-          <Text>inaidaijdajdia</Text>
           <BorderlessButton
             onPress={() => {
               setModalVisible(false);
@@ -189,9 +201,21 @@ export function Wallet({ token }: IWalletProps) {
           >
             <AntDesign name="closecircleo" color="red" size={25} />
           </BorderlessButton>
+
+          <ScrollView
+            contentContainerStyle={{  width: "100%", alignItems: "center" }}
+            showsVerticalScrollIndicator={false}
+          >
+            {totalByCategories.map((item) => (
+              <HistoryCard
+                title={"Restaurante"}
+                amount={"R$ 150,00"}
+                color={"#f0f"}
+            />
+            ))}
+          </ScrollView>
         </SafeAreaView>
       </Modal>
-
     </SafeAreaView>
   );
 }
