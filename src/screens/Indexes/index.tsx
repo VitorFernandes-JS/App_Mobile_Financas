@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./style";
-import axios from "axios";
-import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { Loading } from "../../components/Loading";
-
-import AppLoading from "expo-app-loading";
 import { ModalPattern } from "../../components/modalPattern";
+
+import { useRoute } from "@react-navigation/native";
+import axios from "axios";
 
 interface ISelicRate {
   data: String;
@@ -66,7 +65,7 @@ export function Indexes() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header token={token} />
+      <Header />
 
       <SafeAreaView style={styles.viewSelicAndIpcaAndCdi}>
         <SafeAreaView style={styles.showSelic}>
@@ -122,7 +121,9 @@ export function Indexes() {
         <SafeAreaView style={styles.box}></SafeAreaView>
       </SafeAreaView>
 
-      <SafeAreaView style={styles.boxGraphics}></SafeAreaView>
+      <SafeAreaView style={styles.boxGraphics}>
+        
+      </SafeAreaView>
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Índices </Text>

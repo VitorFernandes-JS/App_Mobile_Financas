@@ -154,5 +154,7 @@ export const styles = StyleSheet.create({
     top: 135,
     shadowOpacity: 0.4,
     shadowOffset: { width: 0.5, height: 3 },
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
