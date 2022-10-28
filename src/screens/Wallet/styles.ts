@@ -62,11 +62,21 @@ export const styles = StyleSheet.create({
     left: -40
   },
   viewTrash: {
-    top: -110,
+    top: -130,
     left: 140,
   },
+  chart: {
+    left: -30,
+    top: 25,
+    width: 25,
+    height: 25,
+    backgroundColor: "#ff6600",
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   viewAdd: {
-    top: -135,
+    top: -157,
     left: -140,
   },
   scrollView: {
@@ -76,4 +86,15 @@ export const styles = StyleSheet.create({
     top: 115,
     flex: 1,
   },
+  containerModal: {
+    width: 415,
+    height: 500,
+    top: 250,
+    backgroundColor: theme.colors.color6,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 2, height: 3 },
+  }
 });

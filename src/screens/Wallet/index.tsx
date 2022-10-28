@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, Text, ScrollView } from "react-native";
+import { SafeAreaView, Text, ScrollView, Modal } from "react-native";
 import { styles } from "./styles";
 
 import WalletImg from "../../assets/wallet.png";
@@ -11,6 +11,10 @@ import { Trash } from "../../components/trash";
 import { Add } from "../../components/add";
 import { ModalPattern } from "../../components/modalPattern";
 import { apiFinances } from "../../services";
+import { BorderlessButton } from "react-native-gesture-handler";
+import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+
 interface IWalletProps {
   token: string;
 }
@@ -25,71 +29,77 @@ interface ITransactionsWallets {
   updated_at: Date;
 }
 interface IWallet {
-  id: string,
-  value: number,
+  id: string;
+  value: number;
 }
 
 export function Wallet({ token }: IWalletProps) {
+  const [modalVisible, setModalVisible] = useState(false);
   const [transactionsWallets, setTransactionsWallets] = useState<
     ITransactionsWallets[]
   >([]);
   const [wallet, setWallet] = useState<IWallet>({} as IWallet);
-  const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false)
+  const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false);
 
-  const valueType = transactionsWallets.reduce((acc, transaction) => {
-    if (transaction.type === "deposit") {
-      acc.deposit = acc.deposit + transaction.value
-      return acc
-    }
-    if (transaction.type === "withdraw") {
-      acc.withdraw = acc.withdraw - transaction.value
-      return acc
-    }
+  const valueType = transactionsWallets.reduce(
+    (acc, transaction) => {
+      if (transaction.type === "deposit") {
+        acc.deposit = acc.deposit + transaction.value;
+        return acc;
+      }
+      if (transaction.type === "withdraw") {
+        acc.withdraw = acc.withdraw - transaction.value;
+        return acc;
+      }
 
-    return acc
-  }, {
-    deposit: 0,
-    withdraw: 0,
-  })
+      return acc;
+    },
+    {
+      deposit: 0,
+      withdraw: 0,
+    }
+  );
 
   useEffect(() => {
     (async () => {
       try {
-        const responseWallet =
-          await apiFinances
-            .get("/wallets")
-            .catch((err) => { console.log("wallet err: ", err.response.data.message) })
-        const responseTransactionsWallet =
-          await apiFinances
-            .get("/transactions_wallets/wallet/" + responseWallet?.data?.id)
+        const responseWallet = await apiFinances
+          .get("/wallets")
+          .catch((err) => {
+            console.log("wallet err: ", err.response.data.message);
+          });
+        const responseTransactionsWallet = await apiFinances.get(
+          "/transactions_wallets/wallet/" + responseWallet?.data?.id
+        );
 
-        setWallet(responseWallet?.data)
-        setTransactionsWallets(responseTransactionsWallet?.data)
+        setWallet(responseWallet?.data);
+        setTransactionsWallets(responseTransactionsWallet?.data);
       } catch (error) {
-        console.log("Error: ", error)
+        console.log("Error: ", error);
       }
-    })()
+    })();
   }, []);
 
   useEffect(() => {
     (async () => {
       try {
-        const responseWallet =
-          await apiFinances
-            .get("/wallets")
-            .catch((err) => { console.log("wallet err: ", err.response.data.message) })
+        const responseWallet = await apiFinances
+          .get("/wallets")
+          .catch((err) => {
+            console.log("wallet err: ", err.response.data.message);
+          });
 
-        setWallet(responseWallet?.data)
+        setWallet(responseWallet?.data);
 
-        const responseTransactionsWallet =
-          await apiFinances
-            .get("/transactions_wallets/wallet/" + responseWallet?.data?.id)
+        const responseTransactionsWallet = await apiFinances.get(
+          "/transactions_wallets/wallet/" + responseWallet?.data?.id
+        );
 
-        setTransactionsWallets(responseTransactionsWallet?.data)
+        setTransactionsWallets(responseTransactionsWallet?.data);
       } catch (error) {
-        console.log("Error: ", error)
+        console.log("Error: ", error);
       }
-    })()
+    })();
   }, [transactionsWallets]);
 
   return (
@@ -107,19 +117,47 @@ export function Wallet({ token }: IWalletProps) {
         <SafeAreaView style={styles.viewModal1}>
           <ModalPattern text="Essa é a ENTRADA de todos os valores no MÊS atual (Esse valor é 'reiniciado' ao fim de todos os meses)." />
         </SafeAreaView>
-        <Text style={styles.valueOpen}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(valueType.deposit)}</Text>
+        <Text style={styles.valueOpen}>
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+            maximumFractionDigits: 2,
+          }).format(valueType.deposit)}
+        </Text>
         <SafeAreaView style={styles.line} />
         <Text style={styles.textLeft}>Saída:</Text>
         <SafeAreaView style={styles.viewModal2}>
           <ModalPattern text="Essa é a SAÍDA de todos os valores no MÊS atual (Esse valor é 'reiniciado' ao fim de todos os meses)." />
         </SafeAreaView>
-        <Text style={styles.valueLeft}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(valueType.withdraw)}</Text>
+        <Text style={styles.valueLeft}>
+          {new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+            maximumFractionDigits: 2,
+          }).format(valueType.withdraw)}
+        </Text>
       </SafeAreaView>
       <SafeAreaView style={styles.viewTrash}>
-        <Trash onPress={() => { setIsActiveButtonDelete((prevState) => !prevState) }} isActive={false} />
+        <BorderlessButton
+          style={styles.chart}
+          onPress={() => {
+            setModalVisible(true);
+          }}
+        >
+          <Ionicons name="ios-bar-chart-outline" size={19} color="white" />
+        </BorderlessButton>
+        <Trash
+          onPress={() => {
+            setIsActiveButtonDelete((prevState) => !prevState);
+          }}
+          isActive={false}
+        />
       </SafeAreaView>
       <SafeAreaView style={styles.viewAdd}>
-        <Add setTransactionsWallets={setTransactionsWallets} walletId={wallet.id} />
+        <Add
+          setTransactionsWallets={setTransactionsWallets}
+          walletId={wallet.id}
+        />
       </SafeAreaView>
 
       <ScrollView
@@ -140,6 +178,20 @@ export function Wallet({ token }: IWalletProps) {
       </ScrollView>
 
       <Baseboard token={token} />
+
+      <Modal visible={modalVisible} animationType="slide" transparent={true}>
+        <SafeAreaView style={styles.containerModal}>
+          <Text>inaidaijdajdia</Text>
+          <BorderlessButton
+            onPress={() => {
+              setModalVisible(false);
+            }}
+          >
+            <AntDesign name="closecircleo" color="red" size={25} />
+          </BorderlessButton>
+        </SafeAreaView>
+      </Modal>
+
     </SafeAreaView>
   );
 }

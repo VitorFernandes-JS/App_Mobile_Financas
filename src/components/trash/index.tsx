@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView } from "react-native";
-import { BorderlessButton, BorderlessButtonProps } from "react-native-gesture-handler";
+import { BorderlessButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 
 import { EvilIcons } from "@expo/vector-icons";
