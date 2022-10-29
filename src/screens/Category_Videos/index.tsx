@@ -20,6 +20,7 @@ interface IVideo {
   category: string;
   url: string;
   images: any
+  title: string;
 }
 
 type IVideoKey = {
@@ -35,11 +36,12 @@ export function CategoryVideos({ token, route }: IVideosProps) {
       await apiFinances.get('/videos')
         .then(response => {
           const filteredVideos = response.data.filter((video: any) => video.category === category)
-          const images = (allCovers as any)[category][0]
+          const imagesAndTitles = (allCovers as any)[category][0]
           const videosWithImages = filteredVideos.map((video: Omit<IVideo, 'images'>, index: number) => {
             return {
               ...video,
-              images: images[index]
+              images: imagesAndTitles[index].cover,
+              title: imagesAndTitles[index].title
             }
           })
           setVideos(videosWithImages)
@@ -66,7 +68,7 @@ export function CategoryVideos({ token, route }: IVideosProps) {
               key={video.id}
               video={video}
               token={token}
-              text="O que fazer com 1000 reais?"
+              text={video.title}
               source={video.images}
             />
           ))}
