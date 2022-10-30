@@ -36,12 +36,12 @@ export function CategoryVideos({ token, route }: IVideosProps) {
       await apiFinances.get('/videos')
         .then(response => {
           const filteredVideos = response.data.filter((video: any) => video.category === category)
-          const imagesAndTitles = (allCovers as any)[category][0]
+          const imagesAndTitles = (allCovers as any)?.[category]?.[0]
           const videosWithImages = filteredVideos.map((video: Omit<IVideo, 'images'>, index: number) => {
             return {
               ...video,
-              images: imagesAndTitles[index].cover,
-              title: imagesAndTitles[index].title
+              images: imagesAndTitles?.[index]?.cover || '',
+              title: imagesAndTitles?.[index]?.title || ''
             }
           })
           setVideos(videosWithImages)
@@ -63,15 +63,15 @@ export function CategoryVideos({ token, route }: IVideosProps) {
 
       <SafeAreaView style={styles.viewBoxCategoryVideos}>
         <ScrollView contentContainerStyle={styles.contentScollView}>
-          {videos.map((video: IVideo) => (
-            <BoxCategoryVideos
+          {videos.map((video: IVideo) => {
+            return (<BoxCategoryVideos
               key={video.id}
               video={video}
               token={token}
               text={video.title}
               source={video.images}
-            />
-          ))}
+            />)
+          })}
         </ScrollView>
       </SafeAreaView>
 

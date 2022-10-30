@@ -32,7 +32,7 @@ export function BoxCategoryVideos({ text, token, video, source, ...rest }: IBoxC
   return (
     <TouchableOpacity {...rest} onPress={handleNavigate}>
       <SafeAreaView style={styles.body} >
-        <Image resizeMode="stretch" borderRadius={(20)} style={styles.img} source={source.cover} />
+        <Image resizeMode="stretch" borderRadius={(20)} style={styles.img} source={source} />
         <SafeAreaView style={styles.boxText}>
           <Text style={styles.text}>{text}</Text>
         </SafeAreaView>
