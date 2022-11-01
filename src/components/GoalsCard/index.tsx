@@ -5,13 +5,13 @@ import { styles } from './styles';
 import { BaseButton, BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
 export interface GoalsCardProps {
-    number: any;
-    name: string;
-    amount: number;
+  number: any;
+  name: string;
+  amount: number;
 }
 
 export interface Props {
-    data: GoalsCardProps;
+  data: GoalsCardProps;
 }
 
 interface IRouteParams {
@@ -28,16 +28,16 @@ export function GoalsCard({ number, name, amount }: GoalsCardProps) {
   }
 
   return (
-      <RectButton style={styles.body} onPress={handleWalletInvestment}>
-        <SafeAreaView style={styles.number}>
-          <Text style={styles.numberText}>{number}</Text>
-        </SafeAreaView>
-        <SafeAreaView style={styles.viewTitle}>
+    <RectButton style={styles.body} onPress={handleWalletInvestment}>
+      <SafeAreaView style={styles.number}>
+        <Text style={styles.numberText}>{number}</Text>
+      </SafeAreaView>
+      <SafeAreaView style={styles.viewTitle}>
         <Text style={styles.title}>{name}</Text>
-        </SafeAreaView>
-        <SafeAreaView style={styles.fieldValue}>
-          <Text style={styles.fieldValueText}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(amount)}</Text>
-        </SafeAreaView>
-      </RectButton>
+      </SafeAreaView>
+      <SafeAreaView style={styles.fieldValue}>
+        <Text style={styles.fieldValueText}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(amount)}</Text>
+      </SafeAreaView>
+    </RectButton>
   );
 }

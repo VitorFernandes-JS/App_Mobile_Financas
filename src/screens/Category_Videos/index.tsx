@@ -51,7 +51,6 @@ export function CategoryVideos({ token, route }: IVideosProps) {
     getVideos();
   }, []);
 
-
   return (
     <SafeAreaView style={styles.container}>
       <Header />

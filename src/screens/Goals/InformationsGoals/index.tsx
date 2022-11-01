@@ -13,17 +13,39 @@ import { BorderlessButton } from "react-native-gesture-handler";
 import { Octicons } from "@expo/vector-icons";
 import { InformationModalAddGoal } from "./InformationModalAddGoal";
 import { apiFinances } from "../../../services";
+import * as Progress from 'react-native-progress';
 export interface DataListProps extends GoalsCardProps {
   id: string;
 }
+interface IInvestments {
+  id: string;
+  value: number;
+  dayOfInvestment: Date;
+  goal_id: string;
+  transaction_investment: ITransactionInvestment[];
+  priority: string;
+  created_at: Date;
+  updated_at: Date;
+}
 
-interface IGoals {
+interface ITransactionInvestment {
+  id: string;
+  value: number;
+  description: string;
+  category: string;
+  investment_id: string;
+  type: string;
+  created_at: Date;
+  updated_at: Date;
+}
+export interface IGoals {
   id: string;
   name: string;
   amount: number;
   user_id: string;
   created_at: string;
   updated_at: string;
+  investment: IInvestments;
 }
 
 interface IRouteParams {
@@ -36,46 +58,47 @@ export function InformationsGoals() {
 
   const route = useRoute();
   const { token } = route.params as IRouteParams;
- 
+
   // const [data, setData] = useState<DataListProps[]>([]);
   const [data, setData] = useState<IGoals[]>([]);
-  
+  const [porcentageGoalsAmount, setPorcentageGoalsAmount] = useState([])
+  const [totalPorcentageGoalsAmount, setTotalPorcentageGoalsAmount] = useState(0)
 
-  async function loadGoals() {
-   
-    const goals = await apiFinances.get("/goals")
-
-    setData(goals.data);
-    setCountReload((prevState) => prevState + 1);
-  }
-
-
-  function interval(func: any, ti: number) {
-    /* your code */
-    loadGoals()
-    if (countReload > 5)
-      setTimeout(() => { interval(func, ti); }, ti);
-  }
+  // estado 0 a 3
 
   useEffect(() => {
     apiFinances.get("/goals").then((response) => {
-      setData(response.data)
+      setData(response?.data)
     })
-
-    // AsyncStorage.removeItem('@mobile:goals');
   }, [])
 
   useEffect(() => {
-    if(countReload > 1) {
+    if (countReload > 1) {
       return;
     }
+
     apiFinances.get("/goals").then((response) => {
       setCountReload((prevState) => prevState + 1);
-      setData(response.data)
+      setData(response?.data)
+      setPorcentageGoalsAmount(response?.data?.map((goal: IGoals) => {
+        const totalTransactionsInvesments = goal.investment.transaction_investment.reduce((acc, transactionInvestment) => acc += transactionInvestment.value, 0)
+        return Number((totalTransactionsInvesments / goal.amount).toFixed(2))
+      }))
     })
+
   }, [data, countReload])
 
-  
+  useEffect(() => {
+    setTotalPorcentageGoalsAmount(() => {
+      const totalPorcentage = porcentageGoalsAmount.reduce((acc, porcentageGoal: string) => acc += Number(porcentageGoal), 0)
+      return Number((totalPorcentage / 3).toFixed(2))
+    })
+
+    console.warn("setTotalPorcentageGoalsAmount: ", totalPorcentageGoalsAmount)
+  }, [porcentageGoalsAmount])
+
+  console.warn("countReload: ", countReload)
+
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -133,10 +156,13 @@ export function InformationsGoals() {
         ))}
       </SafeAreaView>
 
-      <SafeAreaView style={styles.bodyGrafic}></SafeAreaView>
+      <SafeAreaView style={styles.bodyGrafic}>
+        <Text>Total</Text>
+        <Progress.Circle size={150} progress={totalPorcentageGoalsAmount} color={theme.colors.color2} showsText={true} indeterminate={false} />
+      </SafeAreaView>
 
       <Baseboard token={token} />
-      <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible} setCountReload={setCountReload}/>
+      <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible} setCountReload={setCountReload} />
     </SafeAreaView>
   );
 }
