@@ -15,7 +15,8 @@ import { Trash } from "../../components/trash";
 import { useRoute } from "@react-navigation/native";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
-import { apiFinances } from "../../services"; 
+import { apiFinances } from "../../services";
+import { AntDesign } from "@expo/vector-icons";
 interface IRouteParams {
   token: string;
 }
@@ -62,16 +63,22 @@ export interface IGoals {
 export function WalletInvestment() {
   const [visibleModalSuccess, setVisibleModalSuccess] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [transactionsWalletsInvestment, setTransactionsWalletsInvestment] = useState<
-    ITransactionsInvestmentWallets[]
-  >([]);
+  const [transactionsWalletsInvestment, setTransactionsWalletsInvestment] =
+    useState<ITransactionsInvestmentWallets[]>([]);
 
   const [goals, setGoals] = useState<IGoals[]>([]);
-  const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false)
+  const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false);
   const [goalId, setGoalId] = useState("");
   // const [goal, setGoal] = useState<IGoals>({} as IGoals);
-  const [whatIsGoalIndex, setWhatIsGoalIndex] = useState(0)
-  const [investment, setInvestment] = useState<IInvestments>({} as IInvestments);
+  const [whatIsGoalIndex, setWhatIsGoalIndex] = useState(0);
+  const [investment, setInvestment] = useState<IInvestments>(
+    {} as IInvestments
+  );
+  const investmentValue = goals?.[
+    whatIsGoalIndex
+  ]?.investment?.transaction_investment?.reduce((acc, item) => {
+    return (acc += item.value);
+  }, 0) || 0;
 
   async function handleCreateInvestment(index: number) {
     const haveGoal = goals.length > index;
@@ -83,17 +90,15 @@ export function WalletInvestment() {
     }
 
     if (!haveInvestment) {
-      setWhatIsGoalIndex(index)
-      setInvestment(goals?.[index]?.investment)
+      setWhatIsGoalIndex(index);
+      setInvestment(goals?.[index]?.investment);
       return;
     }
 
-    setWhatIsGoalIndex(index)
-    setGoalId(goals?.[index]?.id || '')
+    setWhatIsGoalIndex(index);
+    setGoalId(goals?.[index]?.id || "");
     setVisible(true);
   }
-
-  // TODO: Criar um estado referente as transações do investimento, fazer as requisições baseado no id do investimento, sempre fazer uma nova requisição no onPress passando o id e setando o valor novamente do estado
 
   const route = useRoute();
   const { token } = route.params as IRouteParams;
@@ -101,7 +106,7 @@ export function WalletInvestment() {
   useEffect(() => {
     apiFinances.get("/goals").then((response) => {
       setGoals(response.data);
-    })
+    });
   }, []);
 
   useEffect(() => {
@@ -111,20 +116,16 @@ export function WalletInvestment() {
 
     apiFinances.get("/goals").then((response) => {
       setGoals(response.data);
-    })
+    });
   }, [visible, transactionsWalletsInvestment]);
 
   useEffect(() => {
-    setInvestment(goals?.[whatIsGoalIndex]?.investment)
-  }, [goals])
-
-  const investmentValue = goals?.[whatIsGoalIndex]?.investment?.transaction_investment?.reduce((acc, item) => {
-    return acc += item.value
-  }, 0)
-
-  // if(investmentValue === goals?.[whatIsGoalIndex]?.amount){
-  //   setVisibleModalSuccess(true)
-  // } 
+    setInvestment(goals?.[whatIsGoalIndex]?.investment);
+    if (investmentValue === goals?.[whatIsGoalIndex]?.amount) {
+      setVisibleModalSuccess(true);
+    }
+    console.warn("investmentValue", investmentValue);
+  }, [goals]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -137,34 +138,33 @@ export function WalletInvestment() {
       />
       <SafeAreaView style={styles.boxsWallet1}>
         <BoxWalletInvestment
-          title={`Meta 1 ${goals?.[0]?.investment?.priority || ''}`}
+          title={`Meta 1 ${goals?.[0]?.investment?.priority || ""}`}
           isSelected={whatIsGoalIndex === 0 ? true : false}
           onPress={() => {
-            handleCreateInvestment(0)
+            handleCreateInvestment(0);
           }}
         />
       </SafeAreaView>
       <SafeAreaView style={styles.boxsWallet2}>
         <BoxWalletInvestment
-          title={`Meta 2 ${goals?.[1]?.investment?.priority || ''}`}
+          title={`Meta 2 ${goals?.[1]?.investment?.priority || ""}`}
           isSelected={whatIsGoalIndex === 1 ? true : false}
           onPress={() => {
-            handleCreateInvestment(1)
+            handleCreateInvestment(1);
           }}
         />
       </SafeAreaView>
       <SafeAreaView style={styles.boxsWallet3}>
         <BoxWalletInvestment
-          title={`Meta 3 ${goals?.[2]?.investment?.priority || ''}`}
+          title={`Meta 3 ${goals?.[2]?.investment?.priority || ""}`}
           isSelected={whatIsGoalIndex === 2 ? true : false}
           onPress={() => {
-            handleCreateInvestment(2)
+            handleCreateInvestment(2);
           }}
         />
       </SafeAreaView>
 
       <SafeAreaView style={styles.boxGrafic}>
-
         <BorderlessButton style={styles.buttonInformation}>
           <Ionicons
             name="information-circle-outline"
@@ -181,13 +181,19 @@ export function WalletInvestment() {
         <SafeAreaView style={styles.viewAddAndTrash}>
           <SafeAreaView style={styles.add}>
             <AddWalletInvestment
-              setTransactionsWalletsInvestment={setTransactionsWalletsInvestment}
+              setTransactionsWalletsInvestment={
+                setTransactionsWalletsInvestment
+              }
               investmentId={goals?.[whatIsGoalIndex]?.investment?.id}
             />
           </SafeAreaView>
 
           <SafeAreaView style={styles.trash}>
-            <Trash onPress={() => { setIsActiveButtonDelete((prevState) => !prevState) }} />
+            <Trash
+              onPress={() => {
+                setIsActiveButtonDelete((prevState) => !prevState);
+              }}
+            />
           </SafeAreaView>
         </SafeAreaView>
 
@@ -198,18 +204,21 @@ export function WalletInvestment() {
             contentContainerStyle={styles.contentContainer}
           >
             <SafeAreaView>
-              {goals?.[whatIsGoalIndex]?.investment?.transaction_investment?.map((transactionWallet) => (
-                <BoxExtractWalletInvestment
-                  key={transactionWallet.id}
-                  transactionWallet={transactionWallet}
-                  isActiveButtonDelete={isActiveButtonDelete}
-                  setVisibleModal={setVisible}
-                />
-              ))}
+              {goals?.[
+                whatIsGoalIndex
+              ]?.investment?.transaction_investment?.map(
+                (transactionWallet) => (
+                  <BoxExtractWalletInvestment
+                    key={transactionWallet.id}
+                    transactionWallet={transactionWallet}
+                    isActiveButtonDelete={isActiveButtonDelete}
+                    setVisibleModal={setVisible}
+                  />
+                )
+              )}
             </SafeAreaView>
           </ScrollView>
         </SafeAreaView>
-
       </SafeAreaView>
 
       <Baseboard token={token} />
@@ -218,8 +227,19 @@ export function WalletInvestment() {
         setIsVisible={setVisible}
         goalId={goalId}
       />
-      <Modal visible={visibleModalSuccess} transparent={true} animationType="slide" >
-          <Text>FUNCIONOU</Text>
+      <Modal
+        visible={visibleModalSuccess}
+        transparent={true}
+        animationType="slide"
+      >
+        <Text>FUNCIONOU</Text>
+        <BorderlessButton
+        onPress={() => {
+          setVisibleModalSuccess(false);
+        }}
+      >
+        <AntDesign name="closecircle" color="red" size={22} />
+      </BorderlessButton>
       </Modal>
     </SafeAreaView>
   );
