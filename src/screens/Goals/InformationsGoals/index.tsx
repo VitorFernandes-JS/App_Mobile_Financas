@@ -95,8 +95,6 @@ export function InformationsGoals() {
     });
   }, [data, countReload]);
 
-  console.warn(totalPorcentageGoalsAmount)
-
   useEffect(() => {
     setTotalPorcentageGoalsAmount(() => {
       const totalPorcentage = porcentageGoalsAmount.reduce(
@@ -167,42 +165,14 @@ export function InformationsGoals() {
 
       <SafeAreaView style={styles.bodyGrafic}>
         <Text>Total</Text>
-        {contextGraphics === 0 && (
-          <Progress.Circle
-            size={150}
-            progress={totalPorcentageGoalsAmount}
-            color={theme.colors.color2}
-            showsText={true}
-            indeterminate={false}
-          />
-        )}
-        {contextGraphics === 1 && (
-          <Progress.Circle
-            size={150}
-            progress={totalPorcentageGoalsAmount + 0.1}
-            color={theme.colors.color2}
-            showsText={true}
-            indeterminate={false}
-          />
-        )}
-        {contextGraphics === 2 && (
-          <Progress.Circle
-            size={150}
-            progress={totalPorcentageGoalsAmount + 0.2}
-            color={theme.colors.color2}
-            showsText={true}
-            indeterminate={false}
-          />
-        )}
-        {contextGraphics === 3 && (
-          <Progress.Circle
-            size={150}
-            progress={totalPorcentageGoalsAmount + 0.3}
-            color={theme.colors.color2}
-            showsText={true}
-            indeterminate={false}
-          />
-        )}
+
+        <Progress.Circle
+          size={150}
+          progress={contextGraphics !== 3 ? porcentageGoalsAmount[contextGraphics] : totalPorcentageGoalsAmount}
+          color={theme.colors.color2}
+          showsText={true}
+          indeterminate={false}
+        />
       </SafeAreaView>
 
       <Baseboard token={token} />
