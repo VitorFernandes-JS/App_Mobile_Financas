@@ -36,7 +36,6 @@ export function BoxExtract({
   isActiveButtonDelete,
   setTransactionsWallets
 }: IBoxExtractProps) {
-  // console.warn("transactionWallet category", transactionWallet.category);
   const operation = transactionWallet.type === "deposit" ? "+" : "-";
   const [visible, setVisible] = useState(false);
 

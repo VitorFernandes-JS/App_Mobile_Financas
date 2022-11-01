@@ -13,7 +13,8 @@ import { BorderlessButton } from "react-native-gesture-handler";
 import { Octicons } from "@expo/vector-icons";
 import { InformationModalAddGoal } from "./InformationModalAddGoal";
 import { apiFinances } from "../../../services";
-import * as Progress from 'react-native-progress';
+import * as Progress from "react-native-progress";
+import { ButtonSwitchGoal } from "../../../components/ButtonSwitchGoal";
 export interface DataListProps extends GoalsCardProps {
   id: string;
 }
@@ -53,6 +54,7 @@ interface IRouteParams {
 }
 
 export function InformationsGoals() {
+  const [contextGraphics, setContextGraphics] = useState(0);
   const [visible, setVisible] = useState(false);
   const [countReload, setCountReload] = useState(0);
 
@@ -61,16 +63,15 @@ export function InformationsGoals() {
 
   // const [data, setData] = useState<DataListProps[]>([]);
   const [data, setData] = useState<IGoals[]>([]);
-  const [porcentageGoalsAmount, setPorcentageGoalsAmount] = useState([])
-  const [totalPorcentageGoalsAmount, setTotalPorcentageGoalsAmount] = useState(0)
-
-  // estado 0 a 3
+  const [porcentageGoalsAmount, setPorcentageGoalsAmount] = useState([]);
+  const [totalPorcentageGoalsAmount, setTotalPorcentageGoalsAmount] =
+    useState(0);
 
   useEffect(() => {
     apiFinances.get("/goals").then((response) => {
-      setData(response?.data)
-    })
-  }, [])
+      setData(response?.data);
+    });
+  }, []);
 
   useEffect(() => {
     if (countReload > 1) {
@@ -79,25 +80,33 @@ export function InformationsGoals() {
 
     apiFinances.get("/goals").then((response) => {
       setCountReload((prevState) => prevState + 1);
-      setData(response?.data)
-      setPorcentageGoalsAmount(response?.data?.map((goal: IGoals) => {
-        const totalTransactionsInvesments = goal.investment.transaction_investment.reduce((acc, transactionInvestment) => acc += transactionInvestment.value, 0)
-        return Number((totalTransactionsInvesments / goal.amount).toFixed(2))
-      }))
-    })
+      setData(response?.data);
+      setPorcentageGoalsAmount(
+        response?.data?.map((goal: IGoals) => {
+          const totalTransactionsInvesments =
+            goal.investment.transaction_investment.reduce(
+              (acc, transactionInvestment) =>
+                (acc += transactionInvestment.value),
+              0
+            );
+          return Number((totalTransactionsInvesments / goal.amount).toFixed(2));
+        })
+      );
+    });
+  }, [data, countReload]);
 
-  }, [data, countReload])
+  console.warn(totalPorcentageGoalsAmount)
 
   useEffect(() => {
     setTotalPorcentageGoalsAmount(() => {
-      const totalPorcentage = porcentageGoalsAmount.reduce((acc, porcentageGoal: string) => acc += Number(porcentageGoal), 0)
-      return Number((totalPorcentage / 3).toFixed(2))
-    })
+      const totalPorcentage = porcentageGoalsAmount.reduce(
+        (acc, porcentageGoal: string) => (acc += Number(porcentageGoal)),
+        0
+      );
+      return Number((totalPorcentage / 3).toFixed(2));
+    });
 
-    console.warn("setTotalPorcentageGoalsAmount: ", totalPorcentageGoalsAmount)
-  }, [porcentageGoalsAmount])
-
-  console.warn("countReload: ", countReload)
+  }, [porcentageGoalsAmount]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -158,11 +167,78 @@ export function InformationsGoals() {
 
       <SafeAreaView style={styles.bodyGrafic}>
         <Text>Total</Text>
-        <Progress.Circle size={150} progress={totalPorcentageGoalsAmount} color={theme.colors.color2} showsText={true} indeterminate={false} />
+        {contextGraphics === 0 && (
+          <Progress.Circle
+            size={150}
+            progress={totalPorcentageGoalsAmount}
+            color={theme.colors.color2}
+            showsText={true}
+            indeterminate={false}
+          />
+        )}
+        {contextGraphics === 1 && (
+          <Progress.Circle
+            size={150}
+            progress={totalPorcentageGoalsAmount + 0.1}
+            color={theme.colors.color2}
+            showsText={true}
+            indeterminate={false}
+          />
+        )}
+        {contextGraphics === 2 && (
+          <Progress.Circle
+            size={150}
+            progress={totalPorcentageGoalsAmount + 0.2}
+            color={theme.colors.color2}
+            showsText={true}
+            indeterminate={false}
+          />
+        )}
+        {contextGraphics === 3 && (
+          <Progress.Circle
+            size={150}
+            progress={totalPorcentageGoalsAmount + 0.3}
+            color={theme.colors.color2}
+            showsText={true}
+            indeterminate={false}
+          />
+        )}
       </SafeAreaView>
 
       <Baseboard token={token} />
-      <InformationModalAddGoal isVisible={visible} setIsVisible={setVisible} setCountReload={setCountReload} />
+
+      <InformationModalAddGoal
+        isVisible={visible}
+        setIsVisible={setVisible}
+        setCountReload={setCountReload}
+      />
+
+      <SafeAreaView style={styles.buttonsGoals}>
+        <ButtonSwitchGoal
+          text={"Meta 1"}
+          onPress={() => {
+            setContextGraphics(0);
+          }}
+        />
+        <ButtonSwitchGoal
+          text={"Meta 2"}
+          onPress={() => {
+            setContextGraphics(1);
+          }}
+        />
+        <ButtonSwitchGoal
+          text={"Meta 3"}
+          onPress={() => {
+            setContextGraphics(2);
+          }}
+        />
+        <ButtonSwitchGoal
+          text={"Total"}
+          onPress={() => {
+            setContextGraphics(3);
+          }}
+        />
+      </SafeAreaView>
     </SafeAreaView>
   );
 }

@@ -186,4 +186,8 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: theme.fonts.font4_regular_inter,
   },
+  buttonsGoals: {
+    top: 70,
+    left: 100,
+  }
 });
