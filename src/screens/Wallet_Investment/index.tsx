@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Alert, Modal, SafeAreaView, ScrollView, Text } from "react-native";
+import {
+  Alert,
+  Modal,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  Image,
+} from "react-native";
 import { styles } from "./styles";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
@@ -17,6 +24,7 @@ import { BorderlessButton } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import { apiFinances } from "../../services";
 import { AntDesign } from "@expo/vector-icons";
+import Emoji from "../../assets/emoji_feliz.png";
 interface IRouteParams {
   token: string;
 }
@@ -74,11 +82,13 @@ export function WalletInvestment() {
   const [investment, setInvestment] = useState<IInvestments>(
     {} as IInvestments
   );
-  const investmentValue = goals?.[
-    whatIsGoalIndex
-  ]?.investment?.transaction_investment?.reduce((acc, item) => {
-    return (acc += item.value);
-  }, 0) || 0;
+  const investmentValue =
+    goals?.[whatIsGoalIndex]?.investment?.transaction_investment?.reduce(
+      (acc, item) => {
+        return (acc += item.value);
+      },
+      0
+    ) || 0;
 
   async function handleCreateInvestment(index: number) {
     const haveGoal = goals.length > index;
@@ -232,14 +242,18 @@ export function WalletInvestment() {
         transparent={true}
         animationType="slide"
       >
-        <Text>FUNCIONOU</Text>
+        <SafeAreaView style={styles.modal}>
+          <Text>Você atingiu sua meta!</Text>
+          <Image source={Emoji} style={styles.emoji} />
+        </SafeAreaView>
         <BorderlessButton
-        onPress={() => {
-          setVisibleModalSuccess(false);
-        }}
-      >
-        <AntDesign name="closecircle" color="red" size={22} />
-      </BorderlessButton>
+          style={styles.iconClose}
+          onPress={() => {
+            setVisibleModalSuccess(false);
+          }}
+        >
+          <AntDesign name="closecircle" color="red" size={16} />
+        </BorderlessButton>
       </Modal>
     </SafeAreaView>
   );

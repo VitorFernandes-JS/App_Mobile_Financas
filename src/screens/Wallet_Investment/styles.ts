@@ -62,4 +62,26 @@ export const styles = StyleSheet.create({
   contentContainer: {
     top: 135,
   },
+  modal: {
+    flexDirection: "row",
+    width: 200,
+    height: 50,
+    backgroundColor: theme.colors.color6,
+    borderRadius: 12,
+    shadowOpacity: 0.3,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowOffset: { width: 2, height: 2 },
+    top: 350,
+    left: 100
+  },
+  emoji: {
+    width: 25,
+    height: 25,
+    left: 5,
+  },
+  iconClose: {
+    top: 297,
+    left: 100  
+  }
 });
