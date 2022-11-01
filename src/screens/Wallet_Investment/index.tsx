@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, SafeAreaView, ScrollView, Text } from "react-native";
+import { Alert, Modal, SafeAreaView, ScrollView, Text } from "react-native";
 import { styles } from "./styles";
 
 import WalletInvestmentImg from "../../assets/grafico-de-pizza.png";
@@ -15,7 +15,7 @@ import { Trash } from "../../components/trash";
 import { useRoute } from "@react-navigation/native";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
-import { apiFinances } from "../../services";
+import { apiFinances } from "../../services"; 
 interface IRouteParams {
   token: string;
 }
@@ -52,7 +52,7 @@ interface ITransactionInvestment {
 export interface IGoals {
   id: string;
   name: string;
-  amount: string;
+  amount: number;
   user_id: string;
   created_at: string;
   updated_at: string;
@@ -60,6 +60,7 @@ export interface IGoals {
 }
 
 export function WalletInvestment() {
+  const [visibleModalSuccess, setVisibleModalSuccess] = useState(false);
   const [visible, setVisible] = useState(false);
   const [transactionsWalletsInvestment, setTransactionsWalletsInvestment] = useState<
     ITransactionsInvestmentWallets[]
@@ -120,6 +121,10 @@ export function WalletInvestment() {
   const investmentValue = goals?.[whatIsGoalIndex]?.investment?.transaction_investment?.reduce((acc, item) => {
     return acc += item.value
   }, 0)
+
+  // if(investmentValue === goals?.[whatIsGoalIndex]?.amount){
+  //   setVisibleModalSuccess(true)
+  // } 
 
   return (
     <SafeAreaView style={styles.container}>
@@ -213,6 +218,9 @@ export function WalletInvestment() {
         setIsVisible={setVisible}
         goalId={goalId}
       />
+      <Modal visible={visibleModalSuccess} transparent={true} animationType="slide" >
+          <Text>FUNCIONOU</Text>
+      </Modal>
     </SafeAreaView>
   );
 }
