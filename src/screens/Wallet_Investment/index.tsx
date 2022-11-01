@@ -12,7 +12,6 @@ import { AddWalletInvestment } from "../../components/AddWalletInvestment";
 import { theme } from "../../global/styles/theme";
 import { BoxExtractWalletInvestment } from "../../components/BoxExtractWalletInvestment";
 import { Trash } from "../../components/trash";
-import dayjs from 'dayjs'
 import { useRoute } from "@react-navigation/native";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";

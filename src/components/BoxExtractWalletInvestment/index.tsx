@@ -9,8 +9,8 @@ interface ITransactionWallet {
   id: string;
   value: number;
   description: string;
-  created_at?: Date;
-  updated_at?: Date;
+  created_at: Date;
+  updated_at: Date;
 }
 
 export interface IBoxExtractProps {
@@ -25,6 +25,14 @@ export function BoxExtractWalletInvestment({
   setVisibleModal
 }: IBoxExtractProps) {
   const [visible, setVisible] = useState(false);
+
+  function firstLetterUpperCase(string: any) {
+    const allLetters = string.split('')
+    const firstLetter = allLetters.shift().toUpperCase()
+    allLetters.unshift(firstLetter)
+    const newString = allLetters.join('')
+    return newString
+  }
 
   async function handleDeleteBoxExtract(walletId: string) {
     await apiFinances.delete('/transactions_investments/' + walletId)
@@ -46,6 +54,19 @@ export function BoxExtractWalletInvestment({
             <AntDesign name="closecircle" color="red" size={22} />
           </BorderlessButton>
         )}
+
+      <SafeAreaView style={styles.date}>
+          <Text style={styles.textDate}>
+            {new Date(transactionWallet.created_at).getDate()}
+          </Text>
+          <Text style={styles.textDateMonth}>
+            {firstLetterUpperCase(new Date(transactionWallet.created_at).toLocaleDateString(
+              "pt-BR",
+              { month: "long" }
+            ))}
+          </Text>
+        </SafeAreaView>
+
 
         <SafeAreaView>
           <Icon name="money" style={styles.icon} />
