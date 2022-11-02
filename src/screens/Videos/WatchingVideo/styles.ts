@@ -28,8 +28,9 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   video: {
-    width: 300,
+    width: 350,
     borderRadius: 15,
+    backgroundColor: theme.colors.color3,
   },
   viewTitleVideo: {
     width: 250,

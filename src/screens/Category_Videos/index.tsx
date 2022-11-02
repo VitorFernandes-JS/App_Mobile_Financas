@@ -6,7 +6,7 @@ import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 import { BoxCategoryVideos } from "../../components/boxCategoryVideos";
-import { allCovers, Cover_Actions } from "../../utils/cover";
+import { allCovers } from "../../utils/cover";
 import { apiFinances } from "../../services";
 
 interface IVideosProps {

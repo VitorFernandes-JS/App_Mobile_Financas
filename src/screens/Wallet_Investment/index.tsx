@@ -134,7 +134,6 @@ export function WalletInvestment() {
     if (investmentValue === goals?.[whatIsGoalIndex]?.amount) {
       setVisibleModalSuccess(true);
     }
-    console.warn("investmentValue", investmentValue);
   }, [goals]);
 
   return (

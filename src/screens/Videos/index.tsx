@@ -12,7 +12,6 @@ interface IVideosProps {
 }
 
 export function Videos({ token }: IVideosProps) {
-
   return (
     <SafeAreaView style={styles.container}>
       <Header />

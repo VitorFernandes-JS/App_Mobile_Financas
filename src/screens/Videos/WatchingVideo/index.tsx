@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, Text, TextInput, ScrollView } from "react-native";
+import { SafeAreaView, Text, TextInput, ScrollView, View } from "react-native";
 import { styles } from "./styles";
 
 import { Header } from "../../../components/header";
@@ -13,13 +13,14 @@ import { Ionicons } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { useRoute } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
-import WebView from "react-native-webview";
+import { WebView } from 'react-native-webview';
 
 interface IVideo {
   id: string;
   category: string;
   url: string;
   images: any
+  title: string;
 }
 interface IVideosProps {
   token: string;
@@ -55,8 +56,10 @@ export function WatchingVideo() {
   }, [])
 
   return (
+
     <SafeAreaView style={styles.container}>
       <Header />
+
 
       <SafeAreaView style={styles.viewMenuModal}>
         <Text style={styles.title}>Título </Text>
@@ -64,14 +67,19 @@ export function WatchingVideo() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.viewBoxVideo}>
-        <WebView
-          source={{ uri: video.url }}
-          style={styles}
-        />
+        <SafeAreaView>
+          <WebView
+            source={{ uri: video.url }}
+            style={styles.video}
+            javaScriptEnabled={true}
+            domStorageEnabled={true}
+            startInLoadingState={true}
+          />
+        </SafeAreaView>
       </SafeAreaView>
 
       <SafeAreaView style={styles.viewTitleVideo}>
-        <Text style={styles.titleVideo}>Título do vídeo</Text>
+        <Text style={styles.titleVideo}>{video.title}</Text>
       </SafeAreaView>
 
       <BorderlessButton style={styles.viewIconHeart}>
