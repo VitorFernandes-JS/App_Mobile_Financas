@@ -3,6 +3,7 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
+    position: 'absolute',
     width: 48,
     height: 20,
     backgroundColor: theme.colors.color6,

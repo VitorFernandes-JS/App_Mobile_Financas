@@ -24,10 +24,9 @@ export const styles = StyleSheet.create({
     height: 80,
     backgroundColor: theme.colors.color5,
     borderRadius: 20,
-    top: 200,
+    top: 210,
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
-    margin: 10,
     position: "absolute",
   },
   box1: {
@@ -35,10 +34,9 @@ export const styles = StyleSheet.create({
     height: 80,
     backgroundColor: theme.colors.color5,
     borderRadius: 20,
-    top: 300,
+    top: 310,
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
-    margin: 10,
     position: "absolute",
   },
   number: {
@@ -187,7 +185,19 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font4_regular_inter,
   },
   buttonsGoals: {
-    top: 70,
+    top: 270,
     left: 100,
+  },
+  viewGrafic: {
+    top: 25,
+    left: 100,
+    position: "absolute",
+  },
+  viewWhite: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    backgroundColor: theme.colors.color6,
+    position: "absolute",
   }
 });
