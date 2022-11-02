@@ -103,7 +103,6 @@ export function InformationsGoals() {
       );
       return Number((totalPorcentage / 3).toFixed(2));
     });
-
   }, [porcentageGoalsAmount]);
 
   return (
@@ -165,14 +164,29 @@ export function InformationsGoals() {
 
       <SafeAreaView style={styles.bodyGrafic}>
         <Text>Total</Text>
-
-        <Progress.Circle
-          size={150}
-          progress={contextGraphics !== 3 ? porcentageGoalsAmount[contextGraphics] : totalPorcentageGoalsAmount}
-          color={theme.colors.color2}
-          showsText={true}
-          indeterminate={false}
-        />
+        <SafeAreaView style={styles.viewGrafic}>
+          <SafeAreaView style={styles.viewWhite} />
+          <Progress.Circle
+            size={150}
+            thickness={10}
+            progress={
+              contextGraphics !== 3
+                ? porcentageGoalsAmount[contextGraphics]
+                : totalPorcentageGoalsAmount
+            }
+            color={
+              contextGraphics === 3
+                ? theme.colors.color3
+                : contextGraphics === 2
+                ? theme.colors.color2
+                : contextGraphics === 1
+                ? theme.colors.color1
+                : theme.colors.color4
+            }
+            showsText={true}
+            indeterminate={false}
+          />
+        </SafeAreaView>
       </SafeAreaView>
 
       <Baseboard token={token} />

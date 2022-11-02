@@ -32,7 +32,7 @@ body: {
   },
   viewTitle: {
     marginLeft: 35,
-    marginTop: 10,
+    top: 10,
   },
   title: {
     color: theme.colors.color1,

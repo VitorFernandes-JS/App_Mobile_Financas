@@ -84,7 +84,7 @@ export const styles = StyleSheet.create({
   },
   value: {
     color: "#26B602",
-    left: 210,
+    left: 205,
     position: "absolute",
   },
   viewModal: {

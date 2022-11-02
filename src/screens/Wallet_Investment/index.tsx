@@ -25,6 +25,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { apiFinances } from "../../services";
 import { AntDesign } from "@expo/vector-icons";
 import Emoji from "../../assets/emoji_feliz.png";
+import { ButtonInformation } from "../../components/ButtonInformation";
 interface IRouteParams {
   token: string;
 }
@@ -70,6 +71,7 @@ export interface IGoals {
 
 export function WalletInvestment() {
   const [visibleModalSuccess, setVisibleModalSuccess] = useState(false);
+  const [visibleModalInformationsGoals, setVisibleModalInformationsGoals] = useState(false);
   const [visible, setVisible] = useState(false);
   const [transactionsWalletsInvestment, setTransactionsWalletsInvestment] =
     useState<ITransactionsInvestmentWallets[]>([]);
@@ -174,18 +176,14 @@ export function WalletInvestment() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.boxGrafic}>
-        <BorderlessButton style={styles.buttonInformation}>
-          <Ionicons
-            name="information-circle-outline"
-            size={24}
-            color={theme.colors.color4}
-          />
-        </BorderlessButton>
 
+        
         <SafeAreaView style={styles.viewSquareAndText}>
           <SafeAreaView style={styles.squareGoal} />
           <Text style={styles.textTargetPercentage}>% meta do mês</Text>
         </SafeAreaView>
+
+        <ButtonInformation onPress={() => setVisibleModalInformationsGoals(true)} /> 
 
         <SafeAreaView style={styles.viewAddAndTrash}>
           <SafeAreaView style={styles.add}>
@@ -235,6 +233,7 @@ export function WalletInvestment() {
         isVisible={visible}
         setIsVisible={setVisible}
         goalId={goalId}
+        nameGoal={goals?.[whatIsGoalIndex]?.name}
       />
       <Modal
         visible={visibleModalSuccess}
@@ -253,6 +252,22 @@ export function WalletInvestment() {
         >
           <AntDesign name="closecircle" color="red" size={16} />
         </BorderlessButton>
+      </Modal>
+
+      <Modal animationType="slide" transparent={true} visible={visibleModalInformationsGoals}>
+        <SafeAreaView style={styles.viewModal}>
+          <Text style={styles.modalText}>Informações</Text>
+          <SafeAreaView style={styles.line}></SafeAreaView>
+          <Text style={styles.modalSubtitle}></Text>
+          <BorderlessButton
+            style={styles.rectButtoncloseModalIcon}
+            onPress={() => {
+              setVisibleModalInformationsGoals(false);
+            }}
+          >
+            <AntDesign name="closecircleo" color="red" size={25} />
+          </BorderlessButton>
+        </SafeAreaView>
       </Modal>
     </SafeAreaView>
   );

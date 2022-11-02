@@ -20,7 +20,7 @@ export function TextFieldWalletInvestment({ setValue, setDescription }: ITextFie
             style={styles.textInputValue}
             placeholder="R$00,00"
             keyboardType="numeric"
-            maxLength={10}
+            maxLength={8}
             placeholderTextColor={"#808080"}
             onChangeText={(text) => {
               const formatedText = Number(text.replace(/,/, '.'))
