@@ -21,7 +21,7 @@ export interface IBoxExtractProps {
 }
 
 const icons = {
-  Salario: "dollar-sign",
+  Salario: "activity",
   Bonificacao: "dollar-sign",
   Restaurante: "coffee",
   Viagem: "sun",
