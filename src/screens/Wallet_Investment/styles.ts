@@ -23,44 +23,41 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowOffset: { width: 1, height: 1 },
   },
-  buttonInformation: {
-    margin: 5,
-  },
   viewSquareAndText: {
     flexDirection: "row",
-    top: 145
+    top: 180,
   },
   squareGoal: {
     width: 10,
     height: 10,
     borderRadius: 2,
     backgroundColor: theme.colors.color2,
-    left: 10
+    left: 10,
   },
   textTargetPercentage: {
     color: theme.colors.color4,
     fontSize: 10,
     fontFamily: theme.fonts.font4_regular,
-    left: 15
+    left: 15,
   },
   viewAddAndTrash: {
     flexDirection: "row",
-    top: -40
+    top: -25,
   },
   add: {
-    left: 310
+    left: 310,
   },
   trash: {
-    left: 315
+    left: 315,
   },
-  viewScroll: {
-  },
+  viewScroll: {},
   scrollView: {
-    top: 130,
-    left: 25
+    top: 145,
+    left: 25,
   },
   contentContainer: {
-    top: 135,
+    height: 200,
+    top: 145,
   },
   modal: {
     flexDirection: "row",
@@ -73,7 +70,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     shadowOffset: { width: 2, height: 2 },
     top: 350,
-    left: 100
+    left: 100,
   },
   emoji: {
     width: 25,
@@ -82,6 +79,40 @@ export const styles = StyleSheet.create({
   },
   iconClose: {
     top: 297,
-    left: 100  
-  }
+    left: 100,
+  },
+  viewModal: {
+    width: 200,
+    height: 200,
+    backgroundColor: theme.colors.color6,
+    borderRadius: 15,
+    top: "30%",
+    left: "26%",
+    shadowOpacity: 0.7,
+    shadowOffset: { width: 2, height: 2 },
+    zIndex: 1,
+  },
+  modalText: {
+    fontFamily: theme.fonts.font5_medium,
+    fontSize: 20,
+    textAlign: "center",
+    top: 5,
+  },
+  line: {
+    width: 200,
+    height: 1.5,
+    top: 7,
+    backgroundColor: theme.colors.color3,
+  },
+  modalSubtitle: {
+    margin: 10,
+    top: 10,
+    fontFamily: theme.fonts.font4_regular,
+    textAlign: "center",
+  },
+  rectButtoncloseModalIcon: {
+    position: "absolute",
+    top: 165,
+    left: "45%",
+  },
 });
