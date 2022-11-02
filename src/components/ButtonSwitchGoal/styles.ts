@@ -3,11 +3,17 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    width: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 55,
     height: 20,
     backgroundColor: theme.colors.color6,
     borderRadius: 5,
-    marginBottom: 15,
+    margin: 10,
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  text: {
+    fontFamily: theme.fonts.font4_regular,
   }
 });

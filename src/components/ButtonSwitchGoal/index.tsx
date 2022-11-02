@@ -12,7 +12,7 @@ interface IProps {
 export function ButtonSwitchGoal({ text, ...rest }: IProps) {
   return (
       <BorderlessButton style={styles.container} {...rest}>
-        <Text>{text}</Text>
+        <Text style={styles.text}>{text}</Text>
       </BorderlessButton>
   );
 }

@@ -185,8 +185,9 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.font4_regular_inter,
   },
   buttonsGoals: {
-    top: 270,
-    left: 100,
+    position: "absolute",
+    top: 440,
+    left: 300,
   },
   viewGrafic: {
     top: 25,
