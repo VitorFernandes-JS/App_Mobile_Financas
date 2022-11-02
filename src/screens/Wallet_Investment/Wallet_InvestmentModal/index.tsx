@@ -44,6 +44,7 @@ const schema = Yup.object().shape({
 });
 
 interface IWallet_InvestmentModal {
+  nameGoal: string;
   isVisible: boolean;
   setIsVisible: Dispatch<SetStateAction<boolean>>;
   goalId: string;
@@ -53,6 +54,7 @@ export function Wallet_InvestmentModal({
   isVisible,
   setIsVisible,
   goalId,
+  nameGoal,
 }: IWallet_InvestmentModal) {
   const {
     control,
@@ -186,7 +188,7 @@ export function Wallet_InvestmentModal({
           </SafeAreaView>
 
           <SafeAreaView style={styles.viewNameGoal}>
-            <Text style={styles.textGoal}>Nome da meta</Text>
+            <Text style={styles.textGoal}>{nameGoal}</Text>
           </SafeAreaView>
 
           <RectButton

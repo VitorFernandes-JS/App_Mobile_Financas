@@ -134,7 +134,6 @@ export function WalletInvestment() {
     if (investmentValue === goals?.[whatIsGoalIndex]?.amount) {
       setVisibleModalSuccess(true);
     }
-    console.warn("investmentValue", investmentValue);
   }, [goals]);
 
   return (
@@ -236,6 +235,7 @@ export function WalletInvestment() {
         isVisible={visible}
         setIsVisible={setVisible}
         goalId={goalId}
+        nameGoal={goals?.[whatIsGoalIndex]?.name}
       />
       <Modal
         visible={visibleModalSuccess}
