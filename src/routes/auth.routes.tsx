@@ -40,7 +40,7 @@ export function AuthRoutes() {
         <Screen name="Home" component={Home} />
         <Screen name="Calculator" component={Calculator} />
         <Screen name="Comparator" component={Comparator} />
-        <Screen name="Indexes" component={News} />
+        <Screen name="News" component={News} />
         <Screen name="Wallet" component={Wallet} />
         <Screen name="WalletInvestment" component={WalletInvestment} />
         <Screen name="Goals" component={Goals} />

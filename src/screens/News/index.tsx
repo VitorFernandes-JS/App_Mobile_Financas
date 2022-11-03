@@ -62,7 +62,7 @@ export function News() {
               <FlatList
                 data={newsData}
                 renderItem={({ item }) => (
-                  <SafeAreaView>
+                  <SafeAreaView key={item.id}>
                     <SafeAreaView style={styles.newsContainer}>
                       <Image
                         borderRadius={20}

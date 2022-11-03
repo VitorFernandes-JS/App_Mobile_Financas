@@ -71,6 +71,7 @@ export const styles = StyleSheet.create({
     zIndex: 1,
   },
   textGoal: {
+    left: 3,
     top: 17,
     color: theme.colors.color1,
     fontSize: 12,
