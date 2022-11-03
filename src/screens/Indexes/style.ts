@@ -147,10 +147,10 @@ export const styles = StyleSheet.create({
   },
   boxGraphics: {
     width: 380,
-    height: 450,
+    height: 440,
     borderRadius: 20,
     backgroundColor: theme.colors.color6,
-    top: 70,
+    top: 60,
     shadowOpacity: 0.4,
     shadowOffset: { width: 0.5, height: 3 },
     justifyContent: "center",
@@ -160,16 +160,19 @@ export const styles = StyleSheet.create({
     padding: 10,
   },
   titleNew: {
+    marginLeft: 15,
     fontSize: 18,
     marginTop: 10,
     fontWeight: "600",
   },
   newsDescription: {
+    marginLeft: 15,
     fontSize: 16,
     marginTop: 10,
   },
   date: {
     fontSize: 14,
+    marginLeft: 15,
   },
   spinner: {
     display: 'flex',
