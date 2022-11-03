@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text } from "react-native";
+import {
+  NativeBaseProvider,
+  FlatList,
+  ScrollView,
+  Divider,
+  Image,
+  Spinner,
+} from "native-base";
 import { styles } from "./style";
+import moment from "moment";
 
 import { Header } from "../../components/header";
 import { Baseboard } from "../../components/baseboard";
@@ -8,7 +17,9 @@ import { Loading } from "../../components/Loading";
 import { ModalPattern } from "../../components/modalPattern";
 
 import { useRoute } from "@react-navigation/native";
+import { services } from "../../services";
 import axios from "axios";
+import { theme } from "../../global/styles/theme";
 
 interface ISelicRate {
   data: String;
@@ -36,8 +47,20 @@ interface IRouteParams {
 export function Indexes() {
   const route = useRoute();
   const { token } = route.params as IRouteParams;
+  const [newsData, setNewsData] = useState([]);
   const [ipcaRate, setIpcaRate] = useState("");
   const [selicRate, setSelicRate] = useState<ISelicRate[]>([]);
+
+  // API NEWS
+  useEffect(() => {
+    services("general")
+      .then((data) => {
+        setNewsData(data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
 
   //API SELIC
   useEffect(() => {
@@ -66,8 +89,14 @@ export function Indexes() {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
+      <SafeAreaView style={styles.viewMenuModal}>
+        <Text style={styles.title}>Notícias </Text>
+        <ModalPattern
+          text={"Aqui você pode ver as principais notícias do mercado"}
+        />
+      </SafeAreaView>
 
-      <SafeAreaView style={styles.viewSelicAndIpcaAndCdi}>
+      {/* <SafeAreaView style={styles.viewSelicAndIpcaAndCdi}>
         <SafeAreaView style={styles.showSelic}>
           <Text style={styles.titleSelic}>TAXA SELIC</Text>
           <Text style={styles.textSelic}>
@@ -119,18 +148,52 @@ export function Indexes() {
           </Text>
         </SafeAreaView>
         <SafeAreaView style={styles.box}></SafeAreaView>
-      </SafeAreaView>
+      </SafeAreaView> */}
 
-      <SafeAreaView style={styles.boxGraphics}>
-        
-      </SafeAreaView>
+      
 
-      <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Índices </Text>
-        <ModalPattern
-          text={"Aqui você pode ver os principais índices do mercado"}
-        />
-      </SafeAreaView>
+      <NativeBaseProvider>
+        <SafeAreaView style={styles.boxGraphics}>
+          <ScrollView height={650}>
+          {newsData.length > 1 ? (
+            <FlatList
+              data={newsData}
+              renderItem={({ item }) => (
+                <SafeAreaView>
+                  <SafeAreaView style={styles.newsContainer}>
+                    <Image
+                      borderRadius={20}
+                      top={3}
+                      left={3}
+                      width={360}
+                      height={250}
+                      resizeMode={"stretch"}
+                      marginBottom={2}
+                      source={{
+                        uri: item.urlToImage,
+                      }}
+                    />
+                    <Text style={styles.titleNew}>{item.title}</Text>
+                    <Text style={styles.date}>
+                      {moment(item.publishedAt).format("LLL")}
+                    </Text>
+                    <Text style={styles.newsDescription}>
+                      {item.description}
+                    </Text>
+                  </SafeAreaView>
+                  <Divider my={2} bg="#e0e0e0" />
+                </SafeAreaView>
+              )}
+              keyExtractor={(item) => item.id}
+            />
+            ) : (
+              <SafeAreaView style={styles.spinner}>
+                  <Spinner color={theme.colors.color2} />
+              </SafeAreaView>
+          )}
+          </ScrollView>
+        </SafeAreaView>
+      </NativeBaseProvider>
 
       <Baseboard token={token} />
     </SafeAreaView>

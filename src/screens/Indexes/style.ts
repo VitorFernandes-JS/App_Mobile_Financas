@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
   },
   viewMenuModal: {
     flexDirection: "row",
-    top: -380,
   },
   viewSelicAndIpcaAndCdi: {
     flexDirection: "row",
@@ -148,13 +147,35 @@ export const styles = StyleSheet.create({
   },
   boxGraphics: {
     width: 380,
-    height: 280,
+    height: 450,
     borderRadius: 20,
     backgroundColor: theme.colors.color6,
-    top: 135,
+    top: 70,
     shadowOpacity: 0.4,
     shadowOffset: { width: 0.5, height: 3 },
     justifyContent: "center",
     alignItems: "center",
   },
+  newsContainer: {
+    padding: 10,
+  },
+  titleNew: {
+    fontSize: 18,
+    marginTop: 10,
+    fontWeight: "600",
+  },
+  newsDescription: {
+    fontSize: 16,
+    marginTop: 10,
+  },
+  date: {
+    fontSize: 14,
+  },
+  spinner: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 400,
+    top: 40,
+}
 });

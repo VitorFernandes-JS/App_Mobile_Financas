@@ -18,7 +18,6 @@ import { WatchingVideo } from "../screens/Videos/WatchingVideo";
 import { Loan } from "../screens/Loan";
 import { Favorite } from "../screens/Favorite";
 import { CategoryVideos } from "../screens/Category_Videos";
-import { Home_Calculator } from "../screens/Home_Calculator";
 import { Home_Finance } from "../screens/Home_Finance";
 import { InformationsGoals } from "../screens/Goals/InformationsGoals";
 import { NavigationContainer } from "@react-navigation/native";
@@ -52,7 +51,6 @@ export function AuthRoutes() {
         <Screen name="Loan" component={Loan} />
         <Screen name="Favorite" component={Favorite} />
         <Screen name="CategoryVideos" component={CategoryVideos} />
-        <Screen name="Home_Calculator" component={Home_Calculator} />
         <Screen name="Home_Finance" component={Home_Finance} />
         <Screen name="InformationsGoals" component={InformationsGoals} />
       </Navigator>
