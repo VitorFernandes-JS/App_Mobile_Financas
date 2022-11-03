@@ -42,10 +42,18 @@ interface IRouteParams {
   token: string;
 }
 
+interface INews {
+  id: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  urlToImage: string;
+}
+
 export function Indexes() {
   const route = useRoute();
   const { token } = route.params as IRouteParams;
-  const [newsData, setNewsData] = useState([]);
+  const [newsData, setNewsData] = useState<INews[]>([]);
 
   // API NEWS
   useEffect(() => {
