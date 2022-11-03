@@ -3,7 +3,8 @@ import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, Text, Image } from "react-native";
 import * as AuthSession from "expo-auth-session";
 
-import { ButtonIcon } from "../../components/SignIn/ButtonIcon";
+import { ButtonIconGoogle } from "../../components/SignIn/ButtonIconGoogle";
+import { ButtonIconApple } from "../../components/SignIn/ButtonIconApple";
 import IllustrationImg from "../../assets/illustration.png";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
@@ -65,7 +66,8 @@ export function SignIn() {
           Educação Financeira {`\n`}
           na palma da sua mão!
         </Text>
-        <ButtonIcon title="Entrar com Google" onPress={handleSignIn} />
+        <ButtonIconGoogle icon="social-google" title="Entrar com Google" onPress={handleSignIn} />
+        <ButtonIconApple icon="apple-o" title="Entrar com Apple" onPress={handleSignIn} />
       </SafeAreaView>
       <RectButton style={styles.buttonContact}>
         <Text style={styles.contactUs}>Fale Conosco</Text>

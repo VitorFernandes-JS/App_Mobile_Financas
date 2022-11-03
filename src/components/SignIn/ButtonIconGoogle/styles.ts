@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     display: "flex",
     paddingLeft: 3,
     paddingRight: 1,
-    top: 30,
+    top: 20,
     shadowOpacity: 0.2,
     shadowOffset: { width: 0.5, height: 3 },
   },

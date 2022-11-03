@@ -17,26 +17,26 @@ export const styles = StyleSheet.create({
     fontSize: 60,
     color: theme.colors.color2,
     shadowOpacity: 0.1,
-    top: -60,
+    top: -40,
   },
   title2: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 45,
     shadowOpacity: 0.2,
-    top: -45,
+    top: -25,
   },
   title3: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 60,
     color: theme.colors.color2,
     shadowOpacity: 0.1,
-    top: -60,
+    top: -40,
   },
   title4: {
     fontFamily: theme.fonts.font7_bold,
     fontSize: 45,
     shadowOpacity: 0.2,
-    top: -45,
+    top: -25,
   },
   content: {
     marginTop: -77,
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
   },
   buttonContact: {
     width: 90,
-    top: 100,
+    top: 70
   },
   contactUs: {
     fontFamily: theme.fonts.font4_regular,
