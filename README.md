@@ -2,6 +2,7 @@
 
 Um aplicativo mobile com ferramentais voltados a educação financeira, totalmente em React Native e TypeScript.
 
-Tela de autenticação do Aplicativo: (autenticação somente via Google)
+Link do Figma do projeto: https://www.figma.com/file/58alLcRWnPEHvQ7H7T325x/BestFinance?node-id=0%3A1
 
-![IMG_8023](https://user-images.githubusercontent.com/80361373/181598306-a3bcc7d4-ffc2-49a5-9ac0-8319471c4a15.PNG)
+![Screenshot_1](https://user-images.githubusercontent.com/80361373/199625270-46da4fed-dbec-44ad-b971-0c72acd4f07a.png)
+
