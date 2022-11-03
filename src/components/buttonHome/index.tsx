@@ -18,8 +18,8 @@ interface IButtonHomeProps {
 export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   const navigation = useNavigation();
 
-  function handleHome_Calculator() {
-    navigation.navigate("Home_Calculator", { token });
+  function handleCalculator() {
+    navigation.navigate("Calculator", { token });
   }
 
   function handleComparator() {
@@ -34,10 +34,6 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
     navigation.navigate("Videos", { token });
   }
 
-  function handleWatchVideo() {
-    navigation.navigate("WatchingVideo", { token });
-  }
-
   function handleLoan() {
     navigation.navigate("Loan", { token });
   }
@@ -49,7 +45,7 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
   return (
     <SafeAreaView style={styles.container}>
       <RectButton
-        onPress={handleHome_Calculator}
+        onPress={handleCalculator}
         style={viewButtonStyles({ left: -60, top: 130 }).button}
         {...rest}
       >
