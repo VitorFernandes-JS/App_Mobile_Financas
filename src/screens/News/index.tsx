@@ -3,7 +3,6 @@ import { SafeAreaView, Text } from "react-native";
 import {
   NativeBaseProvider,
   FlatList,
-  ScrollView,
   Divider,
   Image,
   Spinner,
@@ -19,25 +18,6 @@ import { useRoute } from "@react-navigation/native";
 import { services } from "../../services";
 import { theme } from "../../global/styles/theme";
 
-interface ISelicRate {
-  data: String;
-  valor: String;
-}
-
-interface IAxiosGet {
-  id: string;
-  resultados: [
-    {
-      series: [
-        {
-          serie: {
-            202204: string;
-          };
-        }
-      ];
-    }
-  ];
-}
 interface IRouteParams {
   token: string;
 }
@@ -50,7 +30,7 @@ interface INews {
   urlToImage: string;
 }
 
-export function Indexes() {
+export function News() {
   const route = useRoute();
   const { token } = route.params as IRouteParams;
   const [newsData, setNewsData] = useState<INews[]>([]);

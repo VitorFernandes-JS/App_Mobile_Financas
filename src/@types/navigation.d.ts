@@ -5,7 +5,7 @@ export declare global {
       SignIn: any;
       Calculator: any;
       Comparator: any;
-      Indexes: any;
+      News: any;
       Profile: any;
       Wallet: any;
       WalletInvestment: any;

@@ -6,7 +6,7 @@ import { Home } from "../screens/Home";
 import { SignIn } from "../screens/SignIn";
 import { Calculator } from "../screens/Calculator";
 import { Comparator } from "../screens/Comparator";
-import { Indexes } from "../screens/Indexes";
+import { News } from "../screens/News";
 import { Profile } from "../screens/Profile";
 import { Wallet } from "../screens/Wallet";
 import { WalletInvestment } from "../screens/Wallet_Investment";
@@ -40,7 +40,7 @@ export function AuthRoutes() {
         <Screen name="Home" component={Home} />
         <Screen name="Calculator" component={Calculator} />
         <Screen name="Comparator" component={Comparator} />
-        <Screen name="Indexes" component={Indexes} />
+        <Screen name="Indexes" component={News} />
         <Screen name="Wallet" component={Wallet} />
         <Screen name="WalletInvestment" component={WalletInvestment} />
         <Screen name="Goals" component={Goals} />

@@ -26,8 +26,8 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
     navigation.navigate("Comparator", { token });
   }
 
-  function handleIndexes() {
-    navigation.navigate("Indexes", { token });
+  function handleNews() {
+    navigation.navigate("News", { token });
   }
 
   function handleVideos() {
@@ -56,13 +56,13 @@ export function ButtonHome({ token, ...rest }: IButtonHomeProps) {
       </RectButton>
 
       <RectButton
-        onPress={handleIndexes}
+        onPress={handleNews}
         style={viewButtonStyles({ left: -60, top: 150 }).button}
         {...rest}
       >
         <SafeAreaView style={styles.viewCalculator}>
           <Image source={IndecesImg} style={styles.iconCalculator} />
-          <Text style={styles.textCalculator}>ÍNDICES</Text>
+          <Text style={styles.textCalculator}>NOTÍCIAS</Text>
         </SafeAreaView>
       </RectButton>
 
