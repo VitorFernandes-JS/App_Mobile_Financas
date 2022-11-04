@@ -24,6 +24,8 @@ import { apiFinances } from "../../services";
 import { AntDesign } from "@expo/vector-icons";
 import Emoji from "../../assets/emoji_feliz.png";
 import { ButtonInformation } from "../../components/ButtonInformation";
+import * as Progress from "react-native-progress";
+import { theme } from "../../global/styles/theme";
 interface IRouteParams {
   token: string;
 }
@@ -68,8 +70,14 @@ export interface IGoals {
 }
 
 export function WalletInvestment() {
+  const [contextGraphics, setContextGraphics] = useState(0);
+
+  const [porcentageGoalsMonthAmount, setPorcentageGoalsMonthAmount] = useState(
+    []
+  );
   const [visibleModalSuccess, setVisibleModalSuccess] = useState(false);
-  const [visibleModalInformationsGoals, setVisibleModalInformationsGoals] = useState(false);
+  const [visibleModalInformationsGoals, setVisibleModalInformationsGoals] =
+    useState(false);
   const [visible, setVisible] = useState(false);
   const [transactionsWalletsInvestment, setTransactionsWalletsInvestment] =
     useState<ITransactionsInvestmentWallets[]>([]);
@@ -115,7 +123,22 @@ export function WalletInvestment() {
 
   useEffect(() => {
     apiFinances.get("/goals").then((response) => {
-      setGoals(response.data);
+      setGoals(response.data.sort((a : any, b : any) => +new Date(a.created_at) - +new Date(b.created_at)));
+      setPorcentageGoalsMonthAmount(
+        response?.data?.map((goal: IGoals) => {
+          const totalTransactionsInvesments =
+            goal.investment.transaction_investment.reduce(
+              (acc, transactionInvestment) =>
+                (acc += transactionInvestment.value),
+              0
+            );
+          return Number(
+            (totalTransactionsInvesments / goal.investment.value).toFixed(2)
+          );
+        })
+      );
+    }).catch((error) => {
+      console.log(error);
     });
   }, []);
 
@@ -125,7 +148,22 @@ export function WalletInvestment() {
     }
 
     apiFinances.get("/goals").then((response) => {
-      setGoals(response.data);
+      setGoals(response.data.sort((a : any, b : any) => +new Date(a.created_at) - +new Date(b.created_at)));
+      setPorcentageGoalsMonthAmount(
+        response?.data?.map((goal: IGoals) => {
+          const totalTransactionsInvesments =
+            goal.investment.transaction_investment.reduce(
+              (acc, transactionInvestment) =>
+                (acc += transactionInvestment.value),
+              0
+            );
+          return Number(
+            (totalTransactionsInvesments / goal.investment.value).toFixed(2)
+          );
+        })
+      );
+    }).catch((error) => {
+      console.log(error);
     });
   }, [visible, transactionsWalletsInvestment]);
 
@@ -174,14 +212,27 @@ export function WalletInvestment() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.boxGrafic}>
+        <SafeAreaView style={styles.viewChart}>
+          <SafeAreaView style={styles.viewWhite} />
+          <Progress.Circle
+            size={150}
+            thickness={10}
+            progress={porcentageGoalsMonthAmount?.[whatIsGoalIndex] || 0}
+            color={theme.colors.color2}
+            showsText={true}
+            indeterminate={false}
+          />
+          <SafeAreaView></SafeAreaView>
+        </SafeAreaView>
 
-        
         <SafeAreaView style={styles.viewSquareAndText}>
           <SafeAreaView style={styles.squareGoal} />
           <Text style={styles.textTargetPercentage}>% meta do mês</Text>
         </SafeAreaView>
 
-        <ButtonInformation onPress={() => setVisibleModalInformationsGoals(true)} /> 
+        <ButtonInformation
+          onPress={() => setVisibleModalInformationsGoals(true)}
+        />
 
         <SafeAreaView style={styles.viewAddAndTrash}>
           <SafeAreaView style={styles.add}>
@@ -252,7 +303,11 @@ export function WalletInvestment() {
         </BorderlessButton>
       </Modal>
 
-      <Modal animationType="slide" transparent={true} visible={visibleModalInformationsGoals}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={visibleModalInformationsGoals}
+      >
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.modalText}>Informações</Text>
           <SafeAreaView style={styles.line}></SafeAreaView>

@@ -179,6 +179,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 400,
-    top: 40,
+    top: 10,
 }
 });

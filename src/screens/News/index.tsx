@@ -61,8 +61,8 @@ export function News() {
             {newsData.length > 1 ? (
               <FlatList
                 data={newsData}
-                renderItem={({ item }) => (
-                  <SafeAreaView key={item.id}>
+                renderItem={({ item, index }) => (
+                  <SafeAreaView key={index}>
                     <SafeAreaView style={styles.newsContainer}>
                       <Image
                         borderRadius={20}

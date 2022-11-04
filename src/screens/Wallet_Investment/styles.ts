@@ -23,6 +23,18 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowOffset: { width: 1, height: 1 },
   },
+  viewChart: {
+    top: 25,
+    left: 100,
+    position: "absolute",
+  },
+  viewWhite: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    backgroundColor: theme.colors.color6,
+    position: "absolute",
+  },
   viewSquareAndText: {
     flexDirection: "row",
     top: 180,
@@ -54,9 +66,10 @@ export const styles = StyleSheet.create({
   scrollView: {
     top: 145,
     left: 25,
+    height: 800
   },
   contentContainer: {
-    height: 200,
+    height: 800,
     top: 145,
   },
   modal: {

@@ -69,7 +69,9 @@ export function InformationsGoals() {
 
   useEffect(() => {
     apiFinances.get("/goals").then((response) => {
-      setData(response?.data);
+      setData(response?.data.sort((a : any, b : any) => +new Date(a.created_at) - +new Date(b.created_at)));
+    }).catch((error) => {
+      console.log(error);
     });
   }, []);
 
@@ -80,7 +82,7 @@ export function InformationsGoals() {
 
     apiFinances.get("/goals").then((response) => {
       setCountReload((prevState) => prevState + 1);
-      setData(response?.data);
+      setData(response?.data.sort((a : any, b : any) => +new Date(a.created_at) - +new Date(b.created_at)));
       setPorcentageGoalsAmount(
         response?.data?.map((goal: IGoals) => {
           const totalTransactionsInvesments =
@@ -92,6 +94,8 @@ export function InformationsGoals() {
           return Number((totalTransactionsInvesments / goal.amount).toFixed(2));
         })
       );
+    }).catch((error) => {
+      console.log(error);
     });
   }, [data, countReload]);
 
