@@ -36,6 +36,7 @@ export function Profile() {
       `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`
     );
     const userInfo = await response.json();
+
     setProfile(userInfo);
   }
 
@@ -44,6 +45,18 @@ export function Profile() {
   }, []);
 
   function handleSignIn() {
+    apiFinances.defaults.headers.common['Authorization'] = '';
+    navigation.navigate("SignIn");
+  }
+
+  async function handleDeleteUser() {
+
+    await apiFinances.delete("/users", {
+      data: {
+        email: profile.email
+      }
+    })
+
     apiFinances.defaults.headers.common['Authorization'] = '';
     navigation.navigate("SignIn");
   }
@@ -71,7 +84,7 @@ export function Profile() {
         <Entypo name="export" style={styles.iconPhone} size={18} />
       </RectButton>
 
-      <RectButton style={styles.box3}>
+      <RectButton style={styles.box3} onPress={handleDeleteUser}>
         <Text style={styles.textContactUs}>Excluir Conta: </Text>
         <Ionicons name="trash-outline" style={styles.iconPhone} size={20} />
       </RectButton>
@@ -79,7 +92,7 @@ export function Profile() {
       <Text style={styles.developedBy}>
         Desenvolvido por: Vitor Fernandes Moraes
       </Text>
-      <Baseboard token="token" />
+      <Baseboard token={token} />
     </SafeAreaView>
   );
 }
