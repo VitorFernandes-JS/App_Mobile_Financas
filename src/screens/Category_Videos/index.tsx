@@ -28,7 +28,7 @@ type IVideoKey = {
 };
 
 export function CategoryVideos({ token, route }: IVideosProps) {
-  const { navigation, category } = route.params
+  const { category } = route.params
   const [videos, setVideos] = useState<IVideo[]>([]);
 
   useEffect(() => {

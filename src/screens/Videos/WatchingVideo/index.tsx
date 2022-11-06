@@ -14,6 +14,7 @@ import { BorderlessButton } from "react-native-gesture-handler";
 import { useRoute } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
 import { WebView } from 'react-native-webview';
+import Toast from 'react-native-toast-message';
 
 interface IVideo {
   id: string;
@@ -49,10 +50,25 @@ export function WatchingVideo() {
   const [commentary, setCommentary] = useState<ICommentary[]>([]);
   const [text, setText] = useState<string>("");
 
+  function showToast() {
+    Toast.show({
+      type: 'success',
+      text1: 'Video favoritado com sucesso!',
+      text2: 'Disponível na sessão de favoritos.',
+      visibilityTime: 4000
+    })
+  };
+
+  function handleFavoriteVideo() {
+    apiFinances.post('/favorite_videos/video/' + video.id).then(() => {
+      showToast()
+    }).catch((err) => console.log(err))
+  }
+
   useEffect(() => {
     apiFinances.get('/commentarys/video/' + video.id).then(response => {
       setCommentary(response.data)
-    })
+    }).catch((err) => console.log(err))
   }, [])
 
   return (
@@ -81,7 +97,7 @@ export function WatchingVideo() {
         <Text style={styles.titleVideo}>{video.title}</Text>
       </SafeAreaView>
 
-      <BorderlessButton style={styles.viewIconHeart}>
+      <BorderlessButton style={styles.viewIconHeart} onPress={handleFavoriteVideo}>
         <Ionicons
           name="heart-circle-outline"
           size={45}
@@ -138,6 +154,7 @@ export function WatchingVideo() {
       </SafeAreaView>
 
       <Baseboard token={token} />
+      <Toast />
     </SafeAreaView>
   );
 }
