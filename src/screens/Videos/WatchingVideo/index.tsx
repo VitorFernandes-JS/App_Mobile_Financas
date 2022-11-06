@@ -60,10 +60,9 @@ export function WatchingVideo() {
     <SafeAreaView style={styles.container}>
       <Header />
 
-
       <SafeAreaView style={styles.viewMenuModal}>
-        <Text style={styles.title}>Título </Text>
-        <ModalPattern text={"Colocar algo aqui."} />
+        <Text style={styles.title}>Vídeo </Text>
+        <ModalPattern text={"Agora, assista e comente sobre o vídeo que você escolheu!."} />
       </SafeAreaView>
 
       <SafeAreaView style={styles.viewBoxVideo}>

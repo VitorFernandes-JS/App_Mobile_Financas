@@ -31,7 +31,7 @@ export function Videos({ token }: IVideosProps) {
           <Text style={styles.start}>COMECE AQUI! </Text>
         </SafeAreaView>
         <WebView
-          source={{ uri: "https://www.youtube.com/embed/t-yMB8LuzVs" }}
+          source={{uri: "https://www.youtube.com/embed/bxUksd21WnA" }}
           style={styles.video}
         />
       </SafeAreaView>
