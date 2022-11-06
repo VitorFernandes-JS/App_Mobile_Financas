@@ -40,10 +40,6 @@ export function Favorite() {
     })
   }, [])
 
-  useEffect(() => {
-    console.warn("favoriteVideos: ", favoriteVideos)
-  }, [favoriteVideos])
-
   return (
     <SafeAreaView style={styles.container}>
       <Header />
