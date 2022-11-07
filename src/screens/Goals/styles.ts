@@ -70,6 +70,29 @@ export const styles = StyleSheet.create({
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 2 },
   },
+  closeModalIcon: {
+    left: 235,
+    top: 225,
+    position: "absolute"
+  },
+  viewButtonAdd: {
+    alignItems: "center",
+    top: -19,
+  },
+  buttonAdd: {
+    top: 113,
+    width: 100,
+    height: 25,
+    backgroundColor: "#26B602",
+    borderRadius: 5,
+    position: "absolute"
+  },
+  textAdd: {
+    fontSize: 16,
+    color: theme.colors.color6,
+    textAlign: "center",
+    top: 2,
+  },
   titleModal1: {
     fontFamily: theme.fonts.font6_semiBold,
     fontSize: 20,

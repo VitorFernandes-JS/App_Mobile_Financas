@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, Image, Modal, Alert } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  Image,
+  Modal,
+  Alert,
+  TouchableWithoutFeedback, 
+  Keyboard,
+  TouchableOpacity,
+} from "react-native";
 import { styles } from "./styles";
 
 import { Header } from "../../components/header";
@@ -7,18 +16,16 @@ import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 import TristeImg from "../../assets/triste.png";
 import AddImg from "../../assets/close.png";
-import ArrowImg from "../../assets/arrow.png";
-import TargetImg from "../../assets/emoji.png";
-import MoneyImg from "../../assets/contas.png";
 import { InputForm } from "../../components/Form/InputForm";
 
-import { RectButton } from "react-native-gesture-handler";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { apiFinances } from "../../services";
+import { AntDesign } from "@expo/vector-icons";
 interface FormData {
   [name: string]: any;
   [amount: number]: any;
@@ -41,7 +48,7 @@ const schema = Yup.object().shape({
 export function Goals() {
   const route = useRoute();
   const navigation = useNavigation();
-  const [modalPrimary, setModalPrimary] = useState(false);
+  const [visible, setVisible] = useState(false);
   const { token } = route.params as IRouteParams;
   const {
     control,
@@ -53,8 +60,7 @@ export function Goals() {
   });
 
   function handleInformationsGoals() {
-    // navigation.navigate("InformationsGoals", { token }); 
-    navigation.navigate("InformationsGoals", { token }); 
+    navigation.navigate("InformationsGoals", { token });
   }
 
   async function handleRegister(form: FormData) {
@@ -72,15 +78,15 @@ export function Goals() {
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted)); // salva os dados no storage
       await apiFinances.post("/goals", {
         name: newGoal.name,
-	      amount: newGoal.amount,
-      })
+        amount: newGoal.amount,
+      });
       // AsyncStorage.removeItem('@mobile:goals');
       reset(); // limpa os campos do formulário
     } catch (error) {
       console.log(error);
       Alert.alert("Não foi possível cadastrar a meta!");
     }
-  };
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -105,31 +111,32 @@ export function Goals() {
       <RectButton
         style={styles.add}
         onPress={() => {
-          setModalPrimary(true);
+          setVisible(true);
         }}
       ></RectButton>
       <RectButton
         onPress={() => {
-          setModalPrimary(true);
+          setVisible(true);
         }}
       >
         <Image source={AddImg} style={styles.addImg} />
       </RectButton>
 
-      <Modal animationType="fade" transparent={true} visible={modalPrimary}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <Modal animationType="fade" transparent={true} visible={visible}>
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.titleModal1}>Qual é sua meta?</Text>
 
           <SafeAreaView style={styles.inputName}>
-          <InputForm
-            placeholderTextColor="#7a7a80"
-            placeholder="Nome da meta:"
-            name="name"
-            control={control}
-            autoCapitalize="sentences"
-            autoCorrect={false}
-            error={errors.name && errors.name.message}
-          />
+            <InputForm
+              placeholderTextColor="#7a7a80"
+              placeholder="Nome da meta:"
+              name="name"
+              control={control}
+              autoCapitalize="sentences"
+              autoCorrect={false}
+              error={errors.name && errors.name.message}
+            />
           </SafeAreaView>
 
           <Text style={styles.titleModal2}>Quanto irá custar?</Text>
@@ -145,34 +152,35 @@ export function Goals() {
             />
           </SafeAreaView>
 
-          <SafeAreaView style={styles.buttonLeft1}>
-            <RectButton
-              onPress={() => {
-                setModalPrimary(false);
-              }}
-            >
-              <Image source={ArrowImg} style={styles.arrowImgLeft} />
-            </RectButton>
-          </SafeAreaView>
+          <BorderlessButton
+            style={styles.closeModalIcon}
+            onPress={() => {
+              setVisible(false);
+            }}
+          >
+            <AntDesign name="closecircle" color="red" size={22} />
+          </BorderlessButton>
 
-          <SafeAreaView style={styles.buttonRight1}>
-            <RectButton
-              onPress={() => {
-                handleSubmit(async (data) => await handleRegister(data))();
-                handleInformationsGoals();
-                setModalPrimary(false);
-              }}
-            >
-              <Image source={ArrowImg} style={styles.arrowImgRight} />
-            </RectButton>
-          </SafeAreaView>
+          <TouchableOpacity
+            onPress={() => {
+              handleSubmit(async (data) => await handleRegister(data))();
+              handleInformationsGoals();
+              setVisible(false);
+            }}
+          >
+            <SafeAreaView style={styles.viewButtonAdd}>
+              <SafeAreaView style={styles.buttonAdd}>
+                <Text style={styles.textAdd}>Adicionar</Text>
+              </SafeAreaView>
+            </SafeAreaView>
+          </TouchableOpacity>
 
           <SafeAreaView style={styles.modalPatternView}>
             <ModalPattern text="Digite o nome da sua meta e o valor total da mesma." />
           </SafeAreaView>
-
         </SafeAreaView>
       </Modal>
+      </TouchableWithoutFeedback>
 
       <Baseboard token={token} />
     </SafeAreaView>

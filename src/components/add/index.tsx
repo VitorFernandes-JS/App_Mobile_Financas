@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, SetStateAction } from "react";
+import React, { useState } from "react";
 import { SafeAreaView, Modal, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
