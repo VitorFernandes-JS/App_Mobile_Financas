@@ -190,15 +190,34 @@ export const styles = StyleSheet.create({
     left: 300,
   },
   viewGrafic: {
-    top: 25,
+    top: 10,
     left: 100,
     position: "absolute",
   },
   viewWhite: {
+    top: 12,
     width: 150,
     height: 150,
     borderRadius: 75,
     backgroundColor: theme.colors.color6,
     position: "absolute",
-  }
+  },
+  viewSquareAndText: {
+    flexDirection: "row",
+    top: 165,
+    left: -100,
+  },
+  squareGoal: {
+    width: 10,
+    height: 10,
+    borderRadius: 2,
+    backgroundColor: theme.colors.color2,
+    left: 10,
+  },
+  textTargetPercentage: {
+    color: theme.colors.color4,
+    fontSize: 10,
+    fontFamily: theme.fonts.font4_regular,
+    left: 15,
+  },
 });

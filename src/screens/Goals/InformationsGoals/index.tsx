@@ -167,9 +167,14 @@ export function InformationsGoals() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.bodyGrafic}>
-        <Text>Total</Text>
         <SafeAreaView style={styles.viewGrafic}>
           <SafeAreaView style={styles.viewWhite} />
+
+          <SafeAreaView style={styles.viewSquareAndText}>
+          <SafeAreaView style={styles.squareGoal} />
+          <Text style={styles.textTargetPercentage}>% metas</Text>
+        </SafeAreaView>
+
           <Progress.Circle
             size={150}
             thickness={10}
