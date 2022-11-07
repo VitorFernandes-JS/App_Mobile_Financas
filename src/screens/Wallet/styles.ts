@@ -50,7 +50,8 @@ export const styles = StyleSheet.create({
   },
   viewModal2: {
     top: -37,
-    right: -25,
+    left: 210,
+    position: "absolute",
   },
   valueLeft: {
     width: 100,
@@ -59,7 +60,8 @@ export const styles = StyleSheet.create({
     marginLeft: 25,
     color: theme.colors.color4,
     top: 45,
-    left: -40
+    left: 150,
+    position: "absolute",
   },
   viewTrash: {
     top: -130,
