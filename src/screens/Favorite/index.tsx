@@ -53,6 +53,7 @@ export function Favorite() {
         />
       </SafeAreaView>
 
+      
       {favoriteVideos.map((favoriteVideo) => {
         return (
           <SafeAreaView style={styles.viewBoxVideo}>
