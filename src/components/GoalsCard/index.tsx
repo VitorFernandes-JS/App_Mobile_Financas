@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text } from 'react-native';
 import { styles } from './styles';
 
-import { BaseButton, BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Trash } from '../trash';
 export interface GoalsCardProps {
@@ -40,7 +40,7 @@ export function GoalsCard({ number, name, amount }: GoalsCardProps) {
         <Text style={styles.fieldValueText}>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 }).format(amount)}</Text>
       </SafeAreaView>
       <SafeAreaView style={styles.viewTrash}>
-        <Trash onPress={() => {console.warn("teste 2")}}/>
+        <Trash onPress={() => {console.warn("teste 2")}} />
       </SafeAreaView>
     </RectButton>
   );
