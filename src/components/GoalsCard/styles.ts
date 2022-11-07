@@ -57,4 +57,9 @@ body: {
     fontSize: 12,
     fontFamily: theme.fonts.font4_regular_inter,
   },
+  viewTrash: {
+    position: "absolute",
+    left: 330,
+    top: 60,
+  }
 });
