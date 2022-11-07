@@ -177,7 +177,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: 280,
-    height: 250,
+    height: 280,
     backgroundColor: "white",
     borderRadius: 20,
     left: 66.5,
@@ -187,7 +187,7 @@ export const styles = StyleSheet.create({
     shadowRadius: 14,
   },
   total: {
-    fontFamily: theme.fonts.font7_bold,
+    fontFamily: theme.fonts.font4_regular,
     fontSize: 30,
     textAlign: "center",
     marginBottom: 10,
@@ -225,6 +225,6 @@ export const styles = StyleSheet.create({
     color: "#000",
   },
   closeModalIcon: {
-    top: -7,
+    top: -10,
   },
 });
