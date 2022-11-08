@@ -15,6 +15,8 @@ import { BorderlessButton } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { HistoryCard } from "../../components/HistoryCard";
+import { VictoryPie } from "victory-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 interface IWalletProps {
   token: string;
@@ -34,9 +36,9 @@ interface CategoryData {
   key: string;
   name: string;
   total: number;
-  // totalFormatted: string;
+  totalFormatted: string;
   color: string;
-  // percent: string;
+  percent: string;
 }
 interface IWallet {
   id: string;
@@ -53,6 +55,50 @@ export function Wallet({ token }: IWalletProps) {
   >([]);
   const [wallet, setWallet] = useState<IWallet>({} as IWallet);
   const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false);
+
+  const expensives = transactionsWallets.filter(
+      (expensive: ITransactionsWallets) => expensive.type === "withdraw"
+    );
+
+    const expensivesTotal = expensives.reduce(
+      (acumullator: number, expensive: ITransactionsWallets) => {
+        return acumullator + Number(expensive.value);
+      },
+      0
+    );
+
+    const totalByCategory: CategoryData[] = [];
+
+    transactionsWallets.category.forEach((category) => {
+      let categorySum = 0;
+
+      expensives.forEach((expensive: ITransactionsWallets) => {
+        if (expensive.category === category.key) {
+          categorySum += Number(expensive.value);
+        }
+      });
+
+      if (categorySum > 0) {
+        const totalFormatted = categorySum.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        });
+
+        const percent = `${((categorySum / expensivesTotal) * 100).toFixed(
+          0
+        )}%`;
+
+        totalByCategory.push({
+          key: category.key,
+          name: category.name,
+          color: category.color,
+          total: categorySum,
+          totalFormatted,
+          percent,
+        });
+      }
+      setTotalByCategories(totalByCategory);
+    );
 
   const valueType = transactionsWallets.reduce(
     (acc, transaction) => {
@@ -203,16 +249,28 @@ export function Wallet({ token }: IWalletProps) {
           </BorderlessButton>
 
           <ScrollView
-            contentContainerStyle={{  width: "100%", alignItems: "center" }}
+            contentContainerStyle={{ width: "100%", alignItems: "center" }}
             showsVerticalScrollIndicator={false}
           >
-            {totalByCategories.map((item) => (
-              <HistoryCard
-                title={"Restaurante"}
-                amount={"R$ 150,00"}
-                color={"#f0f"}
+            <SafeAreaView>
+              <VictoryPie
+                data={totalByCategories}
+                style={{
+                  labels: {
+                    fontSize: RFValue(18),
+                    fontWeight: "bold",
+                    fill: "black",
+                  },
+                }}
+                labelRadius={50}
+              />
+            </SafeAreaView>
+
+            <HistoryCard
+              title={"Restaurante"}
+              amount={"R$ 150,00"}
+              color={"#f0f"}
             />
-            ))}
           </ScrollView>
         </SafeAreaView>
       </Modal>
