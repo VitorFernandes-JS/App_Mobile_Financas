@@ -98,6 +98,7 @@ export function Wallet({ token }: IWalletProps) {
         });
       }
       setTotalByCategories(totalByCategory);
+      }
     );
 
   const valueType = transactionsWallets.reduce(
