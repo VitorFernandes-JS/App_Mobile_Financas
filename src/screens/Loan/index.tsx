@@ -8,7 +8,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 
 import { Header } from "../../components/header";
@@ -20,7 +19,6 @@ interface IRouteParams {
 }
 
 export function Loan() {
-  const navigation = useNavigation();
 
   const route = useRoute();
 
@@ -47,7 +45,7 @@ export function Loan() {
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             onChangeText={(text) => {
               setValueMonth(text);
             }}
@@ -65,12 +63,12 @@ export function Loan() {
         </SafeAreaView>
 
         <SafeAreaView style={styles.viewValueMonth1}>
-          <Text style={styles.valueMonth1}>T</Text>
+          <Text style={styles.valueMonth1}>%</Text>
         </SafeAreaView>
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             onChangeText={(text) => {
               setTimeInput(Number(text));
             }}
@@ -88,14 +86,14 @@ export function Loan() {
         </SafeAreaView>
 
         <SafeAreaView style={styles.viewValueMonth1}>
-          <Text style={styles.valueMonth1}>%</Text>
+          <Text style={styles.valueMonth1}>X</Text>
         </SafeAreaView>
 
         <SafeAreaView style={styles.inputValueMonth}>
           <TextInput
-            keyboardType={"numbers-and-punctuation"}
+            keyboardType={"numeric"}
             style={styles.textInputValueMonth}
-            placeholder="Selic"
+            placeholder="30"
             placeholderTextColor={"#808080"}
             maxLength={4}
           />
