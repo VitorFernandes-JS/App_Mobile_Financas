@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, Text, Image, TouchableOpacity } from "react-native";
+import { SafeAreaView, Text, Image } from "react-native";
 import { styles } from "./style";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { RectButton } from "react-native-gesture-handler";
@@ -10,6 +10,7 @@ import { Feather } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { apiFinances } from "../../services";
+import { Loading } from "../../components/Loading";
 
 type IRouteParams = {
   token: string;
