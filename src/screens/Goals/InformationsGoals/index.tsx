@@ -6,6 +6,7 @@ import { Header } from "../../../components/header";
 import { Baseboard } from "../../../components/baseboard";
 import { GoalsCard, GoalsCardProps } from "../../../components/GoalsCard";
 import { theme } from "../../../global/styles/theme";
+import { useFocusEffect } from '@react-navigation/native';
 
 import { useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
@@ -64,16 +65,18 @@ export function InformationsGoals() {
   // const [data, setData] = useState<DataListProps[]>([]);
   const [data, setData] = useState<IGoals[]>([]);
   const [porcentageGoalsAmount, setPorcentageGoalsAmount] = useState([]);
-  const [totalPorcentageGoalsAmount, setTotalPorcentageGoalsAmount] =
-    useState(0);
+  const [totalPorcentageGoalsAmount, setTotalPorcentageGoalsAmount] = useState(0);
 
-  useEffect(() => {
-    apiFinances.get("/goals").then((response) => {
-      setData(response?.data.sort((a : any, b : any) => +new Date(a.created_at) - +new Date(b.created_at)));
-    }).catch((error) => {
-      console.log(error);
-    });
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      apiFinances.get("/goals").then((response) => {
+        setData(response?.data.sort((a: any, b: any) => +new Date(a.created_at) - +new Date(b.created_at)));
+        setCountReload(0)
+      }).catch((error) => {
+        console.log(error);
+      });
+    }, [])
+  );
 
   useEffect(() => {
     if (countReload > 1) {
@@ -82,16 +85,16 @@ export function InformationsGoals() {
 
     apiFinances.get("/goals").then((response) => {
       setCountReload((prevState) => prevState + 1);
-      setData(response?.data.sort((a : any, b : any) => +new Date(a.created_at) - +new Date(b.created_at)));
+      setData(response?.data?.sort((a: any, b: any) => +new Date(a.created_at) - +new Date(b.created_at)));
       setPorcentageGoalsAmount(
         response?.data?.map((goal: IGoals) => {
           const totalTransactionsInvesments =
-            goal.investment.transaction_investment.reduce(
+            goal?.investment?.transaction_investment?.reduce(
               (acc, transactionInvestment) =>
-                (acc += transactionInvestment.value),
+                (acc += transactionInvestment?.value || 0),
               0
             );
-          return Number((totalTransactionsInvesments / goal.amount).toFixed(2));
+          return Number((totalTransactionsInvesments / goal?.amount || 0).toFixed(2));
         })
       );
     }).catch((error) => {
@@ -156,11 +159,13 @@ export function InformationsGoals() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.body}>
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <GoalsCard
             key={item.id}
+            id={item.id}
             number={index + 1}
             name={item.name}
+            setData={setData}
             amount={item.amount}
           />
         ))}
@@ -171,9 +176,9 @@ export function InformationsGoals() {
           <SafeAreaView style={styles.viewWhite} />
 
           <SafeAreaView style={styles.viewSquareAndText}>
-          <SafeAreaView style={styles.squareGoal} />
-          <Text style={styles.textTargetPercentage}>% metas</Text>
-        </SafeAreaView>
+            <SafeAreaView style={styles.squareGoal} />
+            <Text style={styles.textTargetPercentage}>% metas</Text>
+          </SafeAreaView>
 
           <Progress.Circle
             size={150}
@@ -187,10 +192,10 @@ export function InformationsGoals() {
               contextGraphics === 3
                 ? theme.colors.color3
                 : contextGraphics === 2
-                ? theme.colors.color2
-                : contextGraphics === 1
-                ? theme.colors.color1
-                : theme.colors.color4
+                  ? theme.colors.color2
+                  : contextGraphics === 1
+                    ? theme.colors.color1
+                    : theme.colors.color4
             }
             showsText={true}
             indeterminate={false}

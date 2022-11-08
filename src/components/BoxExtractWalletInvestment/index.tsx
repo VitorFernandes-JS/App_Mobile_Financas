@@ -55,7 +55,7 @@ export function BoxExtractWalletInvestment({
           </BorderlessButton>
         )}
 
-      <SafeAreaView style={styles.date}>
+        <SafeAreaView style={styles.date}>
           <Text style={styles.textDate}>
             {new Date(transactionWallet.created_at).getDate()}
           </Text>

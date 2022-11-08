@@ -123,17 +123,17 @@ export function WalletInvestment() {
 
   useEffect(() => {
     apiFinances.get("/goals").then((response) => {
-      setGoals(response.data.sort((a : any, b : any) => +new Date(a.created_at) - +new Date(b.created_at)));
+      setGoals(response.data.sort((a: any, b: any) => +new Date(a.created_at) - +new Date(b.created_at)));
       setPorcentageGoalsMonthAmount(
         response?.data?.map((goal: IGoals) => {
           const totalTransactionsInvesments =
-            goal.investment.transaction_investment.reduce(
+            goal?.investment?.transaction_investment?.reduce(
               (acc, transactionInvestment) =>
-                (acc += transactionInvestment.value),
+                (acc += transactionInvestment?.value || 0),
               0
             );
           return Number(
-            (totalTransactionsInvesments / goal.investment.value).toFixed(2)
+            (totalTransactionsInvesments / goal?.investment?.value || 0).toFixed(2)
           );
         })
       );
@@ -148,17 +148,17 @@ export function WalletInvestment() {
     }
 
     apiFinances.get("/goals").then((response) => {
-      setGoals(response.data.sort((a : any, b : any) => +new Date(a.created_at) - +new Date(b.created_at)));
+      setGoals(response.data.sort((a: any, b: any) => +new Date(a.created_at) - +new Date(b.created_at)));
       setPorcentageGoalsMonthAmount(
         response?.data?.map((goal: IGoals) => {
           const totalTransactionsInvesments =
-            goal.investment.transaction_investment.reduce(
+            goal?.investment?.transaction_investment?.reduce(
               (acc, transactionInvestment) =>
-                (acc += transactionInvestment.value),
+                (acc += transactionInvestment?.value || 0),
               0
             );
           return Number(
-            (totalTransactionsInvesments / goal.investment.value).toFixed(2)
+            (totalTransactionsInvesments / goal?.investment?.value || 0).toFixed(2)
           );
         })
       );
