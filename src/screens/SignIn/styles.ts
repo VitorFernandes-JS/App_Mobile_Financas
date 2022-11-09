@@ -64,4 +64,73 @@ export const styles = StyleSheet.create({
   contactUs: {
     fontFamily: theme.fonts.font4_regular,
   },
+  viewModal: {
+    width: 415,
+    height: 300,
+    backgroundColor: theme.colors.color6,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    top: 452
+  },
+  titleModal: {
+    fontFamily: theme.fonts.font7_bold,
+    fontSize: 32,
+    color: theme.colors.color2,
+    top: 13,
+    position: "absolute"
+  },
+  closeButton: {
+    width: 30,
+    height: 30,
+    top: 20,
+    right: 20,
+    position: "absolute"
+  },
+  containerButton: {
+    width: 275,
+    height: 60,
+    backgroundColor: theme.colors.color5,
+    borderRadius: 15,
+    flexDirection: "row",
+    alignItems: "center",
+    display: "flex",
+    paddingLeft: 3,
+    paddingRight: 1,
+    top: 20,
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0.5, height: 3 },
+    marginBottom: 15,
+  },
+  icon: {
+    width: 35,
+    height: 35,
+  },
+  text: {
+    flex: 1,
+    color: theme.colors.color1,
+    fontSize: 14,
+    textAlign: "center",
+    fontFamily: theme.fonts.font5_medium,
+    top: 3
+  },
+  contentWrapper: {
+    width: "70%",
+    height: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    borderLeftWidth: 1,
+    borderColor: theme.colors.color4,
+    opacity: 0.9,
+  },
+  iconWrapper: {
+    width: "28%",
+    alignItems: "center",
+  },
 });
