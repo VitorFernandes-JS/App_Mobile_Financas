@@ -86,7 +86,7 @@ export const styles = StyleSheet.create({
   },
   contentContainer: {
     top: 115,
-    flex: 1,
+    height: 800
   },
   containerModal: {
     width: 415,

@@ -45,13 +45,9 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     flexWrap: "wrap",
     top: 5,
-    height: 500,
+    height: 1600
   },
   viewBoxCategoryVideos: {
-    flexDirection: "row",
-    width: 380,
-    justifyContent: "space-between",
-    flexWrap: "wrap",
     top: 20,
   },
 });
