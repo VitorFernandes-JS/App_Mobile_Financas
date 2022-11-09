@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { SafeAreaView, Text, Image, TouchableOpacity, TouchableOpacityProps } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 
 interface IBoxCategoryVideos extends TouchableOpacityProps {
