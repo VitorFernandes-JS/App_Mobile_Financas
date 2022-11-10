@@ -8,7 +8,7 @@ import { ButtonIconGoogle } from "../../components/SignIn/ButtonIconGoogle";
 import { ButtonIconApple } from "../../components/SignIn/ButtonIconApple";
 import IllustrationImg from "../../assets/illustration.png";
 import { styles } from "./styles";
-import { BorderlessButton, RectButton } from "react-native-gesture-handler";
+import { BorderlessButton } from "react-native-gesture-handler";
 import { apiFinances } from "../../services";
 import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
@@ -21,8 +21,6 @@ type AuthResponse = {
   };
 };
 
-
-
 export function SignIn() {
   const [copied, setCopied] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -30,21 +28,21 @@ export function SignIn() {
 
   async function handleCopyFacebook() {
     setCopied(true)
-    await Clipboard.setString("https://www.facebook.com/vitor.fernandesmoraes/");
+    await Clipboard.setStringAsync("https://www.facebook.com/vitor.fernandesmoraes/");
     Alert.alert('Facebook', 'Copiado com sucesso!');
     setCopied(false)
   }
 
   async function handleCopyYoutube() {
     setCopied(true)
-    await Clipboard.setString("https://www.youtube.com/channel/UCbTERIDQBVFmzeMeDvaBIaw");
+    await Clipboard.setStringAsync("https://www.youtube.com/channel/UCbTERIDQBVFmzeMeDvaBIaw");
     Alert.alert('Youtube', 'Copiado com sucesso!');
     setCopied(false)
   }
 
   async function handleCopyInstagram() {
     setCopied(true)
-    await Clipboard.setString("https://www.instagram.com/vitor.holder/");
+    await Clipboard.setStringAsync("https://www.instagram.com/vitor.holder/");
     Alert.alert('Instagram', 'Copiado com sucesso!');
     setCopied(false)
   }
@@ -88,8 +86,6 @@ export function SignIn() {
       navigation.navigate("Home", { token: params.access_token });
     }
   }
-
- 
 
   return (
     <SafeAreaView style={styles.container}>
