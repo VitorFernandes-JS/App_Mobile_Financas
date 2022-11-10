@@ -26,6 +26,7 @@ import Emoji from "../../assets/emoji_feliz.png";
 import { ButtonInformation } from "../../components/ButtonInformation";
 import * as Progress from "react-native-progress";
 import { theme } from "../../global/styles/theme";
+import { FontAwesome } from '@expo/vector-icons'; 
 interface IRouteParams {
   token: string;
 }
@@ -167,10 +168,19 @@ export function WalletInvestment() {
     });
   }, [visible, transactionsWalletsInvestment]);
 
+  // function handleDeleteGoal() {
+  //   apiFinances.delete('/goals/' + id).then(() => {
+  //     apiFinances.get("/goals").then((response) => {
+  //       setData(response?.data.sort((a: any, b: any) => +new Date(a.created_at) - +new Date(b.created_at)));
+  //     })
+  //   }).catch((err) => console.log(err))
+  // }
+
   useEffect(() => {
     setInvestment(goals?.[whatIsGoalIndex]?.investment);
     if (investmentValue === goals?.[whatIsGoalIndex]?.amount) {
       setVisibleModalSuccess(true);
+
     }
   }, [goals]);
 
@@ -184,8 +194,10 @@ export function WalletInvestment() {
         textModal="Aqui você pode adicionar um investimento em cada meta, e acompanhar o seu progresso!"
       />
       <SafeAreaView style={styles.boxsWallet1}>
+
+
         <BoxWalletInvestment
-          title={`Meta 1 ${goals?.[0]?.investment?.priority || ""}`}
+          title={`Meta 1`}
           isSelected={whatIsGoalIndex === 0 ? true : false}
           onPress={() => {
             handleCreateInvestment(0);
@@ -194,7 +206,7 @@ export function WalletInvestment() {
       </SafeAreaView>
       <SafeAreaView style={styles.boxsWallet2}>
         <BoxWalletInvestment
-          title={`Meta 2 ${goals?.[1]?.investment?.priority || ""}`}
+          title={`Meta 2`}
           isSelected={whatIsGoalIndex === 1 ? true : false}
           onPress={() => {
             handleCreateInvestment(1);
@@ -203,7 +215,7 @@ export function WalletInvestment() {
       </SafeAreaView>
       <SafeAreaView style={styles.boxsWallet3}>
         <BoxWalletInvestment
-          title={`Meta 3 ${goals?.[2]?.investment?.priority || ""}`}
+          title={`Meta 3`}
           isSelected={whatIsGoalIndex === 2 ? true : false}
           onPress={() => {
             handleCreateInvestment(2);
