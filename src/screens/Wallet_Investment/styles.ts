@@ -54,7 +54,6 @@ export const styles = StyleSheet.create({
   },
   viewAddAndTrash: {
     flexDirection: "row",
-    top: -25,
   },
   add: {
     left: 310,
@@ -118,8 +117,8 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.color3,
   },
   modalSubtitle: {
-    margin: 10,
-    top: 10,
+    marginBottom: 5,
+    top: 20,
     fontFamily: theme.fonts.font4_regular,
     textAlign: "center",
   },

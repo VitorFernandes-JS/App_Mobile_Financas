@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, Text } from "react-native";
 import { styles } from "./styles";
 
@@ -68,7 +68,7 @@ export function InformationsGoals() {
   const [totalPorcentageGoalsAmount, setTotalPorcentageGoalsAmount] = useState(0);
 
   useFocusEffect(
-    React.useCallback(() => {
+    useCallback(() => {
       apiFinances.get("/goals").then((response) => {
         setData(response?.data.sort((a: any, b: any) => +new Date(a.created_at) - +new Date(b.created_at)));
         setCountReload(0)

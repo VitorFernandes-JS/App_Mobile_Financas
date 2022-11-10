@@ -4,13 +4,13 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import { Ionicons } from "@expo/vector-icons";
 import { theme } from '../../global/styles/theme';
+import { SafeAreaView } from 'react-native';
 
-interface IButtonInformationProps {
-    onPress: () => void;
-}
 
-export function ButtonInformation({ ...rest }: IButtonInformationProps) {
+
+export function ButtonInformation({ ...rest }) {
   return (
+    <SafeAreaView>
     <BorderlessButton style={styles.buttonInformation} {...rest}>
           <Ionicons
             name="information-circle-outline"
@@ -18,5 +18,6 @@ export function ButtonInformation({ ...rest }: IButtonInformationProps) {
             color={theme.colors.color4}
           />
         </BorderlessButton>
+        </SafeAreaView>
   );
 }

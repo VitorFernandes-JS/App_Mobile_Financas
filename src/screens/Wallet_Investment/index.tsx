@@ -230,10 +230,6 @@ export function WalletInvestment() {
           <Text style={styles.textTargetPercentage}>% meta do mês</Text>
         </SafeAreaView>
 
-        <ButtonInformation
-          onPress={() => setVisibleModalInformationsGoals(true)}
-        />
-
         <SafeAreaView style={styles.viewAddAndTrash}>
           <SafeAreaView style={styles.add}>
             <AddWalletInvestment
@@ -252,6 +248,10 @@ export function WalletInvestment() {
             />
           </SafeAreaView>
         </SafeAreaView>
+
+        <ButtonInformation
+          onPress={() => setVisibleModalInformationsGoals(true)}
+        />
 
         <SafeAreaView style={styles.viewScroll}>
           <ScrollView
@@ -311,7 +311,10 @@ export function WalletInvestment() {
         <SafeAreaView style={styles.viewModal}>
           <Text style={styles.modalText}>Informações</Text>
           <SafeAreaView style={styles.line}></SafeAreaView>
-          <Text style={styles.modalSubtitle}></Text>
+          <Text style={styles.modalSubtitle}>Nome da meta: {goals?.[whatIsGoalIndex]?.name}</Text>
+          <Text style={styles.modalSubtitle}>Valor da meta: {goals?.[whatIsGoalIndex]?.amount}</Text>
+          <Text style={styles.modalSubtitle}>Valor mensal: {investment?.value}</Text>
+          <Text style={styles.modalSubtitle}>Prioridade: {investment?.priority}</Text>
           <BorderlessButton
             style={styles.rectButtoncloseModalIcon}
             onPress={() => {
