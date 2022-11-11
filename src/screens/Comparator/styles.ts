@@ -188,7 +188,7 @@ export const styles = StyleSheet.create({
   },
   total: {
     fontFamily: theme.fonts.font4_regular,
-    fontSize: 30,
+    fontSize: 27,
     textAlign: "center",
     marginBottom: 10,
     top: 1.5,
