@@ -65,7 +65,7 @@ export function Comparator() {
   const [selectType, setSelectType] = useState(false);
 
   const [value1, setValue1] = useState("Meses");
-  const [value2, setValue2] = useState("Mensal");
+  const [value2, setValue2] = useState("IPCA");
   const [items1, setItems1] = useState([
     { label: "Meses", value: "meses" },
     { label: "Anos", value: "anos" },
@@ -283,25 +283,25 @@ export function Comparator() {
             <SafeAreaView style={styles.viewModal}>
               <Text style={styles.total}>Valores:</Text>
               <SafeAreaView style={styles.line}></SafeAreaView>
-              <SafeAreaView style={styles.box1}>
+              <SafeAreaView style={value2 === "IPCA" ? {...styles.box, ...styles.isActive} : styles.box}>
                 <Text style={styles.textBox}>
                   Total IPCA: R${Number(valueTotalIpca).toFixed(2)}
                 </Text>
               </SafeAreaView>
 
-              <SafeAreaView style={styles.box2}>
+              <SafeAreaView style={value2 === "CDI" ? {...styles.box, ...styles.isActive} : styles.box}>
                 <Text style={styles.textBox}>
                   Total CDI: R${Number(valueTotalCdi).toFixed(2)}
                 </Text>
               </SafeAreaView>
 
-              <SafeAreaView style={styles.box3}>
+              <SafeAreaView style={value2 === "Poupanca" ? {...styles.box, ...styles.isActive} : styles.box}>
                 <Text style={styles.textBox}>
                   Total POUPANÇA: R${Number(valueTotalSavings).toFixed(2)}
                 </Text>
               </SafeAreaView>
 
-              <SafeAreaView style={styles.box3}>
+              <SafeAreaView style={value2 === "Selic" ? {...styles.box, ...styles.isActive} : styles.box}>
                 <Text style={styles.textBox}>
                   Total SELIC: R${Number(valueTotalSelic).toFixed(2)}
                 </Text>
@@ -326,7 +326,7 @@ export function Comparator() {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => {
+          onPress={async () => {
             calcComparator({
               ipcaRate,
               selicRate: +latestSelicRate.valor,

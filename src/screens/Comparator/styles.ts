@@ -199,24 +199,12 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.color3,
     top: -9.5,
   },
-  box1: {
+  box: {
     height: 35,
     width: 240,
-    backgroundColor: theme.colors.color2,
-    borderRadius: 8,
-    margin: 7,
-  },
-  box2: {
-    height: 35,
-    width: 240,
-    backgroundColor: theme.colors.color3,
-    borderRadius: 8,
-    margin: 7,
-  },
-  box3: {
-    height: 35,
-    width: 240,
-    backgroundColor: theme.colors.color4,
+    backgroundColor: theme.colors.color5,
+    borderWidth: 1.5,
+    borderColor: theme.colors.color5,
     borderRadius: 8,
     margin: 7,
   },
@@ -226,5 +214,8 @@ export const styles = StyleSheet.create({
   },
   closeModalIcon: {
     top: -10,
+  },
+  isActive : {
+    borderColor: theme.colors.color2,
   },
 });
