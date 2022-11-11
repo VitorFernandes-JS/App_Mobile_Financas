@@ -59,4 +59,9 @@ viewModal: {
     fontSize: 16,
     fontFamily: theme.fonts.font6_semiBold,
   },
+  closeModalIcon: {
+    left: 235,
+    top: 225,
+    position: "absolute"
+  },
 });

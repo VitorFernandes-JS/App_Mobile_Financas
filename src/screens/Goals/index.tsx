@@ -170,7 +170,7 @@ export function Goals() {
           >
             <SafeAreaView style={styles.viewButtonAdd}>
               <SafeAreaView style={styles.buttonAdd}>
-                <Text style={styles.textAdd}>Adicionar</Text>
+                <Text style={styles.textAdd}>Enviar</Text>
               </SafeAreaView>
             </SafeAreaView>
           </TouchableOpacity>

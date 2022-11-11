@@ -82,8 +82,8 @@ export const styles = StyleSheet.create({
   buttonAdd: {
     top: 113,
     width: 100,
-    height: 25,
-    backgroundColor: "#26B602",
+    height: 30,
+    backgroundColor: theme.colors.color2,
     borderRadius: 5,
     position: "absolute"
   },
@@ -91,7 +91,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: theme.colors.color6,
     textAlign: "center",
-    top: 2,
+    top: 5,
   },
   titleModal1: {
     fontFamily: theme.fonts.font6_semiBold,

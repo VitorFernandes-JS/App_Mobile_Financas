@@ -5,10 +5,11 @@ import { styles } from "./styles";
 import { InputForm } from "../../../../components/Form/InputForm";
 import { ModalPattern } from "../../../../components/modalPattern";
 
-import { RectButton } from "react-native-gesture-handler";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { AntDesign } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { apiFinances } from "../../../../services";
 
@@ -107,6 +108,15 @@ export function InformationModalAddGoal({ isVisible, setIsVisible, setCountReloa
           >
             <Text style={styles.textButton}>Enviar</Text>
           </RectButton>
+
+          <BorderlessButton
+            style={styles.closeModalIcon}
+            onPress={() => {
+              setIsVisible(false);
+            }}
+          >
+            <AntDesign name="closecircle" color="red" size={22} />
+          </BorderlessButton>
 
         <SafeAreaView style={styles.modalPatternView}>
           <ModalPattern text="Digite o nome da sua meta e o valor total da mesma." />
