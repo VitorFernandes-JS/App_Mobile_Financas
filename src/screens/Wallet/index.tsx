@@ -37,7 +37,6 @@ interface CategoryData {
   name: string;
   total: number;
   totalFormatted: string;
-  color: string;
   percent: string;
 }
 interface IWallet {
@@ -57,49 +56,48 @@ export function Wallet({ token }: IWalletProps) {
   const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false);
 
   const expensives = transactionsWallets.filter(
-      (expensive: ITransactionsWallets) => expensive.type === "withdraw"
-    );
+    (expensive: ITransactionsWallets) => expensive.type === "withdraw"
+  );
 
-    const expensivesTotal = expensives.reduce(
-      (acumullator: number, expensive: ITransactionsWallets) => {
-        return acumullator + Number(expensive.value);
-      },
-      0
-    );
+  const expensivesTotal = expensives.reduce(
+    (acumullator: number, expensive: ITransactionsWallets) => {
+      return acumullator + Number(expensive.value);
+    },
+    0
+  );
 
-    // const totalByCategory: CategoryData[] = [];
+  const totalByCategory: CategoryData[] = [];
 
-    // transactionsWallets.category.forEach((category) => {
-    //   let categorySum = 0;
+  transactionsWallets.forEach((transaction) => {
+    let categorySum = 0;
 
-    //   expensives.forEach((expensive: ITransactionsWallets) => {
-    //     if (expensive.category === category.key) {
-    //       categorySum += Number(expensive.value);
-    //     }
-    //   });
+    expensives.forEach((expensive: ITransactionsWallets) => {
+      if (expensive.category === transaction.category) {
+        categorySum += Number(expensive.value);
+      }
+    });
 
-    //   if (categorySum > 0) {
-    //     const totalFormatted = categorySum.toLocaleString("pt-BR", {
-    //       style: "currency",
-    //       currency: "BRL",
-    //     });
+    if (categorySum > 0) {
+      const totalFormatted = categorySum.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
 
-    //     const percent = `${((categorySum / expensivesTotal) * 100).toFixed(
-    //       0
-    //     )}%`;
+      const percent = `${((categorySum / expensivesTotal) * 100).toFixed(
+        0
+      )}%`;
 
-    //     totalByCategory.push({
-    //       key: category.key,
-    //       name: category.name,
-    //       color: category.color,
-    //       total: categorySum,
-    //       totalFormatted,
-    //       percent,
-    //     });
-    //   }
-    //   setTotalByCategories(totalByCategory);
-    //   }
-    // );
+      totalByCategory.push({
+        key: transaction.id,
+        name: transaction.category,
+        total: categorySum,
+        totalFormatted,
+        percent,
+      });
+    }
+    setTotalByCategories(totalByCategory);
+    }
+  );
 
   const valueType = transactionsWallets.reduce(
     (acc, transaction) => {
@@ -224,7 +222,6 @@ export function Wallet({ token }: IWalletProps) {
         showsVerticalScrollIndicator={false}
         style={styles.scrollView}
         contentContainerStyle={styles.contentContainer}
-
       >
         <SafeAreaView>
           {transactionsWallets?.map((transactionWallet) => (
