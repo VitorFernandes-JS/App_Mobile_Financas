@@ -32,6 +32,7 @@ export function Profile() {
   const [profile, setProfile] = useState({} as Profile);
   const [copied, setCopied] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
   const navigation = useNavigation();
 
   async function handleCopyFacebook() {
@@ -119,7 +120,7 @@ export function Profile() {
         <Entypo name="export" style={styles.iconPhone} size={18} />
       </RectButton>
 
-      <RectButton style={styles.box3} onPress={handleDeleteUser}>
+      <RectButton style={styles.box3} onPress={() => {setVisible(true)}}>
         <Text style={styles.textContactUs}>Excluir Conta: </Text>
         <Ionicons name="trash-outline" style={styles.iconPhone} size={20} />
       </RectButton>
@@ -177,6 +178,31 @@ export function Profile() {
           </TouchableOpacity>
 
         </SafeAreaView>
+      </Modal>
+
+      <Modal animationType="slide" transparent={true} visible={visible}>
+        <SafeAreaView style={styles.viewModal1}>
+          <Text style={styles.modalSubtitle}>Tem certeza dessa exclusão?</Text>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.viewButtons}>
+          <BorderlessButton
+            style={styles.buttonToExclude}
+            onPress={handleDeleteUser}
+          >
+            <Text style={styles.textToExclude}>Excluir</Text>
+          </BorderlessButton>
+
+          <BorderlessButton
+            style={styles.buttonToCancel}
+            onPress={() => {
+              setVisible(false);
+            }}
+          >
+            <Text style={styles.textToCancel}>Cancelar</Text>
+          </BorderlessButton>
+        </SafeAreaView>
+        <Text style={styles.textBaseboard}>Obs: isto é permanente!</Text>
       </Modal>
     </SafeAreaView>
   );
