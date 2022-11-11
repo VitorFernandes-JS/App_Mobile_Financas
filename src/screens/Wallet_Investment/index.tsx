@@ -26,7 +26,7 @@ import Emoji from "../../assets/emoji_feliz.png";
 import { ButtonInformation } from "../../components/ButtonInformation";
 import * as Progress from "react-native-progress";
 import { theme } from "../../global/styles/theme";
-import { FontAwesome } from '@expo/vector-icons'; 
+import Toast, {BaseToast} from 'react-native-toast-message';
 interface IRouteParams {
   token: string;
 }
@@ -68,6 +68,20 @@ export interface IGoals {
   created_at: string;
   updated_at: string;
   investment: IInvestments;
+}
+
+const toastConfig = {
+  success: (props: any) => (
+    <BaseToast
+      {...props}
+      style={{ borderLeftColor: "#26B602" }}
+      contentContainerStyle={{ paddingHorizontal: 15 }}
+      text1Style={{
+        fontSize: 15,
+        fontWeight: '400'
+      }}
+    />
+  ),
 }
 
 export function WalletInvestment() {
@@ -180,7 +194,6 @@ export function WalletInvestment() {
     setInvestment(goals?.[whatIsGoalIndex]?.investment);
     if (investmentValue === goals?.[whatIsGoalIndex]?.amount) {
       setVisibleModalSuccess(true);
-
     }
   }, [goals]);
 
@@ -337,6 +350,7 @@ export function WalletInvestment() {
           </BorderlessButton>
         </SafeAreaView>
       </Modal>
+      <Toast config={toastConfig} />
     </SafeAreaView>
   );
 }

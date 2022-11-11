@@ -21,6 +21,7 @@ import * as Yup from "yup";
 import DropDownPicker from "react-native-dropdown-picker";
 import dayjs from "dayjs";
 import { AntDesign } from "@expo/vector-icons";
+import Toast from 'react-native-toast-message';
 
 interface FormData {
   [day: string]: any;
@@ -91,6 +92,15 @@ export function Wallet_InvestmentModal({
       Alert.alert("Não foi possível cadastrar a meta!");
     }
   }
+
+  function showToast() {
+    Toast.show({
+      type: 'success',
+      text1: 'Meta criada com sucesso!',
+      text2: 'Agora adicione investimentos para ela.',
+      visibilityTime: 6000
+    })
+  };
 
   const [openSelectDay, setOpenSelectDay] = useState(false);
   const [openSelectPriority, setOpenSelectPriority] = useState(false);
@@ -195,6 +205,7 @@ export function Wallet_InvestmentModal({
             style={styles.button}
             onPress={() => {
               handleSubmit(async (data) => await handleRegister(data))();
+              showToast();
               // setIsVisible(false);
             }}
           >
