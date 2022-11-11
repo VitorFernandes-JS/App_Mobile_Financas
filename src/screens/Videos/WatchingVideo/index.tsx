@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, Text, TextInput, ScrollView, View } from "react-native";
+import { SafeAreaView, Text, TextInput, ScrollView } from "react-native";
 import { styles } from "./styles";
 
 import { Header } from "../../../components/header";
@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 import { useRoute } from "@react-navigation/native";
 import { FontAwesome } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import { WebView } from 'react-native-webview';
 import Toast from 'react-native-toast-message';
 
@@ -131,6 +132,7 @@ export function WatchingVideo() {
         </BorderlessButton>
 
         <ScrollView style={styles.scroll}>
+          
           {commentary?.map((commentary) => {
             return (
               <SafeAreaView>
@@ -143,6 +145,9 @@ export function WatchingVideo() {
                   <SafeAreaView style={styles.viewDays}>
                     <Text style={styles.text1}>{commentary?.user?.name}</Text>
                     <Text style={styles.textDays}>- Há 1 dia(s)</Text>
+                    <BorderlessButton style={styles.iconDeleteCommentary}> {/* Fazer a lógica que o usuário só pode excluir o seu próprio comentário */}
+                      <AntDesign name="closecircleo" size={12} color="black" />
+                    </BorderlessButton>
                   </SafeAreaView>
                   <Text style={styles.text2}>{commentary?.description}</Text>
                 </SafeAreaView>

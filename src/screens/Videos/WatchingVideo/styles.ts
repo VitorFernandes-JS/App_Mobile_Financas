@@ -110,7 +110,7 @@ export const styles = StyleSheet.create({
     left: 20
   },
   iconUser: {
-    left: 50,
+    left: 30,
     top: 20
   },
   viewDays: {
@@ -119,19 +119,22 @@ export const styles = StyleSheet.create({
   text1: {
     fontFamily: theme.fonts.font6_semiBold,
     fontSize: 16,
-    left: 80
+    left: 60
   },
   textDays: {
     fontFamily: theme.fonts.font4_regular,
     top: 3,
     fontSize: 12,
-    left: 85
-
+    left: 65
+  },
+  iconDeleteCommentary: {
+    left: 75,
+    top: 15
   },
   text2: {
     width: 200,
     fontFamily: theme.fonts.font4_regular,
     fontSize: 12,
-    left: 80
+    left: 65
   }
 });
