@@ -27,7 +27,7 @@ const ips = {
 
 // const url = IS_PRODUCTION === "true" ? "https://bestfinance.herokuapp.com" : ip_casa_rafa;
 
-const url = ips.ip_casa_rafa_pc
+const url = ips.ip_casa_vitor
 
 const apiFinances = axios.create({
     baseURL: url,

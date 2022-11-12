@@ -96,11 +96,13 @@ export function Wallet({ token }: IWalletProps) {
       return acc
     }
 
+    
+
     return acc
   }, {
     Salario: {
       x: "Salario",
-      y: 0
+      y: 0 
     },
     Bonificacao: {
       x: "Bonificacao",
