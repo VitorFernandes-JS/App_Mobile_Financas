@@ -45,19 +45,92 @@ interface IWallet {
 }
 
 export function Wallet({ token }: IWalletProps) {
-  const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>(
-    []
-  );
   const [modalVisible, setModalVisible] = useState(false);
-  const [transactionsWallets, setTransactionsWallets] = useState<
-    ITransactionsWallets[]
-  >([]);
+  const [transactionsWallets, setTransactionsWallets] = useState<ITransactionsWallets[]>([]);
   const [wallet, setWallet] = useState<IWallet>({} as IWallet);
   const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false);
+  const [countReload, setCountReload] = useState(0)
 
   const expensives = transactionsWallets.filter(
     (expensive: ITransactionsWallets) => expensive.type === "withdraw"
   );
+
+  const dataForVictoryPie = expensives.reduce((acc, expensive) => {
+    if (expensive.category === "Salário") {
+      acc.Salario.y = acc.Salario.y + expensive.value
+      return acc
+    }
+
+    if (expensive.category === "Bonificacao") {
+      acc.Bonificacao.y = acc.Bonificacao.y + expensive.value
+      return acc
+    }
+
+    if (expensive.category === "Restaurante") {
+      acc.Restaurante.y = acc.Restaurante.y + expensive.value
+      return acc
+    }
+
+    if (expensive.category === "Viagem") {
+      acc.Viagem.y = acc.Viagem.y + expensive.value
+      return acc
+    }
+
+    if (expensive.category === "Passeio") {
+      acc.Passeio.y = acc.Passeio.y + expensive.value
+      return acc
+    }
+
+    if (expensive.category === "Farmacia") {
+      acc.Farmacia.y = acc.Farmacia.y + expensive.value
+      return acc
+    }
+
+    if (expensive.category === "Mercado") {
+      acc.Mercado.y = acc.Mercado.y + expensive.value
+      return acc
+    }
+
+    if (expensive.category === "Outros") {
+      acc.Outros.y = acc.Outros.y + expensive.value
+      return acc
+    }
+
+    return acc
+  }, {
+    Salario: {
+      x: "Salario",
+      y: 0
+    },
+    Bonificacao: {
+      x: "Bonificacao",
+      y: 0
+    },
+    Restaurante: {
+      x: "Restaurante",
+      y: 0
+    },
+    Viagem: {
+      x: "Viagem",
+      y: 0
+    },
+    Passeio: {
+      x: "Passeio",
+      y: 0
+    },
+    Farmacia: {
+      x: "Farmacia",
+      y: 0
+    },
+    Mercado: {
+      x: "Mercado",
+      y: 0
+    },
+    Outros: {
+      x: "Outros",
+      y: 0
+    },
+  })
 
   const expensivesTotal = expensives.reduce(
     (acumullator: number, expensive: ITransactionsWallets) => {
@@ -95,9 +168,9 @@ export function Wallet({ token }: IWalletProps) {
         percent,
       });
     }
-    setTotalByCategories(totalByCategory);
-    }
-  );
+  });
+
+  // setTotalByCategories(totalByCategory);
 
   const valueType = transactionsWallets.reduce(
     (acc, transaction) => {
@@ -139,6 +212,9 @@ export function Wallet({ token }: IWalletProps) {
   }, []);
 
   useEffect(() => {
+    if (countReload > 1) {
+      return;
+    }
     (async () => {
       try {
         const responseWallet = await apiFinances
@@ -154,11 +230,14 @@ export function Wallet({ token }: IWalletProps) {
         );
 
         setTransactionsWallets(responseTransactionsWallet?.data);
+        setCountReload(prevState => prevState + 1)
       } catch (error) {
         console.log("Error: ", error);
       }
     })();
   }, [transactionsWallets]);
+
+  const dataFormattedForGraphic = Object.values(dataForVictoryPie).filter((data) => data.y > 0).map((data) => data)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -253,7 +332,8 @@ export function Wallet({ token }: IWalletProps) {
           >
             <SafeAreaView>
               <VictoryPie
-                data={totalByCategories}
+                data={dataFormattedForGraphic}
+                colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
                 style={{
                   labels: {
                     fontSize: RFValue(18),
