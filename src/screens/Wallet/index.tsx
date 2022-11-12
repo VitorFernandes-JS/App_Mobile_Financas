@@ -51,148 +51,6 @@ export function Wallet({ token }: IWalletProps) {
   const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false);
   const [countReload, setCountReload] = useState(0)
 
-  const expensives = transactionsWallets.filter(
-    (expensive: ITransactionsWallets) => expensive.type === "withdraw"
-  );
-
-  const dataForVictoryPie = expensives.reduce((acc, expensive) => {
-    if (expensive.category === "Salário") {
-      acc.Salario.y = acc.Salario.y + expensive.value
-      return acc
-    }
-
-    if (expensive.category === "Bonificacao") {
-      acc.Bonificacao.y = acc.Bonificacao.y + expensive.value
-      return acc
-    }
-
-    if (expensive.category === "Restaurante") {
-      acc.Restaurante.y = acc.Restaurante.y + expensive.value
-      return acc
-    }
-
-    if (expensive.category === "Viagem") {
-      acc.Viagem.y = acc.Viagem.y + expensive.value
-      return acc
-    }
-
-    if (expensive.category === "Passeio") {
-      acc.Passeio.y = acc.Passeio.y + expensive.value
-      return acc
-    }
-
-    if (expensive.category === "Farmacia") {
-      acc.Farmacia.y = acc.Farmacia.y + expensive.value
-      return acc
-    }
-
-    if (expensive.category === "Mercado") {
-      acc.Mercado.y = acc.Mercado.y + expensive.value
-      return acc
-    }
-
-    if (expensive.category === "Outros") {
-      acc.Outros.y = acc.Outros.y + expensive.value
-      return acc
-    }
-
-    
-
-    return acc
-  }, {
-    Salario: {
-      x: "Salario",
-      y: 0 
-    },
-    Bonificacao: {
-      x: "Bonificacao",
-      y: 0
-    },
-    Restaurante: {
-      x: "Restaurante",
-      y: 0
-    },
-    Viagem: {
-      x: "Viagem",
-      y: 0
-    },
-    Passeio: {
-      x: "Passeio",
-      y: 0
-    },
-    Farmacia: {
-      x: "Farmacia",
-      y: 0
-    },
-    Mercado: {
-      x: "Mercado",
-      y: 0
-    },
-    Outros: {
-      x: "Outros",
-      y: 0
-    },
-  })
-
-  const expensivesTotal = expensives.reduce(
-    (acumullator: number, expensive: ITransactionsWallets) => {
-      return acumullator + Number(expensive.value);
-    },
-    0
-  );
-
-  const totalByCategory: CategoryData[] = [];
-
-  transactionsWallets.forEach((transaction) => {
-    let categorySum = 0;
-
-    expensives.forEach((expensive: ITransactionsWallets) => {
-      if (expensive.category === transaction.category) {
-        categorySum += Number(expensive.value);
-      }
-    });
-
-    if (categorySum > 0) {
-      const totalFormatted = categorySum.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      });
-
-      const percent = `${((categorySum / expensivesTotal) * 100).toFixed(
-        0
-      )}%`;
-
-      totalByCategory.push({
-        key: transaction.id,
-        name: transaction.category,
-        total: categorySum,
-        totalFormatted,
-        percent,
-      });
-    }
-  });
-
-  // setTotalByCategories(totalByCategory);
-
-  const valueType = transactionsWallets.reduce(
-    (acc, transaction) => {
-      if (transaction.type === "deposit") {
-        acc.deposit = acc.deposit + transaction.value;
-        return acc;
-      }
-      if (transaction.type === "withdraw") {
-        acc.withdraw = acc.withdraw - transaction.value;
-        return acc;
-      }
-
-      return acc;
-    },
-    {
-      deposit: 0,
-      withdraw: 0,
-    }
-  );
-
   useEffect(() => {
     (async () => {
       try {
@@ -239,7 +97,131 @@ export function Wallet({ token }: IWalletProps) {
     })();
   }, [transactionsWallets]);
 
-  const dataFormattedForGraphic = Object.values(dataForVictoryPie).filter((data) => data.y > 0).map((data) => data)
+  const expensives = transactionsWallets.filter(
+    (expensive: ITransactionsWallets) => expensive.type === "withdraw"
+  );
+
+  const totalExpensives = expensives.reduce((acc, expensive) => acc += expensive.value, 0);
+
+  const dataForVictoryPie = expensives.reduce((acc, expensive) => {
+
+    if (expensive.category === "Salário") {
+      acc.Salario.y = acc.Salario.y + expensive.value
+      acc.Salario.x = (acc.Salario.y / totalExpensives) * 100
+      return acc
+    }
+
+    if (expensive.category === "Bonificacao") {
+      acc.Bonificacao.y = acc.Bonificacao.y + expensive.value
+      acc.Bonificacao.x = (acc.Bonificacao.y / totalExpensives) * 100
+      return acc
+    }
+
+    if (expensive.category === "Restaurante") {
+      acc.Restaurante.y = acc.Restaurante.y + expensive.value
+      acc.Restaurante.x = (acc.Restaurante.y / totalExpensives) * 100
+      return acc
+    }
+
+    if (expensive.category === "Viagem") {
+      acc.Viagem.y = acc.Viagem.y + expensive.value
+      acc.Viagem.x = (acc.Viagem.y / totalExpensives) * 100
+      return acc
+    }
+
+    if (expensive.category === "Passeio") {
+      acc.Passeio.y = acc.Passeio.y + expensive.value
+      acc.Passeio.x = (acc.Passeio.y / totalExpensives) * 100
+      return acc
+    }
+
+    if (expensive.category === "Farmacia") {
+      acc.Farmacia.y = acc.Farmacia.y + expensive.value
+      acc.Farmacia.x = (acc.Farmacia.y / totalExpensives) * 100
+      return acc
+    }
+
+    if (expensive.category === "Mercado") {
+      acc.Mercado.y = acc.Mercado.y + expensive.value
+      acc.Mercado.x = (acc.Mercado.y / totalExpensives) * 100
+      return acc
+    }
+
+    if (expensive.category === "Outros") {
+      acc.Outros.y = acc.Outros.y + expensive.value
+      acc.Outros.x = (acc.Outros.y / totalExpensives) * 100
+      return acc
+    }
+
+    return acc
+  }, {
+    Salario: {
+      x: 0,
+      y: 0,
+      category: "Salario",
+    },
+    Bonificacao: {
+      x: 0,
+      y: 0,
+      category: "Bonificacao",
+    },
+    Restaurante: {
+      x: 0,
+      y: 0,
+      category: "Restaurante",
+    },
+    Viagem: {
+      x: 0,
+      y: 0,
+      category: "Viagem",
+    },
+    Passeio: {
+      x: 0,
+      y: 0,
+      category: "Passeio",
+    },
+    Farmacia: {
+      x: 0,
+      y: 0,
+      category: "Farmacia",
+    },
+    Mercado: {
+      x: 0,
+      y: 0,
+      category: "Mercado",
+    },
+    Outros: {
+      x: 0,
+      y: 0,
+      category: "Outros",
+    },
+  })
+
+  const valueType = transactionsWallets.reduce(
+    (acc, transaction) => {
+      if (transaction.type === "deposit") {
+        acc.deposit = acc.deposit + transaction.value;
+        return acc;
+      }
+      if (transaction.type === "withdraw") {
+        acc.withdraw = acc.withdraw - transaction.value;
+        return acc;
+      }
+
+      return acc;
+    },
+    {
+      deposit: 0,
+      withdraw: 0,
+    }
+  );
+
+  const dataFormattedForGraphic = Object.values(dataForVictoryPie).filter((data) => data.y > 0).map(data => {
+    return {
+      ...data,
+      x: data.x.toFixed(2) + '%',
+    }
+  })
 
   return (
     <SafeAreaView style={styles.container}>
@@ -347,11 +329,14 @@ export function Wallet({ token }: IWalletProps) {
               />
             </SafeAreaView>
 
-            <HistoryCard
-              title={"Restaurante"}
-              amount={"R$ 150,00"}
-              color={"#f0f"}
-            />
+            {dataFormattedForGraphic.map((data, index) => (
+              <HistoryCard
+                key={index}
+                title={data.category}
+                amount={data.y}
+                color={"#f0f"}
+              />
+            ))}
           </ScrollView>
         </SafeAreaView>
       </Modal>
