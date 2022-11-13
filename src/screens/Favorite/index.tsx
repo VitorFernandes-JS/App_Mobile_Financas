@@ -20,7 +20,6 @@ interface IFavoriteVideo {
   video: {
     url: string
   };
-  setData: (p: any) => any;
 }
 
 
@@ -30,7 +29,7 @@ export function Favorite() {
 
   const [visible, setVisible] = useState(false);
   const [favoriteVideos, setFavoriteVideos] = useState<IFavoriteVideo[]>([])
-  const [favoriteVideoId, setFavoriteVideoId] = useState<IFavoriteVideo>({} as IFavoriteVideo)
+  const [favoriteVideoId, setFavoriteVideoId] = useState('')
 
 
   useEffect(() => {
@@ -46,12 +45,18 @@ export function Favorite() {
       setFavoriteVideos(formatedVideos)
     })
   }, [])
-  
-  async function handleDeleteFavorite(id : any) {
-    await apiFinances.delete('/favorite_videos/' + id)
-    setFavoriteVideoId(id)
+
+  function handleShowModalDeleteFavoriteVideo(videoId: string) {
+    setFavoriteVideoId(videoId)
+    setVisible(true)
+  }
+
+  async function handleDeleteFavorite() {
+    await apiFinances.delete('/favorite_videos/' + favoriteVideoId)
+    setFavoriteVideos((prevFavoriteVideos) => {
+      return prevFavoriteVideos.filter((favoriteVideo) => favoriteVideo.id !== favoriteVideoId)
+    })
     setVisible(false)
-    favoriteVideos.forEach((item) => item.setData((prevState: any) => [...prevState]))
   }
 
   return (
@@ -67,14 +72,14 @@ export function Favorite() {
         />
       </SafeAreaView>
 
-      
+
       <ScrollView
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{ height: 1200 }}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ height: 1200 }}
       >
-      {favoriteVideos.map((favoriteVideo) => {
-        return (
-              <SafeAreaView style={styles.viewBoxVideo}>
+        {favoriteVideos.map((favoriteVideo, key) => {
+          return (
+            <SafeAreaView style={styles.viewBoxVideo} key={key}>
               <WebView
                 source={{ uri: favoriteVideo.video.url }}
                 style={styles.video}
@@ -84,12 +89,12 @@ export function Favorite() {
               />
               <BorderlessButton style={styles.trash}>
                 <Trash onPress={() => {
-              setVisible(true);
-            }}/>
+                  handleShowModalDeleteFavoriteVideo(favoriteVideo.id);
+                }} />
               </BorderlessButton>
-              </SafeAreaView>
-        )
-      })}
+            </SafeAreaView>
+          )
+        })}
       </ScrollView>
 
       <Modal animationType="slide" transparent={true} visible={visible}>
@@ -101,7 +106,7 @@ export function Favorite() {
           <BorderlessButton
             style={styles.buttonToExclude}
             onPress={async () => {
-              await handleDeleteFavorite(favoriteVideoId.id)
+              handleDeleteFavorite()
             }}
           >
             <Text style={styles.textToExclude}>Excluir</Text>

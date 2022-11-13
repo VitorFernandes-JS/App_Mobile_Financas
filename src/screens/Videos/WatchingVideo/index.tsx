@@ -72,6 +72,10 @@ export function WatchingVideo() {
     }).catch((err) => console.log(err))
   }, [])
 
+  useEffect(() => {
+    console.warn(commentary)
+  }, [commentary])
+
   return (
 
     <SafeAreaView style={styles.container}>
@@ -132,10 +136,10 @@ export function WatchingVideo() {
         </BorderlessButton>
 
         <ScrollView style={styles.scroll}>
-          
-          {commentary?.map((commentary) => {
+
+          {commentary?.map((commentary, key) => {
             return (
-              <SafeAreaView>
+              <SafeAreaView key={key}>
 
                 <SafeAreaView style={styles.iconUser}>
                   <FontAwesome name="user-circle-o" size={24} color={theme.colors.color3} />
@@ -145,7 +149,7 @@ export function WatchingVideo() {
                   <SafeAreaView style={styles.viewDays}>
                     <Text style={styles.text1}>{commentary?.user?.name}</Text>
                     <Text style={styles.textDays}>- Há 1 dia(s)</Text>
-                    <BorderlessButton style={styles.iconDeleteCommentary}> {/* Fazer a lógica que o usuário só pode excluir o seu próprio comentário */}
+                    <BorderlessButton style={styles.iconDeleteCommentary}>
                       <AntDesign name="closecircleo" size={12} color="black" />
                     </BorderlessButton>
                   </SafeAreaView>
