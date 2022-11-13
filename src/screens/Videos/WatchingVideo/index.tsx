@@ -45,9 +45,15 @@ interface ICommentary {
   }
 }
 
+interface IProfile {
+  email: string;
+}
+
 export function WatchingVideo() {
   const route = useRoute();
   const { token, video } = route.params as IVideosProps;
+
+  const [profile, setProfile] = useState({} as IProfile)
   const [commentary, setCommentary] = useState<ICommentary[]>([]);
   const [text, setText] = useState<string>("");
 
@@ -60,24 +66,36 @@ export function WatchingVideo() {
     })
   };
 
+  async function loadProfile() {
+    const response = await fetch(
+      `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${token}`
+    );
+    const userInfo = await response.json();
+    setProfile(userInfo);
+  }
+
   function handleFavoriteVideo() {
     apiFinances.post('/favorite_videos/video/' + video.id).then(() => {
       showToast()
     }).catch((err) => console.log(err))
   }
 
+  async function handleDeleteCommentary(commentaryId: string) {
+    await apiFinances.delete('/commentarys/' + commentaryId)
+    setCommentary((prevCommentaries) => {
+      return prevCommentaries.filter((commentary) => commentary.id !== commentaryId)
+    })
+  }
+
   useEffect(() => {
     apiFinances.get('/commentarys/video/' + video.id).then(response => {
       setCommentary(response.data)
     }).catch((err) => console.log(err))
+
+    loadProfile();
   }, [])
 
-  useEffect(() => {
-    console.warn(commentary)
-  }, [commentary])
-
   return (
-
     <SafeAreaView style={styles.container}>
       <Header />
 
@@ -149,9 +167,12 @@ export function WatchingVideo() {
                   <SafeAreaView style={styles.viewDays}>
                     <Text style={styles.text1}>{commentary?.user?.name}</Text>
                     <Text style={styles.textDays}>- Há 1 dia(s)</Text>
-                    <BorderlessButton style={styles.iconDeleteCommentary}>
-                      <AntDesign name="closecircleo" size={12} color="black" />
-                    </BorderlessButton>
+                    {commentary.user.email === profile.email ?
+                      (
+                        <BorderlessButton style={styles.iconDeleteCommentary} onPress={() => handleDeleteCommentary(commentary.id)}>
+                          <AntDesign name="closecircleo" size={12} color="black" />
+                        </BorderlessButton>
+                      ) : null}
                   </SafeAreaView>
                   <Text style={styles.text2}>{commentary?.description}</Text>
                 </SafeAreaView>

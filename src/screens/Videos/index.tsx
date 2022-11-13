@@ -7,11 +7,17 @@ import { Baseboard } from "../../components/baseboard";
 import { ModalPattern } from "../../components/modalPattern";
 import { BoxVideos } from "../../components/boxVideos";
 import { WebView } from 'react-native-webview';
-interface IVideosProps {
+import { useRoute } from "@react-navigation/native";
+
+interface IRouteParams {
   token: string;
 }
 
-export function Videos({ token }: IVideosProps) {
+export function Videos() {
+  const route = useRoute();
+
+  const { token } = route.params as IRouteParams;
+
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -31,7 +37,7 @@ export function Videos({ token }: IVideosProps) {
           <Text style={styles.start}>COMECE AQUI! </Text>
         </SafeAreaView>
         <WebView
-          source={{uri: "https://www.youtube.com/embed/bxUksd21WnA" }}
+          source={{ uri: "https://www.youtube.com/embed/bxUksd21WnA" }}
           style={styles.video}
         />
       </SafeAreaView>
