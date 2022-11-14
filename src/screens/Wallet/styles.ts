@@ -1,5 +1,9 @@
 import { StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
+import styled from "styled-components/native";
+import { BorderlessButton } from "react-native-gesture-handler";
+import { RFValue } from "react-native-responsive-fontsize";
+import { Feather } from "@expo/vector-icons";
 
 export const styles = StyleSheet.create({
   container: {
@@ -98,5 +102,34 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     shadowOpacity: 0.8,
     shadowOffset: { width: 2, height: 1 },
+  },
+  buttonClose: {
+    left: 180,
+    top: 15
   }
 });
+
+export const LoadContainer = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const MonthSelect = styled.View`
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    `;
+
+export const MonthSelectIcon = styled(Feather)`
+    font-size: ${RFValue(24)}px;
+    margin-inline: 24px;
+`;
+
+export const Month = styled.Text`
+    font-family: ${theme.fonts.font4_regular};
+    font-size: ${RFValue(20)}px;
+`;
+

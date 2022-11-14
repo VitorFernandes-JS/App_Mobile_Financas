@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text, ScrollView, Modal } from "react-native";
-import { styles } from "./styles";
+import {
+  styles,
+  Month,
+  MonthSelect,
+  MonthSelectIcon,
+} from "./styles";
 
 import WalletImg from "../../assets/wallet.png";
 
@@ -18,6 +23,9 @@ import { HistoryCard } from "../../components/HistoryCard";
 import { VictoryPie } from "victory-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import { theme } from "../../global/styles/theme";
+import { addMonths, subMonths, format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { Loading } from "../../components/Loading";
 
 interface IWalletProps {
   token: string;
@@ -46,11 +54,25 @@ interface IWallet {
 }
 
 export function Wallet({ token }: IWalletProps) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [modalVisible, setModalVisible] = useState(false);
-  const [transactionsWallets, setTransactionsWallets] = useState<ITransactionsWallets[]>([]);
+  const [transactionsWallets, setTransactionsWallets] = useState<
+    ITransactionsWallets[]
+  >([]);
   const [wallet, setWallet] = useState<IWallet>({} as IWallet);
   const [isActiveButtonDelete, setIsActiveButtonDelete] = useState(false);
-  const [countReload, setCountReload] = useState(0)
+  const [countReload, setCountReload] = useState(0);
+
+  function handleDateChange(action: "next" | "prev") {
+    if (action === "next") {
+      setSelectedDate(addMonths(selectedDate, 1));
+      console.log(selectedDate);
+    } else {
+      setSelectedDate(subMonths(selectedDate, 1));
+      console.log(selectedDate);
+    }
+  }
 
   useEffect(() => {
     (async () => {
@@ -91,120 +113,130 @@ export function Wallet({ token }: IWalletProps) {
         );
 
         setTransactionsWallets(responseTransactionsWallet?.data);
-        setCountReload(prevState => prevState + 1)
+        setCountReload((prevState) => prevState + 1);
       } catch (error) {
         console.log("Error: ", error);
       }
     })();
+    setIsLoading(false);
   }, [transactionsWallets]);
 
   const expensives = transactionsWallets.filter(
-    (expensive: ITransactionsWallets) => expensive.type === "withdraw"
+    (expensive: ITransactionsWallets) =>
+      expensive.type === "withdraw" &&
+      new Date(expensive.created_at).getMonth() === selectedDate.getMonth() &&
+      new Date(expensive.created_at).getFullYear() ===
+        selectedDate.getFullYear()
   );
 
-  const totalExpensives = expensives.reduce((acc, expensive) => acc += expensive.value, 0);
+  const totalExpensives = expensives.reduce(
+    (acc, expensive) => (acc += expensive.value),
+    0
+  );
 
-  const dataForVictoryPie = expensives.reduce((acc, expensive) => {
+  const dataForVictoryPie = expensives.reduce(
+    (acc, expensive) => {
+      if (expensive.category === "Salário") {
+        acc.Salario.y = acc.Salario.y + expensive.value;
+        acc.Salario.x = (acc.Salario.y / totalExpensives) * 100;
+        return acc;
+      }
 
-    if (expensive.category === "Salário") {
-      acc.Salario.y = acc.Salario.y + expensive.value
-      acc.Salario.x = (acc.Salario.y / totalExpensives) * 100
-      return acc
-    }
+      if (expensive.category === "Bonificacao") {
+        acc.Bonificacao.y = acc.Bonificacao.y + expensive.value;
+        acc.Bonificacao.x = (acc.Bonificacao.y / totalExpensives) * 100;
+        return acc;
+      }
 
-    if (expensive.category === "Bonificacao") {
-      acc.Bonificacao.y = acc.Bonificacao.y + expensive.value
-      acc.Bonificacao.x = (acc.Bonificacao.y / totalExpensives) * 100
-      return acc
-    }
+      if (expensive.category === "Restaurante") {
+        acc.Restaurante.y = acc.Restaurante.y + expensive.value;
+        acc.Restaurante.x = (acc.Restaurante.y / totalExpensives) * 100;
+        return acc;
+      }
 
-    if (expensive.category === "Restaurante") {
-      acc.Restaurante.y = acc.Restaurante.y + expensive.value
-      acc.Restaurante.x = (acc.Restaurante.y / totalExpensives) * 100
-      return acc
-    }
+      if (expensive.category === "Viagem") {
+        acc.Viagem.y = acc.Viagem.y + expensive.value;
+        acc.Viagem.x = (acc.Viagem.y / totalExpensives) * 100;
+        return acc;
+      }
 
-    if (expensive.category === "Viagem") {
-      acc.Viagem.y = acc.Viagem.y + expensive.value
-      acc.Viagem.x = (acc.Viagem.y / totalExpensives) * 100
-      return acc
-    }
+      if (expensive.category === "Passeio") {
+        acc.Passeio.y = acc.Passeio.y + expensive.value;
+        acc.Passeio.x = (acc.Passeio.y / totalExpensives) * 100;
+        return acc;
+      }
 
-    if (expensive.category === "Passeio") {
-      acc.Passeio.y = acc.Passeio.y + expensive.value
-      acc.Passeio.x = (acc.Passeio.y / totalExpensives) * 100
-      return acc
-    }
+      if (expensive.category === "Farmacia") {
+        acc.Farmacia.y = acc.Farmacia.y + expensive.value;
+        acc.Farmacia.x = (acc.Farmacia.y / totalExpensives) * 100;
+        return acc;
+      }
 
-    if (expensive.category === "Farmacia") {
-      acc.Farmacia.y = acc.Farmacia.y + expensive.value
-      acc.Farmacia.x = (acc.Farmacia.y / totalExpensives) * 100
-      return acc
-    }
+      if (expensive.category === "Mercado") {
+        acc.Mercado.y = acc.Mercado.y + expensive.value;
+        acc.Mercado.x = (acc.Mercado.y / totalExpensives) * 100;
+        return acc;
+      }
 
-    if (expensive.category === "Mercado") {
-      acc.Mercado.y = acc.Mercado.y + expensive.value
-      acc.Mercado.x = (acc.Mercado.y / totalExpensives) * 100
-      return acc
-    }
+      if (expensive.category === "Outros") {
+        acc.Outros.y = acc.Outros.y + expensive.value;
+        acc.Outros.x = (acc.Outros.y / totalExpensives) * 100;
+        return acc;
+      }
 
-    if (expensive.category === "Outros") {
-      acc.Outros.y = acc.Outros.y + expensive.value
-      acc.Outros.x = (acc.Outros.y / totalExpensives) * 100
-      return acc
-    }
-
-    return acc
-  }, {
-    Salario: {
-      x: 0,
-      y: 0,
-      category: "Salario",
-      color: "#FF872C",
+      return acc;
     },
-    Bonificacao: {
-      x: 0,
-      y: 0,
-      category: "Bonificacao",
-      color: "#E83F5B",
-    },
-    Restaurante: {
-      x: 0,
-      y: 0,
-      category: "Restaurante",
-      color: "#5636D3",
-    },
-    Viagem: {
-      x: 0,
-      y: 0,
-      category: "Viagem",
-      color: "#d8ff2c",
-    },
-    Passeio: {
-      x: 0,
-      y: 0,
-      category: "Passeio",
-      color: "#ff2c2c",
-    },
-    Farmacia: {
-      x: 0,
-      y: 0,
-      category: "Farmacia",
-      color: "#2c2cff",
-    },
-    Mercado: {
-      x: 0,
-      y: 0,
-      category: "Mercado",
-      color: "#2cffca",
-    },
-    Outros: {
-      x: 0,
-      y: 0,
-      category: "Outros",
-      color: "#2c2c2c",
-    },
-  })
+    {
+      Salario: {
+        x: 0,
+        y: 0,
+        category: "Salario",
+        color: "#FF872C",
+      },
+      Bonificacao: {
+        x: 0,
+        y: 0,
+        category: "Bonificacao",
+        color: "#E83F5B",
+      },
+      Restaurante: {
+        x: 0,
+        y: 0,
+        category: "Restaurante",
+        color: "#5636D3",
+      },
+      Viagem: {
+        x: 0,
+        y: 0,
+        category: "Viagem",
+        color: "#d8ff2c",
+      },
+      Passeio: {
+        x: 0,
+        y: 0,
+        category: "Passeio",
+        color: "#ff2c2c",
+      },
+      Farmacia: {
+        x: 0,
+        y: 0,
+        category: "Farmacia",
+        color: "#2c2cff",
+      },
+      Mercado: {
+        x: 0,
+        y: 0,
+        category: "Mercado",
+        color: "#2cffca",
+      },
+      Outros: {
+        x: 0,
+        y: 0,
+        category: "Outros",
+        color: "#2c2c2c",
+      },
+    }
+  );
 
   const valueType = transactionsWallets.reduce(
     (acc, transaction) => {
@@ -225,12 +257,14 @@ export function Wallet({ token }: IWalletProps) {
     }
   );
 
-  const dataFormattedForGraphic = Object.values(dataForVictoryPie).filter((data) => data.y > 0).map(data => {
-    return {
-      ...data,
-      x: data.x.toFixed(2) + '%',
-    }
-  })
+  const dataFormattedForGraphic = Object.values(dataForVictoryPie)
+    .filter((data) => data.y > 0)
+    .map((data) => {
+      return {
+        ...data,
+        x: data.x.toFixed(2) + "%",
+      };
+    });
 
   return (
     <SafeAreaView style={styles.container}>
@@ -307,11 +341,15 @@ export function Wallet({ token }: IWalletProps) {
         </SafeAreaView>
       </ScrollView>
 
-      <Baseboard token={token} />
-
       <Modal visible={modalVisible} animationType="slide" transparent={true}>
+        {/* {isLoading ? (
+          <LoadContainer>
+          <Loading />
+        </LoadContainer>
+      ) : ( */}
         <SafeAreaView style={styles.containerModal}>
           <BorderlessButton
+            style={styles.buttonClose}
             onPress={() => {
               setModalVisible(false);
             }}
@@ -319,11 +357,26 @@ export function Wallet({ token }: IWalletProps) {
             <AntDesign name="closecircleo" color="red" size={25} />
           </BorderlessButton>
 
+          <MonthSelect>
+              <BorderlessButton style={{ left: 20}} onPress={() => handleDateChange("prev")}>
+                <MonthSelectIcon name="chevron-left" />
+              </BorderlessButton>
+
+              <Month>
+                {format(selectedDate, "MMMM, yyyy", { locale: ptBR })}
+              </Month>
+
+              <BorderlessButton style={{ left: -20}} onPress={() => handleDateChange("next")}>
+                <MonthSelectIcon name="chevron-right" />
+              </BorderlessButton>
+            </MonthSelect>
+
           <ScrollView
             contentContainerStyle={{ width: "100%", alignItems: "center" }}
             showsVerticalScrollIndicator={false}
           >
-            <SafeAreaView>
+            {dataFormattedForGraphic.length > 0 ? (
+            <SafeAreaView style={{ top: 5 }}>
               <VictoryPie
                 data={dataFormattedForGraphic}
                 colorScale={dataFormattedForGraphic.map((data) => data.color)}
@@ -338,7 +391,11 @@ export function Wallet({ token }: IWalletProps) {
                 labelRadius={50}
               />
             </SafeAreaView>
-
+            ) : (
+              <Text style={{top: 200, textAlign: "center", fontSize: 20, fontFamily: theme.fonts.font4_regular}}>
+                Você não possui {`\n`}transações nesse mês.
+              </Text>
+            )}
             {dataFormattedForGraphic.map((data, index) => (
               <HistoryCard
                 key={index}
@@ -347,9 +404,12 @@ export function Wallet({ token }: IWalletProps) {
                 color={data.color}
               />
             ))}
+
           </ScrollView>
         </SafeAreaView>
       </Modal>
+
+      <Baseboard token={token} />
     </SafeAreaView>
   );
 }
