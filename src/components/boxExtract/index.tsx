@@ -21,14 +21,13 @@ export interface IBoxExtractProps {
 }
 
 const icons = {
-  Salario: "activity",
-  Bonificacao: "dollar-sign",
-  Restaurante: "coffee",
-  Viagem: "sun",
-  Passeio: "map-pin",
-  Farmacia: "shopping-bag",
-  Mercado: "shopping-cart",
-  Outros: "dollar-sign",
+  Compras: "shopping-bag",
+  Alimentacao: "coffee",
+  Salario: "dollar-sign",
+  Viagem: "map-pin",
+  Estudos: "book",
+  Farmacia: "shopping-cart",
+  Outros: "credit-card",
 };
 
 export function BoxExtract({
@@ -47,10 +46,11 @@ export function BoxExtract({
     return newString
   }
 
-  async function handleDeleteBoxExtract(walletId: string) {
-    await apiFinances.delete('/transactions_wallets/' + walletId)
+  async function handleDeleteBoxExtract() {
     setVisible(false)
-    setTransactionsWallets((prevState: any) => [...prevState])
+    setTransactionsWallets((prevState: any) => {
+      return prevState.filter((prevTransactionWallet: any) => transactionWallet.id !== prevTransactionWallet.id)
+    })
   }
 
   return (
@@ -60,7 +60,7 @@ export function BoxExtract({
           <BorderlessButton
             style={styles.closeModalIcon}
             onPress={() => {
-              setVisible(true);
+                setVisible(true)
             }}
           >
             <AntDesign name="closecircle" color="red" size={22} />
@@ -115,7 +115,7 @@ export function BoxExtract({
           <BorderlessButton
             style={styles.buttonToExclude}
             onPress={async () => {
-              await handleDeleteBoxExtract(transactionWallet.id)
+              handleDeleteBoxExtract()
             }}
           >
             <Text style={styles.textToExclude}>Excluir</Text>

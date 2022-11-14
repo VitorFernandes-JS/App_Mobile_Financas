@@ -125,7 +125,6 @@ export const MonthSelect = styled.View`
 
 export const MonthSelectIcon = styled(Feather)`
     font-size: ${RFValue(24)}px;
-    margin-inline: 24px;
 `;
 
 export const Month = styled.Text`

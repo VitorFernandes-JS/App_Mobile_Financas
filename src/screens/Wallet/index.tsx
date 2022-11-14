@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, Text, ScrollView, Modal } from "react-native";
-import {
-  styles,
-  Month,
-  MonthSelect,
-  MonthSelectIcon,
-} from "./styles";
+import { styles, Month, MonthSelect, MonthSelectIcon } from "./styles";
 
 import WalletImg from "../../assets/wallet.png";
 
@@ -25,7 +20,6 @@ import { RFValue } from "react-native-responsive-fontsize";
 import { theme } from "../../global/styles/theme";
 import { addMonths, subMonths, format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { Loading } from "../../components/Loading";
 
 interface IWalletProps {
   token: string;
@@ -54,7 +48,6 @@ interface IWallet {
 }
 
 export function Wallet({ token }: IWalletProps) {
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [modalVisible, setModalVisible] = useState(false);
   const [transactionsWallets, setTransactionsWallets] = useState<
@@ -95,7 +88,7 @@ export function Wallet({ token }: IWalletProps) {
   }, []);
 
   useEffect(() => {
-    if (countReload > 1) {
+    if (countReload > 0) {
       return;
     }
     (async () => {
@@ -118,7 +111,6 @@ export function Wallet({ token }: IWalletProps) {
         console.log("Error: ", error);
       }
     })();
-    setIsLoading(false);
   }, [transactionsWallets]);
 
   const expensives = transactionsWallets.filter(
@@ -136,21 +128,21 @@ export function Wallet({ token }: IWalletProps) {
 
   const dataForVictoryPie = expensives.reduce(
     (acc, expensive) => {
-      if (expensive.category === "Salário") {
+      if (expensive.category === "Compras") {
+        acc.Compras.y = acc.Compras.y + expensive.value;
+        acc.Compras.x = (acc.Compras.y / totalExpensives) * 100;
+        return acc;
+      }
+
+      if (expensive.category === "Alimentacao") {
+        acc.Alimentacao.y = acc.Alimentacao.y + expensive.value;
+        acc.Alimentacao.x = (acc.Alimentacao.y / totalExpensives) * 100;
+        return acc;
+      }
+
+      if (expensive.category === "Salario") {
         acc.Salario.y = acc.Salario.y + expensive.value;
         acc.Salario.x = (acc.Salario.y / totalExpensives) * 100;
-        return acc;
-      }
-
-      if (expensive.category === "Bonificacao") {
-        acc.Bonificacao.y = acc.Bonificacao.y + expensive.value;
-        acc.Bonificacao.x = (acc.Bonificacao.y / totalExpensives) * 100;
-        return acc;
-      }
-
-      if (expensive.category === "Restaurante") {
-        acc.Restaurante.y = acc.Restaurante.y + expensive.value;
-        acc.Restaurante.x = (acc.Restaurante.y / totalExpensives) * 100;
         return acc;
       }
 
@@ -160,21 +152,15 @@ export function Wallet({ token }: IWalletProps) {
         return acc;
       }
 
-      if (expensive.category === "Passeio") {
-        acc.Passeio.y = acc.Passeio.y + expensive.value;
-        acc.Passeio.x = (acc.Passeio.y / totalExpensives) * 100;
+      if (expensive.category === "Estudos") {
+        acc.Estudos.y = acc.Estudos.y + expensive.value;
+        acc.Estudos.x = (acc.Estudos.y / totalExpensives) * 100;
         return acc;
       }
 
       if (expensive.category === "Farmacia") {
         acc.Farmacia.y = acc.Farmacia.y + expensive.value;
         acc.Farmacia.x = (acc.Farmacia.y / totalExpensives) * 100;
-        return acc;
-      }
-
-      if (expensive.category === "Mercado") {
-        acc.Mercado.y = acc.Mercado.y + expensive.value;
-        acc.Mercado.x = (acc.Mercado.y / totalExpensives) * 100;
         return acc;
       }
 
@@ -187,22 +173,22 @@ export function Wallet({ token }: IWalletProps) {
       return acc;
     },
     {
+      Compras: {
+        x: 0,
+        y: 0,
+        category: "Compras",
+        color: "#FF872C",
+      },
+      Alimentacao: {
+        x: 0,
+        y: 0,
+        category: "Alimentacao",
+        color: "#E83F5B",
+      },
       Salario: {
         x: 0,
         y: 0,
         category: "Salario",
-        color: "#FF872C",
-      },
-      Bonificacao: {
-        x: 0,
-        y: 0,
-        category: "Bonificacao",
-        color: "#E83F5B",
-      },
-      Restaurante: {
-        x: 0,
-        y: 0,
-        category: "Restaurante",
         color: "#5636D3",
       },
       Viagem: {
@@ -211,10 +197,10 @@ export function Wallet({ token }: IWalletProps) {
         category: "Viagem",
         color: "#d8ff2c",
       },
-      Passeio: {
+      Estudos: {
         x: 0,
         y: 0,
-        category: "Passeio",
+        category: "Estudos",
         color: "#ff2c2c",
       },
       Farmacia: {
@@ -222,12 +208,6 @@ export function Wallet({ token }: IWalletProps) {
         y: 0,
         category: "Farmacia",
         color: "#2c2cff",
-      },
-      Mercado: {
-        x: 0,
-        y: 0,
-        category: "Mercado",
-        color: "#2cffca",
       },
       Outros: {
         x: 0,
@@ -342,11 +322,6 @@ export function Wallet({ token }: IWalletProps) {
       </ScrollView>
 
       <Modal visible={modalVisible} animationType="slide" transparent={true}>
-        {/* {isLoading ? (
-          <LoadContainer>
-          <Loading />
-        </LoadContainer>
-      ) : ( */}
         <SafeAreaView style={styles.containerModal}>
           <BorderlessButton
             style={styles.buttonClose}
@@ -358,41 +333,54 @@ export function Wallet({ token }: IWalletProps) {
           </BorderlessButton>
 
           <MonthSelect>
-              <BorderlessButton style={{ left: 20}} onPress={() => handleDateChange("prev")}>
-                <MonthSelectIcon name="chevron-left" />
-              </BorderlessButton>
+            <BorderlessButton
+              style={{ left: 20 }}
+              onPress={() => handleDateChange("prev")}
+            >
+              <MonthSelectIcon name="chevron-left" />
+            </BorderlessButton>
 
-              <Month>
-                {format(selectedDate, "MMMM, yyyy", { locale: ptBR })}
-              </Month>
+            <Month>
+              {format(selectedDate, "MMMM, yyyy", { locale: ptBR })}
+            </Month>
 
-              <BorderlessButton style={{ left: -20}} onPress={() => handleDateChange("next")}>
-                <MonthSelectIcon name="chevron-right" />
-              </BorderlessButton>
-            </MonthSelect>
+            <BorderlessButton
+              style={{ left: -20 }}
+              onPress={() => handleDateChange("next")}
+            >
+              <MonthSelectIcon name="chevron-right" />
+            </BorderlessButton>
+          </MonthSelect>
 
           <ScrollView
             contentContainerStyle={{ width: "100%", alignItems: "center" }}
             showsVerticalScrollIndicator={false}
           >
             {dataFormattedForGraphic.length > 0 ? (
-            <SafeAreaView style={{ top: 5 }}>
-              <VictoryPie
-                data={dataFormattedForGraphic}
-                colorScale={dataFormattedForGraphic.map((data) => data.color)}
-                style={{
-                  labels: {
-                    fontSize: RFValue(18),
-                    fontWeight: "bold",
-                    fill: "white",
-                    fontFamily: theme.fonts.font4_regular,
-                  },
-                }}
-                labelRadius={50}
-              />
-            </SafeAreaView>
+              <SafeAreaView style={{ top: 5 }}>
+                <VictoryPie
+                  data={dataFormattedForGraphic}
+                  colorScale={dataFormattedForGraphic.map((data) => data.color)}
+                  style={{
+                    labels: {
+                      fontSize: RFValue(18),
+                      fontWeight: "bold",
+                      fill: "white",
+                      fontFamily: theme.fonts.font4_regular,
+                    },
+                  }}
+                  labelRadius={50}
+                />
+              </SafeAreaView>
             ) : (
-              <Text style={{top: 200, textAlign: "center", fontSize: 20, fontFamily: theme.fonts.font4_regular}}>
+              <Text
+                style={{
+                  top: 200,
+                  textAlign: "center",
+                  fontSize: 20,
+                  fontFamily: theme.fonts.font4_regular,
+                }}
+              >
                 Você não possui {`\n`}transações nesse mês.
               </Text>
             )}
@@ -404,7 +392,6 @@ export function Wallet({ token }: IWalletProps) {
                 color={data.color}
               />
             ))}
-
           </ScrollView>
         </SafeAreaView>
       </Modal>
