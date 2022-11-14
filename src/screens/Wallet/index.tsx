@@ -17,6 +17,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { HistoryCard } from "../../components/HistoryCard";
 import { VictoryPie } from "victory-native";
 import { RFValue } from "react-native-responsive-fontsize";
+import { theme } from "../../global/styles/theme";
 
 interface IWalletProps {
   token: string;
@@ -331,6 +332,7 @@ export function Wallet({ token }: IWalletProps) {
                     fontSize: RFValue(18),
                     fontWeight: "bold",
                     fill: "white",
+                    fontFamily: theme.fonts.font4_regular,
                   },
                 }}
                 labelRadius={50}
