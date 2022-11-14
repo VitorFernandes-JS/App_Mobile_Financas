@@ -24,7 +24,8 @@ export const viewContainerStyles = ({ borderLeftColor }: IContainerProps) =>
   StyleSheet.create({
     container: {
         width: 300,
-        height: 30,
+        height: 40,
+        marginBottom: 10,
         alignItems: 'center',
         flexDirection: 'row',
         backgroundColor: theme.colors.color5,

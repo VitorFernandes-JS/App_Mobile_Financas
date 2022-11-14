@@ -159,41 +159,49 @@ export function Wallet({ token }: IWalletProps) {
       x: 0,
       y: 0,
       category: "Salario",
+      color: "#FF872C",
     },
     Bonificacao: {
       x: 0,
       y: 0,
       category: "Bonificacao",
+      color: "#E83F5B",
     },
     Restaurante: {
       x: 0,
       y: 0,
       category: "Restaurante",
+      color: "#5636D3",
     },
     Viagem: {
       x: 0,
       y: 0,
       category: "Viagem",
+      color: "#d8ff2c",
     },
     Passeio: {
       x: 0,
       y: 0,
       category: "Passeio",
+      color: "#ff2c2c",
     },
     Farmacia: {
       x: 0,
       y: 0,
       category: "Farmacia",
+      color: "#2c2cff",
     },
     Mercado: {
       x: 0,
       y: 0,
       category: "Mercado",
+      color: "#2cffca",
     },
     Outros: {
       x: 0,
       y: 0,
       category: "Outros",
+      color: "#2c2c2c",
     },
   })
 
@@ -317,12 +325,12 @@ export function Wallet({ token }: IWalletProps) {
             <SafeAreaView>
               <VictoryPie
                 data={dataFormattedForGraphic}
-                colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
+                colorScale={dataFormattedForGraphic.map((data) => data.color)}
                 style={{
                   labels: {
                     fontSize: RFValue(18),
                     fontWeight: "bold",
-                    fill: "black",
+                    fill: "white",
                   },
                 }}
                 labelRadius={50}
@@ -334,7 +342,7 @@ export function Wallet({ token }: IWalletProps) {
                 key={index}
                 title={data.category}
                 amount={data.y}
-                color={"#f0f"}
+                color={data.color}
               />
             ))}
           </ScrollView>
