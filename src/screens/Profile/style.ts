@@ -16,6 +16,15 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowOffset: { width: 1, height: 1 },
   },
+  iconAvatar: {
+    width: 149,
+    height: 149,
+    borderRadius: 20,
+    backgroundColor: theme.colors.color5,
+    top: 120,
+    marginLeft: 135,
+    position: "absolute",
+  },
   avatar: {
     width: 150,
     height: 150,

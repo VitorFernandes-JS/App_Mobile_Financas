@@ -96,6 +96,9 @@ export function Profile() {
     <SafeAreaView style={styles.container}>
       <SafeAreaView style={styles.header}>
         <SafeAreaView>
+          <SafeAreaView style={styles.iconAvatar}>
+            <FontAwesome style={{ top: 25, left: 25}} name="user-circle" size={100} color={theme.colors.color4} />
+          </SafeAreaView>
           <Image
             source={{ uri: profile.picture }}
             style={styles.avatar}
