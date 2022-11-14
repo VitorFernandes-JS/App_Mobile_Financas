@@ -47,10 +47,11 @@ export function BoxExtract({
   }
 
   async function handleDeleteBoxExtract() {
-    setVisible(false)
+    await apiFinances.delete('/transactions_wallets/' + transactionWallet.id)
     setTransactionsWallets((prevState: any) => {
       return prevState.filter((prevTransactionWallet: any) => transactionWallet.id !== prevTransactionWallet.id)
     })
+    setVisible(false)
   }
 
   return (
