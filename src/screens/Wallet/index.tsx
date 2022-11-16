@@ -20,6 +20,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 import { theme } from "../../global/styles/theme";
 import { addMonths, subMonths, format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { useRoute } from "@react-navigation/native";
 
 interface IWalletProps {
   token: string;
@@ -47,7 +48,9 @@ interface IWallet {
   value: number;
 }
 
-export function Wallet({ token }: IWalletProps) {
+export function Wallet() {
+  const route = useRoute();
+  const { token } = route.params as IWalletProps;
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [modalVisible, setModalVisible] = useState(false);
   const [transactionsWallets, setTransactionsWallets] = useState<
@@ -118,7 +121,7 @@ export function Wallet({ token }: IWalletProps) {
       expensive.type === "withdraw" &&
       new Date(expensive.created_at).getMonth() === selectedDate.getMonth() &&
       new Date(expensive.created_at).getFullYear() ===
-        selectedDate.getFullYear()
+      selectedDate.getFullYear()
   );
 
   const totalExpensives = expensives.reduce(
