@@ -85,8 +85,6 @@ const toastConfig = {
 }
 
 export function WalletInvestment() {
-  const [contextGraphics, setContextGraphics] = useState(0);
-
   const [porcentageGoalsMonthAmount, setPorcentageGoalsMonthAmount] = useState(
     []
   );
@@ -182,17 +180,9 @@ export function WalletInvestment() {
     });
   }, [visible, transactionsWalletsInvestment]);
 
-  // function handleDeleteGoal() {
-  //   apiFinances.delete('/goals/' + id).then(() => {
-  //     apiFinances.get("/goals").then((response) => {
-  //       setData(response?.data.sort((a: any, b: any) => +new Date(a.created_at) - +new Date(b.created_at)));
-  //     })
-  //   }).catch((err) => console.log(err))
-  // }
-
   useEffect(() => {
     setInvestment(goals?.[whatIsGoalIndex]?.investment);
-    if (investmentValue === goals?.[whatIsGoalIndex]?.amount) {
+    if (investmentValue >= goals?.[whatIsGoalIndex]?.amount) {
       setVisibleModalSuccess(true);
     }
   }, [goals]);
