@@ -180,10 +180,22 @@ export function WalletInvestment() {
     });
   }, [visible, transactionsWalletsInvestment]);
 
+  async function handleDeleteGoal() {
+    apiFinances.delete("/goals/" + goals[whatIsGoalIndex].id).then((response) => {
+        setGoalId("");
+        setWhatIsGoalIndex(0);
+        setInvestment({} as IInvestments);
+        setVisible(false);
+        }).catch((error) => {
+          console.log(error);
+          });    
+  }
+
   useEffect(() => {
     setInvestment(goals?.[whatIsGoalIndex]?.investment);
     if (investmentValue >= goals?.[whatIsGoalIndex]?.amount) {
       setVisibleModalSuccess(true);
+      handleDeleteGoal();
     }
   }, [goals]);
 
