@@ -9,13 +9,9 @@ export async function services(category = 'general') {
     });
 
     let result = await articles.json();
-    // articles = null;
 
     return result.articles;
 }
-
-const { IS_PRODUCTION, IP_CASA_RAFA, IP_CASA_VITOR } = process.env;
-// const production = false
 
 const ips = {
     ip_casa_rafa: "http://192.168.0.30:3335",
@@ -24,8 +20,6 @@ const ips = {
     ip_ifsp: "https://49b6-187-75-159-84.sa.ngrok.io",
     ip_isa: "http://192.168.0.23:3335"
 }
-
-// const url = IS_PRODUCTION === "true" ? "https://bestfinance.herokuapp.com" : ip_casa_rafa;
 
 const url = ips.ip_ifsp;
 
