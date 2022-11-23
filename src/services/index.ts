@@ -21,7 +21,7 @@ const ips = {
     ip_casa_rafa: "http://192.168.0.30:3335",
     ip_casa_vitor: "http://192.168.0.208:3335",
     ip_casa_rafa_pc: "http://192.168.0.11:3335",
-    ip_ifsp: "https://cc05-200-133-203-105.sa.ngrok.io",
+    ip_ifsp: "https://49b6-187-75-159-84.sa.ngrok.io",
     ip_isa: "http://192.168.0.23:3335"
 }
 
